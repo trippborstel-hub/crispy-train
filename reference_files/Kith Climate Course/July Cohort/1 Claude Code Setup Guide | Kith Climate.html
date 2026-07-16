@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code Setup Guide | Kith Climate</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 522 522'><rect x='5' y='1' width='512' height='512' rx='64' fill='%231A1D21' stroke='%235B9A8B' stroke-opacity='0.15' stroke-width='2'/><rect x='269.628' y='129' width='18' height='256' rx='9' transform='rotate(8 269.628 129)' fill='url(%23g)'/><defs><linearGradient id='g' x1='278.628' y1='129' x2='278.628' y2='385' gradientUnits='userSpaceOnUse'><stop stop-color='%235B9A8B' stop-opacity='0.1'/><stop offset='0.25' stop-color='%235B9A8B'/><stop offset='0.75' stop-color='%235B9A8B'/><stop offset='1' stop-color='%235B9A8B' stop-opacity='0.1'/></linearGradient></defs></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-base: #1a1d21;
+      --color-surface: #1e2227;
+      --color-card: #232629;
+      --color-text-primary: #e8e6e3;
+      --color-text-secondary: rgba(232, 230, 227, 0.6);
+      --color-text-tertiary: rgba(232, 230, 227, 0.4);
+      --color-text-muted: rgba(232, 230, 227, 0.25);
+      --color-teal: #5B9A8B;
+      --color-teal-bright: #6FB3A2;
+      --color-teal-glow: rgba(91, 154, 139, 0.5);
+      --color-border: rgba(232, 230, 227, 0.08);
+      --color-border-hover: rgba(91, 154, 139, 0.25);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(145deg, #1a1d21 0%, #1e2227 50%, #1a1d21 100%);
+      color: var(--color-text-primary);
+      min-height: 100vh;
+    }
+
+    /* Subtle grid pattern */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(91, 154, 139, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(91, 154, 139, 0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 60px 40px 80px;
+    }
+
+    /* Header */
+    .header {
+      margin-bottom: 56px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .wordmark {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      letter-spacing: 0.02em;
+      margin-bottom: 48px;
+    }
+
+    .wordmark span { color: var(--color-teal-glow); }
+
+    .header h1 {
+      font-size: 42px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--color-text-primary);
+      margin-bottom: 16px;
+    }
+
+    .header h1 .accent { color: var(--color-teal); }
+
+    .header .subtitle {
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      max-width: 640px;
+    }
+
+    /* Steps */
+    .step {
+      margin-bottom: 48px;
+      padding: 36px 40px;
+      background: linear-gradient(135deg, rgba(232, 230, 227, 0.025) 0%, rgba(232, 230, 227, 0.01) 100%);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(91, 154, 139, 0.12);
+      color: var(--color-teal);
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .step h2 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--color-text-primary);
+      margin-bottom: 14px;
+    }
+
+    .step p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--color-text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .step p:last-child { margin-bottom: 0; }
+
+    .step a {
+      color: var(--color-teal-bright);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(111, 179, 162, 0.3);
+      transition: border-color 0.2s ease;
+    }
+
+    .step a:hover {
+      border-bottom-color: var(--color-teal-bright);
+    }
+
+    /* Plan badges */
+    .plan-options {
+      display: flex;
+      gap: 16px;
+      margin: 20px 0 8px;
+    }
+
+    .plan {
+      flex: 1;
+      padding: 20px 24px;
+      border-radius: 8px;
+      border: 1px solid var(--color-border);
+      background: rgba(232, 230, 227, 0.02);
+    }
+
+    .plan.recommended {
+      border-color: var(--color-border-hover);
+      background: rgba(91, 154, 139, 0.06);
+    }
+
+    .plan-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 6px;
+    }
+
+    .plan.recommended .plan-label {
+      color: var(--color-teal);
+    }
+
+    .plan-name {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 4px;
+    }
+
+    .plan-price {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .plan-desc {
+      font-size: 13px;
+      color: var(--color-text-tertiary);
+      line-height: 1.5;
+    }
+
+    /* Code blocks */
+    .code-block {
+      background: #16181c;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      margin: 16px 0;
+      overflow: hidden;
+    }
+
+    .code-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: rgba(232, 230, 227, 0.03);
+      border-bottom: 1px solid var(--color-border);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+    }
+
+    .code-label .os-icon {
+      font-size: 13px;
+    }
+
+    .code-content {
+      padding: 16px 20px;
+      font-family: 'SF Mono', 'Cascadia Code', 'Consolas', ui-monospace, monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--color-teal-bright);
+      white-space: pre-wrap;
+      word-break: break-all;
+      overflow-x: auto;
+    }
+
+    /* Platform tabs */
+    .platform-group {
+      margin: 20px 0;
+    }
+
+    .platform-group .code-block {
+      margin: 0 0 12px 0;
+    }
+
+    /* Callout / tip box */
+    .callout {
+      padding: 16px 20px;
+      border-radius: 8px;
+      border-left: 3px solid var(--color-teal);
+      background: rgba(91, 154, 139, 0.06);
+      margin: 20px 0 8px;
+    }
+
+    .callout p {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      margin-bottom: 0;
+    }
+
+    .callout strong {
+      color: var(--color-text-primary);
+    }
+
+    /* Dependency list */
+    .dep-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 20px 0 8px;
+    }
+
+    .dep-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      background: rgba(232, 230, 227, 0.02);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+    }
+
+    .dep-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+    }
+
+    .dep-link {
+      font-size: 12px;
+      color: var(--color-teal);
+      text-decoration: none;
+      font-family: 'SF Mono', 'Cascadia Code', 'Consolas', ui-monospace, monospace;
+    }
+
+    .dep-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Prompt template box */
+    .prompt-box {
+      background: #16181c;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      margin: 20px 0 8px;
+      overflow: hidden;
+    }
+
+    .prompt-box-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px;
+      background: rgba(232, 230, 227, 0.03);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .prompt-box-header span {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+    }
+
+    .prompt-box-content {
+      padding: 20px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--color-text-secondary);
+      font-style: italic;
+    }
+
+    /* Numbered sub-steps */
+    .sub-steps {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0;
+    }
+
+    .sub-steps li {
+      position: relative;
+      padding-left: 28px;
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    .sub-steps li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 12px;
+      height: 2px;
+      background: var(--color-teal);
+      opacity: 0.6;
+    }
+
+    /* FAQ */
+    .faq-section {
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+
+    .faq-section h2 {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--color-text-primary);
+      margin-bottom: 8px;
+    }
+
+    .faq-section .faq-lead {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      margin-bottom: 28px;
+      max-width: 720px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--color-border);
+      padding: 22px 0;
+    }
+
+    .faq-item:first-of-type {
+      border-top: 1px solid var(--color-border);
+    }
+
+    .faq-q {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .faq-q-number {
+      font-family: 'SF Mono', 'Cascadia Code', 'Consolas', ui-monospace, monospace;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--color-teal);
+      flex-shrink: 0;
+      padding-top: 2px;
+      min-width: 28px;
+    }
+
+    .faq-a {
+      padding-left: 42px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--color-text-secondary);
+    }
+
+    .faq-a p { margin-bottom: 10px; }
+    .faq-a p:last-child { margin-bottom: 0; }
+
+    .faq-a code {
+      background: rgba(232,230,227,0.06);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 13px;
+      color: var(--color-teal-bright);
+    }
+
+    .faq-a strong { color: var(--color-text-primary); font-weight: 500; }
+
+    /* Footer */
+    .footer {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 13px;
+      color: var(--color-text-tertiary);
+      margin-bottom: 4px;
+    }
+
+    .footer a {
+      color: var(--color-teal);
+      text-decoration: none;
+    }
+
+    .footer .parent {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 12px;
+    }
+
+    /* Print */
+    @media print {
+      body { background: #1a1d21; }
+      body::before { display: none; }
+      .page-wrapper { max-width: 100%; padding: 40px; }
+      .step { break-inside: avoid; }
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    /* Mobile */
+    @media (max-width: 680px) {
+      .page-wrapper { padding: 32px 20px 60px; }
+      .header h1 { font-size: 30px; }
+      .step { padding: 24px 24px; }
+      .plan-options { flex-direction: column; }
+      .dep-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="wordmark">kith <span>/</span> climate</div>
+      <h1>Getting Started with <span class="accent">Claude Code</span></h1>
+      <p class="subtitle">
+        Follow these steps before your first Monday session. Most take under 5 minutes. If you hit a snag, Step 4 has everything you need to troubleshoot.
+      </p>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="step">
+      <div class="step-number">1</div>
+      <h2>Create a Claude Account</h2>
+      <p>
+        You need a Claude account to use Claude Code. Head to <a href="https://claude.ai" target="_blank">claude.ai</a> and sign up. Once registered, choose a plan:
+      </p>
+      <div class="plan-options">
+        <div class="plan recommended">
+          <div class="plan-label">Recommended</div>
+          <div class="plan-name">Pro</div>
+          <div class="plan-price">$20 / month</div>
+          <div class="plan-desc">Plenty of capacity for most users. Start here.</div>
+        </div>
+        <div class="plan">
+          <div class="plan-label">Heavy usage</div>
+          <div class="plan-name">Max</div>
+          <div class="plan-price">$100 / month</div>
+          <div class="plan-desc">More credits for very heavy builders who expect to use Claude Code extensively every day.</div>
+        </div>
+      </div>
+      <div class="callout">
+        <p><strong>Not sure which?</strong> Start with Pro. You can always upgrade later if you hit usage limits.</p>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step">
+      <div class="step-number">2</div>
+      <h2>Set Your Privacy Preference</h2>
+      <p>
+        Before installing Claude Code, take 30 seconds to set your training preference. By default, Anthropic may use your conversations to train future versions of Claude. For cohort work &mdash; which often touches company context, NDA-bound information, or client data &mdash; we recommend turning this off.
+      </p>
+
+      <p style="margin-top: 16px; margin-bottom: 4px;"><strong style="color: var(--color-text-primary);">How to do it:</strong></p>
+      <ul class="sub-steps">
+        <li>Open <a href="https://claude.ai" target="_blank">claude.ai</a> and sign in.</li>
+        <li>Click your profile icon at the bottom-left &rarr; <strong style="color: var(--color-text-primary);">Settings</strong>.</li>
+        <li>Find <strong style="color: var(--color-text-primary);">Privacy</strong> in the left sidebar.</li>
+        <li>Toggle OFF <strong style="color: var(--color-text-primary);">"Allow your chats to be used to train Claude Code"</strong>.</li>
+      </ul>
+
+      <div class="callout">
+        <p><strong>Want the full picture?</strong> A separate <em>Claude Privacy &amp; Data Security</em> cheat sheet ships with the cohort materials and walks through retention periods, telemetry controls, and other privacy settings worth knowing about.</p>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step">
+      <div class="step-number">3</div>
+      <h2>Download the Claude Code Desktop App</h2>
+      <p>
+        Download the Claude Code desktop application from Anthropic's site:
+      </p>
+      <p>
+        <a href="https://claude.ai/download" target="_blank">claude.ai/download</a>
+      </p>
+      <p>
+        Install and open it. Having this done before Monday's session is excellent, but by no means required — we will walk through connecting everything together in our first session.
+      </p>
+
+      <div class="callout">
+        <p><strong>New as of May 2026: the desktop app bundles Claude Code.</strong> Once installed and signed in, the <strong>Code tab</strong> at the top of the app gives you full Claude Code access — no terminal install needed. Step 4 below is now <em>optional</em>.</p>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step">
+      <div class="step-number">4</div>
+      <h2>Install Claude Code via Your Terminal <span style="font-size: 16px; font-weight: 400; color: var(--color-text-tertiary); letter-spacing: 0;">* optional</span></h2>
+
+      <div class="callout" style="border-left: 3px solid var(--color-teal); background: rgba(91, 154, 139, 0.08);">
+        <p><strong>* Optional for cohort use.</strong> The desktop app's Code tab (from Step 3) already gives you full Claude Code functionality. This terminal install is only needed if you want to run <code style="background: rgba(232,230,227,0.06); padding: 2px 7px; border-radius: 4px; font-size: 13px;">claude</code> directly from your terminal — useful for power users and developers, but not required to complete the cohort.</p>
+      </div>
+
+      <p>
+        If you'd like to set up the CLI anyway, open a terminal on your computer and run the install command for your operating system.
+      </p>
+
+      <p style="margin-top: 16px; margin-bottom: 4px;"><strong style="color: var(--color-text-primary);">How to open your terminal:</strong></p>
+      <ul class="sub-steps">
+        <li><strong style="color: var(--color-text-primary);">Windows:</strong> Search for <strong style="color: var(--color-text-primary);">PowerShell</strong> in the Start menu and open it. Alternatively, press <code style="background: rgba(232,230,227,0.06); padding: 2px 7px; border-radius: 4px; font-size: 13px;">Win + X</code> and select <strong style="color: var(--color-text-primary);">PowerShell</strong>.</li>
+        <li><strong style="color: var(--color-text-primary);">macOS:</strong> Press <code style="background: rgba(232,230,227,0.06); padding: 2px 7px; border-radius: 4px; font-size: 13px;">Cmd + Space</code> to open Spotlight, type <strong style="color: var(--color-text-primary);">Terminal</strong>, and hit Enter.</li>
+        <li><strong style="color: var(--color-text-primary);">Linux:</strong> Press <code style="background: rgba(232,230,227,0.06); padding: 2px 7px; border-radius: 4px; font-size: 13px;">Ctrl + Alt + T</code> or find Terminal in your applications menu.</li>
+      </ul>
+
+      <p style="margin-top: 20px; margin-bottom: 4px;"><strong style="color: var(--color-text-primary);">Run the install command:</strong></p>
+
+      <div class="platform-group">
+        <div class="code-block">
+          <div class="code-label"><span class="os-icon">&#63743;</span> macOS / Linux</div>
+          <div class="code-content">curl -fsSL https://claude.ai/install.sh | bash</div>
+        </div>
+        <div class="code-block">
+          <div class="code-label"><span class="os-icon">&#8862;</span> Windows (PowerShell)</div>
+          <div class="code-content">irm https://claude.ai/install.ps1 | iex</div>
+        </div>
+      </div>
+
+      <p>
+        Once the install finishes, type <code style="background: rgba(232,230,227,0.06); padding: 2px 7px; border-radius: 4px; font-size: 13px;">claude</code> and press Enter. If you see a welcome prompt, you're all set.
+      </p>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step">
+      <div class="step-number">5</div>
+      <h2>Troubleshooting</h2>
+      <p>
+        If the install command returns an error, don't worry. Your first step is to ask Claude itself for help — open a chat at <a href="https://claude.ai" target="_blank">claude.ai</a>, paste the error from your terminal, and it will walk you through the fix. Copy and paste the prompt below to get started:
+      </p>
+
+      <div class="prompt-box">
+        <div class="prompt-box-header">
+          <span>Copy &amp; paste this into claude.ai</span>
+        </div>
+        <div class="prompt-box-content">
+          I am currently working to download Claude Code on my computer. I have a Pro subscription and the desktop app downloaded. I ran the Claude Code install command in my terminal, but faced an error. Please see the error output below and the screenshot attached.<br><br>[Paste your terminal error here]
+        </div>
+      </div>
+
+      <div class="callout">
+        <p><strong>Tip:</strong> You can also attach a screenshot of the error. On Windows, press <code style="background: rgba(232,230,227,0.06); padding: 2px 7px; border-radius: 4px; font-size: 13px;">Win + Shift + S</code> to capture a screenshot. On macOS, press <code style="background: rgba(232,230,227,0.06); padding: 2px 7px; border-radius: 4px; font-size: 13px;">Cmd + Shift + 4</code>.</p>
+      </div>
+
+      <p style="margin-top: 24px; margin-bottom: 4px;"><strong style="color: var(--color-text-primary);">Common downloads you may need</strong></p>
+      <p>
+        On Windows, the most common missing dependency is Git. The direct link for convenience:
+      </p>
+
+      <div class="dep-grid">
+        <div class="dep-item">
+          <div>
+            <div class="dep-name">Git for Windows</div>
+            <a class="dep-link" href="https://git-scm.com/downloads" target="_blank">git-scm.com/downloads</a>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Download and install using the link above (accept all defaults during installation), then try the install command from Step 3 again.
+      </p>
+
+      <div class="callout">
+        <p><strong>Already up and running?</strong> If Claude Code launches but something feels off later in the program, try running <code style="background: rgba(232,230,227,0.06); padding: 2px 7px; border-radius: 4px; font-size: 13px;">/doctor</code> inside Claude Code. It is a built-in diagnostic that checks your install and surfaces any issues without needing the terminal.</p>
+      </div>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="step">
+      <div class="step-number">6</div>
+      <h2>Create Your Project Folder</h2>
+      <p>
+        Once Claude Code is working, you need to create a dedicated folder where all your work will live. Open your terminal and run the command for your operating system:
+      </p>
+
+      <div class="platform-group">
+        <div class="code-block">
+          <div class="code-label"><span class="os-icon">&#63743;</span> macOS / Linux</div>
+          <div class="code-content">mkdir ~/claude-projects && cd ~/claude-projects</div>
+        </div>
+        <div class="code-block">
+          <div class="code-label"><span class="os-icon">&#8862;</span> Windows (PowerShell)</div>
+          <div class="code-content">mkdir "$env:USERPROFILE\claude-projects"; cd "$env:USERPROFILE\claude-projects"</div>
+        </div>
+      </div>
+
+      <p>
+        This creates a folder called <code style="background: rgba(232,230,227,0.06); padding: 2px 7px; border-radius: 4px; font-size: 13px;">claude-projects</code> in your home directory. This is where you'll store all the files and projects you build during the program.
+      </p>
+
+      <p style="margin-top: 8px;"><strong style="color: var(--color-text-primary);">Where is this folder?</strong></p>
+      <ul class="sub-steps">
+        <li><strong style="color: var(--color-text-primary);">Windows:</strong> <code style="background: rgba(232,230,227,0.06); padding: 2px 7px; border-radius: 4px; font-size: 13px;">C:\Users\YourName\claude-projects</code></li>
+        <li><strong style="color: var(--color-text-primary);">macOS:</strong> <code style="background: rgba(232,230,227,0.06); padding: 2px 7px; border-radius: 4px; font-size: 13px;">/Users/YourName/claude-projects</code></li>
+      </ul>
+
+      <div class="callout">
+        <p><strong>Why this specific location?</strong> By placing your project folder at your user home &mdash; not inside Documents, Desktop, or a cloud-synced folder &mdash; Claude Code gets a clean, contained workspace. It can only read what's in this folder. Your personal documents, work files, photos, and corporate data stay outside its reach.</p>
+      </div>
+
+      <div class="callout" style="border-left: 3px solid var(--color-teal); background: rgba(91, 154, 139, 0.08);">
+        <p><strong>Don't move this folder into OneDrive, iCloud Drive, Dropbox, or Google Drive.</strong> The commands above placed it in the right spot &mdash; at your user home, <em>next to</em> your sync folders, not inside them. Leave it there.</p>
+        <p>Two reasons: cloud sync chokes on the thousands of small files Claude generates (your machine will slow noticeably), and a synced folder can surface files to Anthropic that you didn't intend to share.</p>
+      </div>
+    </div>
+
+    <!-- Step 7 -->
+    <div class="step">
+      <div class="step-number">7</div>
+      <h2>Connect Your Folder in Claude Code Desktop</h2>
+      <p>
+        Open the Claude Code desktop app. When it asks you to select a working directory, navigate to the <code style="background: rgba(232,230,227,0.06); padding: 2px 7px; border-radius: 4px; font-size: 13px;">claude-projects</code> folder you just created.
+      </p>
+      <p>
+        From here, you can download any files provided by our team and ask Claude Code to add them into this folder. This will be your workspace for the first week of the program.
+      </p>
+      <div class="callout">
+        <p><strong>You're ready.</strong> This will get you set up for the first week — you can now start working on your deliverables.</p>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section">
+      <h2>FAQ</h2>
+      <p class="faq-lead">Answers to the questions that have come up most often. Read these before Monday and you will skip a lot of friction.</p>
+
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-number">01</span><span>I see three tabs at the top of the app — Chat, Cowork, and Code. Which one do I use?</span></div>
+        <div class="faq-a">
+          <p><strong>Code.</strong> The Code tab is Claude Code — what we use throughout the program.</p>
+          <p>Chat is the regular claude.ai conversation interface. Cowork is a more pre-packaged experience with bundled skills. Neither of those is what you want for this cohort. We are building from scratch, not using training wheels.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-number">02</span><span>The send arrow at the bottom of the chat is greyed out. Did something fail?</span></div>
+        <div class="faq-a">
+          <p>No. <strong>The send arrow stays grey until you select a working folder.</strong> Pick your <code>claude-projects</code> folder from the folder toggle at the bottom of the window, and the arrow will brighten.</p>
+          <p>This caught a lot of people in the previous cohort. If your install otherwise looks normal but the arrow is grey, the folder is the fix.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-number">03</span><span>Claude is asking my computer for permission to access folders outside <code>claude-projects</code>. What do I do?</span></div>
+        <div class="faq-a">
+          <p><strong>Decline.</strong> Claude Code only needs access to your <code>claude-projects</code> folder for this program. If a popup asks about Documents, Downloads, Desktop, or anything else, click no.</p>
+          <p>This keeps Claude's scope clean and your personal files private. You can always grant additional access later if a specific task needs it.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-number">04</span><span>I see a message saying "you've hit your usage limit." Did I break something?</span></div>
+        <div class="faq-a">
+          <p>No — this is the normal Pro plan behaviour. <strong>Tokens reset every 4 hours.</strong> Large data dumps and "read everything in this folder" prompts burn through tokens quickly.</p>
+          <p>If you hit the limit, wait for the reset rather than upgrading on the spot. We will cover the <code>/compact</code> command and other token-saving techniques in Week 2 — those make a big difference once you know them.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-number">05</span><span>Can I use my iPad or phone for the program?</span></div>
+        <div class="faq-a">
+          <p>No — Claude Code is a desktop application. You will need a <strong>laptop or desktop</strong> running Windows 10 or later, macOS 13 or later, or Linux. 8 GB of RAM minimum (most modern machines have plenty).</p>
+          <p>iPads cannot run the terminal commands required to install Claude Code.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-number">06</span><span>What format should my deliverables be in?</span></div>
+        <div class="faq-a">
+          <p><strong>HTML, by default.</strong> When asking Claude to produce a slide deck, brochure, dashboard, or report, ask for it in HTML first. Claude renders HTML quickly and beautifully. You can always convert HTML to PDF afterwards (just ask Claude to do it).</p>
+          <p>Avoid asking for PowerPoint or Word directly. Claude will technically build them, but the workflow involves writing format-specific code, downloading conversion tools, and walking through dozens of extra permission prompts. HTML first saves you a lot of time.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-number">07</span><span>What is <code>CLAUDE.md</code> and do I need to create one?</span></div>
+        <div class="faq-a">
+          <p><code>CLAUDE.md</code> is a plain-text Markdown file Claude reads automatically at the start of every session. Think of it as standing instructions for how Claude should work inside that folder — your rules, your standards, anything you find yourself repeating.</p>
+          <p>You do not need to create one manually. <strong>Claude often creates one for you</strong> the first time you start a session in a new folder. When it does, open it and skim what is inside. Edit it freely — over the six weeks this file becomes your most valuable piece of IP.</p>
+          <p>The filename has to be exactly <code>CLAUDE.md</code>. Not <code>claude2.md</code>, not a Word document — it has to be the Markdown file with that exact name for Claude to auto-read it.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-number">08</span><span>Can I interrupt Claude in the middle of a long task?</span></div>
+        <div class="faq-a">
+          <p>Yes. Press <strong>Esc</strong> or just type a new message — Claude will pause, respond to you, and then continue. It does not lose the work it was doing.</p>
+          <p>If you want to halt fast (you spotted something wrong), type <strong>WAIT</strong> in all caps. Claude stops immediately and asks what is up.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-number">09</span><span>I installed a new tool but Claude Code does not seem to see it. Help?</span></div>
+        <div class="faq-a">
+          <p>Fully quit Claude Code and reopen it. The X button often just hides the window — Claude keeps running in the background.</p>
+          <p><strong>Windows:</strong> open Task Manager, find Claude Code, right-click → End Task. Then relaunch.</p>
+          <p><strong>macOS:</strong> right-click the Claude icon in the Dock and select Quit, or press <code>Cmd + Q</code> while focused on the app. Then relaunch.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-number">10</span><span>What is the difference between the <code>+</code> button and the folder picker?</span></div>
+        <div class="faq-a">
+          <p>They do different things and the UI is easy to confuse.</p>
+          <p><strong>The folder toggle at the bottom of the window</strong> sets your <em>working folder</em> — the place Claude reads from and writes to for the whole session. This is the one you want for the cohort.</p>
+          <p><strong>The <code>+</code> button next to the chat input</strong> attaches one-off files to a single message — like dragging an image into an email. Use this only when you have a specific file you want Claude to look at right now.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-number">11</span><span>Something is broken and I do not know where to start. What now?</span></div>
+        <div class="faq-a">
+          <p>Two things, in order:</p>
+          <p><strong>1. Run <code>/doctor</code> inside Claude Code.</strong> It is a built-in diagnostic that checks your install, your tools, and your config, then tells you what is wrong in plain English.</p>
+          <p><strong>2. If you are still stuck, paste the error into <a href="https://claude.ai" target="_blank">claude.ai</a> chat</strong> with the prompt template from Step 4 above. Claude will walk you through the fix.</p>
+          <p>And if both of those leave you stuck — post in the cohort Discord. You are not the only one.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>Questions? Reach out to <a href="/cdn-cgi/l/email-protection#8befe2eeece4cbe0e2ffe3eae2e7eae9a5e8e4e6"><span class="__cf_email__" data-cfemail="90f4f9f5f7ffd0fbf9e4f8f1f9fcf1f2bef3fffd">[email&#160;protected]</span></a></p>
+      <p><a href="https://kithclimate.com" target="_blank">kithclimate.com</a></p>
+      <div class="parent">Part of Kith AI Lab</div>
+    </div>
+
+  </div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"bcbe19983cbb4ebdaf9d6bac83ff4c16","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

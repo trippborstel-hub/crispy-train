@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 3: Carbon — Kith Climate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-base: #1a1d21;
+    --color-surface: #1e2227;
+    --color-card: #232629;
+    --color-border: rgba(232, 230, 227, 0.06);
+    --color-border-hover: rgba(91, 154, 139, 0.25);
+    --color-text-primary: #e8e6e3;
+    --color-text-secondary: rgba(232, 230, 227, 0.5);
+    --color-text-tertiary: rgba(232, 230, 227, 0.35);
+    --color-teal: #5B9A8B;
+    --color-teal-bright: #6FB3A2;
+    --color-teal-glow: rgba(91, 154, 139, 0.5);
+    --color-teal-subtle: rgba(91, 154, 139, 0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    overflow: hidden;
+    background: var(--color-base);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Slide container */
+  .deck {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6vh 8vw;
+    background: linear-gradient(145deg, #1a1d21 0%, #1e2227 50%, #1a1d21 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .slide.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  /* Typography */
+  .slide-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin-bottom: 0.3em;
+  }
+
+  .slide-subtitle {
+    font-size: clamp(14px, 1.6vw, 18px);
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    margin-bottom: 2em;
+  }
+
+  .slide-footer {
+    font-size: clamp(11px, 1.2vw, 14px);
+    color: var(--color-text-secondary);
+    font-style: italic;
+    margin-top: auto;
+    padding-top: 2em;
+  }
+
+  .teal { color: var(--color-teal-bright); }
+  .bold { font-weight: 600; }
+  .italic { font-style: italic; }
+  .muted { color: var(--color-text-secondary); }
+
+  /* Cards */
+  .card-row {
+    display: flex;
+    gap: clamp(12px, 1.5vw, 24px);
+    margin-top: 1.5em;
+  }
+
+  .card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-teal);
+    padding: clamp(16px, 2vw, 28px);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-title {
+    font-size: clamp(14px, 1.4vw, 18px);
+    font-weight: 600;
+    color: var(--color-teal-bright);
+    margin-bottom: 0.5em;
+  }
+
+  .card-desc {
+    font-size: clamp(12px, 1.2vw, 14px);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .card-note {
+    font-size: clamp(11px, 1.1vw, 13px);
+    color: var(--color-text-tertiary);
+    margin-top: 0.8em;
+    font-style: italic;
+  }
+
+  /* Grid layouts */
+  .grid-2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(12px, 1.5vw, 20px);
+    margin-top: 1.5em;
+  }
+
+  .grid-3col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: clamp(12px, 1.5vw, 20px);
+    margin-top: 1.5em;
+  }
+
+  /* Row items */
+  .row-item {
+    display: flex;
+    align-items: center;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-teal);
+    padding: clamp(12px, 1.5vw, 20px) clamp(16px, 2vw, 24px);
+    margin-bottom: clamp(8px, 1vw, 12px);
+  }
+
+  .row-item .label {
+    font-size: clamp(14px, 1.4vw, 17px);
+    font-weight: 600;
+    color: var(--color-teal-bright);
+    min-width: clamp(120px, 14vw, 200px);
+    flex-shrink: 0;
+  }
+
+  .row-item .desc {
+    font-size: clamp(12px, 1.2vw, 15px);
+    color: var(--color-text-secondary);
+  }
+
+  /* Bullet lists */
+  .bullet-list { list-style: none; margin-top: 1em; }
+
+  .bullet-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(12px, 1.5vw, 20px);
+    padding: clamp(8px, 1vw, 14px) 0;
+    font-size: clamp(14px, 1.5vw, 17px);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .bullet-list li:last-child { border-bottom: none; }
+
+  .bullet-list li::before {
+    content: '';
+    width: clamp(7px, 0.9vw, 10px);
+    height: clamp(7px, 0.9vw, 10px);
+    background: var(--color-teal);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  /* Title slide specifics */
+  .slide-accent-bar {
+    position: absolute;
+    left: 0; top: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--color-teal);
+  }
+
+  .hero-title {
+    font-size: clamp(48px, 6vw, 72px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-teal);
+    margin-bottom: 0.5em;
+  }
+
+  .hero-label {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--color-text-primary);
+    margin-bottom: 0.1em;
+  }
+
+  /* Logo */
+  .logo-footer {
+    margin-top: 2em;
+    padding-top: 0;
+  }
+
+  /* Inline SVG wordmark */
+  .wordmark-svg {
+    height: clamp(36px, 4vw, 56px);
+    width: auto;
+    opacity: 0.85;
+  }
+
+  /* Flow diagram */
+  .flow-row {
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 1vw, 16px);
+    margin-top: 1.5em;
+  }
+
+  .flow-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-teal);
+    padding: clamp(16px, 2vw, 28px);
+    flex: 1;
+    text-align: center;
+  }
+
+  .flow-card .flow-title {
+    font-size: clamp(14px, 1.4vw, 18px);
+    font-weight: 600;
+    color: var(--color-teal-bright);
+    margin-bottom: 0.4em;
+  }
+
+  .flow-card .flow-desc {
+    font-size: clamp(11px, 1.2vw, 14px);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .flow-arrow {
+    font-size: clamp(20px, 2.5vw, 32px);
+    color: var(--color-teal);
+    flex-shrink: 0;
+  }
+
+  /* Two-card layout */
+  .two-cards {
+    display: flex;
+    gap: clamp(16px, 2vw, 32px);
+    margin-top: 1.5em;
+  }
+
+  .two-cards .card { flex: 1; }
+
+  /* Layer blocks */
+  .layer-block {
+    display: flex;
+    align-items: center;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-teal);
+    padding: clamp(14px, 1.5vw, 22px) clamp(16px, 2vw, 28px);
+    margin-bottom: clamp(10px, 1.2vw, 16px);
+  }
+
+  .layer-block .layer-label {
+    font-size: clamp(16px, 1.8vw, 22px);
+    font-weight: 600;
+    min-width: clamp(100px, 12vw, 160px);
+    flex-shrink: 0;
+  }
+
+  .layer-block .layer-desc {
+    font-size: clamp(13px, 1.3vw, 16px);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .layer-block .layer-badge {
+    margin-left: auto;
+    flex-shrink: 0;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-size: clamp(10px, 1vw, 12px);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .badge-submitted {
+    background: var(--color-teal-subtle);
+    color: var(--color-teal-bright);
+    border: 1px solid rgba(91, 154, 139, 0.3);
+  }
+
+  .badge-framework {
+    background: rgba(180, 140, 60, 0.08);
+    color: rgba(200, 165, 80, 0.8);
+    border: 1px solid rgba(180, 140, 60, 0.2);
+  }
+
+  /* Grade cards */
+  .grade-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    padding: clamp(16px, 2vw, 24px);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .grade-a { border-top: 3px solid var(--color-teal-bright); }
+  .grade-b { border-top: 3px solid rgba(91, 154, 139, 0.7); }
+  .grade-c { border-top: 3px solid rgba(91, 154, 139, 0.35); }
+
+  .grade-letter {
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.3em;
+  }
+
+  .grade-a .grade-letter { color: var(--color-teal-bright); }
+  .grade-b .grade-letter { color: rgba(111, 179, 162, 0.7); }
+  .grade-c .grade-letter { color: rgba(111, 179, 162, 0.4); }
+
+  .grade-subtitle {
+    font-size: clamp(14px, 1.4vw, 17px);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5em;
+  }
+
+  .grade-desc {
+    font-size: clamp(12px, 1.2vw, 14px);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .grade-pct {
+    font-size: clamp(11px, 1.1vw, 13px);
+    color: var(--color-text-tertiary);
+    margin-top: 0.8em;
+    font-style: italic;
+  }
+
+  /* Context block (left-bordered teal panel) */
+  .context-block {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-teal);
+    padding: clamp(16px, 2vw, 28px);
+    margin-bottom: clamp(12px, 1.5vw, 24px);
+    font-size: clamp(14px, 1.5vw, 17px);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  /* Challenge statement */
+  .challenge-statement {
+    font-size: clamp(16px, 1.8vw, 22px);
+    font-style: italic;
+    color: var(--color-text-secondary);
+    border-left: 3px solid var(--color-teal-subtle);
+    padding-left: clamp(16px, 2vw, 28px);
+    margin-bottom: 1.5em;
+    line-height: 1.7;
+  }
+
+  /* Stat block */
+  .stat-block {
+    font-size: clamp(52px, 7vw, 88px);
+    font-weight: 700;
+    color: var(--color-teal-bright);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 0.2em;
+  }
+
+  .stat-label {
+    font-size: clamp(14px, 1.5vw, 18px);
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5em;
+  }
+
+  /* Two-column layout */
+  .two-col {
+    display: flex;
+    gap: clamp(24px, 3vw, 48px);
+    margin-top: 1.5em;
+    align-items: flex-start;
+  }
+
+  .col-left { flex: 1; }
+  .col-right { flex: 1; }
+
+  /* Bar chart visual */
+  .bar-chart {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 1.2vw, 16px);
+    margin-top: 0.5em;
+  }
+
+  .bar-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .bar-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .bar-name {
+    font-size: clamp(12px, 1.2vw, 14px);
+    font-weight: 600;
+    color: var(--color-text-secondary);
+  }
+
+  .bar-value {
+    font-size: clamp(11px, 1.1vw, 13px);
+    color: var(--color-text-tertiary);
+  }
+
+  .bar-track {
+    height: clamp(24px, 2.5vw, 36px);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    background: var(--color-teal);
+    opacity: 0.85;
+  }
+
+  .bar-fill.muted-bar {
+    background: rgba(232, 230, 227, 0.15);
+  }
+
+  .bar-tag {
+    font-size: clamp(10px, 1vw, 12px);
+    color: var(--color-text-tertiary);
+    font-style: italic;
+    padding-top: 2px;
+  }
+
+  /* Flow diagram for Slide 9 */
+  .flow-diagram {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 1.2vw, 16px);
+  }
+
+  .flow-node {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-teal);
+    padding: clamp(12px, 1.4vw, 20px) clamp(16px, 2vw, 24px);
+    font-size: clamp(13px, 1.3vw, 16px);
+    font-weight: 600;
+    color: var(--color-teal-bright);
+  }
+
+  .flow-connector {
+    font-size: clamp(11px, 1.1vw, 13px);
+    color: var(--color-text-tertiary);
+    padding-left: clamp(20px, 2.5vw, 36px);
+    font-style: italic;
+  }
+
+  .flow-node.financial {
+    border-left-color: rgba(91, 154, 139, 0.5);
+    color: var(--color-text-secondary);
+    font-weight: 500;
+  }
+
+  /* Numbered list */
+  .numbered-list {
+    list-style: none;
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(8px, 1vw, 14px);
+  }
+
+  .numbered-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(14px, 1.8vw, 24px);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    padding: clamp(12px, 1.5vw, 20px) clamp(16px, 2vw, 24px);
+  }
+
+  .num-badge {
+    font-size: clamp(20px, 2.5vw, 32px);
+    font-weight: 700;
+    color: var(--color-teal);
+    line-height: 1;
+    min-width: clamp(28px, 3vw, 40px);
+    flex-shrink: 0;
+  }
+
+  .num-content {}
+
+  .num-title {
+    font-size: clamp(14px, 1.4vw, 17px);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 0.25em;
+  }
+
+  .num-desc {
+    font-size: clamp(12px, 1.2vw, 14px);
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+  }
+
+  /* Banner */
+  .banner {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    padding: clamp(14px, 1.5vw, 22px);
+    text-align: center;
+    font-size: clamp(14px, 1.5vw, 18px);
+    font-weight: 600;
+    color: var(--color-teal-bright);
+    margin-top: 1.5em;
+  }
+
+  /* Closing slide */
+  .closing-title {
+    font-size: clamp(40px, 5vw, 60px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin-bottom: 0.6em;
+  }
+
+  .closing-tagline {
+    font-size: clamp(16px, 1.8vw, 22px);
+    line-height: 1.8;
+    margin-bottom: 1.5em;
+  }
+
+  .closing-cta {
+    font-size: clamp(14px, 1.4vw, 17px);
+    color: var(--color-text-secondary);
+    margin-bottom: 3em;
+  }
+
+  .closing-url {
+    font-size: clamp(12px, 1.2vw, 14px);
+    color: var(--color-text-tertiary);
+    margin-top: 0.8em;
+    text-align: center;
+  }
+
+  .logo-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 2em;
+  }
+
+  /* Stack column for slide 10 */
+  .stack-col {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(8px, 1vw, 12px);
+  }
+
+  .stack-col-title {
+    font-size: clamp(13px, 1.3vw, 16px);
+    font-weight: 700;
+    color: var(--color-teal-bright);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.4em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .stack-row-item {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-teal);
+    padding: clamp(10px, 1.2vw, 16px) clamp(12px, 1.4vw, 20px);
+  }
+
+  .stack-row-item .s-label {
+    font-size: clamp(12px, 1.3vw, 15px);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 0.2em;
+  }
+
+  .stack-row-item .s-desc {
+    font-size: clamp(11px, 1.1vw, 13px);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  /* Navigation */
+  .nav-hint {
+    position: fixed;
+    bottom: 16px;
+    right: 24px;
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    letter-spacing: 0.05em;
+    z-index: 100;
+  }
+
+  .slide-counter {
+    position: fixed;
+    bottom: 16px;
+    left: 24px;
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    letter-spacing: 0.05em;
+    z-index: 100;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: var(--color-teal);
+    transition: width 0.4s ease;
+    z-index: 100;
+  }
+
+  /* Grid card variant */
+  .grid-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-teal);
+    padding: clamp(14px, 1.5vw, 22px);
+  }
+
+  .grid-card .card-title {
+    font-size: clamp(13px, 1.3vw, 16px);
+  }
+
+  .grid-card .card-desc {
+    font-size: clamp(11px, 1.1vw, 13px);
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+<div class="slide-counter" id="counter"></div>
+<div class="nav-hint">← → or click to navigate</div>
+
+<div class="deck" id="deck">
+
+  <!-- SLIDE 1: Title -->
+  <div class="slide active">
+    <div class="slide-accent-bar"></div>
+    <div class="hero-label">Week 3</div>
+    <div class="hero-title">Carbon</div>
+    <div class="slide-subtitle" style="margin-top:0.5em;">What your emissions tell you — and what they don't</div>
+    <div class="logo-footer">
+      <img class="wordmark-svg" src="../../_brand/light-wordmark/kith-climate-wordmark.svg" alt="Kith Climate">
+    </div>
+  </div>
+
+  <!-- SLIDE 2: The Number -->
+  <div class="slide">
+    <div class="slide-title">The Number</div>
+    <div class="two-col" style="margin-top:1.5em; align-items:center;">
+      <div class="col-left">
+        <div class="stat-block">16,154 mt CO2e</div>
+        <div class="stat-label">That's the Northwood portfolio. FY 2025.</div>
+      </div>
+      <div class="col-right" style="border-left:1px solid var(--color-border); padding-left:clamp(24px,3vw,48px);">
+        <p style="font-size:clamp(14px,1.5vw,18px); color:var(--color-text-secondary); line-height:1.75;">
+          A number without context is a scoreboard. A number with financial context is a finding.<br><br>
+          The same 16,154 mt means very different things depending on what it costs Northwood's portcos in regulation, insurance, and exit multiples.
+        </p>
+      </div>
+    </div>
+    <div class="slide-footer">Your job this week: make the number mean something.</div>
+  </div>
+
+  <!-- SLIDE 3: Three Scopes -->
+  <div class="slide">
+    <div class="slide-title">Three Scopes</div>
+    <div class="slide-subtitle">Where the Northwood data sits today</div>
+    <div class="layer-block" style="border-left-color:#5B9A8B;">
+      <div class="layer-label" style="color:#5B9A8B;">Scope 1</div>
+      <div class="layer-desc">Direct emissions — natural gas, diesel, propane, refrigerants. What you burn and release on-site.</div>
+      <span class="layer-badge badge-submitted">Submitted ✓</span>
+    </div>
+    <div class="layer-block" style="border-left-color:#6FB3A2;">
+      <div class="layer-label" style="color:#6FB3A2;">Scope 2</div>
+      <div class="layer-desc">Purchased electricity — emissions from the grid delivering power to your facilities.</div>
+      <span class="layer-badge badge-submitted">Submitted ✓</span>
+    </div>
+    <div class="layer-block" style="border-left-color:rgba(91,154,139,0.35);">
+      <div class="layer-label" style="color:rgba(111,179,162,0.5);">Scope 3</div>
+      <div class="layer-desc">Value chain — suppliers, commuting, business travel, customer use, everything else. Often 70–90% of total emissions.</div>
+      <span class="layer-badge badge-framework">Framework only</span>
+    </div>
+    <div class="slide-footer">The submitted CSV covers Scope 1 and 2. Scope 3 is not zero — it's unquantified.</div>
+  </div>
+
+  <!-- SLIDE 4: How the Math Works -->
+  <div class="slide">
+    <div class="slide-title">How the Math Works</div>
+    <div class="slide-subtitle">It's arithmetic, not a black box</div>
+    <div class="flow-row">
+      <div class="flow-card">
+        <div class="flow-title">Consumption</div>
+        <div class="flow-desc">kWh, therms, gallons — what the portco reported in the CSV</div>
+      </div>
+      <div class="flow-arrow">×</div>
+      <div class="flow-card">
+        <div class="flow-title">Emission Factor</div>
+        <div class="flow-desc">EPA EF 2023 (Scope 1) · EPA eGRID 2022 by state (Scope 2)</div>
+      </div>
+      <div class="flow-arrow">=</div>
+      <div class="flow-card">
+        <div class="flow-title">mt CO2e</div>
+        <div class="flow-desc">Metric tons of CO2-equivalent — the standard unit</div>
+      </div>
+    </div>
+    <div style="margin-top:clamp(16px,2vw,28px);">
+      <div class="row-item">
+        <div class="label">Scope 1 example</div>
+        <div class="desc">Natural gas: 1 therm × 0.00531 mt CO2e/therm → 5.31 kg CO2e</div>
+      </div>
+      <div class="row-item" style="margin-bottom:0;">
+        <div class="label">Scope 2 example</div>
+        <div class="desc">Illinois electricity: 1,000 kWh × 0.000371 mt CO2e/kWh → 0.371 mt CO2e</div>
+      </div>
+    </div>
+    <div class="slide-footer">The factors are in the climate data collection protocol. Claude Code applies them.</div>
+  </div>
+
+  <!-- SLIDE: How AI Does the Math (calculation modes) -->
+  <div class="slide">
+    <div class="slide-title">How AI Does the Math</div>
+    <div class="slide-subtitle">Guessed or computed — the answer looks the same either way</div>
+    <div class="card-row">
+      <div class="card">
+        <div class="card-title">Predicts the number</div>
+        <div class="card-desc">The model answers from pattern, like autocomplete. Fast, no code — fine for a rough estimate or a sanity check. But a wrong number looks exactly as confident as a right one.</div>
+        <div class="card-note">Trusting: the model's memory</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Writes &amp; runs code</div>
+        <div class="card-desc">The model writes Python and runs it. 1,000 kWh × 0.000371 now truly evaluates to 0.371 mt — a real product, not a plausible guess. The logic can be wrong; the arithmetic can't.</div>
+        <div class="card-note">Trusting: the model's logic + Python's arithmetic</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Code you own</div>
+        <div class="card-desc">The Claude Code path. Same exact computation, but the script is yours to read, test, and rerun. The only mode that yields a number you can defend to an auditor.</div>
+        <div class="card-note">Trusting: your own reading of the code</div>
+      </div>
+    </div>
+    <div class="slide-footer">Code guarantees the arithmetic — not that you picked the right factor or unit (kWh vs. MWh). That part's still on you.</div>
+  </div>
+
+  <!-- SLIDE 5: Data Quality Changes the Answer -->
+  <div class="slide">
+    <div class="slide-title">Data Quality Changes the Answer</div>
+    <div class="card-row">
+      <div class="grade-card grade-a">
+        <div class="grade-letter">A</div>
+        <div class="grade-subtitle">Utility Bills</div>
+        <div class="grade-desc">Actual consumption from invoices. No estimation. You can trust this number.</div>
+        <div class="grade-pct">~60% of Northwood's facilities</div>
+      </div>
+      <div class="grade-card grade-b">
+        <div class="grade-letter">B</div>
+        <div class="grade-subtitle">Accounting Estimates</div>
+        <div class="grade-desc">Derived from financial records — e.g., gas expense ÷ avg rate/therm. Methodology-dependent.</div>
+        <div class="grade-pct">~20% of facilities</div>
+      </div>
+      <div class="grade-card grade-c">
+        <div class="grade-letter">C</div>
+        <div class="grade-subtitle">Landlord / Proxy</div>
+        <div class="grade-desc">Building averages, EPA benchmarks, sq ft estimates. Last resort. Must be flagged.</div>
+        <div class="grade-pct">~20% of facilities</div>
+      </div>
+    </div>
+    <div class="slide-footer">A dashboard built 20% on estimates should say so. Data quality is a deliverable, not a footnote.</div>
+  </div>
+
+  <!-- SLIDE 6: Intensity Is the Comparable -->
+  <div class="slide">
+    <div class="slide-title">Intensity Is the Comparable</div>
+    <div class="challenge-statement">
+      Sterling emits 5,802 mt CO2e. Keystone emits 725 mt. Does Sterling have a worse climate profile?
+    </div>
+    <div class="two-cards">
+      <div class="card">
+        <div class="card-title">mt CO2e per $M Revenue</div>
+        <div class="card-desc">Normalizes for size. A $225M BPO firm and a $45M behavioral health network aren't the same scale. Revenue intensity makes them comparable.</div>
+        <div class="card-note">Revenue is in Supabase.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">mt CO2e per Employee</div>
+        <div class="card-desc">Normalizes for workforce size. Useful for services businesses where headcount drives energy consumption more than revenue.</div>
+        <div class="card-note">Headcount is in Supabase.</div>
+      </div>
+    </div>
+    <div class="slide-footer">Intensity is how Sarah compares a manufacturer to a clinic. Absolute emissions can't do that.</div>
+  </div>
+
+  <!-- SLIDE 7: Scope 3 Is the Invisible Majority -->
+  <div class="slide">
+    <div class="slide-title">Scope 3 Is the Invisible Majority</div>
+    <div class="slide-subtitle">Not collected ≠ zero</div>
+    <div class="two-col">
+      <div class="col-left" style="max-width:clamp(180px,22vw,280px); flex:none;">
+        <div style="font-size:clamp(11px,1.1vw,13px); color:var(--color-text-tertiary); margin-bottom:clamp(12px,1.4vw,20px); text-transform:uppercase; letter-spacing:0.06em; font-weight:600;">Relative scale</div>
+        <div class="bar-chart">
+          <div class="bar-row">
+            <div class="bar-label-row">
+              <span class="bar-name">Scope 1 + 2</span>
+              <span class="bar-value">16,154 mt</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width:22%;"></div>
+            </div>
+            <div class="bar-tag">submitted</div>
+          </div>
+          <div class="bar-row" style="margin-top:clamp(8px,1vw,14px);">
+            <div class="bar-label-row">
+              <span class="bar-name">Scope 3</span>
+              <span class="bar-value">~60k–80k mt</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill muted-bar" style="width:100%;"></div>
+            </div>
+            <div class="bar-tag">estimated — not collected</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-right">
+        <ul class="bullet-list">
+          <li>Patriot Staffing's 3,200 temp workers commute to client sites. That's Category 7 — not in any submission.</li>
+          <li>Harvest Ridge Foods buys agricultural ingredients. That's Category 1 — typically 80%+ of a food company's footprint.</li>
+          <li>Sterling Precision buys metals and precision components. Category 1 again — likely larger than Scope 1+2 combined.</li>
+          <li>Spend-based estimates are possible right now using revenue data from Supabase + published EEIO factors.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="slide-footer">You won't calculate Scope 3 this week. You will identify where it lives — and flag the gap.</div>
+  </div>
+
+  <!-- SLIDE 8: The McKinsey Shelf -->
+  <div class="slide">
+    <div class="slide-title">The McKinsey Shelf</div>
+    <div class="context-block">
+      In 2023, Northwood commissioned McKinsey to build an ESG risk framework. They paid for it. They got a 30-page methodology. It went in a folder. Three years later, the Supabase tables built for it are empty. Nobody has run it.
+    </div>
+    <div class="card-row">
+      <div class="card">
+        <div class="card-title" style="font-size:clamp(18px,2vw,24px);">E1</div>
+        <div class="card-title" style="margin-top:0.2em;">Physical Climate Risk</div>
+        <div class="card-desc">Facility exposure to floods, hurricanes, extreme heat. Insurance adequacy. Business continuity.</div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="font-size:clamp(18px,2vw,24px);">E2</div>
+        <div class="card-title" style="margin-top:0.2em;">Transition Risk</div>
+        <div class="card-desc">Carbon intensity. Regulatory exposure. Customer decarbonization mandates. This is where your carbon data feeds in.</div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="font-size:clamp(18px,2vw,24px);">E3</div>
+        <div class="card-title" style="margin-top:0.2em;">Environmental Liability</div>
+        <div class="card-desc">Compliance history. Contamination risk. Remediation obligations.</div>
+      </div>
+    </div>
+    <div class="banner">The methodology is in _reference/. The portco scores are empty. You're the first team to run it.</div>
+    <div class="slide-footer">This week you build the E2 inputs. Next week you run the framework.</div>
+  </div>
+
+  <!-- SLIDE 9: Emissions Without Risk Is a Scoreboard -->
+  <div class="slide">
+    <div class="slide-title">Emissions Without Risk Is a Scoreboard</div>
+    <div class="two-col">
+      <div class="col-left">
+        <div class="flow-diagram">
+          <div class="flow-node">Carbon Dashboard</div>
+          <div class="flow-connector">feeds →</div>
+          <div class="flow-node">E2 Transition Risk Score</div>
+          <div class="flow-connector">feeds →</div>
+          <div class="flow-node financial">Financial Impact<br><span style="font-size:clamp(11px,1.1vw,13px); font-weight:400; color:var(--color-text-tertiary);">$/year regulatory exposure · exit multiple risk</span></div>
+        </div>
+      </div>
+      <div class="col-right" style="border-left:1px solid var(--color-border); padding-left:clamp(24px,3vw,48px);">
+        <p style="font-size:clamp(13px,1.4vw,17px); color:var(--color-text-secondary); line-height:1.75; margin-bottom:1em;">
+          The dashboard you build today isn't the end product. It's the input.
+        </p>
+        <p style="font-size:clamp(13px,1.4vw,17px); color:var(--color-text-secondary); line-height:1.75; margin-bottom:1em;">
+          16,154 mt CO2e becomes a finding when it connects to: what proposed carbon pricing rules cost Northwood's portcos per year, which portcos have customers who are decarbonizing their supply chains, and which exits are most exposed to buyer ESG scrutiny.
+        </p>
+        <p style="font-size:clamp(13px,1.4vw,17px); color:var(--color-text-secondary); line-height:1.75;">
+          Build the dashboard to feed that analysis. Not just to show a number.
+        </p>
+      </div>
+    </div>
+    <div class="slide-footer">Sarah's rule: every climate metric connects to a financial impact.</div>
+  </div>
+
+  <!-- SLIDE 10: Your Stack This Week -->
+  <div class="slide">
+    <div class="slide-title">Your Stack This Week</div>
+    <div class="grid-3col" style="margin-top:1.2em;">
+      <div>
+        <div class="stack-col-title">Data In</div>
+        <div class="stack-col">
+          <div class="stack-row-item">
+            <div class="s-label">Carbon CSV</div>
+            <div class="s-desc">carbon-collection-template-2025-submitted.csv — 126 rows, all 10 portcos, facility-level</div>
+          </div>
+          <div class="stack-row-item">
+            <div class="s-label">Supabase</div>
+            <div class="s-desc">Revenue, headcount, EBITDA per portco — for intensity denominators</div>
+          </div>
+          <div class="stack-row-item">
+            <div class="s-label">Protocol</div>
+            <div class="s-desc">climate-data-collection-protocol.md — emission factors and methodology</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="stack-col-title">Claude Code Does</div>
+        <div class="stack-col">
+          <div class="stack-row-item">
+            <div class="s-label">Calculates</div>
+            <div class="s-desc">Applies EPA factors to every row. Aggregates by portco, by scope, by facility type.</div>
+          </div>
+          <div class="stack-row-item">
+            <div class="s-label">Flags</div>
+            <div class="s-desc">Grade C data, zeros, outliers, anomalies in the CSV</div>
+          </div>
+          <div class="stack-row-item">
+            <div class="s-label">Pulls</div>
+            <div class="s-desc">Financial data from Supabase for intensity metrics</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="stack-col-title">You Get</div>
+        <div class="stack-col">
+          <div class="stack-row-item">
+            <div class="s-label">Dashboard</div>
+            <div class="s-desc">HTML — portfolio overview, portco breakdown, Scope 1 vs. 2 split</div>
+          </div>
+          <div class="stack-row-item">
+            <div class="s-label">Quality layer</div>
+            <div class="s-desc">Data confidence distribution — how much of the portfolio is Grade A vs. C</div>
+          </div>
+          <div class="stack-row-item">
+            <div class="s-label">Scope 3 flag</div>
+            <div class="s-desc">Material categories per portco — even without numbers</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 11: What You'll Build -->
+  <div class="slide">
+    <div class="slide-title">What You'll Build</div>
+    <div class="slide-subtitle">Five deliverables. One dashboard.</div>
+    <ol class="numbered-list">
+      <li>
+        <div class="num-badge">1</div>
+        <div class="num-content">
+          <div class="num-title">Portfolio emissions</div>
+          <div class="num-desc">Scope 1 + Scope 2 in mt CO2e for all 10 portcos. Calculated from the submitted CSV using EPA factors.</div>
+        </div>
+      </li>
+      <li>
+        <div class="num-badge">2</div>
+        <div class="num-content">
+          <div class="num-title">Interactive dashboard</div>
+          <div class="num-desc">Portfolio overview, portco breakdown, Scope 1 vs. 2 split, facility-level drilldown. HTML, built in Claude Code.</div>
+        </div>
+      </li>
+      <li>
+        <div class="num-badge">3</div>
+        <div class="num-content">
+          <div class="num-title">Data quality layer</div>
+          <div class="num-desc">Grade A/B/C distribution across the portfolio. Flag where numbers are estimates, not meters.</div>
+        </div>
+      </li>
+      <li>
+        <div class="num-badge">4</div>
+        <div class="num-content">
+          <div class="num-title">Intensity metrics</div>
+          <div class="num-desc">mt CO2e per $M revenue and per employee. Pull financial data from Supabase.</div>
+        </div>
+      </li>
+      <li>
+        <div class="num-badge">5</div>
+        <div class="num-content">
+          <div class="num-title">Scope 3 material flags</div>
+          <div class="num-desc">Top 2–3 material Scope 3 categories per portco. No data required — just sector knowledge and the questionnaires.</div>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <!-- SLIDE 12: ESG Risk Scorecard -->
+  <div class="slide">
+    <div class="slide-title">Optional Deliverable: ESG Risk Scorecard</div>
+    <div class="slide-subtitle">Beyond carbon — the full sustainability picture</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:clamp(10px,1.2vw,18px); margin-top:1.2em;">
+
+      <div style="display:flex; flex-direction:column; gap:clamp(8px,1vw,12px);">
+        <div style="font-size:clamp(11px,1.1vw,13px); font-weight:700; text-transform:uppercase; letter-spacing:0.07em; color:var(--color-teal); padding-bottom:0.4em; border-bottom:1px solid var(--color-border);">Environmental</div>
+        <div class="stack-row-item">
+          <div class="s-label">E1 — Physical Risk</div>
+          <div class="s-desc">Facility exposure to floods, hurricanes, heat. FEMA zones. Insurance trajectory.</div>
+        </div>
+        <div class="stack-row-item">
+          <div class="s-label">E2 — Transition Risk</div>
+          <div class="s-desc">Carbon intensity. Regulatory cost. Customer decarbonization pressure. <em style="color:var(--color-teal);">Your carbon data feeds this.</em></div>
+        </div>
+        <div class="stack-row-item">
+          <div class="s-label">E3 — Env. Liability</div>
+          <div class="s-desc">Compliance history. Contamination risk. Remediation obligations.</div>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:clamp(8px,1vw,12px);">
+        <div style="font-size:clamp(11px,1.1vw,13px); font-weight:700; text-transform:uppercase; letter-spacing:0.07em; color:var(--color-teal); padding-bottom:0.4em; border-bottom:1px solid var(--color-border);">Social</div>
+        <div class="stack-row-item">
+          <div class="s-label">S1 — Labor &amp; Safety</div>
+          <div class="s-desc">OSHA incident rates. Workforce hazard exposure. Safety culture.</div>
+        </div>
+        <div class="stack-row-item">
+          <div class="s-label">S2 — Workforce</div>
+          <div class="s-desc">Retention, turnover, talent pipeline. Patriot's 3,200 temp workers live here.</div>
+        </div>
+        <div class="stack-row-item">
+          <div class="s-label">S3 — Community</div>
+          <div class="s-desc">Reputation risk. Customer/community relationships. B2B vs. consumer exposure.</div>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:clamp(8px,1vw,12px);">
+        <div style="font-size:clamp(11px,1.1vw,13px); font-weight:700; text-transform:uppercase; letter-spacing:0.07em; color:var(--color-teal); padding-bottom:0.4em; border-bottom:1px solid var(--color-border);">Governance</div>
+        <div class="stack-row-item">
+          <div class="s-label">G1 — Board Oversight</div>
+          <div class="s-desc">Does the board oversee ESG? Is there a climate owner? Governance structure maturity.</div>
+        </div>
+        <div class="stack-row-item">
+          <div class="s-label">G2 — Data &amp; Cyber</div>
+          <div class="s-desc">Data integrity, privacy controls, cybersecurity posture. Especially relevant for Trident IT.</div>
+        </div>
+        <div style="background:var(--color-teal-subtle); border:1px solid rgba(91,154,139,0.2); padding:clamp(10px,1.2vw,16px) clamp(12px,1.4vw,20px);">
+          <div class="s-label" style="color:var(--color-teal-bright);">Scoring: 1–5 per dimension</div>
+          <div class="s-desc">Each dimension scored by risk level. Weighted composite = portco ESG score. McKinsey methodology. Never been run.</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="slide-footer" style="margin-top:auto;">Score one portco this week using the questionnaire and carbon data. The Supabase tables are empty and waiting.</div>
+  </div>
+
+  <!-- SLIDE 13: Closing -->
+  <div class="slide">
+    <div class="slide-accent-bar"></div>
+    <div class="closing-title">Numbers First. Risk Next.</div>
+    <div class="closing-tagline">
+      <span class="muted">The portfolio emits 16,154 mt CO2e.</span><br>
+      <span class="teal bold">By Friday, that number will mean something.</span>
+    </div>
+    <div class="closing-cta">Start with the CSV. Let Claude Code do the arithmetic. You do the analysis.</div>
+    <div class="logo-center">
+      <img class="wordmark-svg" src="../../_brand/light-wordmark/kith-climate-wordmark.svg" alt="Kith Climate">
+      <div class="closing-url">kithclimate.com</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+  let current = 0;
+  const total = slides.length;
+
+  function show(idx) {
+    slides[current].classList.remove('active');
+    current = Math.max(0, Math.min(total - 1, idx));
+    slides[current].classList.add('active');
+    counter.textContent = `${current + 1} / ${total}`;
+    progress.style.width = `${((current + 1) / total) * 100}%`;
+  }
+
+  function next() { show(current + 1); }
+  function prev() { show(current - 1); }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') { e.preventDefault(); show(0); }
+    if (e.key === 'End') { e.preventDefault(); show(total - 1); }
+  });
+
+  // Click navigation: left third = back, right two-thirds = forward
+  document.addEventListener('click', (e) => {
+    if (e.clientX < window.innerWidth / 3) prev();
+    else next();
+  });
+
+  // Touch support
+  let touchStartX = 0;
+  document.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+  document.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); }
+  });
+
+  show(0);
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"bcbe19983cbb4ebdaf9d6bac83ff4c16","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

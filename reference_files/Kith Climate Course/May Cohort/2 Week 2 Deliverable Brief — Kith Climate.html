@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 2 Deliverable Brief — Kith Climate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-base: #1a1d21;
+    --color-surface: #1e2227;
+    --color-card: #232629;
+    --color-border: rgba(232, 230, 227, 0.06);
+    --color-border-hover: rgba(91, 154, 139, 0.25);
+    --color-text-primary: #e8e6e3;
+    --color-text-secondary: rgba(232, 230, 227, 0.5);
+    --color-text-tertiary: rgba(232, 230, 227, 0.35);
+    --color-teal: #5B9A8B;
+    --color-teal-bright: #6FB3A2;
+    --color-teal-subtle: rgba(91, 154, 139, 0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    background: var(--color-base);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 36px 32px 24px;
+  }
+
+  /* Header */
+  .header {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .header-label {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-teal);
+    margin-bottom: 12px;
+  }
+
+  .header-title {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+
+  .header-title .teal {
+    color: var(--color-teal-bright);
+  }
+
+  .header-subtitle {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    max-width: 600px;
+  }
+
+  /* Context block */
+  .context {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-teal);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 28px;
+  }
+
+  .context p {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+  }
+
+  .context p + p {
+    margin-top: 12px;
+  }
+
+  .context strong {
+    color: var(--color-text-primary);
+    font-weight: 500;
+  }
+
+  /* Section */
+  .section-title {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+
+  /* Deliverable cards */
+  .deliverables {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .deliverable {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 18px 24px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    transition: border-color 0.2s ease;
+  }
+
+  .deliverable:hover {
+    border-color: var(--color-border-hover);
+  }
+
+  .deliverable-number {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-teal-bright);
+    min-width: 28px;
+    line-height: 1.4;
+  }
+
+  .deliverable-content {
+    flex: 1;
+  }
+
+  .deliverable-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+
+  .deliverable-desc {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+  }
+
+  /* Guidance section */
+  .guidance {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+
+  .guidance h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--color-teal-bright);
+  }
+
+  .guidance ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .guidance li {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    padding: 4px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .guidance li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 13px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-teal);
+    opacity: 0.6;
+  }
+
+  .guidance li strong {
+    color: var(--color-text-primary);
+    font-weight: 500;
+  }
+
+  /* Output format */
+  .output-format {
+    margin-bottom: 20px;
+  }
+
+  .output-format p {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  .output-format strong {
+    color: var(--color-text-primary);
+    font-weight: 500;
+  }
+
+  .format-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .format-item {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 12px 16px;
+  }
+
+  .format-item .label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-teal);
+    margin-bottom: 4px;
+  }
+
+  .format-item .value {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+  }
+
+  /* Footer */
+  .footer {
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-brand {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--color-text-secondary);
+  }
+
+  .footer-brand span {
+    color: var(--color-teal);
+  }
+
+  .footer-url {
+    font-size: 13px;
+    color: var(--color-text-tertiary);
+  }
+
+  /* Print styles */
+  @media print {
+    html { background: white; color: #1a1d21; }
+    body { padding: 24px; }
+    .deliverable, .context, .guidance, .format-item { border-color: #ddd; background: #f8f8f8; }
+    .deliverable-number, .teal, .header-label, .guidance h3 { color: #3d7a6d; }
+    .deliverable-desc, .context p, .guidance li, .header-subtitle, .format-item .value, .output-format p { color: #555; }
+  }
+
+  /* Page break controls for PDF */
+  .deliverable { break-inside: avoid; }
+  .context { break-inside: avoid; }
+  .guidance { break-inside: avoid; }
+  .page-bottom-group { break-inside: avoid; }
+  .page-break { break-before: page; }
+
+  @media (max-width: 600px) {
+    body { padding: 24px 16px 60px; }
+    .format-grid { grid-template-columns: 1fr; }
+    .deliverable { padding: 20px; gap: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">Week 2 &mdash; Deliverable Brief</div>
+  <h1 class="header-title">Data Quality Assessment &<br><span class="teal">Client Data Request</span></h1>
+  <p class="header-subtitle">Your assignment this week: assess Northwood Capital's data environment and produce a structured data request for what's missing.</p>
+</div>
+
+<div class="context">
+  <p><strong>Scenario:</strong> Northwood Capital has hired your team. They've given you access to their data environment &mdash; files, reports, spreadsheets, memos. Like real client data, it's messy, incomplete, and sometimes contradictory.</p>
+  <p>Last week's pitch deck was the easy part. This week you build the analytical foundation.</p>
+</div>
+
+<h2 class="section-title">Your Five Deliverables</h2>
+
+<div class="deliverables">
+
+  <div class="deliverable">
+    <div class="deliverable-number">1</div>
+    <div class="deliverable-content">
+      <div class="deliverable-title">Identify what data exists</div>
+      <div class="deliverable-desc">Inventory the environment. What did Northwood give you? Catalog every file, dataset, and document. Note what type each is (structured, unstructured, code) and where it lives.</div>
+    </div>
+  </div>
+
+  <div class="deliverable">
+    <div class="deliverable-number">2</div>
+    <div class="deliverable-content">
+      <div class="deliverable-title">Assess its quality</div>
+      <div class="deliverable-desc">Completeness, consistency, reliability. Where do you trust it? Rate each data source and flag anything that looks suspect. A consultant who trusts bad data produces bad work.</div>
+    </div>
+  </div>
+
+  <div class="deliverable">
+    <div class="deliverable-number">3</div>
+    <div class="deliverable-content">
+      <div class="deliverable-title">Determine fixes for data errors</div>
+      <div class="deliverable-desc">Contradictions, unit mismatches, outliers. What's the correction? Document each error you find, explain why it's wrong, and propose a specific fix or reconciliation.</div>
+    </div>
+  </div>
+
+  <div class="deliverable">
+    <div class="deliverable-number">4</div>
+    <div class="deliverable-content">
+      <div class="deliverable-title">Identify missing data</div>
+      <div class="deliverable-desc">Gaps that block analysis. What do you need that isn't there? Think about what a complete climate/ESG assessment requires and map the gaps between that and what you have.</div>
+    </div>
+  </div>
+
+  <div class="deliverable">
+    <div class="deliverable-number">5</div>
+    <div class="deliverable-content">
+      <div class="deliverable-title">Create your data ask</div>
+      <div class="deliverable-desc">A structured request back to the client for what's missing. This is a professional document &mdash; prioritized, specific, and written so a busy client team knows exactly what to send you and why.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="guidance">
+  <h3>How to approach this</h3>
+  <ul>
+    <li>Open your Northwood Capital environment in Claude Code and start by asking it to inventory what's there</li>
+    <li><strong>Let Claude Code read the data</strong> &mdash; structured, unstructured, and code files all at once. No connectors. No ETL.</li>
+    <li>Direct Claude Code to cross-reference sources against each other to find contradictions and inconsistencies</li>
+    <li>Use the <strong>Inputs &rarr; Outputs &rarr; Inputs</strong> pattern: your inventory becomes the input for your quality assessment, which becomes the input for your data ask</li>
+    <li>Think like a consultant &mdash; your data ask should be something you'd actually send to a client</li>
+  </ul>
+</div>
+
+<div class="page-bottom-group">
+<div class="output-format">
+  <h2 class="section-title">Suggested Output Formats</h2>
+  <p>You choose the format. The deliverable should be something you'd present to a client or a project lead. Here are some natural fits:</p>
+  <div class="format-grid">
+    <div class="format-item">
+      <div class="label">Data Inventory</div>
+      <div class="value">Spreadsheet (.xlsx) or structured markdown table</div>
+    </div>
+    <div class="format-item">
+      <div class="label">Quality Assessment</div>
+      <div class="value">Scorecard with ratings per data source</div>
+    </div>
+    <div class="format-item">
+      <div class="label">Error Log</div>
+      <div class="value">Table of findings with proposed corrections</div>
+    </div>
+    <div class="format-item">
+      <div class="label">Data Ask</div>
+      <div class="value">Professional memo or structured request document</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-brand">kith <span>/</span> climate</div>
+  <div class="footer-url">kithclimate.com</div>
+</div>
+</div>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"bcbe19983cbb4ebdaf9d6bac83ff4c16","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

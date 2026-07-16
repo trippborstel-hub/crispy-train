@@ -1,0 +1,355 @@
+Week 3 Class Notes 4.1.26
+
+Impromptu Zoom Meeting - April 01
+VIEW RECORDING - 57 mins (No highlights): 
+
+---
+
+0:00 - ben hillier (Voiz)
+  So I'm sure everything's being recorded. Thanks, Jessica. Back in, back in Cambridge on the weekend to receive my master's.  So thank you, Jessica. Thanks. So we're going to be, we're going to be getting on for the workshop today.  I'm really excited to be, to be running this. Diego should be joining in a little bit. I think we've just a little bit delayed, but of course this week is a very big week for output and very big week for dealing with all of the data on the, super-based data within the file structures to be able to start producing these outputs and these deliverables.  So we're going to be in classic format, opening up the session for kind of core discussions and what people are feeling.  And also wanting to just see if, Diego, you wanted to share any opening words before we jump into the core QA.
+
+1:11 - diego espinosa
+  No, I think, you know, I think that this is just a really interesting week from the standpoint of how we're essentially inviting you to produce more open-ended deliverables now and that actually kind of like our work, in a sense, last week was more kind of about data analysis.  So I think because of that open-ended, it's natural to have questions. And so looking forward to hearing, you know, what's on people's minds today.  So please, if anyone's happy to raise their hands.
+
+1:47 - ben hillier (Voiz)
+  Michaela, thank you so much.
+
+1:51 - Michaela Hepburn
+  Hello, I'm sorry, I'm having camera issues. don't know why it's pointing the wrong way. So I'll try to look the right way.  So a couple of things. thanks One is, Ben, I had mentioned in Discord, I just wanted to make sure I was clear on what the actual assignment was, because I know that Diego spent a lot of time pushing us to think about the fact that we committed to doing inventory work, but when we look at the most strategic approach and what's going to create the greatest value add for Sarah and Northwood, it might be advantageous to do a broader ESG risk assessment, um, that, that may help us understand what are the, the, the areas that in fact should be prioritized based off of what Northwood's priorities are from a financial perspective.  Um, so that, that was my first question. And then, uh, well, I'll, I'll stop there and then let you answer that question.  Then I'll ask my second question. Yeah.
+
+2:56 - diego espinosa
+  mean, I think, um, Hopefully this is kind of like flowing a little bit naturally, which is essentially that as a private equity firm that is more kind of financially oriented and has a number of portfolio companies that are not financial companies, they're more traditional companies, that this entity would be probably less interested in disclosure, although there is an interest in that, so we want to mark that, they're probably going to be more interested on the risk side and how risk manifests in the portfolio, how that might be quantified, and what might be material in that sense.  So this is not new for climate, like we talk about material risk all the time, and this is what single materiality is really all about.  It's just that here we're getting to see it in a little bit like its purest form, which is inside of the financial dimension where it was originally intended to be.  And so... So that opens up a couple, so basically then what, when we inventory something, the thought is that we're not inventorying it because of the need to disclose it, we're inventorying it because of the, the, it's a first step towards assessing the risk that it represents.  And so it might be useful to have a framework for doing that. And so that this might be a useful week to say, like, what does risk look like to this firm?  And how do we even express that? And how does the context of the carbon inventory fit into that risk assessment?  And those are all open-ended questions, right? So like that, that's, I think that's the challenge for this week. It's essentially like doing the inventory, as I mentioned on Friday, hopefully it would be like, okay, that was quick.  But then answering all these other questions would be a little bit more complex. And, and establishing like, you know, what does materiality look like?  And how do we measure that from the standpoint? . ..org So those are all kind of like the direction that we started pushing into.  And that doesn't mean that last week the data gap analysis wasn't a useful exercise. I it's more in terms of understanding, OK, what data is there?  What could we be missing? All of that as a kind of like standalone exercise. But then the following week is like, OK, but then this data has meaning.  Therefore, how do we really want to attack it?
+
+5:24 - Michaela Hepburn
+  So, Michaela, what do you think?
+
+5:25 - diego espinosa
+  That I think that's really helpful.
+
+5:28 - Michaela Hepburn
+  And I just wanted to. Is Ben still on? Oh, I just wanted to make sure just because the the slides that you showed on Friday were different than the slides that were uploaded.  So I just wanted to make sure because I know you had noted when you presented there was a bonus.  There was a bonus assignment that was associated with the the ESG scorecard. So I just wanted to make sure I was clear on what the assignment was.  that's quick. But I already started engaging with Claude on taking a step back before diving into what we committed to in terms of deliverables for this week and looking at how do we, based off of the available financial data, can we take stock of their their ESG risk?  And it's been very insightful. And one of the first things that I came to the realization on was, I might want to, based off of what is important to Sarah and Northwood, I might want to recommend that we actually focus on different port coasts.  Based off of the financial related risk we're seeing associated with climate and other ESG matters. So I just wanted to gut check, is that fair game?  And then also, the fact that I started to explore the Supabase, the MTB database in this. immediatelybar Thank with Claude.  And that was very fascinating. It looks like McKinsey structured it in a way, or at least created topics in a way that I don't think will necessarily neatly fit what will work for Northwood.  So wanted to make sure it was okay to restructure it in a way that I felt was best fit for purpose for the client.
+
+7:29 - diego espinosa
+  Yeah, I think the answer is, so this is a kind of like a simulation and in real life, you know, when you have to sign a contract and you do a scope of work, you don't like trivially change it, but sometimes when it's in the interest of a client, you do go and have a conversation with them and say, is this okay with you?  So we can just kind of pretend that that happened.
+
+7:49 - Michaela Hepburn
+  Okay.
+
+7:49 - diego espinosa
+  Because we're in the spirit of Sarah's interest being looked at after, then I think that that's fair game. So that's true for all of you.  You know, the first week was this kind of like. So scoping exercise that put a benchmark on the ground, and part of the reason for doing that was to be able to have a frame of reference, like, oh, I needed to change these things as I went on from the initial kind of, like, thought about what AI could do, so it serves its purpose, even though it can change.  I think that's kind of, like, what I would say about that. In terms of the schema in Superbase, I think it just serves as kind of, like, a part of the data that's there, but you can talk to Cloud about the best way to, like, where do we want to build any kind of, like, a risk scorecard.  It could be built actually in Markdown files. So this is one of the reasons why Markdown is so, even though it's challenging for us humans, I don't like looking at it, it's useful for AI.  When AI builds a table in Markdown, it's almost like it, it's almost like it has a database. It's like a junior database that it can look after because it can go through those numbers and understand them so easily.  So we don't have to put stuff in Superbase. The base that you're building, you can put it in Markdown, it might say like, oh, I'm going to create a JSON file.
+
+9:04 - Michaela Hepburn
+  JSON is just like a very loose file structure.
+
+9:08 - diego espinosa
+  So there are many, many different ways to do that.
+
+9:11 - Michaela Hepburn
+  Thank you. Sure. Thanks, McKenna.
+
+9:16 - diego espinosa
+  Martin, go ahead. Okay.
+
+9:18 - Martin Bernstein
+  Hi. So I was thinking, I had started with doing a fairly comprehensive, I get inventory using, you know, sort of in HTML, different tabs, links, all sorts of stuff.  Great organization. Let's go. But I was sort of thinking about the idea that this is something we wanted, that we wanted, they wanted this to be something we hand off to the client, right?  And that they'll be able to use going forward. So is the idea that they would use this in conjunction with Claude, or do we, or would we be providing them with a really robust Python script that would be able to essentially actually?  Yeah. Update this data as additional, you know, as, you know, as they get new versions of the questionnaire and the quarterly reports and stuff like that.  So, you know, I started thinking about what it would take to make something like that that was genuinely robust, that wouldn't require them to sort of come knocking at our door periodically, or conceivably have to, you know, ask Claude to sort of step in and, hey, can you update this code?  Because, hey, our file format changed, right?
+
+10:33 - diego espinosa
+  This is a really good question, and I think I want to be careful about how I answer it, because part of this is that you all are involved in a process of discovery, and so I want to allow you to kind of, like, experience that process.  So I would just say this, the way we share workflows with people in the past was, the way we used to do it, was to build an app.  And so that app was the codified workflows. So think about Watershed or someplace like that, something like that, if you've all used it.  It's like a workflow of how you input data, how it gets analyzed, how it might get output, like that kind of thing.  So one way we can say, oh, I think people should be doing this in this way is to build an app and we make them do it that way.  So think of an app as basically train tracks. You can't go off the track. You're going to derail. You've to stay on the track, right?  Now with CloudCode, there's different ways. So first of all, CloudCode can make apps as we saw from Trip last week.  And, but there's also other ways we can, for instance, we can train people to use CloudCode a certain way.  Like, hey, I want to train you so that you can do this in the future. What I just did, that would be the other end of the spectrum, which is super loose.  And then in the middle, all the others will. There might be some ways to give CloudCode guidance to do things in the same way going forward.  And that is kind of like a middle ground between an app and just training people to use CloudCode.
+
+12:13 - Martin Bernstein
+  Yeah. So can you essentially create a file, an indie file, I guess of some sort, that you would then provide to the customer that would essentially provide a set of guidances for Cloud?  So you provide sort of an app plus this guidance, right? And the guidance essentially allows Cloud, you know, tells Cloud how to go and think about what it should do in terms of updating data and when it should ask questions and, you know, what it should be, you know, when it should be doing its own estimation or something and make it somewhat user-evolvable, where as they start getting more data because they realize they had these shortcomings, they could transition from using an estimate to do this to using their actual data.  So,
+
+13:06 - diego espinosa
+  I would also point out that just as cloud code can code apps, it can also help create this guidance.  Yeah.
+
+13:18 - Martin Bernstein
+  Right. Right. Totally. That's what I kind of meant. It has to do it in a way that makes sense to it.  Yeah.
+
+13:24 - diego espinosa
+  So, so I'm suggesting to you all that like the categories of things change. And also I want to suggest to you that it's really good idea to get used to asking, having top level conversations with cloud code.
+
+13:38 - Chelsey Evans
+  So what do I mean by that?
+
+13:41 - diego espinosa
+  It's week three and I'm discovering that actually I have to delve into, look at the deck that I did in week one and what I promised.  And I'm realizing now that maybe this is more about financial value and I have to hunt around. Like, what ideas do you have for that?  Like, don't, Don't ever hesitate to treat cloud code as your trusted advisor on things, that doesn't mean it's going to tell you what to do, you're in charge, but it can suggest things to you, it can do a plan for you, there's so many different ways that it can be employed, and this takes getting used to, this is part of what you're going to be learning in six weeks is that it takes these kind of, you know, on ramps to using cloud code, there's so many of them, it takes getting used to being able to call them, nimbly.  So it's basically like, hey Claude, you know, I'm thinking of this, I've got this problem with the client, what do you think the client would like?  It's going to have a good opinion on that. Oh, how would we best like fit that need? Blah, blah, blah.  Oh, here's a plan for that. Oh, okay. Let's execute a part of that plan. Why don't you do this for me?  And it's just like this kind of like developing, branching conversation that gets a lot of stuff done in the process, where you can look and see things that it's done in the past.  This is part of the learning that has happened with CloudCode, where you just get kind of like a depth at doing that kind of thing, if that makes sense.
+
+15:08 - Martin Bernstein
+  Thank you.
+
+15:12 - diego espinosa
+  And so very quickly, you'll see that CloudCode replaces me, and Ben. Like, we just don't need us anymore. So, like, but we hope that you realize that at the end of the six weeks and not now.  other questions?
+
+15:29 - Martin Bernstein
+  Actually, in the Discord, Nil asked, are we not talking about agents? I think that's interesting.
+
+15:38 - Nil Sensu
+  Yeah, this description of the, it's sort of a self-autonomous, maybe QA mechanism or like some sort of agent updating things regularly.  I never use it, but I know that it's very much being used. So, it sounded like you are describing an agent doing this very task specifically.  that, more helpful, it's But if it's for And that you.
+
+16:00 - diego espinosa
+  Yeah, so an agent is basically what the instructions that are taken to the LLM to produce a response. You can think of it as a structured prompt, right?  So you can take to an agent and say, do this carbon inventory in this way and produce this kind of output.  So an agent would do that. That would be an agent that you can write. And what it is, those instructions get coded in Python, and Python is just the language of the instruction.  And then it'll also be some context in there, like, you are a carbon inventory specialist and you do these things.  And think of an agent as kind of like a paragraph of instructions and the code that takes it to the LLM and brings something back.  Okay, so what's happened with cloud code is that because it can write an agent in like a minute or less.  hauteku? is for It's less important to have our agents in inventory, where we're like, I made an agent for X, right?  Or I made an agent for Y or Z. It can be more open-ended with Cloud Code, it's just basically like, write this reference file.  And as part of the reference file, Cloud Code spins up an agent to do the work that's in the reference file.  Right? So, I'm sorry to do this to you, but the, because things change so fast, but in 2025, like Ben and I were, we were all about agents.  We're like, agents are the future, and agents are the most important thing, and you've got to have agents, and you've got to be able to build agents.  And like, now we never talk about agents. Sorry. And the reason is because Cloud Code makes agents, they're like disposables.  It's like talking about Kleenex. They're just like disposable. And so why would you spend much time thinking about them when it can make them so easily?  That... That's kind of where we come out. Hope that makes sense to me.
+
+18:04 - Nil Sensu
+  Yeah, but does it not make sense to create agents so that the workflow is working, like not to prompt the agents every time from scratch, but rather to have the agents ready already doing the certain tasks, if your workflow is defined, it sounds like an efficient way to handle the, I don't know, reporting or whatever, like.
+
+18:28 - diego espinosa
+  Yeah, so you could do that, or you could write a reference file that says, I need this, and then CloudCode figures out that it needs to have an agent to do that.  Do you see what I'm saying? It's like the models have progressed to the point where if in a reference file, and so when it becomes very, very meta, is that if Cloud is writing the reference file, that it feels it's going to need to do something.  Then we're in this kind of like meta state where the AI is pretty much. It's taking over the agent production that we used to do.  Maybe one single last question about the agents.
+
+19:08 - Nil Sensu
+  Is it not more like token efficient to have agents? It's just, I'm just asking because it's really like I'm running out of tokens much faster than I started crazy right now.
+
+19:20 - diego espinosa
+  It might be, and in that case you can tell CloudCode find a token efficient way of doing this. And it might actually put the Python code in the reference file.  So basically your agent lives in the reference file and it'll go there and then it'll just basically execute the Python code.  Rather than having to reason about it, right? So I think things changed a bit last week, at the end of last week, because Opus just got more expensive.  And so I'm with you now. I'm like, okay, I'm also like in token saving mode. So we also have to get used to, and this is weird for Anthropic, right?  It's like basically saying, Anthropic, how do I save money by not? Yeah. So far, I think it'll tell you the truth.  Maybe later that's going to change. But so far, I think it will be honest about it. Danny, great questions then.
+
+20:18 - Danny Miller
+  I have a couple questions. The first one is I'm finding when I'm in it and I'm actively conversing with Claude and we're going through iterations and everything, like I'm in it.  There's some parts where I feel like I'm on loose footing, but I'm getting more comfortable with that discomfort. Where I'm finding a little bit more of a challenge is when I have to leave that, like the session both for Claude, but also for me.  And then when I come back to restart, there's a lot of like nuance and... Yeah. Yeah. Yeah. different of  unspoken understanding that I have about just the flow of how that session or conversation was going, where I'll begin to re-engage, and there will be certain details that I can't really remember how much that was a part of it, and it starts going, so I guess it's more a question on any best practice for re-engaging or picking up where you left off, assuming you haven't come to completion on whatever project or deliverable you're working on in that specific session.  You know, we do need to eat and sleep and do all these things that the computer doesn't, so we are going to have to leave our computers and then come back.  So what is, is there a, like a, some mechanism to be able to do this a little bit more effectively for our cognition?  Yeah, super good question.
+
+21:59 - diego espinosa
+  So again, Like, well, this is like a real art. I find myself thinking about it a decent amount. And cause I, share that, you know, kind of like a need to, to figure this out.  Sometimes what I'll do is I'll, it's, it's, I guess the best way I could say it is that it's just, it's intuitive.  Like I'll intuit, like in this conversation has this direction to it that I don't want to lose. And so rather than forking it in all kinds of different ways, um, and let me give you an example, I might be working on a proposal and, and then it's, it's pretty in depth in terms of like, what are we going to offer and what are the features here?  Can we customize those and we'll be having like a really in depth conversation. And I had to think twice, like, do I want to make it convert an HTML to PDF in that conversation?  Like I'm burning up context to do something completely different that is like very minor and could probably be done with a lesser model.  So I'll make a mental note, probably start a new session and just go. So say, find that file, HTML file, and convert it to PDA, right?  And so when I have like a super useful conversation that has a direction to it, I'll also leave it open in my session, and I might in the future go back and go like, this changed, what do you think?  Blah, blah, blah. And so that's like my thinking session. And I'll try to create other sessions that are more like my doing sessions.  And in the thinking session, I might say to it, create a prompt or a reference file so that I can go into a doing session and do the thing, and is that the absolute right way to do it?  Like, I can't say that that's the case, but it seems guess, I guess what I'm, something that I'm hearing there is, I, is the, using more sessions.
+
+23:44 - Danny Miller
+  I, I, I'm, I'm stuck in this, or I, I'm still in this, uh, I can't tell if I'm freezing or not.  It looks like I froze. Uh, okay, um, I, feel like everything needs to be in one session a little bit.  All Which makes it harder for me to best track what I've been doing or what's going on. So I guess maybe like sessioning them out for the specific, for my thinking or the workflow in particular, the output that I want, right?  That's helpful.
+
+24:16 - diego espinosa
+  And then part of that is basically like, don't fall in love with your sessions. Like, you don't want to have too many in your side menu, so you have to be a little bit ruthless.  Like, I'm done with this.
+
+24:23 - Danny Miller
+  I'm going to archive it and like make it go away so that you can keep like an orderly kind of thought process in that side.
+
+24:29 - Adele Durfey - ClearFrontier Ag
+  Okay.
+
+24:31 - Danny Miller
+  And then one other question is, I set up some MCPs and APIs with like NOAA and the EPA and like labor and health statistics platforms.  You know, when I advance past this past KIF, and I'm now referencing a different SOURCE file on my computer.  Are those tied specifically to the file structure that I'm currently working in, or are they tied to my Claude account?  Will I have to do that again? Assuming I need to make those calls in the future for different work?
+
+25:23 - diego espinosa
+  Ben, those would live in the user folder, right? It would be an MCP connection in the user folder. Sorry, can you send a question again?
+
+25:33 - ben hillier (Voiz)
+  I'm just trying to block through the slide.
+
+25:35 - diego espinosa
+  It's whether you could, if you open up an MCP, can you use it over and over again? And I think, I think in Claude code would put it in the user folder under secrets or something.  So it would be reused or connections. Is that right, Ben? Yeah.
+
+25:49 - ben hillier (Voiz)
+  So, so when you set up an MCP, it can be set up locally or globally. So if you're setting up a really valuable tool, I really recommend asking Claude code to add it globally to your, to your systems.
+
+26:00 - Danny Miller
+  Okay, so, but if it's set up locally, then it would only be to that specific file structure and you need to, like, do it again.
+
+26:08 - ben hillier (Voiz)
+  Yeah, it can be done at the project level, which is kind of like the file level, or it can be done at the global level, which is every session across your device, no matter where you start from that folder, it will be able to be able to run.
+
+26:22 - Danny Miller
+  Okay, cool. Thanks.
+
+26:28 - diego espinosa
+  Great. Saurabhi?
+
+26:32 - Surabhi Sheth
+  Yeah, I probably have a specific question about emission factors. And I do not know if I'm thinking about this correctly.  But I was creating a scope to inventory for one portfolio company, and I noticed that it used 2022 emission factors, and it did not flag that those are not the latest emission factors.  So then I asked it why it used 2022 factors. And then it said that, that, and It is most confident about the 2022 emission factors and that the cutoff for its training is August 2025.  So then I asked Claude to go and check the reference file and see if there is anything on emission factors and reference file.  And then it seems that the reference file also states using 2022 emission factors. So I just have two questions.  When Claude sort of develops an inventory like that using outdated emission factors, should it flag, automatically flag that those emission factors are not the latest emission factors?  Or is that something we need to add in the reference file and ask it to flag that? And then the second question, like in real world, if I'm using this, and if it's not confident about using the latest 2023 emission factors, are there any tools that could be used?  Where Claude does use the latest emission factors.
+
+28:03 - diego espinosa
+  Yeah, great question. So I think, again, I just want to start by saying that please feel free to ask this question of Claude.  So again, it's just strange. Like, it's almost like, well, it kind of screwed something up, so why would I ask it about something, right?  But the fact that it screwed something up doesn't eliminate its ability to counsel you on something else. I know that sounds weird, but that's the case.  So I would think of this as three degrees of determinism. So when I say determinism, I mean that we can know with certainty that when we direct software to do something that it'll do it.  So code is deterministic. It's just basically says do A, B, C, and if this, then that, blah, blah, blah.  And AI is probabilistic. It'll be like, chances are you're going to get your answer that you want, right? So the different degrees of determinism are, for instance, find me the API.  IKEA UEFI So for the EPA emissions factors? Does one exist? And it should basically do a web search for it and be able to come back and go like, found it, you know, here it is.  And then it might say, what do you want me to do with it? It might just say, found it.  In which case, the next question is going to be like, can you hook me up with that? And if you don't ask that question, it's kind of weird because the conversation just ends.  So I find myself doing this all the time. I'll be like, can you just do it? And then I'll be like, sure.  And I'll be like, why didn't you say so? But that's just the way things kind of work. So deterministic is the API.  Second is you could say, do a web search and find me publicly available emissions factors and cite them. And the least deterministic is, do you know these emissions factors?  Sure, I know them. OK, how do you know them? Because they're in the training data. And in that case, what I would say is, like, how do we check them?  How do we know that these are valid? Because you're in the realm of probability, and so therefore the need to QA them becomes significant.  Does that answer your question? Yes, I think it does.
+
+30:16 - Surabhi Sheth
+  And then my only sort of follow-up question on that would be, if Claude is saying it's not confident about the latest emission factors, even if it has access to them, do we still use those emission factors, or do we rely on what it's most confident about?
+
+30:33 - diego espinosa
+  Look, I think this is a real grey area. I think self-awareness is a little bit tricky. I don't want to say iffy, but somewhat tricky.  Like, sometimes Claude seems very self-aware, and other times it seems kind of clueless. Maybe like us. You know what I mean?  Humans are like that too. And so- . I don't know. It's, it's, it's a, you kind of have to feel your way through it in a sense.  Sometimes I trust cloud to be cloud software and other times I'm like, how do you even know that you know this?  And so then I'll, I'll just basically say like, you need to check this, do a web search and check it.  Like, so these are kind of the decisions that we make as we go along.
+
+31:23 - Surabhi Sheth
+  Okay. Makes sense. Can I add just a comment there?
+
+31:27 - Eli Forrester, Recology
+  Um, so in certain industries, I don't know where you work, but, um, there can be a lack of consensus and best methodology for measuring carbon emissions.  And so like I work in waste, for example, and there isn't consensus on how to measure methane from landfills.  And like every year or so people are like, oh, well, actually this is the best way to measure it.  And so I wonder if Claude is relying on someone with a strong opinion and seeing, a lack of consensus over recent years and a certain type of emission factor.  So it may be worth asking. Like what is contributing to your confidence? Like explain to me the difference in the last few years and maybe there'll be some interesting info that comes back.
+
+32:09 - diego espinosa
+  Yeah, just I think the important thing is to recognize that training data is incredibly powerful and its ability to reason over that training data is incredibly powerful and it can scale that way more than humans could.  But it's not necessarily able to be so specific about how it comes up with things. And if it does, and you ask it to, might even hallucinate that.  So, you know, its picture, I gotta say, when I had little kids and they would be like, Dad, like blah, blah, blah, blah, blah.  And I would be like, I have the answer. And they would, and as they get older, they would be like, Dad, how do you know that?  You know? And I would just be like, I just know. Okay? So, and if, and if I had to be specific, I'd probably make it up.  Okay? Don't tell my kids. So... This is a little bit of the way AI is, that makes sense.
+
+33:05 - Surabhi Sheth
+  Makes sense. Thank you.
+
+33:09 - diego espinosa
+  Taylor.
+
+33:13 - Taylor Armstrong
+  This is a bit of a backpack, but going back to token usage, I recently saw that OpenAI has now created an option to utilize OpenAI within Cloud.  Has anybody seen that, used that, tried that, thoughts on it? Ben, I know it's, I think it's possible to use Cloud Code with other models.
+
+33:37 - diego espinosa
+  Do you, are you familiar with that?
+
+33:40 - ben hillier (Voiz)
+  Ben Yeah, so you can actually use the Cloud Code system with any LLM that has an API connection to varying degrees of success.  So when you go into, you can, you can do this in, in the desktop to some degree, but if you go into the terminal, where again, that's where we started off in that kind of black box.  That's looking kind of space. If you were to ask Claude Cuvette, okay, I would like to change the LLM from the Claude, from the Anthropic offerings, Haiku, Sonnet, Opus, to using API key that I'm going to provide you with, that API can be from OpenAI, it can be from a number of providers, you will be able to get that up and running in Claude Cuvette.  So the infrastructure of Claude Cuvette doesn't actually need to use the LLMs that are provided by Anthropic, because effectively Claude Cuvette is just the structure and the operating system which LLMs live within.  So you can actually use anything. I use GreenPT for certain things, and this is actually something I'm going to be covering next week when we have a full session on emissions and resource impact, but you can plug in open source models, you can plug in models from other providers like OpenAI.  So it is very flexible, however, it is important to me. If you plug in a model or an API where some of the capabilities that you would want Claude Code to have aren't available, let's say, for example, you plug in an API that cannot maybe, let's say, an example would be image generation to some degree, if you plug in a very weak model from a different provider that doesn't have certain capabilities and then ask within the Claude Code window in your command line, please do this, sometimes it just won't work.  Because it it actually hasn't got those capabilities. So it's a little bit of pairing. And what you can also do is you can add a system called Open Router, which they effectively select the model or they give you access to way more models.  So there's a few ways you can start managing this infrastructure, but it's basically at its core. Claude Code, the application that you've downloaded, is more of an operating system.  And then you can inject the different LLMs that you'd like to use.
+
+35:58 - Taylor Armstrong
+  that like to use. Okay, but you are stepping away from utilizing the Claude code, LLM.
+
+36:06 - diego espinosa
+  Yes. The Claude, think of it as kind of like an agentic layer. So at its core, and by the way, the code for it, Claude code got leaked last week.  So this is like a big deal in the space. And so apparently, you know, I forget his last name, but Dario at Anthropic is like running around going like, who did this?  But basically, what people were able to see with Claude code is that it's actually quite complex, the code that manages Claude code.  But what it does is essentially, it tries to loop to your intent. So you want me to do something and I'm going to try to create a loop to keep doing it until it looks like I'm doing what you want me to do.  And that's a good overarching thing. And so it does that by taking instructions to the LLM and bringing them back and taking instructions and bringing them back.  And it can take those instructions to any LLM. It actually doesn't care whether it's Opus or OpenAI or anything else, like it's not, at least I don't think so, it's not made to care, is kind of what I think.
+
+37:17 - Taylor Armstrong
+  Great, thanks.
+
+37:21 - diego espinosa
+  Who else has a question?
+
+37:26 - ben hillier (Voiz)
+  Just a little piece on that topic that we've mentioned. This is why Diego, me, the rest of the team are very, very forward on this idea of the Claude Code model, being the model or the infrastructure that all AI providers are going to be moving towards.  The fact that Claude Code was just kind of the first iteration of this to come out, where it lives on your device, has access to your files, and then utilizes, in the first instance, Anthropic LLMs.  But the fact that you can adjust this and have flexibility with the models you use and... ... ... So the Cloud Code infrastructure does kind of pave the way for this future whereby you're going to have the decision on the LLM that you would like to use, but the system or the infrastructure is going to be something very similar to Cloud Code, and indeed a lot of these other large providers, it's interesting you mentioned OpenAI, because OpenAI have Codex, which is effectively a Cloud Code duplicate, however, they've obviously seen that Codex hasn't become that popular, so what they're saying is now, okay, well, if you're not going to use Codex, maybe you might be able to convince you to use Cloud Code with an OpenAI API key, so kind of an interesting example, but this idea of this type of infrastructure being the predominant way that people interact in a business setting is something that we're very bullish on.
+
+38:50 - diego espinosa
+  Right.
+
+38:53 - Martin Bernstein
+  So this is kind of a bit more organizational, thinking about how you're doing these exercises. Generally... And relating to some questions people have asked about data diligence and affirming if you're the best methods and stuff like that, I've kind of taken the position that, okay, you can spend a lot of time on that, and it's probably useful, but I think more important in the outset is I'm thinking more about the structural aspects of this and how we put things together and how we sort of, you know, integrate this into something useful and at some point say, okay, that's good enough, I'm not, I could, you know, I think I'm 90% of the way there, and I'm, I'm, I'm, and I'm, and a lot of, and and I'm That's what.
+
+40:00 - diego espinosa
+  Yeah, this is so, it's kind of complex and use case dependent, and so like, you know, how much is riding on the accuracy of something, what kinds of QA systems can you build to get to, like, some percentage, these are all, you know, these are all questions that I think we need to answer with AI, and it's going to be so context dependent every single time.  So I find that, um, basically, you know, if you're doing brain surgery, like, obviously this is, this is completely different, but I think for even a lot of financial applications or a lot of knowledge work, um, and what I, and I, and I think within climate, this applies as well, that that's something around the 90% is probably going to be plenty, uh, for purposes of the thing that you're trying to achieve.  So I think because we spend less time on tasks, we can spend more time thinking, what am I actually trying to accomplish here?  And, and, and, and, Am I accomplishing it with this? So I believe that this is like a public service announcement.  I believe that there's been a concerted effort over the last 20 years to dumb down knowledge work by having people follow instructions.  And so what results from that is that we become really good instruction followers. And so AI comes along and basically challenges that completely.  And so that's, I think, a part of like, we have to, we don't have to, but I think there's a good reason to challenge the way we've been doing knowledge work in the past, to ask ourselves, you know, is that what made us successful potentially good in the past going to be what makes us successful in the future?  And really, a lot of this is about the starring role played by critical thinking. So critical thinking is just like question everything, dialogue with cloud code on everything, and that's best thing I can say.  It's like, that's, that's the moment. it. Yeah, thanks.
+
+42:08 - ashlynanderson
+  Going back to the conversation previously about using other LLMs, I'm of wondering, in terms of like advocating within our organizations for adoption of AI, I, you know, I'm in this class, I'm seeing what's possible.  Most people, I mean, my whole organization is in a totally different place. I was like, brought into like an AI ambassador program at the corporate level yesterday, and it was just bizarre because it was like, here's how you turn on facilitator notes through co-pilot.  And I did see like some chatter about maybe Claude Code being accessible through co-pilot. But anyways, it was really underwhelming and disappointing and I'm kind of at a loss of like...  What am I supposed to be advocating for? So I'm just curious if you have thoughts on that and within that kind of context as well with Co-Pilot.
+
+43:10 - diego espinosa
+  Yeah, mean, Enterprise is so incredibly and surprisingly far behind where they could be. So it's not just yours, it's, you know, the vast majority of Enterprises.  And I think that there's a whole bunch of explanations for that, but, like, what happens is every time an intensive user is created, they're presented with this problem.  It's like, wow, I can do all these things, but no, you're not allowed to. So all I can say is, like, find a way to demo.  Find a way to demo. If you go to, you know, the powers that be and you go, like, hey, I'm doing some stuff on my personal computer.  I'm going to show you a demo that's using, you know, my phone connection. Are you okay with that? I just want to show you this thing.  And then you just put it up on the screen and you go, like, this is what I do. Like, there's, it's...  Mines are going to be changed one demo at a time.
+
+44:03 - ashlynanderson
+  Yeah. That's the way it is.
+
+44:04 - diego espinosa
+  Yeah. Oh, it is interesting.
+
+44:06 - ashlynanderson
+  mean, I just met someone today who's, like, using his personal credit card to, like, give his team access. And he's like, I'm okay, you know, going outside the boundaries.  That's the only way. And if I didn't cheat over the past six months, you know, we would be so far behind.  So there's just very interesting dynamics within the workplace of, like, how people are pushing things along, especially in a very large organization.
+
+44:30 - diego espinosa
+  I mean, it's very Star Wars, you know, you're the Jedi Knight, IT is the Death Star, you know, like, this is, this is, this is what we're facing.  So. Cool. Thank you.
+
+44:41 - ben hillier (Voiz)
+  One, one other quick thing on that point, we had a, we have a kind of a connection within the organization who was managing the AI adoption and implementation within BCG.  So he managed all of the tool adoption within the organization. And one of the biggest areas where he said there was.  There was wider adoption or quicker adoption within a team is when employees would, at this point in BCG, they were given a large number of tools, but it was when these employees who were early adopters would demo and collaborate and show their colleagues, and the colleagues would see it rather than a top-down initiative as a colleague trying to assist them in their work, and once they see, wow, the capabilities of what this person can do within my team is extremely impressive and far beyond what they're capable of, it's a really good way of kind of building that kind of collaborative drive to start adopting these tools within an organisation, and it was very interesting talking with him as the, there was a lot of asymmetry with the way that people adopted, and it came from these, I think they gave them like a Black Belt certificate, Black Belt AI certificate within BCG, and these people would act as the catalysers, and it's something that we really believe in, this idea that these individual catalysers within teams will really be able to help awareness, which can then drive adoption within the organisation.  Let's see.
+
+46:00 - ashlynanderson
+  Yeah, that's really interesting. And like, just a follow up thought, because something that this course has sparked in me is like, yeah, the sustainability work is really important, but it almost seems more important right now to be like pushing for these things internally.  So like, that's kind of what I'm contemplating is like, how should I be positioning myself in this point in time as a sustainability professional that has a head start on this, but I feel so far behind even then.  So it's like spanning both worlds.
+
+46:32 - diego espinosa
+  Yeah. So my personal goal is that climate sustainability people would be seen as, you know, pioneers of AI within an organization and then raise the visibility of the function by being kind of like early adopters.  And the reason it's counterintuitive, obviously, because AI has a planetary impact, but it's counterintuitive because sustainability work tends to be such pure knowledge work that it could really lend itself to being first.  so Let's Thank And so I basically believe there's a logic to that. So yeah, my hope is that basically there's a seat at the table and then that also extends to, well, how should we responsibly be using AI at some point?  You've got to generate CO2 to get there. I'm sorry. That's what it is. Eli? All right.
+
+47:33 - Eli Forrester, Recology
+  So I've got a kind of end of office hours question that I only decided to ask because other class-focused questions maybe fizzled out.  You said something a week or two ago, Diego, that kind of stuck with me around just the unbelievable amount of human knowledge that is encapsulated in AI.  That there was some superlative you mentioned about like most of what we know is reflected in these programs. And-  I want to sort of sort of gently bring up a potential counterpoint in some of the reading that I've done, which has to do with substantial knowledge gaps and linguistics gaps in the way that AI is being trained, and there's been some pretty interesting research out of Cornell and The Guardian picked up a pretty big article, you can actually link it if you're interested, that basically said that the majority of training data for AI is in English, despite less than 20% of the world's population speaking English.  And there's this issue in huge sort of sets of expertise around agriculture, ecology, biology, medicine, that exist in other languages that are being left out as a result of training data not being in other languages.  And I guess I just sort of wanted to float this and sort of get you or the group's thoughts on, is there, are we missing an opportunity to sort of gather more information by not training AI in other languages?  Or, are we missing Are the majority of users English speakers? And so there's sort of a better or natural fit for this stage of the technology to be in English.  And so I guess I just, I've been thinking about it. It's kind of an interesting topic. I just wanted to throw that out there.
+
+49:13 - diego espinosa
+  Yeah, I mean, I think that's, you know, it's, it stands to reason that most of the training data would be the major languages, at least, you know?  And so I think there's a couple of answers to that question. It's like, it's like these kinds of things are so important because it's like knowing the limitations of what AI can do allows us to basically marshal it better.  So that's step one. So thank you for bringing that to, to everyone's attention. And then I think the second thing is essentially, we can, we can always be thinking about how we get AI to reason over patterns, knowing that we have a different set of patterns.  Dansk, can even make at And I've actually written a paper about this, that we as humans, we have a different, I'm going to use some fancy words, network topography of connections than what AI does.  Even though AI is the residual of our encoded networked patterns, the ones we have internally have a different topography because they're formed by pleasure-pain experiences.  And so this is written about a lot, which is basically that AI just doesn't have a stake in the game.  Like it just doesn't know what it is to lose. It doesn't know what it is to win. It doesn't know what it is to have pain, to have joy, to have these things.  Most of our encoded patterns as humans result from interaction with those emotions. And so when we do a search of things that matter to us, we do things that AI can't do.  It doesn't actually have access to those internal patterns that we have. So when we we things do... We manage AI, we always have to be cognizant that we're there for a reason, you know, we're there because we do things that matter, and AI doesn't do things that matter, because matter is not really something that it understands, and so if it matters to you that there's places in the global south that are underrepresented in the training data, and you want to surface what that means and how that impacts what you're doing, that's the pattern that you bring to the table, knowing that it's going to be absent in in the AI.  So I wrote this paper basically that I think that human AI collaboration is emergent and bigger than some of its parts because of these different topographies coming together, and so that we can find things that didn't exist before, which is like an interesting concept in my opinion, because I wrote the paper.  But it's just being cognizant that you know stuff that matters, and this is an example of it. Right.
+
+52:00 - Eli Forrester, Recology
+  Do you think the technology will catch up that in five, 10 years that we will approach like a complete human knowledge capture or just inherently based on the way that software programming languages are set up, it won't be able to capture, you know, languages spoken in obscure Indian villages or something like that?
+
+52:22 - diego espinosa
+  No, I mean, I think it'll be perfectly capable of capturing all data. What it won't be able to capture is what matters to us.  I'm not a believer in AGI. What do I know? Like I have very scant knowledge of the theory behind it.  But as I understand it, the big problem with AI is that it's very hard for it to have skin in the game.  And I just don't know how we get there. People say this. I don't say this. People say this. I don't know how to get to AGI without skin in the game.
+
+52:49 - Eli Forrester, Recology
+  And so what they're seeing in the way models are built today is like it doesn't produce it.
+
+52:54 - diego espinosa
+  So take care for what it is. Yeah, thanks for that.
+
+53:02 - Martin Bernstein
+  I have time for one more question.
+
+53:09 - diego espinosa
+  End of office hour question. Meaning of life question.
+
+53:12 - Eli Forrester, Recology
+  What is the meaning of life?
+
+53:19 - ben hillier (Voiz)
+  If there aren't any more questions?
+
+53:21 - Martin Bernstein
+  Really silly question in some ways. Maybe it's useful. You're a consulting firm, so I'm assuming all of your deliverables, you try to maintain a certain style, right?  This is where you have almost a style template. Do you do this formally with blog or has it just kind of picked up that this is what things look like and it always does it this way?  Like I said, do you have like a sort of a template of, you know, this is kit style, always produced deliverables in kit style.  Yeah, we have a brand folder in the brand folder.
+
+53:50 - diego espinosa
+  We have logos and a brand reference and an offering reference that describes what we do and the marketing of it.  So we have like marketing oriented folders that, uh, That cloud code points out when we do proposals or anything else.  I did two proposals yesterday that were like really involved and was able to get them out like really fast.  Whereas in the past, that would have been a huge pain point for me. I do have to say, spent so much time converting from HTML to PDF.  You'd think out of all the things in the universe that would be easy for AI to do, it would be that.  But like I spent like an hour and a half trying to fix something in that conversion. So I hope they figure that out soon.  Ben, you were going to say something and then take us out.
+
+54:32 - ben hillier (Voiz)
+  Yeah, of course. I just wanted to mention, we also occasionally have like voice files where it's not an actual voice.  It's basically kind of a way that we normally kind of speak or the way that we like to frame the different discussion we're having.  So when we're writing emails, for example, rather than it just being the blanket AI super, I'm very English. I don't use too many of these kind of superlatives normally.  So my writing and emails, it kind of depends. I don't train it on my inbox specifically. I think. But it can do.  It can go through and just read these emails and then create kind of a dynamic way of connecting with the voice that I have.  So obviously we have branding, we have marketing folders, but also you can start building these pieces of infrastructure that can avoid some of the classic kind of em dashes or writing, which is very easily identifiable as AI.
+  ACTION ITEM: Add optional 1h session on AI energy/resource constraints to calendar; record - WATCH: https://fathom.video/calls/622759085?timestamp=3313.9999  So I just wanted to add that as it kind of goes alongside the branding. The last thing I wanted to say is I'm going to be adding another event next week to the calendar.  It is going to be optional, much like the community session was on Saturday. sounded like it was a really good session.  So very happy to hear that from Diego. And this is going to be a discussion purely around the energy and resource constraints around AI, the use of it, how you can, for example, use different models within code code.  It's going to basically be all around these types of resource usages, energy efficiency, the trend in energy, where the main kind of materiality comes from within training the models within inference, and also some topics.  It's on the future of disclosure and the ways that different organizations are approaching it. So I'm going to add that to the calendar.  It is going to be optional. We wanted to make it a full hour. We were planning on taking it on to a few sessions, but we thought for a full discussion, we want to make it a standalone session.  So that will also be recorded. Should anyone be able to, if anyone isn't able to. seconds. Yeah, I'm not.
+
+56:26 - Martin Bernstein
+  All right. Thanks very much. Awesome.
+
+56:31 - diego espinosa
+  Thanks everybody. Thank you, Bye-bye.
+
+56:33 - Martin Bernstein
+  Bye.
+
+56:34 - diego espinosa
+  Thank you. Bye.
+
+56:35 - Michaela Hepburn
+  Can I wave too?
+
+
+
+Impromptu Zoom Meeting - April 01
+VIEW RECORDING: 
+Meeting Purpose
+
+Q&A on the Northwood project and general AI workflow best practices.
+
+Key Takeaways
+
+  - Northwood Project Focus: Shift from a simple carbon inventory to a broader ESG risk assessment. The inventory is now a first step to quantify financial risk for the PE firm client, not a standalone deliverable.
+  - Deliverable Strategy: Provide clients with a "middle ground" solution—a reference file with coded guidance—instead of a rigid app or loose training. This enables future self-service updates without requiring deep technical skill.
+  - AI Workflow Management: Use multiple sessions for different tasks ("thinking" vs. "doing") to manage context and prevent token waste. Make MCPs (APIs) global for reuse across projects.
+  - Data Validation: Always validate AI-generated data, especially when it cites its training data. Use web searches or APIs for deterministic results, as AI's confidence levels can be unreliable.
+
+Topics
+
+Northwood Project: From Inventory to Risk Assessment
+
+  - Problem: The initial carbon inventory scope may not deliver the most strategic value to Northwood, a financially-oriented private equity firm.
+  - Solution: Reframe the project as an ESG risk assessment. The carbon inventory becomes a first step to quantify financial risk, aligning with the client's priorities.
+  - Scope Flexibility: The project is a simulation, allowing for scope adjustments (e.g., recommending a focus on different portfolio companies) if it better serves the client's interests.
+  - Data Structure: The Supabase schema is a reference, not a mandate. Use the most effective structure for the client, such as Markdown or JSON, which AI can easily process.
+
+Deliverable Strategy: Empowering Client Self-Service
+
+  - Problem: How to deliver a tool Northwood can use independently, without needing constant support or deep technical skill.
+  - Solution: A "middle ground" between a rigid app and loose training.
+      - App (Rigid): A codified workflow (like Watershed) that is hard to adapt.
+      - Training (Loose): Requires the client to become a proficient AI user.
+      - Reference File (Middle Ground): A file with coded guidance that directs Claude to perform tasks, enabling self-service updates.
+
+AI Workflow & Data Validation
+
+  - Session Management:
+      - Use multiple sessions to manage context and prevent token waste.
+      - Separate "thinking" sessions (strategy, planning) from "doing" sessions (execution).
+      - Archive completed sessions to maintain focus.
+  - MCPs (API Connections):
+      - Set up MCPs globally for reuse across all projects.
+      - Local MCPs are tied to a specific project folder.
+  - Data Validation (Emission Factors Example):
+      - Problem: Claude used outdated 2022 emission factors, citing higher confidence and a training data cutoff of August 2025.
+      - Solution: Always validate AI-generated data.
+          - Deterministic: Use web searches or APIs (e.g., EPA) for verifiable data.
+          - Probabilistic: When AI cites its training data, QA the results and ask it to explain its confidence.
+  - Agents:
+      - Claude Code makes agents disposable; the focus is now on writing reference files that direct Claude to create and use agents as needed.
+
+Broader AI Adoption & Limitations
+
+  - Enterprise Adoption:
+      - Problem: Enterprise AI adoption is slow and underwhelming (e.g., Co-Pilot).
+      - Solution: Drive adoption through demos and peer-to-peer collaboration, not top-down mandates.
+  - Training Data Limitations:
+      - Problem: AI training data is heavily English-biased, creating knowledge gaps in other languages and cultures.
+      - Solution: Human-AI collaboration is more powerful than either alone. Humans bring the "what matters" context (e.g., underrepresented regions) that AI lacks.
+
+Next Steps
+
+  - Ben: Schedule an optional, 1-hour session on AI's energy/resource constraints and disclosure trends.
+  - All:
+      - Reframe the Northwood project as an ESG risk assessment.
+      - Plan the deliverable strategy: a reference file with coded guidance.
+      - Adopt best practices for session management and data validation.

@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Privacy & Data Security Cheat Sheet | Kith Climate</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 522 522'><rect x='5' y='1' width='512' height='512' rx='64' fill='%231A1D21' stroke='%235B9A8B' stroke-opacity='0.15' stroke-width='2'/><rect x='269.628' y='129' width='18' height='256' rx='9' transform='rotate(8 269.628 129)' fill='url(%23g)'/><defs><linearGradient id='g' x1='278.628' y1='129' x2='278.628' y2='385' gradientUnits='userSpaceOnUse'><stop stop-color='%235B9A8B' stop-opacity='0.1'/><stop offset='0.25' stop-color='%235B9A8B'/><stop offset='0.75' stop-color='%235B9A8B'/><stop offset='1' stop-color='%235B9A8B' stop-opacity='0.1'/></linearGradient></defs></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-base: #1a1d21;
+      --color-surface: #1e2227;
+      --color-card: #232629;
+      --color-text-primary: #e8e6e3;
+      --color-text-secondary: rgba(232, 230, 227, 0.6);
+      --color-text-tertiary: rgba(232, 230, 227, 0.4);
+      --color-teal: #5B9A8B;
+      --color-teal-bright: #6FB5A4;
+      --color-teal-dim: rgba(91, 154, 139, 0.15);
+      --color-teal-glow: rgba(91, 154, 139, 0.08);
+      --color-border: rgba(232, 230, 227, 0.08);
+      --color-border-strong: rgba(232, 230, 227, 0.12);
+      --color-amber: #d4a574;
+      --color-amber-bg: rgba(180, 130, 80, 0.12);
+      --color-amber-border: rgba(180, 130, 80, 0.25);
+      --color-red: #c47070;
+      --color-red-bg: rgba(196, 112, 112, 0.1);
+      --color-red-border: rgba(196, 112, 112, 0.25);
+      --color-green: #6fb5a4;
+      --color-green-bg: rgba(91, 154, 139, 0.1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--color-base);
+      color: var(--color-text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Page container ── */
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 48px 80px;
+      position: relative;
+    }
+
+    /* ── Subtle grid background ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(91, 154, 139, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(91, 154, 139, 0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page { position: relative; z-index: 1; }
+
+    /* ── Header ── */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 56px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .header-left { flex: 1; }
+
+    .doc-type {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-teal);
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      font-size: 42px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--color-text-primary);
+    }
+    .header h1 .accent { color: var(--color-teal); }
+
+    .header-sub {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      margin-top: 12px;
+      max-width: 600px;
+    }
+
+    .header-meta {
+      text-align: right;
+      font-size: 13px;
+      color: var(--color-text-tertiary);
+      line-height: 1.8;
+      flex-shrink: 0;
+      margin-left: 48px;
+    }
+    .header-meta strong { color: var(--color-text-secondary); font-weight: 500; }
+
+    /* ── Section ── */
+    .section {
+      margin-bottom: 48px;
+    }
+
+    .section-number {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-teal);
+      margin-bottom: 8px;
+    }
+
+    .section h2 {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--color-text-primary);
+      margin-bottom: 20px;
+    }
+
+    .section h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 12px;
+      margin-top: 28px;
+    }
+
+    .section p, .section li {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    .section p { margin-bottom: 12px; }
+
+    .section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 16px 0;
+    }
+
+    .section li {
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    .section li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 2px;
+      background: var(--color-teal);
+    }
+
+    /* ── Callout boxes ── */
+    .callout {
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 20px 0;
+      border: 1px solid;
+    }
+
+    .callout-amber {
+      background: var(--color-amber-bg);
+      border-color: var(--color-amber-border);
+    }
+    .callout-amber .callout-label { color: var(--color-amber); }
+
+    .callout-red {
+      background: var(--color-red-bg);
+      border-color: var(--color-red-border);
+    }
+    .callout-red .callout-label { color: var(--color-red); }
+
+    .callout-teal {
+      background: var(--color-green-bg);
+      border-color: rgba(91, 154, 139, 0.25);
+    }
+    .callout-teal .callout-label { color: var(--color-teal-bright); }
+
+    .callout-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .callout p {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      margin-bottom: 0;
+    }
+    .callout p strong { color: var(--color-text-primary); font-weight: 500; }
+
+    /* ── Tables ── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 16px 0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .data-table th {
+      background: var(--color-teal-dim);
+      color: var(--color-teal-bright);
+      font-weight: 600;
+      text-align: left;
+      padding: 12px 18px;
+      border-bottom: 2px solid rgba(91, 154, 139, 0.25);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .data-table td {
+      padding: 11px 18px;
+      color: var(--color-text-secondary);
+      border-bottom: 1px solid var(--color-border);
+      line-height: 1.5;
+    }
+
+    .data-table tr:nth-child(even) td {
+      background: rgba(232, 230, 227, 0.015);
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table td:first-child { color: var(--color-text-primary); font-weight: 500; }
+
+    /* ── Two column grid ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 20px 0;
+    }
+
+    .card {
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .card h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 12px;
+    }
+
+    .card ul { margin-bottom: 0; }
+
+    .card-consumer { border-top: 3px solid var(--color-amber); }
+    .card-commercial { border-top: 3px solid var(--color-teal); }
+    .card-higher { border-top: 3px solid var(--color-amber); }
+    .card-lower { border-top: 3px solid var(--color-teal); }
+
+    /* ── Badge pills ── */
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px;
+      vertical-align: middle;
+    }
+    .badge-amber { background: var(--color-amber-bg); color: var(--color-amber); border: 1px solid var(--color-amber-border); }
+    .badge-red { background: var(--color-red-bg); color: var(--color-red); border: 1px solid var(--color-red-border); }
+    .badge-teal { background: var(--color-green-bg); color: var(--color-teal-bright); border: 1px solid rgba(91, 154, 139, 0.25); }
+
+    /* ── Code/env-var styling ── */
+    code {
+      font-family: 'Berkeley Mono', 'SF Mono', 'Fira Code', monospace;
+      font-size: 13px;
+      background: rgba(91, 154, 139, 0.1);
+      color: var(--color-teal-bright);
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid rgba(91, 154, 139, 0.15);
+    }
+
+    /* ── Env var table ── */
+    .env-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin: 16px 0;
+    }
+
+    .env-table th {
+      background: var(--color-teal-dim);
+      color: var(--color-teal-bright);
+      font-weight: 600;
+      text-align: left;
+      padding: 10px 16px;
+      border-bottom: 2px solid rgba(91, 154, 139, 0.25);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .env-table td {
+      padding: 9px 16px;
+      color: var(--color-text-secondary);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .env-table td:first-child { font-family: 'Berkeley Mono', 'SF Mono', monospace; color: var(--color-teal-bright); font-size: 12px; }
+
+    /* ── Checklist ── */
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0;
+      counter-reset: check;
+    }
+
+    .checklist li {
+      padding: 14px 20px 14px 52px;
+      position: relative;
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      counter-increment: check;
+    }
+
+    .checklist li::before {
+      content: counter(check);
+      position: absolute;
+      left: 18px;
+      top: 14px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--color-teal-dim);
+      color: var(--color-teal-bright);
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    .checklist li strong { color: var(--color-text-primary); font-weight: 500; }
+
+    /* ── Divider ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--color-border);
+      margin: 48px 0;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .footer-left {
+      font-size: 13px;
+      color: var(--color-text-tertiary);
+      line-height: 1.8;
+    }
+
+    .footer-wordmark {
+      font-size: 20px;
+      font-weight: 500;
+      color: rgba(232, 230, 227, 0.2);
+      letter-spacing: 0.02em;
+    }
+    .footer-wordmark span { color: rgba(91, 154, 139, 0.4); }
+
+    /* ── Links ── */
+    a { color: var(--color-teal-bright); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Print ── */
+    @media print {
+      body { background: #fff; }
+      body::before { display: none; }
+      .page { padding: 24px; }
+      * { color: #1a1d21 !important; }
+      .data-table th, .env-table th { background: #f0f0f0 !important; }
+      .card, .callout { border: 1px solid #ddd !important; background: #fafafa !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ═══════════════ HEADER ═══════════════ -->
+    <header class="header">
+      <div class="header-left">
+        <div class="doc-type">Cohort Reference</div>
+        <h1>Claude Privacy &amp;<br><span class="accent">Data Security</span></h1>
+        <p class="header-sub">What you need to know about how Anthropic handles data across Claude.ai, Claude Code, and the API.</p>
+      </div>
+      <div class="header-meta">
+        <strong>May 2026</strong><br>
+        Kith Climate<br>
+        Cohort Onboarding
+      </div>
+    </header>
+
+    <!-- ═══════════════ 1. CONSUMER VS COMMERCIAL ═══════════════ -->
+    <section class="section">
+      <div class="section-number">01</div>
+      <h2>Consumer vs. Commercial: Two Different Worlds</h2>
+      <p>Your plan type determines your privacy protections. This is the single most important distinction.</p>
+
+      <div class="two-col">
+        <div class="card card-consumer">
+          <h4><span class="badge badge-amber">Consumer</span> &nbsp;Free / Pro / Max</h4>
+          <ul>
+            <li><strong>Training on your data:</strong> Opt-in toggle &mdash; you choose</li>
+            <li><strong>Retention (training on):</strong> Up to 5 years (de-identified)</li>
+            <li><strong>Retention (training off):</strong> 30 days</li>
+            <li><strong>Safety-flagged content:</strong> Retained 2 years regardless</li>
+            <li><strong>Trust &amp; safety scores:</strong> Retained 7 years</li>
+            <li><strong>Staff chat access:</strong> Limited &mdash; policy review or explicit consent</li>
+            <li><strong>Data sold:</strong> Never</li>
+          </ul>
+        </div>
+        <div class="card card-commercial">
+          <h4><span class="badge badge-teal">Commercial</span> &nbsp;Team / Enterprise / API / Gov / Education</h4>
+          <ul>
+            <li><strong>Training on your data:</strong> Never (unless opted into Dev Partner Program)</li>
+            <li><strong>API retention:</strong> 7 days</li>
+            <li><strong>Team/Enterprise retention:</strong> 30 days</li>
+            <li><strong>Zero Data Retention (ZDR):</strong> Available for Enterprise</li>
+            <li><strong>Staff chat access:</strong> Same limited policy</li>
+            <li><strong>Data sold:</strong> Never</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout callout-amber">
+        <div class="callout-label">Key Takeaway</div>
+        <p>A <strong>"Pro"</strong> plan sounds professional, but it is a consumer account with consumer-level privacy. Only Team, Enterprise, or API access provides business-grade data handling.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════ 2. RETENTION BREAKDOWN ═══════════════ -->
+    <section class="section">
+      <div class="section-number">02</div>
+      <h2>Data Retention Breakdown</h2>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Account Type</th>
+            <th>Training Use</th>
+            <th>Retention Period</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Consumer &mdash; training ON</td>
+            <td>Yes (de-identified)</td>
+            <td>Up to 5 years</td>
+          </tr>
+          <tr>
+            <td>Consumer &mdash; training OFF</td>
+            <td>No</td>
+            <td>30 days</td>
+          </tr>
+          <tr>
+            <td>API (incl. personal accounts)</td>
+            <td>Never</td>
+            <td>7 days</td>
+          </tr>
+          <tr>
+            <td>Team / Enterprise</td>
+            <td>Never</td>
+            <td>30 days</td>
+          </tr>
+          <tr>
+            <td>Enterprise with ZDR</td>
+            <td>Never</td>
+            <td>Immediate deletion</td>
+          </tr>
+          <tr>
+            <td>Safety-flagged content (any)</td>
+            <td>Possible</td>
+            <td>2 years</td>
+          </tr>
+          <tr>
+            <td>Trust &amp; safety scores (any)</td>
+            <td>N/A</td>
+            <td>7 years</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>What "deleted" means</h3>
+      <ul>
+        <li>Deleted conversations are removed from your chat history immediately but remain on back-end systems for up to 30 days</li>
+        <li>Deleted chats are never used for training under any circumstance</li>
+        <li>If you turn training off later, Anthropic cannot "unlearn" data already incorporated into models</li>
+        <li>Training ON only applies to new/resumed chats after enabling &mdash; not retroactively to older inactive chats</li>
+      </ul>
+    </section>
+
+    <!-- ═══════════════ 3. CLAUDE CODE ═══════════════ -->
+    <section class="section">
+      <div class="section-number">03</div>
+      <h2>Claude Code: Larger Data Surface Area</h2>
+      <p>Every file Claude Code reads is sent to Anthropic's servers. This creates a significantly larger data footprint than the chat interface.</p>
+
+      <h3>Local storage</h3>
+      <ul>
+        <li>Session transcripts stored in <strong>plaintext</strong> (JSONL) at <code>~/.claude/projects/</code> for 30 days by default</li>
+        <li>Anyone with machine access can read these files</li>
+        <li>Adjust retention with the <code>cleanupPeriodDays</code> setting</li>
+      </ul>
+
+      <h3>Server-side retention</h3>
+      <ul>
+        <li>Follows your account type: 30 days (consumer), 7 days (API), or ZDR (enterprise)</li>
+        <li>Data encrypted in transit via TLS</li>
+        <li>Data is <strong>not encrypted at rest</strong> on Anthropic's servers</li>
+      </ul>
+
+      <h3>Telemetry controls</h3>
+      <table class="env-table">
+        <thead>
+          <tr>
+            <th>Environment Variable</th>
+            <th>What It Disables</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DISABLE_TELEMETRY=1</td>
+            <td>Statsig operational metrics</td>
+          </tr>
+          <tr>
+            <td>DISABLE_ERROR_REPORTING=1</td>
+            <td>Sentry error logging</td>
+          </tr>
+          <tr>
+            <td>DISABLE_FEEDBACK_COMMAND=1</td>
+            <td>The /feedback command</td>
+          </tr>
+          <tr>
+            <td>CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY=1</td>
+            <td>Session quality surveys</td>
+          </tr>
+          <tr>
+            <td>CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1</td>
+            <td>All of the above at once</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-red">
+        <div class="callout-label">Watch Out &mdash; /feedback</div>
+        <p>Using <code>/feedback</code> sends a copy of your <strong>full conversation history including code</strong> to Anthropic, retained for <strong>5 years</strong>. Avoid using it on sessions with sensitive content.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════ 4. SECRETS RISK ═══════════════ -->
+    <section class="section">
+      <div class="section-number">04</div>
+      <h2>Why Secrets Are Riskier in Claude Code</h2>
+      <p>Both interfaces store data server-side under the same retention rules. The difference is the attack surface.</p>
+
+      <div class="two-col">
+        <div class="card card-higher">
+          <h4>Claude Code &mdash; Higher Exposure</h4>
+          <ul>
+            <li><strong>Automatic file reading</strong> captures .env files, config, and hardcoded keys without you realizing</li>
+            <li><strong>Plaintext transcripts</strong> at <code>~/.claude/projects/</code> are readable by anyone on the machine</li>
+            <li><strong>Memory propagation</strong> can extract secrets from transcripts and inject them into future sessions</li>
+            <li><strong>/feedback</strong> sends full session (incl. secrets) &mdash; retained 5 years</li>
+          </ul>
+        </div>
+        <div class="card card-lower">
+          <h4>Claude.ai Chat &mdash; Lower Exposure</h4>
+          <ul>
+            <li><strong>Manual control</strong> &mdash; you decide exactly what enters the conversation</li>
+            <li><strong>No filesystem access</strong> &mdash; uploads are explicit and intentional</li>
+            <li><strong>No local transcripts</strong> &mdash; no plaintext session data on your machine</li>
+            <li><strong>Same server-side rules</strong> still apply &mdash; avoid sharing secrets regardless</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout callout-teal">
+        <div class="callout-label">Best Practice</div>
+        <p>Never share production secrets, API keys, or data under NDA in either interface. Use placeholder values or environment variable references instead.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════ 5. API PRIVACY ═══════════════ -->
+    <section class="section">
+      <div class="section-number">05</div>
+      <h2>The API Is the Strongest Privacy Option</h2>
+      <p>API access operates under <strong>Commercial Terms</strong> regardless of whether you pay personally or through an organization.</p>
+
+      <div class="card" style="border-top: 3px solid var(--color-teal); margin: 20px 0;">
+        <ul>
+          <li><strong>7-day retention</strong> vs. 30 days or 5 years on consumer plans</li>
+          <li><strong>Never used for training</strong> &mdash; no consumer data policy applies</li>
+          <li><strong>Claude Code inherits these protections</strong> when authenticated with an API key instead of a consumer login</li>
+          <li>This is the simplest privacy upgrade for anyone doing sensitive work without an enterprise contract</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══════════════ 6. WHAT ANTHROPIC COLLECTS ═══════════════ -->
+    <section class="section">
+      <div class="section-number">06</div>
+      <h2>What Anthropic Collects (All Plans)</h2>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Identity &amp; contact</td>
+            <td>Name, email, phone number</td>
+          </tr>
+          <tr>
+            <td>Payment</td>
+            <td>If you purchase a plan</td>
+          </tr>
+          <tr>
+            <td>Inputs &amp; outputs</td>
+            <td>Everything you type and Claude responds with</td>
+          </tr>
+          <tr>
+            <td>Feedback</td>
+            <td>Ratings and submitted feedback (full conversation stored)</td>
+          </tr>
+          <tr>
+            <td>Technical info</td>
+            <td>Device, OS, browser, IP address, usage patterns</td>
+          </tr>
+          <tr>
+            <td>Cookies</td>
+            <td>Service management and analytics</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Anthropic does not sell data for advertising. They may share with affiliates, service providers, and law enforcement when legally required.</p>
+    </section>
+
+    <!-- ═══════════════ 7. PROJECTS & MEMORY ═══════════════ -->
+    <section class="section">
+      <div class="section-number">07</div>
+      <h2>Claude Projects &amp; Memory</h2>
+      <p>Additional data surfaces beyond individual conversations:</p>
+
+      <ul>
+        <li><strong>Projects:</strong> Custom instructions and uploaded files are stored persistently for as long as the project exists, and are sent with every conversation in that project</li>
+        <li><strong>Memory (Claude.ai):</strong> Claude can store facts across conversations. This data persists until you manually clear it</li>
+        <li><strong>Claude Code memory:</strong> Local CLAUDE.md and memory files are read and sent to the server with each session</li>
+      </ul>
+
+      <div class="callout callout-amber">
+        <div class="callout-label">Note</div>
+        <p>Project files and memory contents are subject to the same retention rules as conversations for your account type. Review what's stored in your projects periodically.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════ 8. COMPLIANCE ═══════════════ -->
+    <section class="section">
+      <div class="section-number">08</div>
+      <h2>Compliance &amp; Certifications</h2>
+      <ul>
+        <li><strong>SOC 2 Type II:</strong> Anthropic holds SOC 2 Type II certification</li>
+        <li><strong>HIPAA:</strong> Business Associate Agreements (BAAs) available for Enterprise customers</li>
+        <li><strong>Data residency:</strong> Not currently offered &mdash; data is processed and stored in the US</li>
+        <li><strong>GDPR:</strong> Standard contractual clauses and DPA available for applicable customers</li>
+      </ul>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ═══════════════ CHECKLIST ═══════════════ -->
+    <section class="section">
+      <div class="section-number">Quick Reference</div>
+      <h2>Privacy Checklist</h2>
+
+      <ol class="checklist">
+        <li><strong>Check your training toggle.</strong> Claude.ai &rarr; Settings &rarr; Privacy &rarr; "Improve Claude for everyone." Turn it OFF if you don't want data used for training.</li>
+        <li><strong>Delete sensitive conversations</strong> when done. Deleted chats are purged within 30 days and never used for training.</li>
+        <li><strong>Use API access for sensitive work.</strong> Even a personal API key gives you 7-day retention and no-training guarantees.</li>
+        <li><strong>Never put production secrets in Claude Code.</strong> Use placeholders in config files. Clear local transcripts at <code>~/.claude/projects/</code> periodically.</li>
+        <li><strong>Push for commercial plans for business use.</strong> Pro is still consumer. Only Team, Enterprise, or API provides business-grade protections.</li>
+        <li><strong>Disable Claude Code telemetry</strong> if privacy matters. Set <code>CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1</code>.</li>
+        <li><strong>Audit for shadow AI.</strong> Check if team members are using personal Free/Pro accounts for work &mdash; their data may be subject to training and 5-year retention.</li>
+        <li><strong>Review Projects &amp; Memory.</strong> Periodically audit what's stored in Claude Projects and memory features.</li>
+      </ol>
+    </section>
+
+    <!-- ═══════════════ SOURCES ═══════════════ -->
+    <section class="section">
+      <div class="section-number">Sources</div>
+      <h2>Official References</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Document</th>
+            <th>URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Privacy Policy</td>
+            <td><a href="https://www.anthropic.com/privacy">anthropic.com/privacy</a></td>
+          </tr>
+          <tr>
+            <td>Consumer Terms</td>
+            <td><a href="https://www.anthropic.com/terms">anthropic.com/terms</a></td>
+          </tr>
+          <tr>
+            <td>Privacy Center</td>
+            <td><a href="https://privacy.claude.com">privacy.claude.com</a></td>
+          </tr>
+          <tr>
+            <td>Claude Code Data Usage</td>
+            <td><a href="https://code.claude.com/docs/en/data-usage">code.claude.com/docs/en/data-usage</a></td>
+          </tr>
+          <tr>
+            <td>Commercial Terms</td>
+            <td><a href="https://www.anthropic.com/legal/commercial-terms">anthropic.com/legal/commercial-terms</a></td>
+          </tr>
+          <tr>
+            <td>Trust Center</td>
+            <td><a href="https://trust.anthropic.com">trust.anthropic.com</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer class="footer">
+      <div class="footer-left">
+        Cohort Reference &mdash; May 2026<br>
+        Kith Climate Cohort Onboarding<br>
+        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1a787f745a71736e727b73767b7834797577">[email&#160;protected]</a> &nbsp;|&nbsp; kithclimate.com
+      </div>
+      <div class="footer-wordmark">kith<span>climate</span></div>
+    </footer>
+
+  </div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"bcbe19983cbb4ebdaf9d6bac83ff4c16","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

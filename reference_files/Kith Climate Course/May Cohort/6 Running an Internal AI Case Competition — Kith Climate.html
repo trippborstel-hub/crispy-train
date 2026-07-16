@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Running an Internal AI Case Competition — Kith Climate</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#1a1d21;color:#e8e6e3;line-height:1.65}
+    .page{max-width:820px;margin:0 auto;padding:56px 40px 80px}
+    .eyebrow{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#5B9A8B;margin-bottom:14px}
+    h1{font-size:36px;font-weight:600;letter-spacing:-.02em;line-height:1.15;margin-bottom:16px}
+    .lede{font-size:18px;font-weight:400;color:rgba(232,230,227,.65);margin-bottom:10px}
+    .divider{height:1px;background:rgba(232,230,227,.08);margin:44px 0}
+    h2{font-size:23px;font-weight:600;letter-spacing:-.01em;margin:40px 0 6px}
+    h2 .n{color:#5B9A8B;font-weight:600;margin-right:10px}
+    p{font-size:15px;color:rgba(232,230,227,.72);margin-bottom:14px}
+    ul{margin:0 0 16px 0;padding-left:22px}
+    li{font-size:15px;color:rgba(232,230,227,.72);margin-bottom:8px}
+    strong{color:rgba(232,230,227,.95);font-weight:600}
+    em{color:#6FB3A2;font-style:normal}
+    .footer{text-align:center;margin-top:56px;padding-top:28px;border-top:1px solid rgba(232,230,227,.06)}
+    .footer p{font-size:12px;color:rgba(232,230,227,.3)}
+    @media(max-width:640px){.page{padding:40px 22px 56px}h1{font-size:28px}}
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="eyebrow">Kith Climate · 6-Week Cohort · Week 6 resource</div>
+  <h1>Running an Internal AI Case Competition</h1>
+  <p class="lede">I (Ben) have managed the UK's largest Climate Consulting Case Competition, with nearly a thousand participants taking part at once, all with the help of AI. What follows draws on that experience, and specifically how it relates to managing internal or external teams as they work through a competition of their own.</p>
+
+  <div class="divider"></div>
+
+  <h2><span class="n">1</span>Framing the task</h2>
+  <p>Keep the task relatively simple from an AI-output perspective, so that every team can produce a credible answer. The skill is in the framing: build in nuance and room for teams to go into extra depth that isn't immediately obvious from the original brief, so the strongest teams have a way to distinguish themselves.</p>
+  <p>I'd recommend creating the task, the rating criteria and the submission system all within the same Claude Code context. They're tightly related, and building them together keeps them coherent.</p>
+
+  <h2><span class="n">2</span>Management</h2>
+  <p>For running it, I'd recommend using Supabase. Set up tables for the submissions, and you can embed Supabase authentication for login so that everyone has their own account.</p>
+  <p>Each participant logs in and gets their own space, or a shared team space if you want people working in teams, where they upload their work.</p>
+
+  <h2><span class="n">3</span>Feedback</h2>
+  <p>Feedback can be LLM-created, with the work analysed automatically through the Supabase system. That said, I do recommend keeping some personal touch to it rather than leaving it entirely to the model, which you can do by creating an admin view connected specifically to your own account login and writing feedback yourself.</p>
+  <p>You can also build in a live pitch element, where team members present their work. It makes the whole thing a little less two-dimensional.</p>
+
+  <h2><span class="n">4</span>Length of competition</h2>
+  <p>This can flex to what you're trying to produce. You can run it within a single sprint, almost like a hackathon, or stretch it over a few days for something more involved.</p>
+  <p>We ran ours over three weeks, which was relatively long, but we structured it in stages: teams submitted a first round of materials, and the strongest were then invited into subsequent rounds, slowly reducing the number of teams as we went.</p>
+
+  <div class="footer">
+    <p><strong style="color:rgba(232,230,227,.5)">Kith Climate</strong> &mdash; Part of Kith AI Lab</p>
+  </div>
+</div>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"bcbe19983cbb4ebdaf9d6bac83ff4c16","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

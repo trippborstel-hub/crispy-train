@@ -1,0 +1,423 @@
+Week 4 Class Notes 4.3.26
+
+Impromptu Zoom Meeting - April 03
+VIEW RECORDING: 
+Meeting Purpose
+
+Review weekly assignments and discuss AI-driven analysis techniques.
+
+Key Takeaways
+
+  - Human Steering Drives AI Output: The wide variety of demos from a single prompt proves that human intent and questioning are the primary drivers of AI-generated deliverables, not just the data or model.
+  - Embrace a "High-Agency" Stance: Treat the AI as a powerful assistant. Be assertive, question its logic, and demand explanations to refine outputs and prevent "AI indigestion" from overwhelming data.
+  - Structure Data for Efficiency: Use structured formats like Supabase or SQLite for deterministic data retrieval, which is faster and more reliable than parsing unstructured files like PDFs or PowerPoints.
+  - Manage Token Limits Strategically: To avoid rate limits, use lighter models (Sonnet, Haiku) for simpler tasks like API setup, reserving the powerful but token-heavy Opus for complex coding and analysis.
+
+Topics
+
+The Challenge of Token Limits
+
+  - Elijah's demo highlighted how Claude's token limits can hinder exploration of "wow factor" features (e.g., financial exposure quantification).
+  - Solution: Use lighter models (Sonnet, Haiku) for simpler tasks to conserve tokens.
+  - Insight: Elijah's prompt, "How can we really impress the client?", yielded a tiered list of advanced features, demonstrating the power of open-ended intent over micromanaging the AI.
+
+Building Dynamic, Client-Ready Systems
+
+  - Ashlyn's demo showed how to build a dynamic dashboard by having Claude integrate with Supabase.
+      - Result: A self-service system for Sarah to update data and add companies.
+      - Process: Claude used Playwright to set up the Supabase database.
+  - Key Finding: Claude generated "ESG dimension scores" from an unknown methodology.
+      - Action: Ashlyn questioned the AI, which revealed the source was a vague "ESG due diligence file" and then suggested a list of valid frameworks.
+      - Insight: This proves the need for constant skepticism and questioning to ensure methodological rigor.
+
+Structuring Data for Auditability & Accessibility
+
+  - Martin's demo focused on data quality and auditability, including:
+      - Clear flags for assumptions and proxies.
+      - A toggle to show Scope 3 emissions, which revealed they dwarfed Scopes 1 & 2.
+      - A detailed data inventory table with clickable links, created with significant prompting.
+  - Challenge: How to make AI outputs accessible for client use, like in quarterly reports?
+  - Solution: Use structured data formats (Supabase, SQLite) for deterministic retrieval. For human-friendly outputs, Claude can export data to Excel or CSV.
+
+Focusing on Strategic Risk & Client Priorities
+
+  - Jessica's demo focused on regulatory exposure and ROI for risk mitigation, showing a shift from inventory to strategic analysis.
+      - Method: Jessica created a personal Supabase account to gain read/write access, enabling a live, dynamic dashboard.
+  - Michaela's demo started with a comprehensive ESG risk scorecard, framed around Sarah's "four lenses" (Value Creation, Risk Mitigation, LP Positioning, Exit Readiness).
+      - Method: Used SQLite for more flexible ESG dimensions than the provided McKinsey framework.
+      - Insight: The "Cost of Inaction" analysis (e.g., $34M revenue at risk) was refined by asking Claude to pressure-test its own assumptions.
+
+Next Steps
+
+  - All Participants:
+      - For next week's initiative-focused assignment, frame deliverables around client impact and strategic recommendations.
+      - Practice a "high-agency" stance: question AI logic, demand explanations, and distill complex outputs into concise, actionable insights.
+
+Impromptu Zoom Meeting - April 03
+VIEW RECORDING - 89 mins (No highlights): 
+
+---
+
+0:15 - diego espinosa
+  Are you traveling? Or are you? You're muted.
+
+0:21 - Fer P.
+  Yeah, I am in the Poconos in Pennsylvania.
+
+0:25 - diego espinosa
+  Oh, cool. Nice.
+
+0:29 - Fer P.
+  Spring break.
+
+0:31 - diego espinosa
+  Never been to the Poconos. I've been in Pennsylvania, New York a lot, but had not gone to the area.
+
+0:37 - Fer P.
+  Well, you are welcome to come.
+
+0:39 - diego espinosa
+  Great. Thank you.
+
+0:43 - Martin Bernstein
+  We have a place to have a big house.
+
+0:46 - diego espinosa
+  That's good. Is it, spring must be really pretty than I imagine.
+
+0:51 - Fer P.
+  I think every season is pretty.
+
+0:53 - diego espinosa
+  Yeah. Yeah. Mexico City, this is the time of year where the jacarandas come out, and they're just beautiful everywhere.  So it's a nice time. Purple flowers everywhere.
+
+1:16 - Fer P.
+  And we have, right now, this is when the birds start coming out. So that's the only bad thing about that.  When you are walking, you know, you can miss it.
+
+1:30 - Jessica Thomas
+  City where you have the monarch butterflies swarm.
+
+1:37 - diego espinosa
+  Yeah, I haven't seen it in Mexico City. City, but Michoacán is kind of the center of it, and have not been, to be honest, like, it would be really cool to go.  Michoacán is a very agricultural area, and it has beautiful forests, is what I've heard. So, unfortunately, also a big area for cartel activities.
+
+2:03 - Elijah Theodore Forrester
+  And the home of Carnitas, if I'm not mistaken.
+
+2:06 - diego espinosa
+  Is that right? Okay. I just don't know. There's so many claims about the birthplace of different things here. Awesome.  Welcome, everybody. We had a good attendance at midweek, and so hopefully you got your questions answered and are ready to demo.  And I'm really interested to see kind of like the spectrum of solutions that people came up with this week, and that's, I mean, if they're all the same, that's fine, you know, but probably not, given the open-endedness of the assignment.  And so that's one reason why these demonstrations could be so valuable, because it's not a bad thing if people did, you know, different things.  It's an opportunity for us to kind of see the scope of what the deliverables could look like and learn from that.  So let's see what we have. Who wants to volunteer and go first. Everyone's rushing to be first in mind.
+
+3:10 - Elijah Theodore Forrester
+  I can go.
+
+3:11 - diego espinosa
+  All right, Ellie, thank you. Sure.
+
+3:14 - Elijah Theodore Forrester
+  So I'll share my screen.
+
+3:17 - diego espinosa
+  Yeah, I have to allow you. Go ahead. They changed the button to allow and said, no, you have to request it and then I can do it.
+
+3:23 - Elijah Theodore Forrester
+  All right, I'm sending a request.
+
+3:25 - diego espinosa
+  There you go.
+  SCREEN SHARING: Elijah started screen sharing - WATCH: https://fathom.video/calls/625250754?timestamp=221.526651
+
+3:49 - Elijah Theodore Forrester
+  Are you guys able to see that?
+
+3:51 - diego espinosa
+  Uh-huh.
+
+3:53 - Elijah Theodore Forrester
+  So this was actually kind of a slow building week. I found that I kept running into token limits, which sort of...  So awkwardly spread out my work. But that said, I was able to sort of get this into, I think, a decent client-facing spot.  Let me just open this up. So basically, I've got a couple of different tabs. And my outside of the role play analysis is that this is not exceeding client expectations, that I got this to where I felt like it was satisfying the prompt.  But when I pushed Claude Code to build what would be kind of like wow factors for the client, things like a financial exposure quantification or a year-over-year trajectory projections, decarbonization pathway, like I tried to get it to build some of these other tools that went slightly above the sort of prompting, I would either run into like okay performance or just token.  Limits, right? And then like, you know, like four hours go by and I'd be like off in another place.  So let me just quickly run you through it and then I'll pause. So this is the landing page. This is the portfolio overview where you're able to sort of see the scope one and two breakdowns by company.  Also a nice sort of emissions by sector, which allowed for a little bit of portfolio comparison. And then sort of emissions grading by portfolio company, which had a nice, this is a kind of a nice column where you can see what percentage of the portfolio.
+
+5:37 - diego espinosa
+  Are you able to see my cursor? Yeah.
+
+5:39 - Elijah Theodore Forrester
+  Okay. So there's that. There's an intensity analysis. I mean, I'm guessing we all have a version of this. This is part of the prompt.  This, I think also would be definitely good insight for a client to sort of see where the low hanging fruit lies.  And then actually my, I think my favorite. Part of this, as I went through it, was in the scope three flags.  Oh, no. Where is it? Data quality, maybe? Yeah. So this is what felt like the most interesting to me is actually these anomalies and flags by portfolio company.  Um, this is what, this is the only thing that really felt like wow factor or X factor was where it kind of gave me one or two little suggestions for each company of things that feel normal, feel solid, question marks, things to raise, um, things to sort of look into.  Um, and that was the type of thing that I was trying to build that went beyond the scope of the assignment, um, and this starts to get at that.  Um, yeah, I'll pause there for now, you know, there was, you know, this was sort of lightweight, like data quality summary, like I got some insight of how things are doing, but it was pretty high level.  Can I actually share my cloud code screen with you guys?
+
+7:08 - diego espinosa
+  There's one last thing I want to show. Sure.
+
+7:10 - Elijah Theodore Forrester
+  Let me see if I can pause out of this. Stop, share.
+
+7:20 - diego espinosa
+  And Ben, your Fathom is here, right?
+
+7:24 - ben hillier (Voiz)
+  Yes, my Fathom is here.
+  SCREEN SHARING: Elijah started screen sharing - WATCH: https://fathom.video/calls/625250754?timestamp=445.384249
+
+7:25 - diego espinosa
+  Okay, good.
+
+7:28 - Elijah Theodore Forrester
+  So this is actually kind of an interesting list of tools that it didn't have the tokens to build me, but I just wanted to show, like, if I was sort of in god mode with unlimited tokens, these are some of the things I'd love to build.  And it actually sort of separated it out into three different tiers of additional tools you could build when I prompted it to say, like, how could we really impress the client?  How can we go above and beyond? And some of these I felt. were potentially really useful, you know, if I was in the seat of the client.  So a couple options in tier one, which were good, you know, tier two, ways to sort of add some impact in depth, and then there was a section on sort of polish and interactivity, which was nice.  So I just thought this was a nice addition of color to what Claude could be building here.
+
+8:27 - diego espinosa
+  Interesting. Okay. And so one immediate suggestion I have is basically, because, you know, as I mentioned, there's been a lot of controversy, because last, I think it was last week, it was the Friday before that, that people began experiencing like an increase in, a decline in rate limits for Claude.  so effectively, it's kind of a way of raising prices. Because at first, they thought maybe it was a bug or something.  And then they looked into it. And then like, they came back and then it's like, no, it's not a bug.  And people are We're like, okay, you raised your prices. Why don't you just say so? So this is part of what we're going to have to be dealing with AI in the future.  I do think one thing that I would suggest, and obviously I probably should have mentioned this in the Discord, because you're basically learning how to produce things, of course we want the quality to be as high as possible, but one possible solution is to just downgrade yourself to Sonnet for some of this.  And even Haiku, like you'd be surprised how smart Haiku is sometimes. It turns up like barely any tokens. So, I mean, obviously if we're producing, I mean, I got used to, ever since I've been using Cloud Code, I've just been using Opus intensively and I've gotten used to how smart it is.  And of course I would miss it if I didn't use it all the time. But nevertheless, you know, there are constraints that we have to face.  So I would say in the future, for future assignments, if you're feeling like this kind of like rate limits preventing you from doing what you want to do, just try it out on Haiku, try it out.  Sonnet and see what happens, basically. What do you think about that, Eli?
+
+10:05 - Elijah Theodore Forrester
+  Yeah, I haven't gone down to Haiku, but I do toggle between Sonnet and Opus based on the ask. Like, if we're just sort of conversing and brainstorming, I'm not using Opus.  But when I give it, you know, real coding or building assignment, I will generally toggle into Opus.
+
+10:24 - diego espinosa
+  Okay, gotcha. And I noticed that you also had an interactive app, effectively. So what was that like, building that for you?
+
+10:36 - Elijah Theodore Forrester
+  That, that happened fairly quickly. I think the first iteration was 70% there. There was definitely a little bit of long tail of like, let's make it look good.  Let's make the functionality and aspect ratio a little bit more user friendly. Um, but the first major lift, um, I think a lot of the assignment needs were met.  And then... You know, I did kind of a once over, combed through what it produced and made some notes that said like, okay, great start.  This is where we need some work. You know, I definitely had to have it remind itself of like Kith brand guidelines, because the first draft looked a little fifth grade.  But only after one prompt of like, go find the brand guidelines, did it look completely slick after that.
+
+11:25 - diego espinosa
+  Nice. Nice. Terrific. Awesome. Great. So let's see. Thanks for going first.
+
+11:33 - ben hillier (Voiz)
+  Diego, a few questions came up in the chat. So Dylan was asking, did Claude come up with those additional kind of ideas?  Or how much guidance did you give to Claude previously? Kind of giving the context of these additional use cases that you would like to implement should you have the tokens for it?
+
+11:55 - Elijah Theodore Forrester
+  That was mostly Claude. Here, I'll paste in the the chat. The prompt that generated that stuff. And that's when it built that tier one through four list.  So I basically said like, okay, this looks good. We're meeting the requirements, but let's impress our client. What else can we be building?  So that's sort of what generated that.
+
+12:18 - Dylan Mayer
+  Okay, that's super helpful. Thank you.
+
+12:21 - Elijah Theodore Forrester
+  Yeah.
+
+12:21 - diego espinosa
+  Yeah, and I think that raises a really interesting dynamic that I kind of face all the time in the stuff that I build, which is this question of, of how much to specify.  And this is one reason why I don't believe in this kind of like concept of prompt engineering. And I think it's just like as a concept, I find it to be not flawed, but kind of like lacking, essentially.  So what happens with our prompts is that when, so we have to remember that basically this intelligence is able to use all human encoded patterns.  Except, obviously, we realize that there are some that are not going to be there. And it's able to reason over all of these encoded patterns in a way that's quite powerful.  So the models are really advanced, especially if we're using Opus. It's like, you know, the best thing I could say is basically like saying, asking a really smart person who knows almost everything an open-ended question.  And so what happens when we tighten up our prompts is that we can force it to look for different kinds of patterns, and that could be super useful.  But at the same time, at other times, we can over-specify at search. And when we over-specify at search, you know, the best metaphor I can think of is just like, you've got a really smart, young, talented person, and you micromanaged.  And they come back, and they give you something that you didn't really want, and they're like, but that's what you asked me for, right?  So I've actually had discussions. It's like this with Claude, where I've said, like, it doesn't seem like that smart, like that thing that you came up with.  And it'll say, but like in the reference document, this is the sentence that you said I needed to do until I did it.  And I was like, okay, yeah, it's my bad, you know. So I'm a believer in not over-specifying, like start broad and then get narrow.  Don't start narrow and then get broad because like then you won't kind of like fully utilize the intelligence. So I think, Eli, that prompt is a really good example of not over-specifying.  It's basically like you're expressing your intent, you want to please the client, you want to maybe surprise them in some way, and you're allowing all of that pattern search to occur on behalf of that intent to see, you know, what might be surprising that comes up.  So I think that's very useful to see that prompt, basically. Awesome. Okay, let's go to the next one. Once we see a few more, we'll really kind of accumulate.  a sense of, like, the differences between them, and we could have more discussion. Ashley?
+
+15:05 - ashlynanderson
+  Yeah, hi. Also, I was just, like, triggered by what you were saying about being micromanaged, because I feel like that's what's happening in my actual work life right now, so empathy for Claude.
+  SCREEN SHARING: Ashlynanderson started screen sharing - WATCH: https://fathom.video/calls/625250754?timestamp=927.115084  I wanted to share mine for kind of a specific reason. Let me just, okay. and yeah I definitely didn't have as much time to QC some of this but um I made like a change after the office hours um having to do with the Supabase and I really didn't know what Supabase was and so I just kind of went back to Claude and was asking about that and um the suggestion I got I tried to implement um and was really impressed what with what it was able to do um so I kind of want to  I if anybody else took this route or where it came from, but my dashboard has like fund level stuff, similar has kind of data quality information here, financial impact page.  Yeah, and then this is where you can kind of toggle between the individual companies. Um, but with the Supabase, uh, I was talking to Claude about it and it was like, well, everything's empty.  And so, and then I think Claude had kind of suggested like, do, do we want to like align the dashboard with, with the fields of the Supabase that way it can be this dynamic dashboard that, um, Sarah could like update on her own.  And so I was like, well, that sounds like a good idea so that this wouldn't be like hard coded.  Um, so I was able to do that. And I, I think I. Playwright to allow Claude to even go into Supabase and set everything up.  And I don't know how accurate it is. So that's what I wanted to ask about. But because I did that, it added in these ESG dimension scores that it used different information to provide rankings for.  And I guess these are the fields that McKinsey had specified. So yeah, that was the main reason I wanted to share.  I think most of the other stuff I have in here is probably pretty similar to what others put together.  I have like a regulatory exposure map that isn't really loading right now. And then a scope three materiality page.  And then this last tab that kind of looks at like portfolio lifecycle. So, yeah. Did anybody else do something like that or incorporate the Supabase into this?
+
+18:13 - diego espinosa
+  Well, I think we'll find out as people demo more, Ashlyn. But there's a lot here. So let's kind of like stay with it.  And first of all, I want to point out how quickly you can get jaded using AI. So it's like, the map is not loading.  Like, how could this be? You know, like, you know, when would we have ever created a map like that?  And so it's kind of like, it's got to work, you know. But so that's really interesting. It would have been really cool if it had.  But yeah, I'd love to kind of stay with some of the, to stay with it at a broad level.  So basically, maybe a good place to start, because there's, there's a lot here, Ashlyn is, is like, what do  What think the ramifications are for Sarah? If you were going to show this to her, you know, what's the thing that you would be kind of like highlighting or dwelling on?
+
+19:11 - ashlynanderson
+  Yeah. So, I mean, with this fund level page, this is what I was imagining that would be useful for like reporting to an LP where, you know, it's very kind of high level.  You have emissions by portfolio company, breakdown of sources. And then I felt like it was important to have this information like kind of easily available so that in her, you know, comments, she could kind of caveat things appropriately in terms of the data quality that was available.  So that was kind of what I was thinking for this page here. Yeah, the financial impact analysis, this was also kind of coming out of some of the.  We had an office hours and on Monday, in terms of like, what are the drivers for each company? So this revenue at risk is based on like Harvest Ridge has the customers that are requiring emissions data by 2027.  So it's set this as like high risk, $34 million at stake there, similar for Sterling and the requirements from their customers.  And so this kind of, you know, adds all of that up here. Energy spend, I, I'm, this is something I needed to kind of like ask a lot about because it has this identified savings opportunity.  Energy, but then when you go down here, there's an annual savings cost range that doesn't quite match. So I don't know exactly what this is based on, um, but I'm sure it has some kind of thoughts around that.  Um, yeah, uh, yeah, so, but this is the cost of the different reduction initiative, um, projects in the pipeline.  Um, yeah. And then I, you know, if, if she was, you know, wanting to do more of a deep dive or like have a conversation with a portfolio company, that's what this tab would be for.  Um, so you could, you know, select one of these. And I thought it was interesting. It added like these like escal, escal, escal, escal, sorry, escalation flags.  Um, so that, you know, right away she would know like, where there are issues, if she needs to follow up on some of the data quality concerns.  Um, yeah, with this included emissions, it pulled And the climate risk data. This is the autism clinic. So this, I thought that was interesting from a climate risk perspective about like behavioral outcomes being like, you know, something important for this company to keep in mind.  Yeah. So anyways, I do need to dig into like, I was starting to ask it, like, how did you decide to rate all of these issues?  And then, oh, and so I also was like, okay, can we just try to, if Sarah wanted to add an additional company to this, can we do that through Supabase?  And it did. So I added this like pretend Atlantic Rail company to the portfolio. And we don't have emissions data.  And it did flag that. But I was looking here, and I'm like, where did you get this? And I asked it.  And I was like, well, it's just dummy data, because we were just testing. And I was like, sure, okay, that's great, but maybe we should have known that, or like there should be some sort of warning sign there.  So, yeah.
+
+23:14 - diego espinosa
+  And then what about the, I'm interested in the scope three materiality and what was done there?
+
+23:23 - ashlynanderson
+  Yeah, so this was just like a scope three screening where I just kind of asked Claude to like look at these industries and flag the scope three categories that would likely be material for them.  So this is what it came up with and then included some, some rationale, you know, like, you know, pull number of employees for looking at things like employee commuting and, you know, purchase goods and services for the aerospace and defense.  So this would be if, um, think there was, it was just Harvest Ridge that actually had a Scope 3 inquiry, but if Scope 3 was going to become more of a requirement, this would be able to like guide her discussions with those companies about like why this is important and where they need to focus their efforts.
+
+24:20 - diego espinosa
+  Okay, very interesting. And overall, what was your, and then maybe the life cycle actions? Yep.
+
+24:29 - ashlynanderson
+  Yeah, yeah, yeah, into initiatives, which is basically next, but go ahead. Yeah. Yeah, so this was like, less about maybe the ESG maturity.  mean, did bring this, but more like, okay, what, what fund is this company a part of? When did that, when did they enter the fund?  How long is the holding period? Or how long has it been? And then assigned a status. So we know like Meridian is close to exit.  So you can kind of support that there. I don't know like how it came up with these status options because they're not necessarily standardized.  It feels kind of like a custom label that it created, like above plan, below plan, you know, I guess like on track.
+
+25:21 - Martin Bernstein
+  I think that came from the provided data. okay. Cool.
+
+25:26 - ashlynanderson
+  Yeah, that's in part of the financial, basically, analysis of the whole thing. Okay.
+
+25:32 - diego espinosa
+  Yeah.
+
+25:34 - ashlynanderson
+  Yeah. And then initiative pipeline.
+
+25:37 - diego espinosa
+  Amazing. Okay, great. So overall, Ashlyn, what, you know, takeaways from you?
+
+25:43 - ashlynanderson
+  I do feel like things really clicked for me this week. I mean, I can tell there's like wrinkles here that I would need to sort out.  But I, I was really excited about the Supabase thing. first thing. Maybe. I would have never had that idea, and I still don't know exactly how that would work.  But as I'm thinking about, like, in my job, how would I start to introduce this into engagements? Kind of having some, like, ability to think creatively with Claude about ways to do that, I felt really empowered by that.
+
+26:24 - diego espinosa
+  Fantastic. And then what about timing? Like, how many hours would you say, not including waiting time for your next session to be freed up to produce this?
+
+26:38 - ashlynanderson
+  It was probably, yeah, like, five or six hours. I had, like, I somehow lost all my work because I upgraded my plan and, like, something didn't, something, I don't know what happened, but I couldn't find the session at all that I had been working in, and I hadn't actually.  I haven't any asset yet, so I had to start over, so I lost a little bit of time that way.
+
+27:10 - diego espinosa
+  And I see that you created an app too, so how did that happen?
+
+27:15 - ashlynanderson
+  I kind of went into that, following our sessions last week, I was like, yeah, that seems like the direction we need to go in.  So I explicitly told it to, that's how I wanted this to be displayed.
+
+27:27 - diego espinosa
+  Gotcha. Okay, so Tripp basically like unveiled the, the app function for everybody.
+
+27:33 - ashlynanderson
+  Yeah.
+
+27:33 - diego espinosa
+  So that, that's pretty cool. Questions for Ashlyn, does anyone else have comments or questions, thoughts? All feedback is good feedback.
+
+27:48 - Elijah Theodore Forrester
+  I just have one comment. I thought it was very cool that you added a new company, and I think that that really gets at the heart of not just producing a delivery.  Kind of like the old school consultant thing we've talked about where it's like, here's your info, good luck out there, that is starting to chip away at what is a lasting system, what is something that a client can take and use and build and continue to gather new insights from, and yeah, just a nice little nugget of inspiration as we continue to build.  So, good stuff.
+
+28:24 - diego espinosa
+  Yeah, definitely. Other comments?
+
+28:31 - Nil Sensu
+  I was also mentioning it in the comments, like in the chat, but like this question that you had about the ESG dimensions, like, I don't know where this is coming from.  I also was like puzzled about this, and I questioned Claude about like, where is this coming from? And it's just, it was referencing to a ESG due diligence file that's coming from the folder, and then was saying like, it's not actually so valid.  So, here is the list. Of ESG frameworks that are valid. So then it started importing these and then just integrated this into the work.
+
+29:08 - diego espinosa
+  So it requires some sort of QA in that sense. Interesting. And I think with something like this, so we encountered this a lot because we as a firm have designed a lot of software that evaluate or agents that evaluate things.  And like, you know, we've actually created a lot of training software for AI skills. And in that, we have an evaluator agent that evaluates how someone did in producing an output using AI.  And it's one of those things where it's like, well, how the heck did it come up with that? Right.  And it's able to give us a scorecard if we ask for it. I think that I would say two things.  One is that. I think AI is pretty good at evaluating stuff, but recognize that a lot of that is going to come from its training data, and to varying degrees it will be self-aware of it, right?  So sometimes what happens is, again, it's using its inference over a vast amount of data, and it's coming up with something that it thinks it's valid and presenting it to you, and you're basically like, okay, but this is very subjective, right?  And so then we could say, oh, but did you use a methodology, right? And so I'm not saying this is good or bad, I'm just saying, like, this is what is.  What happens when you say, did you use a methodology, is it'll go for, look for that pattern, and now it's using a known pattern.  But what you don't know is, what did you lose by going away from its subjective training data? And this is very similar to people, right?  So as people... Especially those of us who have been around a little while. We like to think, oh, you know, we've seen a lot of things, you know, we can come up like we are subjective judgment is worth something.  And you can think this when you're, you know, 21 too. So our subjective judgment is worth something. Don't put me in a box.  Don't force me to use like some methodology that someone else came up with, just because it's like cited so many times.  Like, I think I can do better than that. And so like, that's a little bit of the dynamic that's, that's going on when we have like evaluative activity by, by an agent or by an LLM.  Martin, did you have a question about that? Or were you just waiting to present?
+
+31:44 - Martin Bernstein
+  I'm happy to go next if you're looking for someone.
+
+31:47 - diego espinosa
+  No, I, okay. I just wanted to know if anyone had questions or comments about that, about like this specific thing, because it's going to come up a lot.  Like for instance, in an ESG scorecard, where it's essentially having a spectrum between one and. 5 of risk. And so, but let's think about it.  How do we come up with a spectrum like that? I mean, we could come up with a methodology, but someone came up with that methodology.  And maybe once upon a time, that was fairly subjective. Oh, but it was a committee that did it. Oh, okay.  Still subjective. Okay. So standards don't necessarily improve what we do, in my opinion. What they do is just make it more comparable.  So what we gain from using a methodology is we could say like, oh, use that. Okay. Use this. That's what a four means this.  But then even though we have the same methodology, there's like wide latitude. So is a four really the same across applications of the methodology?  I kind of doubt it. I kind of doubt it. So I think a lot of rigor and this is not, this, this, this doesn't just pertain to climate and sustainability.  It, it occurs in a wide variety of verticals. I am very suspicious of. Rigger being imposed on a subjective process.  Very suspicious of it. Because I look at it from a first principles kind of like data perspective. What is really going on here?  Where is this value? Like, what is the real source of this evaluation? And if there's like giant loopholes around it, every time we do it, the amount of comparability that we buy ourselves by by putting in methodologies is relatively low.  And we could put at risk the judgment that's available. to people that's inherently subjective. So everyone can tip a different way.  My, my, my way is basically like, I want to use my judgment. That's what people are paying me for, you know, but everyone's got like a different approach.  Okay. But I do think, I do think that when we tear apart a lot of what happens in disclosure and reporting and climate and sustainability, in my opinion.  We may not be very happy with what we find as a result of that process. Just putting it up.  That's why when I ask Claude to come up with something, I'm like, hmm, okay, let's check it out. Like, what is it really saying?  Like, do I agree with these assessments? What I have put it to on that. Does this make sense from the standpoint of, like, what vertical this is in?  I would want to know, like, is this above average or below average from, like, a normalized footprint for this kind of company?  There's a lot of questions that I would have following up. And the thing is, I can ask unlimited questions.  Well, except for the tokens. So I can get, like, more and more at the truth of things without necessarily relying on the subjective methodology that a committee came up with.  So does anyone push back? Like, you can have, you know, there could be a pushback to that people feel differently.  But what do you want?
+
+34:58 - Nil Sensu
+  I think that's tricky. The is, like, when Claude is coming up with an outcome, it is presenting it in such a wholesome way, sometimes I do not even think about questioning it.  It's looking so beautiful, so perfect. And then I'm like, wait a minute, like, I need to always remind myself to ask this question, what is behind it?  And now when it comes up with the answer, like, oh, there was this fun file I found. It's a little bit confusing, and it's just damaging my confidence to the thing, like, as if, like, losing control of it.  This is the part that I'm always have to remind myself, like, always ask the question, why, what's behind it?
+
+35:37 - diego espinosa
+  Yeah, and I think that's great practice. So, you know, to be skeptical of the AI is definitely, just as we should be skeptical of experts.
+
+35:47 - Martin Bernstein
+  On that idea of being skeptical of it and questioning Claude, all these sessions are like, the sessions we put together here are, this is my session, right?  I'm the only one who sees it, right? Can you have... I don't know how to put this, Claude sessions that are available to multiple people, because sometimes it would be really useful to have someone else question Claude about what it just did for me, because I know what went behind it, I know what my thinking was, and I think, and I generally think in a similar way, having someone else come in and query Claude and ask it questions about, how did you do this?  Because it wouldn't have occurred to me, because I asked it to do it, right? It's kind of like why you have editors, right?  So, I mean, you know, having that sort of interactive, you know, multi-person Claude session would seem like a really useful thing, but I don't see any way to do that.
+
+36:42 - diego espinosa
+  They do have that available on team plans. We've actually never used it, to my knowledge, Ben, have we?
+
+36:47 - ben hillier (Voiz)
+  No, we don't use it in that exact respect. However, what I think this brings to the point of, and actually, it's a thread on about three of the conversations we've had.  Is just the focus on reference files, and the fact... that these reference files should govern the processes you have within your organization.  So if you were to build, you've completed this week's deliverable, that should be to some degree encoded in reference files within this corporate environment.  And the reference files is really where you would ask a colleague to attack us. And Nil, when you're talking about bringing in these external processes, that's going to be the reference file you mentioned regarding ESG ratings, that's where they're going to be brought into.  So the idea of, you may not be able to do it in a session, in like a conversation session that you have marked in, but if you were to kind of codify the process you and Claude collaboratively created, a colleague can then go in and say, oh, can you have a look at my carbon dashboard reference doc to see how the processes work and to see the kind of processes that Claude has created and come back to me with what you find and what you debate with.  And that would be kind of a big theme in terms of this, the importance of reference files when you're, any process you do within this program, you can turn into a reference file so that when you go to produce it again, you can say, okay, check the reference file for carbon calculations or ESG risk metrics or any of these processes, and then utilize the methodology on this new data set.
+
+38:27 - diego espinosa
+  Yeah, that's a great point, because remember that standing behind Cloud Code is basically Ridgepoint, your version of Ridgepoint and your own folder.  And so you can put anything there, and then if you were to share that on SharePoint, other people could see it and modify it as needed, basically.  So that's part of the architecture. So let's go on. Thank you, Ashton. That was really awesome. A lot of dimensionality to what you produce.  So Martin, you're next.
+
+38:57 - Martin Bernstein
+  All right, let me try to do the share screen. I'm going to do a window. Sorry, I'm trying to find, not used to.
+  SCREEN SHARING: Martin started screen sharing - WATCH: https://fathom.video/calls/625250754?timestamp=2354.03998  Ah, okay. Share. Okay. Is that being shared to everybody? No, sorry, that, you can see the share?
+
+39:33 - ben hillier (Voiz)
+  Okay. Okay.
+
+39:43 - Martin Bernstein
+  It's not, sorry, this is my first time using Zoom on this particular computer. Do you see, is the share, and I don't get to see it, is the share ESG and Climate Risk Assessment, Northwood Capital?
+
+40:00 - Nil Sensu
+  It is Northwood Capital GHG, Greenhouse Gas Inventory, the title.
+
+40:05 - Martin Bernstein
+  Okay. Oh, GHG Inventory? Okay, great. All righty. So, one, this was actually just redone earlier today because I finally got to look at the new ask.  I'd done an earlier version just using, you know, while on a train coming back from Boston. So, anyway, so I started with a portfolio overview and, you know, usual thing, a bunch of different tabs where you can select between different types of data.  But the portfolio overview, slightly different take. There isn't a table which I, in hindsight, I think would have been a great idea.  But one of the things I wanted to do here was bring in, up to the top, you know, some indication of, you know, where correction.  Questions or proxies and such were there, right? So people could very easily see, you know, where we made, where things were not strictly from the data, right?  And where we made sort of assumptions and the like, followed by some, you know, fund one and fund two highlights.  I actually went a little further and actually did scope three estimates, which were kind of crazy. And then we finally get sort of the intercompany comparisons down below with these stacked bar charts, horizontal bar charts.  The other thing I did was allow it to say, hey, well, what if you wanted to see what portion of it was scope three?  So I actually have a little, you know, a little toggle here. And in hindsight, this looks absolutely ridiculous because scope three dwarfs everything so much.  It's all but meaningless. Okay. And then also the comparison on the two different forms of carbon intensity, all interesting stuff.  And the color coding shows you which which particular fund it's in. So that's to start with. And then for company detail.  Yeah, I wanted to make it so it was just selectable within the company, and this is where it starts to bring in the grading, right?  Interestingly, Claude has been very good at where I found there were issues adjusting them. So, for instance, in an earlier iteration of this, if I was, say, in Ridgeline, and I had scrolled down a ways, and then I went to another company, it would then sort of put me in that other company in the middle of the scroll instead of always going up to the top.  Asked it to change that, it did it immediately. So it's very good at making changes, which I really appreciated that.  Let's see. Yeah, for this, you know, fairly straightforward. How it was organized is maybe a little bit different. The scope one, there's a lot of, you know, a lot more sort of the detail on the scope one and where it's coming from is, you know, right up at the top here.  And scope two did that all sort of geographically. Based on the region it's in, you know, interestingly, Todd had no issue using really obscure acronyms all over the place, which I found really aggravating because I'm what I call acronym challenged, but it got the joke and stopped using them for me.  And then this nice, you know, the nice.
+
+43:24 - diego espinosa
+  I want to say maybe it got the sense that sustainability has a lot of acronyms and so it should do that.
+
+43:30 - Martin Bernstein
+  Just, yeah, it is possible there are too many acronyms in sustainability, but I'm in finance where there's just as many.  Yep. And one of the things I just wanted to highlight, like on Ridgeline, I asked it to sort of put in, you know, you know, blue boxes where there were particular, you know, and particularly important assumptions, right?  So like in this was the operational control boundary, right? That this only is the facilities under their operational control.  So it doesn't have things that they do. Don't have the control over, right, which is one of the things that gets flagged for data quality and data priorities is that, you know, or this is one of the big question marks in this, right, which is how do you draw lines around where, you know, around the data.  I thought that was particularly important. Next, you know, data quality, yet more different forms of tables and how they're presented.  Sometimes I wonder if it's too many of these, right, and they should standardize on more uniform sets of tables.  I didn't know what to come down on this one, so I just let it do its thing. In the end, it's, you know, in the end, I would imagine having sort of a style sheet, as you guys mentioned, as we discussed last week here.  But with the data quality, I thought it did a pretty good job of outlining this and, you know, helping understand how it broke it down, you know.  Two-thirds of them were grade A. A. I thought that was kind of cool. I don't know. I don't know how reasonable that is or other people came to similar conclusions.  And then a lot of facility level breakdown of where there are issues, right? didn't list all the anomalies, right?  List all the corrections applied to make sure, you know, again, data is important. And if you're going to change data and make corrections, you know, they should be easy to see where this happened and where things were, you know,-based estimates as opposed to other types.  So, and those all got grade C, mentioned one excluded facility. And finally, the data priorities, you know, where we, where, where it would be useful to have more of them.  And one thing that was interesting is Claude would come up with rankings for things and it wasn't always obvious why it came up with the rankings, right?  And, you know, and in fact, in back there was. It had a methodology for doing it, but it didn't bother to let you know what the methodology was, right?  So, you know, actually had it discuss the methodology up at the top. It seemed like an important thing to do.  then finally, on scope three, as I said, I went into a little more, did the analysis on the scope three and asked it to give some kind of error bars about how uncertain this was and, you what the assumptions were based on, you know, at those different levels, right?  Where was the uncertainty coming from? So, there's just so many ways to parse this data and not being in, you know, I didn't necessarily know how to prioritize or how shall I put it, how to assess which were the better ways of presenting this.  So, at some point, I said, okay, so... Let it, you know, this looks good enough to me. But one question I did have about all of this, and putting together this nice, very readable reports, I think, right?  But the problem is these exist in an HTML, right? So imagine that based on this analysis, Susan, I think it was Susan, would want to start including some of this in, say, quarterly reports or something like that.  That's going to go out to LPs, right? What's, you know, should we have a method for her to get this data in a way that's easy for her to do, where she could either grab the charts that we have already, right, if she likes the format of them, or where the data is in some nice machine-readable form, where it would be easy for her to grab it and put it into her, you know, their own, their sort of Northwood standard data, you know, table formats to put into reports, right, that go out to LPs.  And, and, yeah, that seemed like something I would do as a... Next step in this, right, is to have sort of some sort of data output functionality for her to do.  I just want to highlight one other thing, just because I thought it was a cool format that Claude came up with, and this was on the data inventory.  It did a really good table and had great toggles up, you know, the fund level data, the portfolio level data, the sell the data items, and then had this bit where the judge for each of the portfolio companies, how good it was and had flags, and you could even click on it and it would go down and link to other things.  This was, this took some prompting to get to it, but man, Claude's really good at putting these things together.  This impressed me, right, that we could do this, and this was, you know, and relatively expeditiously. I don't know how many of these kind of formats or things that, I don't know how put it, Claude has sort of a library.  Of presentation formats to do, or if it's like coming up on the sort of on the fly as you ask it to do it, no idea.  But regardless, it does a pretty good job. So I'm going to stop there.
+
+49:15 - diego espinosa
+  Martin, that last one, if somebody hand me that and I was the manager, would be like, it seems like you really enjoyed yourself doing this.  Is that right? You know, because it just has like that flavor of it, like they just went down a rabbit hole and, you know.
+
+49:31 - Martin Bernstein
+  Yeah, I've spent a lot of time in roles where organizing data was really important and, you know, coming up with interesting reporting formats.  Anyway, I was a research strategist at the bank. So, you know, anyway, back to the actual greenhouse gas inventory.  Sorry. I also, I haven't really had a chance to carry it much, did this sort of a, hey, what's the opportunity here thing?  And I just got that out before this started. So I haven't really looked at it very closely yet. One thing that was interesting for one of the sort of opportunities and things to look at, the second ranked one had to do with replacing like a boiler in one of the facilities that was getting old.  I love that, like of all this stuff, it highlighted a boiler.
+
+50:14 - diego espinosa
+  Yeah, that's really funny. I just want to say one thing you brought up a really interesting and important point, Martin, which is that so there's different levels of determinism in structuring data and calling it.  Like, let me give you, for instance, if something's in PowerPoint, it'll go and find it, but it's got to go through a lot of formatting information, a lot of stuff that's in that PowerPoint that's just kind of like, it's wading through it and trying to find the right information.  It's also burning up a lot of tokens when it does that. If it's in markdown files, it's like that.  It's just because there's no overhead to the search. It's just basically like, these are very small files, like in the kilobytes.  kilobytes, Thank And it just goes and basically goes like, what's in there? I found it, blah, blah, blah. And then there's script that it can write to put it in Supabase or something like, or even a CSV file.  And then it could actually write a program to retrieve it. And that program will run the same way every single time.  So it's completely deterministic. As long as that program has been written right and the information is in the database, it's as if we were just coding up a database thing and it's going to be right, hopefully 100% of the time, unless there's some bug in there.  So to your point, Martin, like should the output of this stuff reside in a database, should be in markdown files, should be in like the presentations or this HTML that it will be handed to the client?  I think these are also questions that can be asked of Claude Cote. You could say, if I wanted to retrieve this information, how would you suggest it?  would be like, oh, you should do this. And then you could say, oh, well, what degree of accuracy would that have versus some other mode?  And depending on that, you could try to get it to suggest, you know, which one of these things would be useful.  So just so you know, in another use case, I built a database to ingest financial data. And because the financial data from the source has to be right, there has to be like what they call a single source of truth.  Like it's got to be right. But then it takes the financial data and it produces financial models. And those financial models should be right too.  But do those need to go back in a database, the results of those? Or can those be like in Markdown files or in CSV files?  So these are conversations that I'm having with Cloud Code all the time about like this question that you're asking, Martin.  Just remember that Cloud Code is capable of writing deterministic code to do anything you want it. So if you want to have something.  Martin It will basically create a data store and write the code that calls that data store, and it'll write the code that manipulates that data in formulas, and it'll do it exactly the same way every single time, like it's capable of doing that, just like an IT department, just like a developer is capable of doing that.  So I just wanted to kind of throw that out there.
+
+53:23 - Martin Bernstein
+  Martin, any thoughts on that as you as you think about it? Martin Yeah, I mean, in banking, a huge amount of what is done is sort of shared via Excel, right?  Everyone can open it, it's easy to turn into graphs, right, and then go into PowerPoint, which makes that kind of, for me, kind of the default, right?  And I can well imagine taking this and saying, okay, Claude, for each of the different sort of data units, sort of like presentation units here, right?  Martin Bernstein, Jr.: Turn it into an Excel file that has has Martin You know, either the underlying data, right?  You know, that has the underlying data, and then has the sort of the data, the displayed data, and then something that has the underlying data there, right?  And that being something that anyone would then be able to take and use, right? To some extent, it would be maybe harder for Claude to use that later on, right?  But for people, that's probably the most useful thing, right? Because like I said, it's, Excel has an advantage of having, you can have very, it can be very structured, and it's very visible what you can do, right?  I don't know how Claude, well, Claude does with links, right? But, you know, when I get huge financial models, one of the important things I can do in it is, in Excel, I can go and follow the links to understand where things are coming, right?  I don't have to sort of trust that I can follow it. So there's, in terms of being able to audit the data, super handy.  Right, but again, not as probably useful. Probably not as useful for Claude, right? And there's no particular reason why you can't do both, I suppose, because I would imagine creating like an SQL data, you know, data structure for Claude is fairly quick and easy.
+
+55:13 - diego espinosa
+  Yeah, it is. You can do both. And I think that maybe is one of the ways that we'll go in the future because people do love their Excel.  So awesome. Thank you, Martin. Who wants to go next? We'd love to have other people volunteer.
+
+55:34 - Jessica Thomas
+  I could go.
+
+55:35 - diego espinosa
+  Awesome.
+
+55:37 - Jessica Thomas
+  I have a little bit of a unique situation. I have a deliberable that I kind of got to with Superbase around like step three of the instructions.  But then as I got closer to steps four and five, I realized that I really wanted to show. and right?  So, I Kind of one deliverable cohesively, and I kept, and I think this goes back to what you were just saying, Diego, that I should have kind of like batched my data so that I could reference it very quickly because I just kept running out of tokens, and so I don't have the final deliverable that I'd really like to show off.  I just have this kind of like, okay, this is what I have. It's in Supabase. It could be referenced.  Northwood could look at it at, you know, it's live, so they could look at it at any point and have live data.  So I'll show you what I have. I wish it was better. Okay, share. So here is my dashboard, and it's really kind of focused on regulatory exposure for Portco.
+  SCREEN SHARING: Jessica started screen sharing - WATCH: https://fathom.video/calls/625250754?timestamp=3421.291357  So really, yeah, it created this framework for ranking and really kind of where Sarah needs to focus her attention most at first glance.  I thought it was pretty, pretty helpful in understanding risk and climate risk. But again, when I went in and, and then I asked it, once I had this to incorporate, like, well, what if there were risk mitigation initiatives that were taken, undertaken?  And what kind of value could she be gaining out of these corpos if she was looking to do some investing?  And that was pretty interesting. So kind of down here between $50 or $50k a ton versus $100k a ton, how if there were some investments, what the ROI would be for investing in these corpos, which I thought was kind of interesting.  And then a matrix on what attention should be given to these risk mitigation scenarios. So that's all I've gotten right now.  I would love to have kind of like another dimension based on the one through five deliverables. of adhering into this very kind of like concise dashboard.
+
+59:08 - diego espinosa
+  And Jessica, so it's interesting because I think the ones we've seen so far, they've all been different, right? So I guess my prediction or my hope was that it's coming true, which is that even though you're all using the same platform, there's enough latitude between you and its collaboration with it that it's going to produce a different thing.  And I consider that a good thing. so I wonder, even though we're not seeing the totality, what I see is that there's a lot of emphasis here on kind of like, I would say like a higher level plane, which is not so much kind of like, let's dive into where the emissions came from and these kinds of things, but more, okay, there's regulatory risk here, and we're starting to go into next week's, which is basically like, what are we going to do about it?  And so Jessica, was that you? Was that Like, did you do that? Like, why, how did you end up in that, in that higher level abstraction?
+
+1:00:06 - Jessica Thomas
+  You know, I think this was because I jumped straight into Cloud Code after our Wednesday meeting. And so it was front of mind to be like, hey, think about how we're going to explain this to Sarah and how we're going to provide value to Northwood, who's not really a sustainability professional.  How are we going to frame this for her? And that really kind of, and then, you know, there had been mention, I'm sure it was you who kept saying, think about risk and how that could be, you know, financial risk for this scenario.  So I think that was probably why it was top of mind. I think I had sort of indicated to Claude that that this was probably a desired outcome.  And then I did, I had reached out to Ben just to kind of clarify. I'm like, hey, it's proposing to populate Supabase that's currently empty.  Should I create a new account and populate it with all this new data that I have and make it a system for Sarah, which seemed like the right idea, but I didn't want to kind of like go off on a tangent.  And so he verified that like that would be a really good idea, which I found to be very Claude-esque, like just to validate me at every point and say, yes, keep going.  So that's how I got to this point. And I was pretty, pretty happy about that. I really liked the idea that it's a live data and that it just will continue to be live for her and provide that kind of system deliverable eventually.  And I can just send her the email. The URL, and she'll have access to it, but I did want to take it to the next level and provide a bit more information.
+
+1:02:09 - diego espinosa
+  Ben, I forget, is Superbase free to a certain level?
+
+1:02:12 - ben hillier (Voiz)
+  How does it work? Ben, it was actually an exciting step for the cohort. kind of hoping that somebody would do this, which is effectively in the Superbase where you've given you all access to.  You have access to all of the data, but you don't have direct write or editing privileges, and this is kind of relatively normal for the organizational data access.  However, what Jessica has done is taken basically the data you have access to on a read access permissioning and then put it into a new Superbase that is a personal account that she does have read and write access to.  So you do get free account with Superbase where you get one project and a certain amount of compute, and realistically, you're not going to, you're not going to.  It exceed the compute level on the free access points, and it should be able to give you, I mean, a lot of flexibility.  There's further flexibility that I can talk about, you know, later in the program if people are using Superbase very heavily, but it's just, I think it shows the power of code in that even when there's one source of data being the Superbase and obviously the other source of data being the Excel, the Excel documents with the carbon data, if you plug in your own Superbase accounts or another data set, it can work across the two of them completely seamlessly.  And if you wanted to have data come from one of these Superbases and go to the other, it's a very easy thing to do.  So very happy, Jessica, that you were kind of able to push through and get to that place. And indeed, it'd be something I would recommend for other people should they want to have more kind of edits and write access within the Superbase context.
+
+1:03:59 - diego espinosa
+  I will... will... will... We'll see that up in the following weeks as well. So Jessica, did you have to go get an API for the, or did you use an MCP to connect to the Superbase?
+
+1:04:08 - Jessica Thomas
+  I definitely asked Cloud Code a lot of questions about this. Like, how do I do this? I can't do that.  Can you do it for me? Like, and kind of went back and forth pretty consistently. Thus, running out of tokens.  Pretty much every hour, I would have to, like, then take a three to four hour break and come back and say, okay, let's begin again.
+
+1:04:36 - diego espinosa
+  Yeah, and that's frustrating. I think that's probably something that could be done in Haiku. It's relatively simple. You need to get access to this API key.  You need to tell me how to do that. There's not a lot of planning and things like that that might be involved.  So that's a good use case for Haiku, I think. And so I think, basically, again, like this notion that you can say.  up a database and actually set up the code that helps query and change that database is a new thing.  Like non-technical people have not been able to do that in the past. That's why we use Excel, you know, because the data is in the cells and we can go find them and it's accessible to us.  So this is a great example of basically, you know, opening that up with the help of Cloud. And Jessica, put your finger on it, which is a lot of times Cloud will be like, you need to go do this.
+
+1:05:28 - Jessica Thomas
+  And I'll be like, well, why do I have to do no, no, no.
+
+1:05:33 - diego espinosa
+  Exactly. Like, can do it, you know, and I do that a lot in my conversations with Cloud. So it's good to see that you're doing it as well, Jessica.
+
+1:05:41 - Jessica Thomas
+  I'm very familiar with Watershed, which is kind of the same principles. And so the idea that I could provide that sort of insight with live data was really appealing.
+
+1:05:54 - diego espinosa
+  Yeah, for sure. Awesome. Thank you, Jessica. Even though we didn't see all of it, I think it's a really good difference.  So between this one and the rest of them. Michaela, you're next.
+  SCREEN SHARING: Michaela started screen sharing - WATCH: https://fathom.video/calls/625250754?timestamp=3974.738247
+
+1:06:05 - Michaela Hepburn
+  right. Let's see if I can. Let's see if I'm sharing the right one. Can everybody see?
+
+1:06:20 - diego espinosa
+  Yes.
+
+1:06:21 - Michaela Hepburn
+  All right. Jessica, I'm actually glad that you went before me because I took somewhat of a similar approach from the perspective of it really resonated with me that Diego was talking about.  Yes, the core deliverables include the carbon dashboard conducting the inventory, but let's take a step back and see if it's advantageous to start with a comprehensive ESG risk analysis.  So that's where I started. And I'll just caveat all of this with, I'm going to try my best to give a synopsis of what I did.  But I also feel at the same time that so much was done, my brain is having a hard time grasping everything that I did and how to articulate it in a cohesive fashion.  So bear with me and also try not to do this late at night as well, because your brain gets very tired.  So I'll start with, yes, I started with the risk scorecard. I thought that was that was helpful for me.  I discussed it with Claude, and we aligned that we should start with it just to get a holistic sense of where the risk was concentrated and if that would influence at all the approach that we took with the inventory.  So there are a couple of tabs that I have within the scorecard. One is this this overview and and like Jessica as well, when I approached the scorecard, I really teed it up for Claude to think about what is most important to Sarah.  So the. The concept of the ROI, the cost of inaction, the cost of action, and the initial, I have a tab here called four lenses that I'll get into, but the four lenses in which she views this information and what is a priority to her.  So we have this overview. Then I built out a heat map for each of the companies across the different ESG dimensions.  I think I mentioned in the chat, at first I was going to leverage the empty database and Supabase, but I didn't like that McKinsey had the way that it was structured.  I felt like the number of dimensions was too constraining. So Claude, and this sounds malicious, but Claude was trying to hack into the data, the Supabase and get its right access, not really hack, but then I told it no.  We have to, we have to find an alternative. So that's when it recommended using SQLite and then it could be migrated into the Supabase later.
+
+1:09:08 - diego espinosa
+  So based off of. And I'm going to interrupt you just for a second, Michaela. So SQLite can be put in Markdown files, just so you know, it's kind of between a Supabase and a Markdown.  It's a more structured Markdown so that it can go and find it in the same way. Okay. Go ahead, Michaela.
+
+1:09:26 - Michaela Hepburn
+  Sorry. That's helpful to know. Thank you. So use that. So I had a bit more flexibility and then asked, ask Claude to help me generate what the different ESG dimensions should be looking at what would be most fit for purpose for Northwood as well.  What is aligned, do a gap analysis against the likely dimensions that the LPs are asking for reporting purposes. So to make sure that, that when they had to go to LP reporting, they weren't having to.  Restructure everything. So heat map version of the issues with more due diligence, more information as you hover over the dimensions, and then a portfolio level view that gives similar information to the heat map, but at the bottom it will flag the critical and high risk issues, and then also embedded is the carbon inventory information.  So I was thinking about, and this was a very interesting exercise with Claude, should the risk scorecard and the inventory dashboard be two siloed deliverables, or should they integrate?  And at first, Claude was saying, let's think about how Sarah is going to think about this work and structure it that way.  But I was also a bit concerned with there might be certain use, presentation use cases that she has. So...  So... let's keep them as separate artifacts, but let's have them linked, well linked. So you can see, again, some of the carbon inventory, the emissions information that might be helpful to have in this single square per company.  Um, then escalations information, um, tied to the dimensions, um, and then, um, also embedded is the cost of inaction, which I thought would be very helpful for, um, Sarah to see.  And then we get into this concept of the four lenses. So I asked, um, um, I, I don't remember who said it before, but, um, last session we had, someone had raised, um, the, the, the priorities that Sarah may have.  And then I went back into the original folder, um, of information that we were provided on Northwood. And these are the four lenses, the way that she.  She thinks about value, so value creation, risk mitigation, LP, and fund positioning and exit readiness, and based off of that, mapping out all of the different interventions that she could pursue, what was the primary lens that you should view those through, and then what was the cost of action and cost of inaction and the potential ROI and the timeline.  So that's outlined here. Data quality information, and then EDCI is from a reporting perspective. So if she's looking at what types of reporting asks she may receive from LPs, what is her readiness across these different dimensions?  So that's what I started with. When I finished the risk scorecard, this page was actually pretty blank, because I hadn't done the inventory yet.  And then I jumped into the inventory. And then One thing that I'm... I'm thinking about, and it was really helpful to see some of the other, and I'll make this a little bit smaller, the other presentations is how to effectively visualize the data.  I've been kind of underwhelmed with the first iterations that Claude has presented, so it's great to see the way that other people have worked with Claude.  Then intensity, emissions intensity information, I added these filters as well in the event that someone wants to look at the, slice and dice the information based off of different data fields.  Scope one sources, added a little bit of clarity here in the event that these terms are not, Sarah does not know these terms.  Then got into data quality, reconciliation log, scope three, material flags. And again, EDCI reporting. So that's, that's mine. I feel like there's still a lot to improve, but it was a helpful exercise to do the scorecard first.
+
+1:14:17 - diego espinosa
+  So, Michaela, what did you think overall? Back on what you built?
+
+1:14:25 - Michaela Hepburn
+  I thought, to be honest, I, part of me feels like I need to go back and just digest all of it.  Because, because, again, I felt like it was, it was so much was generated. I, I felt like, specifically, the scorecard was very helpful for me.  And if I was, from the perspective of what, what are Sarah's drivers, and what is going to make her feel like she's going to make an informed decision.  She has. All of this data and how are we ensuring it's structured in a way that resonates with how she makes decisions and and what's going to be in the best interest of the kind of the four lenses that that she prioritizes.  I do think, and I mentioned this in the chat, I am getting more comfortable telling Claude when I don't know something and help ask it to both educate me on the concept and then also walk through how it plans to approach the exercise and and, you know, also help me understand where I should poke holes in its logic.  Which is kind of counterintuitive. You wouldn't, I feel like you wouldn't normally approach, I don't want to say human that way, but you wouldn't ask the same person that you're supposed to like.  Review or give feedback on to also train you on something.
+
+1:16:04 - diego espinosa
+  Yeah, and I think to that point, I'm going to ask other people for comments, but I just want to comment on that specifically.  It's kind of weird walking around with an entourage, you know, it's basically like you have this, you're a high-ranking person, you know, and you have like all these people around you, and they're talking to you, and they're saying like, I did all this work for you, and you're just, I don't even know what that means.  Can you explain it to me? There's like an assertiveness that you develop that is not so much kind of like, teach me how to do things or things like that, but it's more like, I'm in charge, I want you to explain this to me, I want you to do this for me now, and like in a good way, like I'm not saying mean, like, you know, it's not deep or something like that, but like, it's just a way to just become like super, like it challenges to be, it challenges us to be assertive, in my opinion.  So I don't know if you felt that, Mikaela.
+
+1:16:55 - Michaela Hepburn
+  Yeah, I would agree with that.
+
+1:16:57 - diego espinosa
+  Yeah, so comments on Mikaela. I'd love to hear from people. What did you think? Like the differences and what stood out to you?  was the thought?
+
+1:17:12 - Martin Bernstein
+  Yeah, someone else commented, I like the implementation cost versus inaction. That's pretty compelling. I mean, I'd love to see how it got to the assumptions behind the inaction cost, the calculations.  I think that's very hard to do, counterfactuals, you know, but really cool.
+
+1:17:34 - diego espinosa
+  Yeah, I noticed somebody else had $34 million on losing customers as well. So that's a little bit of like, you know, a good indication, I think, that you see the same number pop up twice.
+
+1:17:44 - Michaela Hepburn
+  It was interesting. To your point, Martin, that was something that I know in our last session or in previous sessions, we talked a lot about QC or QA, whatever you call it.  So that was something that I worked with Claude on a bit and asked it to pressure test and tell me how it would go about pressure testing.  And as a result of that, it did adjust some of the figures, which I think was helpful.
+
+1:18:17 - diego espinosa
+  Yeah, and Jessica mentioned the forelens. I wondered about that too, Michaela. How did that come into being?
+
+1:18:23 - Michaela Hepburn
+  If you could describe the process of interaction. Sure, and I wish I had the prompt up, but it was actually, I don't remember who it was in one of our previous sessions, had talked about what they thought off the top of their head drove, Sarah, like protecting exit value or protecting revenue that had been generated and preparing for a third fund.  So I wanted to go back and say, has Sarah communicated? to us as the consultant, what her priorities are.  And that, that was actually outlined in the initial set of files that we received. And so Claude helped me think about it in these four buckets, and think about how we could frame interventions.  So so at first, it tagged, it was a one for one, it said, okay, this intervention is value creation, or this one, is risk mitigation.  And I asked it to be more dynamic, because interventions could actually be tagged to multiple. So it worked through, okay, what is the what, if I had to give it assign it a primary lens, what would that be?  And then it, again, helps structure it in a way that would most resonate with Sarah when she's thinking about her priorities within the organization.
+
+1:19:56 - diego espinosa
+  Johnson, Jr.: Right. And so- Soterios Soterios So I want to say, you know, there's a lot here to digest in terms of not just what you, your process of digesting what you actually made, but like what we've seen today.  So I just want to take a few minutes at closing and play it out a little bit because there's so much.  OK, so one of the things that I like the themes and threads that I see coming out of the work that got done this week, one thread is basically that the difference in the output and the deliverables shows that the importance of ourselves and steering Claude Cook.  Right. So the more difference there is, the more it means that the human matters. Right. And I'm not saying one's better than the other.  I'm just saying, like, there is steering going on. There is, you know, someone's someone's in the captaincy. And so, like, I think that's one thing to really recognize.  Another thing to recognize is how many decisions need to be made. So how do I display this information? What is the information structured?  What is the structure of it? Should I be having a database or putting it in a CSV file? Those kinds of things.  There are decisions about what our intent or purpose really is, right? And so there were differences here. Some of these were much more in the kind of like much more granularity as to the carbon emissions data, which was really interesting.  And it was, there was like so much, you know, Martin's your top, Martin's toggle between scope three and scope two.  was like, whoa, whoa, whoa, wait a minute. Like that has implications. Like I want to know more about that.  And like, how could we present that information? And what does it mean? And like all of these kinds of things.  So, so the intent of like, what are we supposed to be doing for Sarah varied, right? It varied according to everyone.  So, and this, this will happen in consulting, like in consulting, you know, your view as a person that is trying to, to make a deliverable for the client is one of the most important things.  Like, like I, you know, for those of you, like we're all, all consultants to a certain extent. And there's that moment in time as a consultant where you're like, let me show you the deliverable and the client's like, and it just like totally lands flat.  Right. And you're just kind of like, what did I get wrong? You know, how, how could I have done that better?  And so like, that's, that's evident here in terms of like needing to think about what the client needs and what's going to be like most salient and relevant.  And as humans, we bring that to the table. So the questioning that happens inside of the dialogue is, it's evident that that's so important.  Why did you do it this way? Can we do it this other way? How do I know that it's right?  All of these kinds of questions kind of like produce again, more variety to the deliverables that are. I want to speak to one thing that you mentioned, Michaela, which is basically like, it's hard to digest all this stuff.  So, you know, for lack of a better term, let's call it AI indigestion, which is basically that it produces so much stuff for us that we'll just look at it and go like, I'll come back to that later, because I just don't have time.  And I can't tell you how many times I've done that. You know, like, awesome job. I'll look at it at some other point in the weekend or something, and I never come back to it.  Right. And so there, that's when we need to basically go like, okay, what does this mean? You need to digest this for me.  You need to tell me what I should be focusing on, like, what's the most important stuff you need. And so you take yourself up a level.  You're the briefing, you're the briefer that briefs, that is getting a briefing. You know, you need to filter out the information because like, there's too much of it.  And so like, like trying to get a sense of like, what does this mean? And can we abstract to a higher level of significance here?  Because there's way... Way too much information to basically consume, even though it's already been distilled in all cases. It's already been kind of like presented in graphs that basically kind of synthesize the information.  There's still like more levels of synthesis here. You know, how do we take it to the pinnacle? Such as, you know, Sarah, we did the work for you this week, and these are the three things that you need to know, right?  Like, like that, that, that sort of distillation is something that's possible. So you just keep going and going and distilling and distilling until like, it's like, maybe you get to that, you know, synthesis, which is like the most important thing.  Or maybe there really isn't a synthesis. It's just so spread out, you know, there's so many things to be looking at that you couldn't do that.  But this, but you can get to this to make a sharper and sharper point with, with the help of Cloud Code, because it's able to digest everything that you, that you presented looks so easily.  And you could even do it in different sessions. You could say to a session. Look at this thing that I built.  Tell me what's most important for my client. And sometimes like in another session, it will be like a fresh look at this information.  So my sense is basically that I hope that you've seen this week that basically because you can build these analyses so quickly that it leaves you so much time to ask these questions.  And that is the whole point. You know, the point is that it makes us better consultants. It makes us better analysts because we, it's not, it's not a fault that we have to question.  It's not a fault that we have to figure all this stuff. It's the point. The point is to get the analysis done and then we can step back and go like, you know, and, and, you know, my experience of being a consultant was like, that was the difference between an analyst and a partner.  The analyst was like, you know, in the weeds trying to come up with stuff. And the partner would look through the deck and go like, yeah, I got this.  And they'd go present it for the client. The thing you. really need to know out of the work that our consultants did was like blah, blah, blah, blah, blah.  And I would be like, how did you figure that in, you know, 10 minutes, right? And that's what we're doing with Cloud Code all the time.  It's like we're taking what it does and go like, what is the meaning to me? What is the meaning to the people that I'm trying to help?  That is where I'm going to be spending my time and I'm going to be assertive about it. Because like you work for me, Cloud Code, even though we have a great collaboration, great working relationship, but like I'm the boss.  Right. There's something wrong. Did something wrong. How do we correct that next time? Let's do a reference file and make sure that never happens again.  Right. So like this, this is, this is the kind of like assertive high agency stance that we need to take with AI.  And this is why I don't like the notion of automations. Automations are basically like saying, we don't need you humans.  That AI is in charge. And I'm like, no, no, no, we're high agency humans. Like we're going to tell the AI what to do.  Because we know what we want. The AI doesn't, right? So we're just, we're starting to walk down this road.  By the end of the six weeks, you'll be like super pros at it, but basically of like taking on this agency.  I want to say for next week, next week, we're going to be doing initiatives. I think it's next week that we do initiatives.  And the, this is where you really can push the agency, like what, what initiatives, what are the implications of these initiatives?  Are these the best initiatives? How do we determine that? Like the rubber is starting to meet the road in terms of helping Sarah out.  Because at the end of the day, she's a high agency person. She's like, I called you in to help me out to achieve my goals.  I want you to tell me what I'm supposed to do. And, you know, let's not mess around. Let's get to like, what is it that you're telling me that I should, you're starting to tell me what I should be doing.
+  ACTION ITEM: Remind cohort on Mon re: initiatives assignment; frame as Sarah briefing - WATCH: https://fathom.video/calls/625250754?timestamp=5269.9999  And, and I think that all of this analysis at our fingertips gives us the ability to really deliver on that.  So for this coming. Week, and I'll mention it again on a Monday, really picture yourself at the next Friday in the room with Sarah, and you're basically going to deliver these initiatives, and it's like that thing that I mentioned, is it going to land with the client or not, you know, is what you're saying really going to land with the client, and that's something that we're going to be thinking about.  So awesome work, like I'm so impressed with the work that you're all doing, everyone built an app, like how does that even happen, like we didn't plan on that, we thought oh we're going to introduce apps in like a certain point, and, but you're already getting there so it's really cool to see that, but really amazed with the work everyone is doing.  Thanks for the creativity and work that you put into it, so have a great weekend, and we'll see you all, have a great holiday, we'll see you all on Monday.
+
+1:28:43 - Michaela Hepburn
+  Thanks everybody.
+
+1:28:44 - Martin Bernstein
+  Good, thanks a lot.

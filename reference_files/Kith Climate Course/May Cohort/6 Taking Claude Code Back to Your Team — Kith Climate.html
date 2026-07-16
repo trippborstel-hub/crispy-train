@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taking Claude Code Back to Your Team — Kith Climate</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#1a1d21;color:#e8e6e3;line-height:1.65}
+    .page{max-width:820px;margin:0 auto;padding:56px 40px 80px}
+    .eyebrow{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#5B9A8B;margin-bottom:14px}
+    h1{font-size:36px;font-weight:600;letter-spacing:-.02em;line-height:1.15;margin-bottom:16px}
+    .lede{font-size:18px;font-weight:400;color:rgba(232,230,227,.65);margin-bottom:10px}
+    .meta-line{font-size:13px;color:rgba(232,230,227,.4);margin-top:18px}
+    .divider{height:1px;background:rgba(232,230,227,.08);margin:44px 0}
+    h2{font-size:23px;font-weight:600;letter-spacing:-.01em;margin:40px 0 6px}
+    h2 .n{color:#5B9A8B;font-weight:600;margin-right:10px}
+    h3{font-size:16px;font-weight:600;color:rgba(232,230,227,.9);margin:22px 0 6px}
+    p{font-size:15px;color:rgba(232,230,227,.72);margin-bottom:14px}
+    ul{margin:0 0 16px 0;padding-left:22px}
+    li{font-size:15px;color:rgba(232,230,227,.72);margin-bottom:8px}
+    strong{color:rgba(232,230,227,.95);font-weight:600}
+    em{color:#6FB3A2;font-style:normal}
+    /* CTA */
+    .cta{background:linear-gradient(145deg,#232629,#1e2630);border:1px solid rgba(91,154,139,.25);border-radius:12px;padding:30px 32px;margin:32px 0 8px}
+    .cta h2{margin-top:0}
+    .cta-btn{display:inline-block;margin-top:14px;padding:14px 28px;background:#5B9A8B;color:#fff;text-decoration:none;border-radius:8px;font-size:15px;font-weight:600;transition:background .2s}
+    .cta-btn:hover{background:#6FB3A2}
+    .cta-sub{font-size:13px;color:rgba(232,230,227,.45);margin-top:12px}
+    .footer{text-align:center;margin-top:56px;padding-top:28px;border-top:1px solid rgba(232,230,227,.06)}
+    .footer p{font-size:12px;color:rgba(232,230,227,.3)}
+    @media(max-width:640px){.page{padding:40px 22px 56px}h1{font-size:28px}}
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="eyebrow">Kith Climate · 6-Week Cohort · Week 6 resource</div>
+  <h1>Taking Claude Code Back to Your Team</h1>
+  <p class="lede">An overview of team working, version management and rolling Claude Code out inside a real organisation.</p>
+
+  <div class="divider"></div>
+
+  <h2><span class="n">1</span>Why this is the real frontier</h2>
+  <p>Over six weeks you learned to build a system <em>for yourself</em>. The harder problem is building one <em>for a group</em> — and then for a group inside a large, often non-AI-native organisation.</p>
+
+  <h2><span class="n">2</span>How it's managed at Kith</h2>
+  <p>Our setup is deliberately simple — one shared workspace the whole team builds inside, with a few layers on top that let us move fast without tripping over each other:</p>
+  <ul>
+    <li><strong>One core SharePoint, synced to everyone.</strong> A single shared workspace sits at the centre. It syncs automatically to every team member's machine, so there's one source of truth — not five copies drifting apart on five laptops.</li>
+    <li><strong>Folders wired to GitHub, GitHub wired to live URLs.</strong> Specific folders within that workspace are connected to GitHub repositories, which push to live URLs. You build in the folder, commit, and the change goes live — the same pattern you used throughout this cohort.</li>
+    <li><strong>A tech team layered over the top.</strong> A small technical team maintains the plumbing — the repositories, the deploy pipelines, the connections — so everyone else focuses on the work rather than the infrastructure.</li>
+    <li><strong>Whole-team access across the system.</strong> By default the team can reach the whole workspace. Openness is the starting point; restrictions are applied deliberately, only where they're needed.</li>
+  </ul>
+
+  <h2><span class="n">3</span>Restrictions and permissioning</h2>
+  <p>Open by default doesn't mean open to everything. Access is shaped at two levels that work together:</p>
+  <ul>
+    <li><strong>Folder-level permissions in your file store.</strong> SharePoint, Google Drive or similar let you set permissions per folder — restricting who can <em>edit</em>, or even who can <em>view</em>, particular documents. This is the first and simplest control: sensitive material lives in folders only the right people can reach.</li>
+    <li><strong>Account-level restrictions in Claude Code.</strong> Within an enterprise structure, Claude Code itself can be restricted at the individual-account level — governing what a given person's Claude is allowed to edit, not just what they can see in the file store. The file store controls access; Claude Code controls what actions are permitted on top of it.</li>
+    <li><strong>Organisation-wide capability settings.</strong> At the enterprise tier there are also org-level controls worth scoping early — which models and features are enabled, what data can leave the environment, and what guardrails apply to every user by default. These set the floor everyone operates within, so they're a conversation to have with your IT and admin team up front, not after.</li>
+  </ul>
+
+  <h2><span class="n">4</span>Rollout tips</h2>
+  <p>A few things that make the difference between a roll-out that sticks and one that stalls:</p>
+  <ul>
+    <li><strong>Start with a pilot.</strong> Don't switch everyone on at once. Pick one team and one workflow, prove the value, then widen from there.</li>
+    <li><strong>Start with a team that all share the same access.</strong> Beginning with a group who have identical permissions removes a whole layer of friction — nobody's blocked, everyone's working from the same files — so you can focus on the work rather than untangling who-can-see-what. Add access complexity later, once the pattern is proven.</li>
+    <li><strong>Bake controls and versioning into CLAUDE.md and reference files.</strong> Don't leave the rules in people's heads. Encode your controls function and versioning conventions directly into the CLAUDE.md and reference files, so the discipline travels with the work and every team member's Claude follows the same playbook.</li>
+  </ul>
+
+  <div class="cta">
+    <h2>How Kith can help</h2>
+    <p>We recently launched <strong>Kith Consulting</strong>, an AI-native consulting practice with two main offerings. The first is delivering the consulting work itself — sustainability and ESG deliverables produced through our AI-native firm. The second, most relevant here, is helping a climate team become AI-native: bringing Claude Code into how your team actually works, from first pilot to embedded, team-wide capability.</p>
+    <p>If you're weighing how to bring this back to your organisation, the best next step is a conversation.</p>
+    <a class="cta-btn" href="https://calendly.com/diego-kithailab/diego-1-1" target="_blank" rel="noopener">Book an AI Adoption chat with Diego →</a>
+    <div class="cta-sub">A 1:1 to talk through your organisation's path to AI adoption.</div>
+  </div>
+
+  <h2><span class="n">5</span>Ongoing support</h2>
+  <p>You're not on your own after graduation:</p>
+  <ul>
+    <li><strong>Ben's weekly community session</strong> — 30 minutes, where progression-within-teams questions come up constantly.</li>
+    <li><strong>The monthly alumni session</strong> — run by a previous-cohort member, focused specifically on the wins and woes of corporate deployment.</li>
+  </ul>
+
+  <div class="footer">
+    <p><strong style="color:rgba(232,230,227,.5)">Kith Climate</strong> &mdash; Part of Kith AI Lab</p>
+  </div>
+</div>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"bcbe19983cbb4ebdaf9d6bac83ff4c16","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

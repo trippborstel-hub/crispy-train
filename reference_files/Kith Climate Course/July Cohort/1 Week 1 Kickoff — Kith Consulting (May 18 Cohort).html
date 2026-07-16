@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 1 Kickoff — Kith Consulting (May 18 Cohort)</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 522 522'><rect x='5' y='1' width='512' height='512' rx='64' fill='%231A1D21' stroke='%235B9A8B' stroke-opacity='0.15' stroke-width='2'/><rect x='269.628' y='129' width='18' height='256' rx='9' transform='rotate(8 269.628 129)' fill='url(%23g)'/><defs><linearGradient id='g' x1='278.628' y1='129' x2='278.628' y2='385' gradientUnits='userSpaceOnUse'><stop stop-color='%235B9A8B' stop-opacity='0.1'/><stop offset='0.25' stop-color='%235B9A8B'/><stop offset='0.75' stop-color='%235B9A8B'/><stop offset='1' stop-color='%235B9A8B' stop-opacity='0.1'/></linearGradient></defs></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-base: #1a1d21;
+      --color-surface: #1e2227;
+      --color-card: #232629;
+      --color-border: rgba(232, 230, 227, 0.06);
+      --color-text-primary: #e8e6e3;
+      --color-text-secondary: rgba(232, 230, 227, 0.5);
+      --color-text-tertiary: rgba(232, 230, 227, 0.35);
+      --color-text-muted: rgba(232, 230, 227, 0.25);
+      --color-teal: #5B9A8B;
+      --color-teal-bright: #6FB3A2;
+      --color-teal-glow: rgba(91, 154, 139, 0.5);
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-base);
+      color: var(--color-text-primary);
+      overflow: hidden;
+    }
+
+    .deck {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+      padding: 60px 80px;
+      background: linear-gradient(145deg, #1a1d21 0%, #1e2227 50%, #1a1d21 100%);
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .slide.active {
+      display: flex;
+    }
+
+    .slide-header {
+      position: absolute;
+      top: 40px;
+      left: 80px;
+      right: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .slide-number {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--color-text-muted);
+      letter-spacing: 0.1em;
+    }
+
+    .label {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-teal);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 56px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: 42px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    h3 {
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--color-text-secondary);
+      max-width: 900px;
+    }
+
+    .highlight {
+      color: var(--color-teal-bright);
+    }
+
+    .dim {
+      color: var(--color-text-tertiary);
+    }
+
+    ul {
+      list-style: none;
+      margin: 24px 0;
+    }
+
+    ul li {
+      font-size: 22px;
+      color: var(--color-text-secondary);
+      margin-bottom: 16px;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 8px;
+      height: 8px;
+      background: var(--color-teal);
+      border-radius: 2px;
+    }
+
+    /* Info grid */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 32px;
+      max-width: 1100px;
+    }
+
+    .info-grid.three-col {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .info-grid.four-col {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 18px;
+    }
+
+    .info-card {
+      background: linear-gradient(135deg, rgba(232, 230, 227, 0.03) 0%, rgba(232, 230, 227, 0.01) 100%);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 32px;
+    }
+
+    .info-grid.four-col .info-card {
+      padding: 24px;
+    }
+
+    .info-card.highlighted {
+      border-color: rgba(91, 154, 139, 0.3);
+      background: linear-gradient(135deg, rgba(91, 154, 139, 0.06) 0%, rgba(91, 154, 139, 0.02) 100%);
+      box-shadow: inset 0 0 40px rgba(91, 154, 139, 0.06);
+    }
+
+    .info-card.dimmed {
+      opacity: 0.7;
+      border-style: dashed;
+    }
+
+    .info-card-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-teal);
+      margin-bottom: 16px;
+    }
+
+    .info-grid.four-col .info-card-label {
+      font-size: 10px;
+      margin-bottom: 10px;
+    }
+
+    .info-card-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .info-grid.four-col .info-card-title {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .info-card-body {
+      font-size: 15px;
+      color: var(--color-text-tertiary);
+      line-height: 1.7;
+    }
+
+    .info-card-body span {
+      display: block;
+    }
+
+    .info-card-meta {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--color-text-muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+
+    /* Pill / chip */
+    .pill {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: rgba(91, 154, 139, 0.12);
+      border: 1px solid rgba(91, 154, 139, 0.25);
+      color: var(--color-teal-bright);
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    .pill.dim {
+      background: rgba(232, 230, 227, 0.05);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-tertiary);
+    }
+
+    /* Quote block */
+    .quote-block {
+      margin-top: 32px;
+      background: var(--color-card);
+      border-left: 3px solid var(--color-teal);
+      padding: 24px 32px;
+      max-width: 900px;
+    }
+
+    .quote-block p {
+      font-size: 20px;
+      color: var(--color-text-primary);
+      margin: 0;
+      max-width: 100%;
+      font-style: italic;
+    }
+
+    .quote-block .attribution {
+      font-style: normal;
+      font-size: 14px;
+      color: var(--color-text-tertiary);
+      margin-top: 12px;
+      font-family: var(--font-mono);
+      letter-spacing: 0.05em;
+    }
+
+    /* Table */
+    .slide-table {
+      margin-top: 18px;
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .slide-table th {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-teal);
+      text-align: left;
+      padding: 10px 16px;
+      border-bottom: 1px solid rgba(91, 154, 139, 0.2);
+    }
+
+    .slide-table td {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      padding: 11px 16px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .slide-table td:first-child {
+      color: var(--color-text-primary);
+      font-weight: 500;
+    }
+
+    .slide-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Numbered list */
+    .numbered-list {
+      counter-reset: item;
+      list-style: none;
+      margin: 24px 0;
+    }
+
+    .numbered-list li {
+      font-size: 20px;
+      color: var(--color-text-secondary);
+      margin-bottom: 20px;
+      padding-left: 48px;
+      position: relative;
+    }
+
+    .numbered-list li::before {
+      counter-increment: item;
+      content: counter(item);
+      position: absolute;
+      left: 0;
+      top: -2px;
+      width: 32px;
+      height: 32px;
+      background: rgba(91, 154, 139, 0.15);
+      border: 1px solid rgba(91, 154, 139, 0.3);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-teal-bright);
+    }
+
+    .numbered-list li strong {
+      color: var(--color-text-primary);
+    }
+
+    /* Footer */
+    .slide-footer {
+      position: absolute;
+      bottom: 40px;
+      left: 80px;
+      right: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-text {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--color-text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-hint {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--color-text-muted);
+      opacity: 0.5;
+    }
+
+    /* Title slide */
+    .title-slide {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .title-slide .logo-large {
+      height: 48px;
+      margin-bottom: 48px;
+      opacity: 0.9;
+    }
+
+    .title-slide h1 {
+      font-size: 64px;
+      margin-bottom: 16px;
+    }
+
+    .title-slide .subtitle {
+      font-size: 28px;
+      color: var(--color-text-secondary);
+      margin-bottom: 48px;
+    }
+
+    /* CTA slide */
+    .cta-slide h1 {
+      font-size: 72px;
+      color: var(--color-teal-bright);
+      filter: drop-shadow(0 0 40px rgba(91, 154, 139, 0.4));
+    }
+
+    /* Wide card */
+    .wide-card {
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 36px 40px;
+      margin-top: 32px;
+      max-width: 1000px;
+    }
+
+    .wide-card.highlighted {
+      border-color: rgba(91, 154, 139, 0.3);
+      background: linear-gradient(135deg, rgba(91, 154, 139, 0.06) 0%, rgba(91, 154, 139, 0.02) 100%);
+      box-shadow: inset 0 0 40px rgba(91, 154, 139, 0.06);
+    }
+  </style>
+</head>
+<body>
+  <div class="deck">
+
+    <!-- Slide 1: Title -->
+    <div class="slide active title-slide">
+      <svg class="logo-large" viewBox="0 0 1013 187" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M36.5 110.736L36.4091 94.1453H38.7727L66.5909 64.5999H82.8636L51.1364 98.2363H49L36.5 110.736ZM24 134.418V41.3272H37.5909V134.418H24ZM68.0909 134.418L43.0909 101.236L52.4545 91.7363L84.7727 134.418H68.0909Z" fill="#E8E6E3"/>
+        <path d="M92.69 134.418V64.5999H106.281V134.418H92.69ZM99.5536 53.8272C97.19 53.8272 95.1597 53.0393 93.4627 51.4635C91.7961 49.8575 90.9627 47.9484 90.9627 45.7363C90.9627 43.4938 91.7961 41.5847 93.4627 40.009C95.1597 38.4029 97.19 37.5999 99.5536 37.5999C101.917 37.5999 103.932 38.4029 105.599 40.009C107.296 41.5847 108.145 43.4938 108.145 45.7363C108.145 47.9484 107.296 49.8575 105.599 51.4635C103.932 53.0393 101.917 53.8272 99.5536 53.8272Z" fill="#E8E6E3"/>
+        <path d="M154.596 64.5999V75.509H116.46V64.5999H154.596ZM126.687 47.8726H140.278V113.918C140.278 116.554 140.672 118.539 141.46 119.873C142.247 121.176 143.263 122.07 144.505 122.554C145.778 123.009 147.157 123.236 148.641 123.236C149.732 123.236 150.687 123.161 151.505 123.009C152.323 122.857 152.96 122.736 153.414 122.645L155.869 133.873C155.081 134.176 153.96 134.479 152.505 134.782C151.05 135.115 149.232 135.297 147.05 135.327C143.475 135.388 140.141 134.751 137.05 133.418C133.96 132.085 131.46 130.024 129.55 127.236C127.641 124.448 126.687 120.948 126.687 116.736V47.8726Z" fill="#E8E6E3"/>
+        <path d="M182.161 92.9635V134.418H168.57V41.3272H181.979V75.9635H182.843C184.479 72.206 186.979 69.2211 190.343 67.009C193.706 64.7969 198.1 63.6908 203.525 63.6908C208.312 63.6908 212.494 64.6757 216.07 66.6453C219.676 68.615 222.464 71.5544 224.434 75.4635C226.434 79.3423 227.434 84.1908 227.434 90.009V134.418H213.843V91.6453C213.843 86.5241 212.525 82.5544 209.888 79.7363C207.252 76.8878 203.585 75.4635 198.888 75.4635C195.676 75.4635 192.797 76.1453 190.252 77.509C187.737 78.8726 185.752 80.8726 184.297 83.509C182.873 86.115 182.161 89.2666 182.161 92.9635Z" fill="#E8E6E3"/>
+        <path d="M397.818 135.873C391.576 135.873 386.136 134.312 381.5 131.191C376.894 128.07 373.318 123.797 370.773 118.373C368.227 112.948 366.954 106.767 366.954 99.8272C366.954 92.8272 368.242 86.5999 370.818 81.1453C373.424 75.6908 377.03 71.4181 381.636 68.3272C386.242 65.206 391.591 63.6453 397.682 63.6453C402.348 63.6453 406.576 64.5544 410.364 66.3726C414.151 68.1605 417.273 70.6908 419.727 73.9635C422.212 77.206 423.773 80.9938 424.409 85.3272H416.227C415.379 81.3878 413.333 78.0241 410.091 75.2363C406.879 72.4181 402.788 71.009 397.818 71.009C393.364 71.009 389.424 72.2211 386 74.6453C382.576 77.0393 379.894 80.3878 377.954 84.6908C376.045 88.9635 375.091 93.9181 375.091 99.5544C375.091 105.221 376.03 110.236 377.909 114.6C379.788 118.933 382.424 122.327 385.818 124.782C389.242 127.236 393.242 128.464 397.818 128.464C400.909 128.464 403.727 127.888 406.273 126.736C408.848 125.554 411 123.888 412.727 121.736C414.485 119.585 415.667 117.024 416.273 114.054H424.454C423.848 118.267 422.348 122.024 419.954 125.327C417.591 128.6 414.515 131.176 410.727 133.054C406.97 134.933 402.667 135.873 397.818 135.873Z" fill="#E8E6E3" fill-opacity="0.4"/>
+        <path d="M471.492 135.873C465.461 135.873 460.128 134.342 455.492 131.282C450.886 128.221 447.28 123.994 444.674 118.6C442.067 113.176 440.764 106.918 440.764 99.8272C440.764 92.6756 442.067 86.3878 444.674 80.9635C447.28 75.509 450.886 71.2666 455.492 68.2363C460.128 65.1756 465.461 63.6453 471.492 63.6453C477.522 63.6453 482.84 65.1756 487.446 68.2363C492.052 71.2969 495.658 75.5393 498.264 80.9635C500.901 86.3878 502.219 92.6756 502.219 99.8272C502.219 106.918 500.916 113.176 498.31 118.6C495.704 123.994 492.083 128.221 487.446 131.282C482.84 134.342 477.522 135.873 471.492 135.873ZM471.492 128.464C476.34 128.464 480.446 127.16 483.81 124.554C487.174 121.948 489.719 118.479 491.446 114.145C493.204 109.812 494.083 105.039 494.083 99.8272C494.083 94.615 493.204 89.8272 491.446 85.4635C489.719 81.0999 487.174 77.5999 483.81 74.9635C480.446 72.3272 476.34 71.009 471.492 71.009C466.674 71.009 462.567 72.3272 459.174 74.9635C455.81 77.5999 453.249 81.0999 451.492 85.4635C449.764 89.8272 448.901 94.615 448.901 99.8272C448.901 105.039 449.764 109.812 451.492 114.145C453.249 118.479 455.81 121.948 459.174 124.554C462.537 127.16 466.643 128.464 471.492 128.464Z" fill="#E8E6E3" fill-opacity="0.4"/>
+        <path d="M530.631 90.7817V134.418H522.54V64.5999H530.404V75.5544H531.131C532.768 71.9787 535.313 69.115 538.768 66.9635C542.252 64.7817 546.556 63.6908 551.677 63.6908C556.374 63.6908 560.495 64.6757 564.04 66.6453C567.616 68.5847 570.389 71.4484 572.359 75.2363C574.359 79.0241 575.359 83.6756 575.359 89.1908V134.418H567.268V89.6908C567.268 83.9635 565.662 79.4332 562.449 76.0999C559.268 72.7666 554.995 71.0999 549.631 71.0999C545.965 71.0999 542.707 71.8878 539.859 73.4635C537.01 75.0393 534.752 77.312 533.086 80.2817C531.449 83.2211 530.631 86.7211 530.631 90.7817Z" fill="#E8E6E3" fill-opacity="0.4"/>
+        <path d="M646.134 79.9181L638.725 82.009C637.998 79.9181 636.968 78.0241 635.634 76.3272C634.301 74.6302 632.559 73.2817 630.407 72.2817C628.286 71.2817 625.65 70.7817 622.498 70.7817C617.771 70.7817 613.892 71.9029 610.862 74.1453C607.831 76.3878 606.316 79.2817 606.316 82.8272C606.316 85.8272 607.347 88.2666 609.407 90.1453C611.498 91.9938 614.71 93.4635 619.044 94.5544L629.589 97.1453C635.437 98.5696 639.816 100.827 642.725 103.918C645.665 107.009 647.134 110.888 647.134 115.554C647.134 119.494 646.044 122.994 643.862 126.054C641.68 129.115 638.634 131.524 634.725 133.282C630.847 135.009 626.347 135.873 621.225 135.873C614.407 135.873 608.786 134.342 604.362 131.282C599.938 128.191 597.104 123.736 595.862 117.918L603.634 116.009C604.634 120.16 606.589 123.297 609.498 125.418C612.438 127.539 616.301 128.6 621.089 128.6C626.453 128.6 630.741 127.403 633.953 125.009C637.165 122.585 638.771 119.554 638.771 115.918C638.771 113.1 637.831 110.736 635.953 108.827C634.074 106.888 631.225 105.464 627.407 104.554L615.998 101.827C609.938 100.373 605.453 98.0696 602.544 94.9181C599.634 91.7666 598.18 87.8575 598.18 83.1908C598.18 79.3423 599.225 75.9635 601.316 73.0544C603.407 70.115 606.286 67.812 609.953 66.1453C613.619 64.4787 617.801 63.6453 622.498 63.6453C628.892 63.6453 633.998 65.0999 637.816 68.009C641.665 70.8878 644.437 74.8575 646.134 79.9181Z" fill="#E8E6E3" fill-opacity="0.4"/>
+        <path d="M711.774 107.736V64.5999H719.865V134.418H711.774V122.827H711.138C709.501 126.403 706.91 129.388 703.365 131.782C699.819 134.145 695.486 135.327 690.365 135.327C685.91 135.327 681.956 134.357 678.501 132.418C675.047 130.448 672.335 127.57 670.365 123.782C668.395 119.994 667.41 115.342 667.41 109.827V64.5999H675.501V109.327C675.501 114.782 677.107 119.176 680.319 122.509C683.532 125.812 687.653 127.464 692.683 127.464C695.835 127.464 698.865 126.706 701.774 125.191C704.683 123.676 707.077 121.464 708.956 118.554C710.835 115.615 711.774 112.009 711.774 107.736Z" fill="#E8E6E3" fill-opacity="0.4"/>
+        <path d="M751.936 41.3272V134.418H743.845V41.3272H751.936Z" fill="#E8E6E3" fill-opacity="0.4"/>
+        <path d="M803.405 64.5999V71.6453H770.087V64.5999H803.405ZM780.496 47.8726H788.633V116.191C788.633 119.1 789.133 121.388 790.133 123.054C791.133 124.691 792.436 125.857 794.042 126.554C795.648 127.221 797.36 127.554 799.178 127.554C800.239 127.554 801.148 127.494 801.905 127.373C802.663 127.221 803.33 127.07 803.905 126.918L805.633 134.236C804.845 134.539 803.875 134.812 802.724 135.054C801.572 135.327 800.148 135.464 798.451 135.464C795.481 135.464 792.618 134.812 789.86 133.509C787.133 132.206 784.89 130.267 783.133 127.691C781.375 125.115 780.496 121.918 780.496 118.1V47.8726Z" fill="#E8E6E3" fill-opacity="0.4"/>
+        <path d="M824.431 134.418V64.5999H832.568V134.418H824.431ZM828.568 52.5999C826.901 52.5999 825.477 52.0393 824.295 50.9181C823.113 49.7666 822.522 48.3878 822.522 46.7817C822.522 45.1756 823.113 43.812 824.295 42.6908C825.477 41.5393 826.901 40.9635 828.568 40.9635C830.234 40.9635 831.659 41.5393 832.84 42.6908C834.022 43.812 834.613 45.1756 834.613 46.7817C834.613 48.3878 834.022 49.7666 832.84 50.9181C831.659 52.0393 830.234 52.5999 828.568 52.5999Z" fill="#E8E6E3" fill-opacity="0.4"/>
+        <path d="M864.616 90.7817V134.418H856.525V64.5999H864.389V75.5544H865.116C866.753 71.9787 869.298 69.115 872.753 66.9635C876.238 64.7817 880.541 63.6908 885.662 63.6908C890.359 63.6908 894.48 64.6757 898.025 66.6453C901.601 68.5847 904.374 71.4484 906.344 75.2363C908.344 79.0241 909.344 83.6756 909.344 89.1908V134.418H901.253V89.6908C901.253 83.9635 899.647 79.4332 896.435 76.0999C893.253 72.7666 888.98 71.0999 883.616 71.0999C879.95 71.0999 876.692 71.8878 873.844 73.4635C870.995 75.0393 868.738 77.312 867.071 80.2817C865.434 83.2211 864.616 86.7211 864.616 90.7817Z" fill="#E8E6E3" fill-opacity="0.4"/>
+        <path d="M959.847 162.054C955.089 162.054 950.922 161.433 947.347 160.191C943.771 158.979 940.756 157.312 938.301 155.191C935.847 153.07 933.938 150.691 932.574 148.054L939.21 143.691C940.21 145.448 941.544 147.176 943.21 148.873C944.907 150.57 947.104 151.979 949.801 153.1C952.529 154.221 955.877 154.782 959.847 154.782C966.029 154.782 971.013 153.236 974.801 150.145C978.619 147.054 980.529 142.251 980.529 135.736V120.009H979.801C978.862 122.13 977.513 124.251 975.756 126.373C973.998 128.464 971.695 130.206 968.847 131.6C966.029 132.994 962.529 133.691 958.347 133.691C952.771 133.691 947.816 132.312 943.483 129.554C939.18 126.797 935.786 122.857 933.301 117.736C930.847 112.585 929.619 106.448 929.619 99.3272C929.619 92.2666 930.816 86.0544 933.21 80.6908C935.635 75.3272 939.013 71.1453 943.347 68.1453C947.68 65.1453 952.726 63.6453 958.483 63.6453C962.756 63.6453 966.301 64.4029 969.119 65.9181C971.938 67.4029 974.195 69.2514 975.892 71.4635C977.619 73.6757 978.968 75.8272 979.938 77.9181H980.756V64.5999H988.665V136.236C988.665 142.145 987.407 147.009 984.892 150.827C982.377 154.645 978.953 157.464 974.619 159.282C970.286 161.13 965.362 162.054 959.847 162.054ZM959.301 126.282C963.786 126.282 967.619 125.206 970.801 123.054C973.983 120.873 976.422 117.751 978.119 113.691C979.816 109.63 980.665 104.797 980.665 99.1908C980.665 93.7363 979.832 88.9029 978.165 84.6908C976.498 80.4484 974.074 77.115 970.892 74.6908C967.741 72.2363 963.877 71.009 959.301 71.009C954.635 71.009 950.695 72.2666 947.483 74.7817C944.271 77.2969 941.847 80.6908 940.21 84.9635C938.574 89.206 937.756 93.9484 937.756 99.1908C937.756 104.524 938.589 109.236 940.256 113.327C941.922 117.388 944.362 120.57 947.574 122.873C950.786 125.145 954.695 126.282 959.301 126.282Z" fill="#E8E6E3" fill-opacity="0.4"/>
+        <path d="M303.33 27.8743C303.676 25.4132 305.951 23.6985 308.412 24.0444C310.873 24.3902 312.588 26.6657 312.242 29.1268L295.402 148.949C295.056 151.41 292.781 153.125 290.32 152.779C287.859 152.433 286.144 150.158 286.49 147.697L303.33 27.8743Z" fill="url(#paint0_linear_kc)"/>
+        <defs>
+        <linearGradient id="paint0_linear_kc" x1="308.412" y1="24.0444" x2="290.32" y2="152.779" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#5B9A8B" stop-opacity="0.1"/>
+        <stop offset="0.25" stop-color="#5B9A8B"/>
+        <stop offset="0.75" stop-color="#5B9A8B"/>
+        <stop offset="1" stop-color="#5B9A8B" stop-opacity="0.1"/>
+        </linearGradient>
+        </defs>
+      </svg>
+      <div class="label">Week 1 Kickoff &mdash; May 18 Cohort</div>
+      <h1>Welcome to <span class="highlight">Kith Consulting</span>.</h1>
+      <p class="subtitle">Your first client. Your first assignment.</p>
+      <div class="slide-footer">
+        <span class="footer-text">May 2026</span>
+        <span class="footer-text">Kith Consulting</span>
+      </div>
+    </div>
+
+    <!-- Slide 2: The Firm -->
+    <div class="slide">
+      <div class="slide-header">
+        <span class="slide-number">01</span>
+      </div>
+      <div class="label">Your Firm</div>
+      <h2>Kith Consulting</h2>
+      <p>A climate and sustainability consulting firm built on Claude Code.</p>
+      <div class="info-grid three-col">
+        <div class="info-card">
+          <div class="info-card-label">What We Do</div>
+          <div class="info-card-title">Climate strategy for PE</div>
+          <div class="info-card-body">
+            <span>Carbon accounting</span>
+            <span>ESG integration</span>
+            <span>Sustainability reporting</span>
+            <span>Value creation alignment</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">How We Work</div>
+          <div class="info-card-title">Claude Code is the OS</div>
+          <div class="info-card-body">
+            <span>Not a side tool. The system.</span>
+            <span>Every workflow runs through CC.</span>
+            <span>Every deliverable is built in CC.</span>
+          </div>
+        </div>
+        <div class="info-card highlighted">
+          <div class="info-card-label">The Team</div>
+          <div class="info-card-title">30 consultants</div>
+          <div class="info-card-body">
+            <span>That's you.</span>
+            <span>Climate domain expertise</span>
+            <span>+ Claude Code proficiency.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: The Client -->
+    <div class="slide">
+      <div class="slide-header">
+        <span class="slide-number">02</span>
+      </div>
+      <div class="label">Your Client</div>
+      <h2>Northwood Capital</h2>
+      <p>Mid-market PE firm. Chicago. $1.75B AUM. 10 active portcos + 2 realized exits.</p>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-label">The Contact</div>
+          <div class="info-card-title">Sarah Mitchell, COO</div>
+          <div class="info-card-body">
+            <span>Former McKinsey (9 years, Ops Practice)</span>
+            <span>Oversees firm ops, tech, vendors, and ESG</span>
+            <span>No dedicated ESG person at fund level</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">The Situation</div>
+          <div class="info-card-title">ESG gaps across the portfolio</div>
+          <div class="info-card-body">
+            <span>Portco ESG contacts are CFOs or ops leads</span>
+            <span>Previously used McKinsey for ESG work</span>
+            <span>Unhappy with generic, non-PE deliverables</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4: What Sarah Wants -->
+    <div class="slide">
+      <div class="slide-header">
+        <span class="slide-number">03</span>
+      </div>
+      <div class="label">The Ask</div>
+      <h2>Sarah has <span class="highlight">three objectives</span>.</h2>
+      <ol class="numbered-list">
+        <li><strong>Deliverables with immediate impact.</strong> Work product the fund and portcos can use now. Not strategy decks. Not roadmaps. Operational output that connects ESG to value creation.</li>
+        <li><strong>A system that compounds.</strong> Methodologies, playbooks, and templates that persist after the engagement. Knowledge that builds, not decays.</li>
+        <li><strong>A test case for AI-native consulting.</strong> Northwood is AI-forward. They want to see what a CC-native firm can do. Speed, quality, and knowledge retention &mdash; compared to MBB.</li>
+      </ol>
+    </div>
+
+    <!-- Slide 5: The Pain Points -->
+    <div class="slide">
+      <div class="slide-header">
+        <span class="slide-number">04</span>
+      </div>
+      <div class="label">Context</div>
+      <h2>Why Northwood is talking to us.</h2>
+      <div class="quote-block">
+        <p>"The work reads like climate consulting adapted for PE, not PE consulting that incorporates climate."</p>
+        <div class="attribution">&mdash; Sarah Mitchell on prior MBB engagements</div>
+      </div>
+      <ul style="margin-top: 32px;">
+        <li><strong>Problem 1:</strong> Generic. Deliverables don't connect to value creation plans, operating reviews, or the metrics IC and LPs track.</li>
+        <li><strong>Problem 2:</strong> No residual value. Every update starts from scratch. No compounding. No system. Just one-off reports.</li>
+      </ul>
+      <p class="dim" style="font-size: 18px; margin-top: 24px;">She's not looking for a sustainability mission statement. She wants ESG tied to EBITDA, risk, and exit readiness.</p>
+    </div>
+
+    <!-- Slide 6: The Portfolio -->
+    <div class="slide">
+      <div class="slide-header">
+        <span class="slide-number">05</span>
+      </div>
+      <div class="label">The Portfolio</div>
+      <h2>12 companies. 6 weeks. <span class="highlight">You choose the focus.</span></h2>
+      <table class="slide-table">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Sector</th>
+            <th>Fund</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Meridian Business Solutions</td><td>Business Services</td><td>I</td><td>Exit prep</td></tr>
+          <tr><td>NovaCare Health Partners</td><td>Healthcare Services</td><td>I</td><td>On plan</td></tr>
+          <tr><td>Sterling Precision Manufacturing</td><td>Industrial Technology</td><td>I</td><td>Strong</td></tr>
+          <tr><td>Trident IT Solutions</td><td>Technology Services</td><td>I</td><td>Above plan</td></tr>
+          <tr><td>Clearview Environmental Services</td><td>Environmental Services</td><td>II</td><td>On plan</td></tr>
+          <tr><td>Patriot Staffing Solutions</td><td>Business Services</td><td>II</td><td>Below plan</td></tr>
+          <tr><td>Keystone Behavioral Health</td><td>Healthcare Services</td><td>II</td><td>Early / 100-day</td></tr>
+          <tr><td>Pinnacle Testing &amp; Inspection</td><td>Industrial Technology</td><td>II</td><td>Early integration</td></tr>
+          <tr><td>Harvest Ridge Foods</td><td>Food &amp; Agriculture</td><td>II</td><td>Early / 100-day</td></tr>
+          <tr><td>Ridgeline Property Services</td><td>Real Estate Services</td><td>II</td><td>Early / 100-day</td></tr>
+          <tr style="opacity: 0.55;"><td>Atlas Compliance Group</td><td>Business Services</td><td>I</td><td>Realized &mdash; Q4 2021</td></tr>
+          <tr style="opacity: 0.55;"><td>ProServ Facilities Management</td><td>Business Services</td><td>I</td><td>Realized &mdash; Q2 2023</td></tr>
+        </tbody>
+      </table>
+      <p class="dim" style="font-size: 16px; margin-top: 16px;">Sarah wants your recommendation on which of the 10 active portcos to prioritize for ESG work. Realized exits are shown for context only. Depth over breadth.</p>
+    </div>
+
+    <!-- Slide 7: Your Assignment -->
+    <div class="slide">
+      <div class="slide-header">
+        <span class="slide-number">06</span>
+      </div>
+      <div class="label">Your Assignment</div>
+      <h2>Build the <span class="highlight">proposal</span>.</h2>
+      <p>Sarah asked Kith Consulting to come back with a presentation. That's your job this week.</p>
+      <ol class="numbered-list" style="margin-top: 32px;">
+        <li><strong>Proposed deliverables</strong> &mdash; What will you produce in 6 weeks? Fund-level and portco-level.</li>
+        <li><strong>Benefits and outcomes</strong> &mdash; What will Northwood have at the end? How does it connect to value creation and LP reporting?</li>
+        <li><strong>Data requirements</strong> &mdash; What do you need from Northwood and the portco teams? Be specific.</li>
+        <li><strong>Team and approach</strong> &mdash; How does our CC-native model work in practice? How will we interact with their teams?</li>
+        <li><strong>Anything else</strong> &mdash; What should they be thinking about that they haven't raised?</li>
+      </ol>
+    </div>
+
+    <!-- Slide 8: How to Work -->
+    <div class="slide">
+      <div class="slide-header">
+        <span class="slide-number">07</span>
+      </div>
+      <div class="label">How to Work</div>
+      <h2>You have Claude Code. <span class="highlight">Use it.</span></h2>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-label">What You Have</div>
+          <div class="info-card-body" style="font-size: 17px; line-height: 1.9;">
+            <span>Kith Consulting firm profile</span>
+            <span>Northwood's engagement inquiry</span>
+            <span>Claude Code</span>
+            <span>Your domain knowledge</span>
+            <span style="margin-top: 8px; color: var(--color-teal-bright);">Claude Code setup guide + privacy cheatsheet <span style="color: var(--color-text-muted); font-size: 13px;">(outside the simulation)</span></span>
+          </div>
+        </div>
+        <div class="info-card highlighted">
+          <div class="info-card-label">What You Don't Have</div>
+          <div class="info-card-body" style="font-size: 17px; line-height: 2;">
+            <span>A template for the proposal</span>
+            <span>A list of "correct" deliverables</span>
+            <span>Someone telling you what to pitch</span>
+          </div>
+        </div>
+      </div>
+      <div class="quote-block" style="margin-top: 32px;">
+        <p>Figure it out with Claude Code. That's the point.</p>
+      </div>
+    </div>
+
+    <!-- Slide 9: Your Week (NEW) -->
+    <div class="slide">
+      <div class="slide-header">
+        <span class="slide-number">08</span>
+      </div>
+      <div class="label">Your Week</div>
+      <h2>The cadence. <span class="highlight">9 AM Pacific.</span></h2>
+      <div class="info-grid four-col">
+        <div class="info-card highlighted">
+          <div class="info-card-label">Mon May 18</div>
+          <div class="info-card-meta">Today</div>
+          <div class="info-card-title">Workshop</div>
+          <div class="info-card-body">
+            <span>Kickoff &amp; onboarding</span>
+            <span>You're here.</span>
+          </div>
+        </div>
+        <div class="info-card dimmed">
+          <div class="info-card-label">Wed May 20</div>
+          <div class="info-card-meta">Optional</div>
+          <div class="info-card-title">Check-in <span class="pill dim">Optional</span></div>
+          <div class="info-card-body">
+            <span>Open Q&amp;A.</span>
+            <span>Troubleshoot. Compare notes.</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Fri May 22</div>
+          <div class="info-card-meta">Required</div>
+          <div class="info-card-title">Demo Day</div>
+          <div class="info-card-body">
+            <span>Present your pitch.</span>
+            <span>Peer feedback.</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Sat May 23</div>
+          <div class="info-card-meta">Community</div>
+          <div class="info-card-title">Networking</div>
+          <div class="info-card-body">
+            <span>Meet the cohort.</span>
+            <span>Casual, less CC-focused.</span>
+          </div>
+        </div>
+      </div>
+      <p class="dim" style="font-size: 16px; margin-top: 24px;">All sessions are recorded and shared in Discord. Async support runs through Discord throughout the week.</p>
+    </div>
+
+    <!-- Slide 10: Deliverable Spec -->
+    <div class="slide">
+      <div class="slide-header">
+        <span class="slide-number">09</span>
+      </div>
+      <div class="label">Deliverable</div>
+      <h2>Due Friday: <span class="highlight">pitch presentation</span>.</h2>
+      <div class="info-grid three-col">
+        <div class="info-card">
+          <div class="info-card-label">Format</div>
+          <div class="info-card-title">HTML presentation</div>
+          <div class="info-card-body">
+            <span>Built in Claude Code.</span>
+            <span>Kith Consulting branded.</span>
+            <span>Presentation-ready.</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Audience</div>
+          <div class="info-card-title">Sarah Mitchell, COO</div>
+          <div class="info-card-body">
+            <span>Ex-McKinsey. Detail-oriented.</span>
+            <span>Speaks PE, not sustainability.</span>
+            <span>Wants specifics, not promises.</span>
+          </div>
+        </div>
+        <div class="info-card highlighted">
+          <div class="info-card-label">Friday Demo</div>
+          <div class="info-card-title">5 min speaking time</div>
+          <div class="info-card-body">
+            <span>Deck length is up to you.</span>
+            <span>Present to peers, get feedback.</span>
+            <span>Best proposals get discussed.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 11: The Hint -->
+    <div class="slide">
+      <div class="slide-header">
+        <span class="slide-number">10</span>
+      </div>
+      <div class="label">One More Thing</div>
+      <h2>Whatever you propose this week<br>is what you'll <span class="highlight">execute</span><br>for the next five.</h2>
+      <p style="margin-top: 32px;">Choose wisely.</p>
+    </div>
+
+    <!-- Slide 12: Go -->
+    <div class="slide title-slide cta-slide">
+      <div class="label">Week 1</div>
+      <h1>Go pitch.</h1>
+    </div>
+
+  </div>
+
+  <div class="nav-hint">&larr; &rarr; to navigate</div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function showSlide(n) {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (n + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        showSlide(currentSlide + 1);
+      } else if (e.key === 'ArrowLeft') {
+        showSlide(currentSlide - 1);
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (e.clientX > window.innerWidth / 2) {
+        showSlide(currentSlide + 1);
+      } else {
+        showSlide(currentSlide - 1);
+      }
+    });
+  </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"bcbe19983cbb4ebdaf9d6bac83ff4c16","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

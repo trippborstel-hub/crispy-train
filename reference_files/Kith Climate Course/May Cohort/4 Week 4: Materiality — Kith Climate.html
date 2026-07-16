@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 4: Materiality — Kith Climate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-base: #1a1d21;
+    --color-surface: #1e2227;
+    --color-card: #232629;
+    --color-border: rgba(232, 230, 227, 0.06);
+    --color-border-hover: rgba(91, 154, 139, 0.25);
+    --color-text-primary: #e8e6e3;
+    --color-text-secondary: rgba(232, 230, 227, 0.5);
+    --color-text-tertiary: rgba(232, 230, 227, 0.35);
+    --color-teal: #5B9A8B;
+    --color-teal-bright: #6FB3A2;
+    --color-teal-glow: rgba(91, 154, 139, 0.5);
+    --color-teal-subtle: rgba(91, 154, 139, 0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    overflow: hidden;
+    background: var(--color-base);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Slide container */
+  .deck {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6vh 8vw;
+    background: linear-gradient(145deg, #1a1d21 0%, #1e2227 50%, #1a1d21 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .slide.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  /* Typography */
+  .slide-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin-bottom: 0.3em;
+  }
+
+  .slide-subtitle {
+    font-size: clamp(14px, 1.6vw, 18px);
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    margin-bottom: 2em;
+  }
+
+  .slide-footer {
+    font-size: clamp(11px, 1.2vw, 14px);
+    color: var(--color-text-secondary);
+    font-style: italic;
+    margin-top: auto;
+    padding-top: 2em;
+  }
+
+  .teal { color: var(--color-teal-bright); }
+  .bold { font-weight: 600; }
+  .italic { font-style: italic; }
+  .muted { color: var(--color-text-secondary); }
+
+  /* Cards */
+  .card-row {
+    display: flex;
+    gap: clamp(12px, 1.5vw, 24px);
+    margin-top: 1.5em;
+  }
+
+  .card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-teal);
+    padding: clamp(16px, 2vw, 28px);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-title {
+    font-size: clamp(14px, 1.4vw, 18px);
+    font-weight: 600;
+    color: var(--color-teal-bright);
+    margin-bottom: 0.5em;
+  }
+
+  .card-desc {
+    font-size: clamp(12px, 1.2vw, 14px);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .card-note {
+    font-size: clamp(11px, 1.1vw, 13px);
+    color: var(--color-text-tertiary);
+    margin-top: 0.8em;
+    font-style: italic;
+  }
+
+  /* Grid layouts */
+  .grid-2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(12px, 1.5vw, 20px);
+    margin-top: 1.5em;
+  }
+
+  .grid-3col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: clamp(12px, 1.5vw, 20px);
+    margin-top: 1.5em;
+  }
+
+  /* Row items */
+  .row-item {
+    display: flex;
+    align-items: center;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-teal);
+    padding: clamp(12px, 1.5vw, 20px) clamp(16px, 2vw, 24px);
+    margin-bottom: clamp(8px, 1vw, 12px);
+  }
+
+  .row-item .label {
+    font-size: clamp(14px, 1.4vw, 17px);
+    font-weight: 600;
+    color: var(--color-teal-bright);
+    min-width: clamp(120px, 14vw, 200px);
+    flex-shrink: 0;
+  }
+
+  .row-item .desc {
+    font-size: clamp(12px, 1.2vw, 15px);
+    color: var(--color-text-secondary);
+  }
+
+  /* Bullet lists */
+  .bullet-list { list-style: none; margin-top: 1em; }
+
+  .bullet-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(12px, 1.5vw, 20px);
+    padding: clamp(8px, 1vw, 14px) 0;
+    font-size: clamp(14px, 1.5vw, 17px);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .bullet-list li:last-child { border-bottom: none; }
+
+  .bullet-list li::before {
+    content: '';
+    width: clamp(7px, 0.9vw, 10px);
+    height: clamp(7px, 0.9vw, 10px);
+    background: var(--color-teal);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  /* Title slide specifics */
+  .slide-accent-bar {
+    position: absolute;
+    left: 0; top: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--color-teal);
+  }
+
+  .hero-title {
+    font-size: clamp(48px, 6vw, 72px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-teal);
+    margin-bottom: 0.5em;
+  }
+
+  .hero-label {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--color-text-primary);
+    margin-bottom: 0.1em;
+  }
+
+  /* Logo */
+  .logo-footer {
+    margin-top: 2em;
+    padding-top: 0;
+  }
+
+  /* Inline SVG wordmark */
+  .wordmark-svg {
+    height: clamp(36px, 4vw, 56px);
+    width: auto;
+    opacity: 0.85;
+  }
+
+  /* Flow diagram */
+  .flow-row {
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 1vw, 16px);
+    margin-top: 1.5em;
+  }
+
+  .flow-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-teal);
+    padding: clamp(14px, 1.8vw, 24px);
+    flex: 1;
+    text-align: center;
+  }
+
+  .flow-card .flow-title {
+    font-size: clamp(13px, 1.3vw, 16px);
+    font-weight: 600;
+    color: var(--color-teal-bright);
+    margin-bottom: 0.4em;
+  }
+
+  .flow-card .flow-desc {
+    font-size: clamp(11px, 1.1vw, 13px);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .flow-arrow {
+    font-size: clamp(18px, 2vw, 26px);
+    color: var(--color-teal);
+    flex-shrink: 0;
+  }
+
+  /* Two-card layout */
+  .two-cards {
+    display: flex;
+    gap: clamp(16px, 2vw, 32px);
+    margin-top: 1.5em;
+  }
+
+  .two-cards .card { flex: 1; }
+
+  /* Context block (left-bordered teal panel) */
+  .context-block {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-teal);
+    padding: clamp(16px, 2vw, 28px);
+    margin-bottom: clamp(12px, 1.5vw, 24px);
+    font-size: clamp(14px, 1.5vw, 17px);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  /* Challenge statement */
+  .challenge-statement {
+    font-size: clamp(16px, 1.8vw, 22px);
+    font-style: italic;
+    color: var(--color-text-secondary);
+    border-left: 3px solid var(--color-teal-subtle);
+    padding-left: clamp(16px, 2vw, 28px);
+    margin-bottom: 1.5em;
+    line-height: 1.7;
+  }
+
+  /* Stat block */
+  .stat-block {
+    font-size: clamp(52px, 7vw, 88px);
+    font-weight: 700;
+    color: var(--color-teal-bright);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 0.2em;
+  }
+
+  .stat-label {
+    font-size: clamp(14px, 1.5vw, 18px);
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5em;
+  }
+
+  /* Two-column layout */
+  .two-col {
+    display: flex;
+    gap: clamp(24px, 3vw, 48px);
+    margin-top: 1.5em;
+    align-items: flex-start;
+  }
+
+  .col-left { flex: 1; }
+  .col-right { flex: 1; }
+
+  /* Numbered list */
+  .numbered-list {
+    list-style: none;
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(8px, 1vw, 14px);
+  }
+
+  .numbered-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(14px, 1.8vw, 24px);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    padding: clamp(12px, 1.5vw, 20px) clamp(16px, 2vw, 24px);
+  }
+
+  .num-badge {
+    font-size: clamp(20px, 2.5vw, 32px);
+    font-weight: 700;
+    color: var(--color-teal);
+    line-height: 1;
+    min-width: clamp(28px, 3vw, 40px);
+    flex-shrink: 0;
+  }
+
+  .num-title {
+    font-size: clamp(14px, 1.4vw, 17px);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 0.25em;
+  }
+
+  .num-desc {
+    font-size: clamp(12px, 1.2vw, 14px);
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+  }
+
+  /* Banner */
+  .banner {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    padding: clamp(14px, 1.5vw, 22px);
+    text-align: center;
+    font-size: clamp(14px, 1.5vw, 18px);
+    font-weight: 600;
+    color: var(--color-teal-bright);
+    margin-top: 1.5em;
+  }
+
+  /* Closing slide */
+  .closing-title {
+    font-size: clamp(40px, 5vw, 60px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin-bottom: 0.6em;
+  }
+
+  .closing-tagline {
+    font-size: clamp(16px, 1.8vw, 22px);
+    line-height: 1.8;
+    margin-bottom: 1.5em;
+  }
+
+  .closing-cta {
+    font-size: clamp(14px, 1.4vw, 17px);
+    color: var(--color-text-secondary);
+    margin-bottom: 3em;
+  }
+
+  .closing-url {
+    font-size: clamp(12px, 1.2vw, 14px);
+    color: var(--color-text-tertiary);
+    margin-top: 0.8em;
+    text-align: center;
+  }
+
+  .logo-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 2em;
+  }
+
+  /* ─── Week 4 additions ─── */
+
+  /* Reframe columns (before / after) */
+  .reframe-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(16px, 2vw, 32px);
+    margin-top: 1.5em;
+  }
+
+  .reframe-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    padding: clamp(18px, 2vw, 30px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 1.2vw, 16px);
+  }
+
+  .reframe-card.before { border-top: 3px solid rgba(232, 230, 227, 0.15); }
+  .reframe-card.after { border-top: 3px solid var(--color-teal); }
+
+  .reframe-label {
+    font-size: clamp(10px, 1vw, 12px);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: var(--color-text-tertiary);
+  }
+
+  .reframe-card.after .reframe-label { color: var(--color-teal-bright); }
+
+  .reframe-term {
+    font-size: clamp(20px, 2.4vw, 30px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin-top: 0.2em;
+  }
+
+  .reframe-line {
+    font-size: clamp(13px, 1.4vw, 17px);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    padding-left: clamp(20px, 2vw, 28px);
+    position: relative;
+  }
+
+  .reframe-line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.8em;
+    width: clamp(12px, 1.3vw, 16px);
+    height: 1px;
+    background: var(--color-text-tertiary);
+  }
+
+  .reframe-card.after .reframe-line::before {
+    background: var(--color-teal);
+    height: 2px;
+  }
+
+  .reframe-line.strike {
+    color: var(--color-text-tertiary);
+    text-decoration: line-through;
+    text-decoration-color: rgba(232, 230, 227, 0.25);
+  }
+
+  /* Python reveal */
+  .python-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(12px, 1.4vw, 20px);
+    margin-top: 1em;
+  }
+
+  .python-wordmark {
+    font-size: clamp(72px, 10vw, 140px);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+    color: var(--color-teal);
+  }
+
+  .python-sub {
+    font-size: clamp(18px, 2vw, 26px);
+    font-weight: 500;
+    color: var(--color-text-primary);
+    line-height: 1.4;
+  }
+
+  .python-beats {
+    display: flex;
+    gap: clamp(16px, 2vw, 32px);
+    margin-top: clamp(20px, 2.5vw, 36px);
+  }
+
+  .python-beat {
+    display: flex;
+    align-items: baseline;
+    gap: clamp(8px, 1vw, 14px);
+  }
+
+  .python-beat-num {
+    font-size: clamp(20px, 2.2vw, 28px);
+    font-weight: 700;
+    color: var(--color-teal-bright);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .python-beat-text {
+    font-size: clamp(14px, 1.4vw, 17px);
+    color: var(--color-text-secondary);
+    font-weight: 500;
+  }
+
+  /* Sterling walkthrough — step cards */
+  .pipeline-row {
+    display: flex;
+    align-items: stretch;
+    gap: clamp(6px, 0.8vw, 12px);
+    margin-top: 1.2em;
+  }
+
+  .pipeline-step {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-teal);
+    padding: clamp(12px, 1.4vw, 20px);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: clamp(6px, 0.8vw, 12px);
+  }
+
+  .pipeline-step .step-num {
+    font-size: clamp(10px, 1vw, 12px);
+    font-weight: 700;
+    color: var(--color-teal);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .pipeline-step .step-label {
+    font-size: clamp(13px, 1.3vw, 16px);
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  .pipeline-step .step-value {
+    font-size: clamp(11px, 1.1vw, 13px);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    font-family: ui-monospace, 'Berkeley Mono', 'Cascadia Code', 'Consolas', monospace;
+  }
+
+  .pipeline-arrow {
+    font-size: clamp(16px, 1.8vw, 22px);
+    color: var(--color-teal);
+    align-self: center;
+    flex-shrink: 0;
+  }
+
+  .pipeline-output {
+    display: flex;
+    gap: clamp(12px, 1.5vw, 24px);
+    margin-top: clamp(16px, 2vw, 28px);
+  }
+
+  .pipeline-output-item {
+    background: var(--color-teal-subtle);
+    border: 1px solid rgba(91, 154, 139, 0.2);
+    border-left: 3px solid var(--color-teal-bright);
+    padding: clamp(10px, 1.2vw, 16px) clamp(14px, 1.6vw, 22px);
+    flex: 1;
+  }
+
+  .pipeline-output-label {
+    font-size: clamp(10px, 1vw, 12px);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-teal-bright);
+    font-weight: 600;
+    margin-bottom: 0.3em;
+  }
+
+  .pipeline-output-value {
+    font-size: clamp(15px, 1.6vw, 19px);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Materiality matrix */
+  .matrix-wrap {
+    display: flex;
+    margin-top: 1em;
+    gap: clamp(20px, 2.5vw, 40px);
+    align-items: stretch;
+  }
+
+  .matrix {
+    position: relative;
+    flex: 1;
+    max-width: clamp(400px, 48vw, 680px);
+    aspect-ratio: 1.1 / 1;
+    display: flex;
+    padding-left: clamp(40px, 4vw, 56px);
+    padding-bottom: clamp(36px, 4vw, 52px);
+  }
+
+  .matrix-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+  }
+
+  .matrix-cell {
+    background: var(--color-card);
+    padding: clamp(12px, 1.4vw, 20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .matrix-cell.priority {
+    background: var(--color-teal-subtle);
+    border: 1px solid rgba(91, 154, 139, 0.3);
+  }
+
+  .matrix-cell-action {
+    font-size: clamp(13px, 1.4vw, 17px);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 0.3em;
+  }
+
+  .matrix-cell.priority .matrix-cell-action {
+    color: var(--color-teal-bright);
+  }
+
+  .matrix-cell-desc {
+    font-size: clamp(10px, 1vw, 12px);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .matrix-axis-y {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: clamp(36px, 4vw, 52px);
+    width: clamp(40px, 4vw, 56px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .matrix-axis-y-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: clamp(10px, 1vw, 12px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-text-tertiary);
+  }
+
+  .matrix-axis-x {
+    position: absolute;
+    left: clamp(40px, 4vw, 56px);
+    right: 0;
+    bottom: 0;
+    height: clamp(36px, 4vw, 52px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .matrix-axis-x-label {
+    font-size: clamp(10px, 1vw, 12px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-text-tertiary);
+  }
+
+  .matrix-note {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: clamp(240px, 28vw, 380px);
+  }
+
+  .matrix-note h4 {
+    font-size: clamp(14px, 1.5vw, 18px);
+    font-weight: 600;
+    color: var(--color-teal-bright);
+    margin-bottom: 0.5em;
+  }
+
+  .matrix-note p {
+    font-size: clamp(12px, 1.3vw, 15px);
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    margin-bottom: 0.8em;
+  }
+
+  /* Investment case cards */
+  .case-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-teal);
+    padding: clamp(14px, 1.6vw, 22px) clamp(16px, 1.8vw, 26px);
+    margin-bottom: clamp(10px, 1.2vw, 16px);
+  }
+
+  .case-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: clamp(8px, 1vw, 12px);
+    gap: clamp(12px, 1.5vw, 24px);
+  }
+
+  .case-title {
+    font-size: clamp(14px, 1.4vw, 17px);
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  .case-portco {
+    font-size: clamp(11px, 1.1vw, 13px);
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+
+  .case-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(8px, 1vw, 16px);
+  }
+
+  .case-metric-label {
+    font-size: clamp(9px, 0.95vw, 11px);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-tertiary);
+    font-weight: 600;
+    margin-bottom: 0.3em;
+  }
+
+  .case-metric-value {
+    font-size: clamp(14px, 1.5vw, 18px);
+    font-weight: 700;
+    color: var(--color-teal-bright);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .case-metric-value.neutral {
+    color: var(--color-text-primary);
+  }
+
+  /* Rollup table */
+  .rollup-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+  }
+
+  .rollup-table th {
+    font-size: clamp(9px, 0.95vw, 11px);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-tertiary);
+    font-weight: 700;
+    text-align: left;
+    padding: clamp(8px, 1vw, 12px) clamp(10px, 1.2vw, 16px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .rollup-table td {
+    font-size: clamp(11px, 1.2vw, 14px);
+    color: var(--color-text-secondary);
+    padding: clamp(10px, 1.2vw, 16px);
+    border-bottom: 1px solid var(--color-border);
+    line-height: 1.5;
+  }
+
+  .rollup-table tr:last-child td { border-bottom: none; }
+
+  .rollup-table .portco-name {
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  .rollup-table .dollar-value {
+    font-weight: 700;
+    color: var(--color-teal-bright);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .rollup-table .payback-value {
+    font-variant-numeric: tabular-nums;
+    color: var(--color-text-primary);
+  }
+
+  /* Make-data flow (slide 5) */
+  .loop-row {
+    display: flex;
+    align-items: stretch;
+    gap: clamp(10px, 1.2vw, 18px);
+    margin-top: 1.2em;
+  }
+
+  .loop-step {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-teal);
+    padding: clamp(14px, 1.6vw, 22px);
+    flex: 1;
+  }
+
+  .loop-step-num {
+    font-size: clamp(10px, 1vw, 12px);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    font-weight: 700;
+    margin-bottom: 0.4em;
+  }
+
+  .loop-step-title {
+    font-size: clamp(14px, 1.4vw, 17px);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 0.4em;
+  }
+
+  .loop-step-desc {
+    font-size: clamp(11px, 1.15vw, 13px);
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+  }
+
+  /* Cross-reference card (slide 4) */
+  .xref-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(10px, 1.2vw, 18px);
+    margin-top: 1.2em;
+  }
+
+  .xref-item {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    padding: clamp(12px, 1.4vw, 20px);
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 1vw, 14px);
+  }
+
+  .xref-token {
+    font-size: clamp(11px, 1.15vw, 13px);
+    font-weight: 600;
+    color: var(--color-teal-bright);
+    font-family: ui-monospace, 'Berkeley Mono', 'Cascadia Code', 'Consolas', monospace;
+    white-space: nowrap;
+  }
+
+  .xref-equals {
+    font-size: clamp(14px, 1.4vw, 17px);
+    color: var(--color-teal);
+    flex-shrink: 0;
+  }
+
+  .xref-result {
+    font-size: clamp(12px, 1.25vw, 15px);
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+  }
+
+  /* Navigation */
+  .nav-hint {
+    position: fixed;
+    bottom: 16px;
+    right: 24px;
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    letter-spacing: 0.05em;
+    z-index: 100;
+  }
+
+  .slide-counter {
+    position: fixed;
+    bottom: 16px;
+    left: 24px;
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    letter-spacing: 0.05em;
+    z-index: 100;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: var(--color-teal);
+    transition: width 0.4s ease;
+    z-index: 100;
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+<div class="slide-counter" id="counter"></div>
+<div class="nav-hint">← → or click to navigate</div>
+
+<div class="deck" id="deck">
+
+  <!-- SLIDE 1: Title -->
+  <div class="slide active">
+    <div class="slide-accent-bar"></div>
+    <div class="hero-label">Week 4</div>
+    <div class="hero-title">Materiality</div>
+    <div class="slide-subtitle" style="margin-top:0.5em;">Or: what actually moves enterprise value</div>
+    <div class="logo-footer">
+      <svg class="wordmark-svg" viewBox="0 0 1068 177" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kith Climate">
+<path d="M21.6364 110.736L21.5455 94.1454H23.9091L51.7273 64.5999H68L36.2727 98.2363H34.1364L21.6364 110.736ZM9.13636 134.418V41.3272H22.7273V134.418H9.13636ZM53.2273 134.418L28.2273 101.236L37.5909 91.7363L69.9091 134.418H53.2273ZM77.8264 134.418V64.5999H91.4173V134.418H77.8264ZM84.69 53.8272C82.3264 53.8272 80.2961 53.0393 78.5991 51.4635C76.9324 49.8575 76.0991 47.9484 76.0991 45.7363C76.0991 43.4938 76.9324 41.5848 78.5991 40.009C80.2961 38.4029 82.3264 37.5999 84.69 37.5999C87.0536 37.5999 89.0688 38.4029 90.7355 40.009C92.4324 41.5848 93.2809 43.4938 93.2809 45.7363C93.2809 47.9484 92.4324 49.8575 90.7355 51.4635C89.0688 53.0393 87.0536 53.8272 84.69 53.8272ZM139.732 64.5999V75.509H101.596V64.5999H139.732ZM111.823 47.8726H125.414V113.918C125.414 116.554 125.808 118.539 126.596 119.873C127.384 121.176 128.399 122.07 129.641 122.554C130.914 123.009 132.293 123.236 133.778 123.236C134.869 123.236 135.823 123.161 136.641 123.009C137.46 122.857 138.096 122.736 138.55 122.645L141.005 133.873C140.217 134.176 139.096 134.479 137.641 134.782C136.187 135.115 134.369 135.297 132.187 135.327C128.611 135.388 125.278 134.751 122.187 133.418C119.096 132.085 116.596 130.024 114.687 127.236C112.778 124.448 111.823 120.948 111.823 116.736V47.8726ZM167.297 92.9635V134.418H153.706V41.3272H167.115V75.9635H167.979C169.615 72.206 172.115 69.2211 175.479 67.009C178.843 64.7969 183.237 63.6908 188.661 63.6908C193.449 63.6908 197.631 64.6757 201.206 66.6454C204.812 68.6151 207.6 71.5545 209.57 75.4635C211.57 79.3423 212.57 84.1908 212.57 90.009V134.418H198.979V91.6454C198.979 86.5241 197.661 82.5545 195.025 79.7363C192.388 76.8878 188.722 75.4635 184.025 75.4635C180.812 75.4635 177.934 76.1454 175.388 77.509C172.873 78.8726 170.888 80.8726 169.434 83.509C168.009 86.1151 167.297 89.2666 167.297 92.9635Z" fill="#E8E6E3"/>
+<path d="M382.954 135.873C376.712 135.873 371.273 134.312 366.636 131.191C362.03 128.07 358.454 123.797 355.909 118.373C353.364 112.948 352.091 106.767 352.091 99.8272C352.091 92.8272 353.379 86.5999 355.954 81.1454C358.561 75.6908 362.167 71.4181 366.773 68.3272C371.379 65.206 376.727 63.6454 382.818 63.6454C387.485 63.6454 391.712 64.5545 395.5 66.3726C399.288 68.1605 402.409 70.6908 404.864 73.9635C407.348 77.206 408.909 80.9938 409.545 85.3272H401.364C400.515 81.3878 398.47 78.0242 395.227 75.2363C392.015 72.4181 387.924 71.009 382.954 71.009C378.5 71.009 374.561 72.2211 371.136 74.6454C367.712 77.0393 365.03 80.3878 363.091 84.6908C361.182 88.9635 360.227 93.9181 360.227 99.5545C360.227 105.221 361.167 110.236 363.045 114.6C364.924 118.933 367.561 122.327 370.954 124.782C374.379 127.236 378.379 128.464 382.954 128.464C386.045 128.464 388.864 127.888 391.409 126.736C393.985 125.554 396.136 123.888 397.864 121.736C399.621 119.585 400.803 117.024 401.409 114.054H409.591C408.985 118.267 407.485 122.024 405.091 125.327C402.727 128.6 399.651 131.176 395.864 133.054C392.106 134.933 387.803 135.873 382.954 135.873ZM437.583 41.3272V134.418H429.492V41.3272H437.583ZM461.643 134.418V64.5999H469.779V134.418H461.643ZM465.779 52.5999C464.112 52.5999 462.688 52.0393 461.506 50.9181C460.324 49.7666 459.734 48.3878 459.734 46.7817C459.734 45.1757 460.324 43.812 461.506 42.6908C462.688 41.5393 464.112 40.9635 465.779 40.9635C467.446 40.9635 468.87 41.5393 470.052 42.6908C471.234 43.812 471.824 45.1757 471.824 46.7817C471.824 48.3878 471.234 49.7666 470.052 50.9181C468.87 52.0393 467.446 52.5999 465.779 52.5999ZM493.737 134.418V64.5999H501.6V75.3272H502.328C503.722 71.7211 506.04 68.8878 509.282 66.8272C512.555 64.7363 516.479 63.6908 521.055 63.6908C525.873 63.6908 529.828 64.8272 532.919 67.0999C536.04 69.3423 538.373 72.4332 539.919 76.3726H540.509C542.085 72.4938 544.646 69.4181 548.191 67.1454C551.767 64.8423 556.1 63.6908 561.191 63.6908C567.676 63.6908 572.797 65.7363 576.555 69.8272C580.313 73.8878 582.191 79.8272 582.191 87.6454V134.418H574.1V87.6454C574.1 82.1302 572.691 77.9938 569.873 75.2363C567.055 72.4787 563.343 71.0999 558.737 71.0999C553.403 71.0999 549.297 72.7363 546.419 76.009C543.54 79.2817 542.1 83.4332 542.1 88.4635V134.418H533.828V86.9181C533.828 82.1908 532.509 78.3726 529.873 75.4635C527.237 72.5545 523.525 71.0999 518.737 71.0999C515.525 71.0999 512.631 71.8878 510.055 73.4635C507.509 75.0393 505.494 77.2363 504.009 80.0545C502.555 82.8423 501.828 86.0545 501.828 89.6908V134.418H493.737ZM625.672 136.009C621.46 136.009 617.611 135.191 614.126 133.554C610.641 131.888 607.869 129.494 605.808 126.373C603.748 123.221 602.717 119.403 602.717 114.918C602.717 111.464 603.369 108.554 604.672 106.191C605.975 103.827 607.823 101.888 610.217 100.373C612.611 98.8575 615.444 97.6605 618.717 96.7817C621.99 95.9029 625.596 95.2211 629.535 94.7363C633.444 94.2514 636.748 93.8272 639.444 93.4635C642.172 93.0999 644.248 92.5242 645.672 91.7363C647.096 90.9484 647.808 89.6757 647.808 87.9181V86.2817C647.808 81.5242 646.384 77.7817 643.535 75.0545C640.717 72.2969 636.657 70.9181 631.354 70.9181C626.323 70.9181 622.217 72.0242 619.035 74.2363C615.884 76.4484 613.672 79.0545 612.399 82.0545L604.717 79.2817C606.293 75.4635 608.475 72.4181 611.263 70.1454C614.051 67.8423 617.172 66.1908 620.626 65.1908C624.081 64.1605 627.581 63.6454 631.126 63.6454C633.793 63.6454 636.566 63.9938 639.444 64.6908C642.354 65.3878 645.051 66.5999 647.535 68.3272C650.02 70.0241 652.035 72.4029 653.581 75.4635C655.126 78.4938 655.899 82.3423 655.899 87.009V134.418H647.808V123.373H647.308C646.338 125.433 644.899 127.433 642.99 129.373C641.081 131.312 638.687 132.903 635.808 134.145C632.929 135.388 629.551 136.009 625.672 136.009ZM626.763 128.6C631.066 128.6 634.793 127.645 637.944 125.736C641.096 123.827 643.52 121.297 645.217 118.145C646.944 114.964 647.808 111.464 647.808 107.645V97.5545C647.202 98.1302 646.187 98.6454 644.763 99.0999C643.369 99.5545 641.748 99.9635 639.899 100.327C638.081 100.661 636.263 100.948 634.444 101.191C632.626 101.433 630.99 101.645 629.535 101.827C625.596 102.312 622.232 103.07 619.444 104.1C616.657 105.13 614.52 106.554 613.035 108.373C611.551 110.161 610.808 112.464 610.808 115.282C610.808 119.524 612.323 122.812 615.354 125.145C618.384 127.448 622.187 128.6 626.763 128.6ZM707.482 64.5999V71.6454H674.164V64.5999H707.482ZM684.573 47.8726H692.709V116.191C692.709 119.1 693.209 121.388 694.209 123.054C695.209 124.691 696.512 125.857 698.118 126.554C699.724 127.221 701.436 127.554 703.254 127.554C704.315 127.554 705.224 127.494 705.982 127.373C706.739 127.221 707.406 127.07 707.982 126.918L709.709 134.236C708.921 134.539 707.951 134.812 706.8 135.054C705.648 135.327 704.224 135.464 702.527 135.464C699.558 135.464 696.694 134.812 693.936 133.509C691.209 132.206 688.967 130.267 687.209 127.691C685.451 125.115 684.573 121.918 684.573 118.1V47.8726ZM755.894 135.873C749.379 135.873 743.743 134.357 738.985 131.327C734.227 128.267 730.546 124.039 727.939 118.645C725.364 113.221 724.076 106.979 724.076 99.9181C724.076 92.8878 725.364 86.6454 727.939 81.1908C730.546 75.706 734.136 71.4181 738.712 68.3272C743.318 65.206 748.636 63.6454 754.667 63.6454C758.455 63.6454 762.106 64.3423 765.621 65.7363C769.136 67.0999 772.288 69.206 775.076 72.0545C777.894 74.8726 780.121 78.4332 781.758 82.7363C783.394 87.009 784.212 92.0696 784.212 97.9181V101.918H729.667V94.7817H775.939C775.939 90.2969 775.03 86.2666 773.212 82.6908C771.424 79.0848 768.924 76.2363 765.712 74.1454C762.53 72.0545 758.849 71.009 754.667 71.009C750.243 71.009 746.349 72.1908 742.985 74.5545C739.621 76.9181 736.985 80.0393 735.076 83.9181C733.197 87.7969 732.243 92.0393 732.212 96.6454V100.918C732.212 106.464 733.167 111.312 735.076 115.464C737.015 119.585 739.758 122.782 743.303 125.054C746.849 127.327 751.046 128.464 755.894 128.464C759.197 128.464 762.091 127.948 764.576 126.918C767.091 125.888 769.197 124.509 770.894 122.782C772.621 121.024 773.924 119.1 774.803 117.009L782.485 119.509C781.424 122.448 779.682 125.161 777.258 127.645C774.864 130.13 771.864 132.13 768.258 133.645C764.682 135.13 760.561 135.873 755.894 135.873Z" fill="#E8E6E3" fill-opacity="0.4"/>
+<g filter="url(#filter0_d_6_8_w41)">
+<rect x="289.092" y="23.4181" width="9" height="130" rx="4.5" transform="rotate(8 289.092 23.4181)" fill="url(#paint0_linear_6_8_w41)" shape-rendering="crispEdges"/>
+</g>
+<defs>
+<filter id="filter0_d_6_8_w41" x="247.582" y="0" width="73.8411" height="176.824" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="12"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.356863 0 0 0 0 0.603922 0 0 0 0 0.545098 0 0 0 0.5 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_6_8"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_6_8" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear_6_8_w41" x1="293.592" y1="23.4181" x2="293.592" y2="153.418" gradientUnits="userSpaceOnUse">
+<stop stop-color="#5B9A8B" stop-opacity="0.1"/>
+<stop offset="0.25" stop-color="#5B9A8B"/>
+<stop offset="0.75" stop-color="#5B9A8B"/>
+<stop offset="1" stop-color="#5B9A8B" stop-opacity="0.1"/>
+</linearGradient>
+</defs>
+</svg>
+    </div>
+  </div>
+
+  <!-- SLIDE 2: Last Week → This Week -->
+  <div class="slide">
+    <div class="slide-title">Last Week, The Number. This Week, The Meaning.</div>
+    <div class="two-col" style="margin-top:1.5em; align-items:center;">
+      <div class="col-left">
+        <div class="stat-block">24,287 mt</div>
+        <div class="stat-label">CO2e. Scope 1 + 2. 10 portcos, 138 facilities. The Northwood portfolio.</div>
+      </div>
+      <div class="col-right" style="border-left:1px solid var(--color-border); padding-left:clamp(24px,3vw,48px);">
+        <p style="font-size:clamp(14px,1.5vw,18px); color:var(--color-text-secondary); line-height:1.75;">
+          A number in isolation is a scoreboard.<br><br>
+          Connect it to revenue, debt, insurance, and exit multiples — and it becomes a finding the IC can act on.
+        </p>
+      </div>
+    </div>
+    <div class="slide-footer">This week the carbon data stops being standalone.</div>
+  </div>
+
+  <!-- SLIDE 3: The Architecture -->
+  <div class="slide">
+    <div class="slide-title">The Architecture</div>
+    <div class="slide-subtitle">Every file, every row, every reference — addressable</div>
+    <div class="card-row">
+      <div class="card">
+        <div class="card-title">Files</div>
+        <div class="card-desc">Questionnaires, CSVs, reference docs, protocols, templates. If it's in the workspace, Claude Code can read it.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Supabase</div>
+        <div class="card-desc">Portfolio financials, KPIs, comps, pipeline deals, empty ESG tables. 17 structured tables. One schema. One connection.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Code</div>
+        <div class="card-desc">Python, SQL, HTML. Written and run on demand. No environment setup. No hand-offs. No waiting on an analyst.</div>
+      </div>
+    </div>
+    <div class="slide-footer">This isn't a feature list. It's what makes the rest of the week possible.</div>
+  </div>
+
+  <!-- SLIDE 4: What Opens Up -->
+  <div class="slide">
+    <div class="slide-title">What Opens Up</div>
+    <div class="slide-subtitle">Cross-reference, not lookup</div>
+    <div class="xref-grid">
+      <div class="xref-item">
+        <span class="xref-token">carbon</span>
+        <span class="xref-equals">×</span>
+        <span class="xref-token">revenue</span>
+        <span class="xref-equals">→</span>
+        <span class="xref-result">transition risk exposure per $M</span>
+      </div>
+      <div class="xref-item">
+        <span class="xref-token">flood risk</span>
+        <span class="xref-equals">×</span>
+        <span class="xref-token">insurance</span>
+        <span class="xref-equals">→</span>
+        <span class="xref-result">forward premium trajectory</span>
+      </div>
+      <div class="xref-item">
+        <span class="xref-token">customer mix</span>
+        <span class="xref-equals">×</span>
+        <span class="xref-token">decarb mandates</span>
+        <span class="xref-equals">→</span>
+        <span class="xref-result">revenue at risk by 2028</span>
+      </div>
+      <div class="xref-item">
+        <span class="xref-token">carbon</span>
+        <span class="xref-equals">×</span>
+        <span class="xref-token">exit multiple</span>
+        <span class="xref-equals">→</span>
+        <span class="xref-result">EV haircut under buyer screening</span>
+      </div>
+    </div>
+    <div class="slide-footer">Questions that used to take a consulting engagement collapse into an afternoon.</div>
+  </div>
+
+  <!-- SLIDE 5: Or Make It -->
+  <div class="slide">
+    <div class="slide-title">Or Make It</div>
+    <div class="slide-subtitle">The data layer isn't fixed. It's extensible.</div>
+    <div class="context-block">
+      Biodiversity isn't in the Northwood questionnaires. Neither is water use. That's not a blocker — it's an invitation. Prompt Claude Code to generate sector-plausible baselines for the portco in question. Then iterate until the data earns its place in the analysis.
+    </div>
+    <div class="loop-row">
+      <div class="loop-step">
+        <div class="loop-step-num">01 — Seed</div>
+        <div class="loop-step-title">Sector-reasonable baseline</div>
+        <div class="loop-step-desc">Facility geography, published benchmarks, industry ranges. Ask for a starting point, not a final number.</div>
+      </div>
+      <div class="loop-step">
+        <div class="loop-step-num">02 — Refine</div>
+        <div class="loop-step-title">Iterate in dialogue</div>
+        <div class="loop-step-desc">Challenge outliers. Add the contradictions real data has. Cross-check against sources. Make it earn your trust.</div>
+      </div>
+      <div class="loop-step">
+        <div class="loop-step-num">03 — Document</div>
+        <div class="loop-step-title">Mark and hand off</div>
+        <div class="loop-step-desc">Simulated, with assumptions noted. Now it's addressable like any other dataset — and feeds the model.</div>
+      </div>
+    </div>
+    <div class="slide-footer">Simulated, then refined. The point isn't precision — it's the shape of the analysis.</div>
+  </div>
+
+  <!-- SLIDE 6: Two Terms, Reframed -->
+  <div class="slide">
+    <div class="slide-title">Two Terms, Reframed</div>
+    <div class="slide-subtitle">Same words. Different client. Different question.</div>
+    <div class="reframe-grid">
+      <div class="reframe-card before">
+        <div class="reframe-label">Before</div>
+        <div class="reframe-term">Materiality</div>
+        <div class="reframe-line strike">Which framework? Which stakeholders? Which taxonomy?</div>
+        <div class="reframe-term" style="margin-top:0.8em;">Initiatives</div>
+        <div class="reframe-line strike">Ambition. Roadmap. Narrative.</div>
+      </div>
+      <div class="reframe-card after">
+        <div class="reframe-label">This week</div>
+        <div class="reframe-term">Materiality</div>
+        <div class="reframe-line">What moves enterprise value?</div>
+        <div class="reframe-term" style="margin-top:0.8em;">Initiatives</div>
+        <div class="reframe-line">ROI. Payback. Risk avoided, in dollars.</div>
+      </div>
+    </div>
+    <div class="slide-footer">The client is a PE firm. You speak the client's language — or you speak past them.</div>
+  </div>
+
+  <!-- SLIDE 7: Why This Was Hard Before -->
+  <div class="slide">
+    <div class="slide-title">Why This Was Hard Before</div>
+    <div class="challenge-statement">
+      Most sustainability professionals don't live in P&amp;L. Not because they can't — because the tools required corp dev skills they weren't hired for.
+    </div>
+    <div class="row-item">
+      <div class="label">To quantify transition risk</div>
+      <div class="desc">You needed a financial model, regulatory scenarios, sensitivity analysis, and a corp dev analyst who knew what to ask.</div>
+    </div>
+    <div class="row-item">
+      <div class="label">To evaluate an initiative</div>
+      <div class="desc">You needed NPV, payback analysis, and enough confidence in the numbers to defend them to an IC.</div>
+    </div>
+    <div class="row-item" style="margin-bottom:0;">
+      <div class="label">To convince Sarah</div>
+      <div class="desc">You needed the whole package in her language: capex, returns, risk avoided. Not tons, gallons, or scores.</div>
+    </div>
+    <div class="slide-footer">The gap wasn't knowledge. It was tooling.</div>
+  </div>
+
+  <!-- SLIDE 8: Python Week -->
+  <div class="slide">
+    <div class="slide-title">This Week, Claude Code Writes Python</div>
+    <div class="slide-subtitle">The same tool, in a new register</div>
+    <div class="python-hero">
+      <div class="python-wordmark">Python</div>
+      <div class="python-sub">You don't write code. <span class="teal">Claude Code does.</span></div>
+      <div class="python-beats">
+        <div class="python-beat">
+          <span class="python-beat-num">01</span>
+          <span class="python-beat-text">You prompt the business question</span>
+        </div>
+        <div class="python-beat">
+          <span class="python-beat-num">02</span>
+          <span class="python-beat-text">CC writes and runs the model</span>
+        </div>
+        <div class="python-beat">
+          <span class="python-beat-num">03</span>
+          <span class="python-beat-text">Output lands in HTML</span>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">What required a corp dev analyst yesterday is a conversation this week.</div>
+  </div>
+
+  <!-- SLIDE 9: What a Model Looks Like -->
+  <div class="slide">
+    <div class="slide-title">What a "Model" Looks Like This Week</div>
+    <div class="slide-subtitle">Four examples. All runnable by Friday.</div>
+    <div class="grid-2x2">
+      <div class="card">
+        <div class="card-title">CBAM Exposure</div>
+        <div class="card-desc">Sterling Precision exports to the EU. Apply embodied-carbon estimates and 2026/2030 CBAM rates. Output: $/yr exposure today and under a 2030 scenario.</div>
+        <div class="card-note">Inputs: carbon (Week 3), export mix (Supabase), CBAM rates (reference)</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Insurance Avoided</div>
+        <div class="card-desc">Harvest Ridge Foods sits in a flood zone. Model insurance premium trajectory with and without mitigation capex. Output: NPV of mitigation over hold period.</div>
+        <div class="card-note">Inputs: facility geography, FEMA data, insurance industry trend</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Retrofit NPV</div>
+        <div class="card-desc">LED and HVAC retrofits across Northwood facilities. Standard capex-to-savings calculation. Output: payback and NPV per portco, ranked.</div>
+        <div class="card-note">Inputs: facility energy, utility rates, retrofit cost benchmarks</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Exit Multiple Sensitivity</div>
+        <div class="card-desc">Keystone is carbon-intense for a behavioral health network. Model premium-buyer screening. Output: multiple haircut scenarios at exit.</div>
+        <div class="card-note">Inputs: intensity metrics, comps (Supabase), buyer ESG criteria</div>
+      </div>
+    </div>
+    <div class="slide-footer">Each one is a Python script CC writes, plus an HTML output you can hand to Sarah.</div>
+  </div>
+
+  <!-- SLIDE 10: Sterling Walkthrough -->
+  <div class="slide">
+    <div class="slide-title">Sterling Precision — One Pipeline</div>
+    <div class="slide-subtitle">From carbon number to initiative rank, end to end</div>
+    <div class="pipeline-row">
+      <div class="pipeline-step">
+        <div class="step-num">01</div>
+        <div class="step-label">Carbon</div>
+        <div class="step-value">~5,200 mt CO2e<br>(Week 3)</div>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-step">
+        <div class="step-num">02</div>
+        <div class="step-label">Export mix</div>
+        <div class="step-value">~30% to EU<br>(Supabase)</div>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-step">
+        <div class="step-num">03</div>
+        <div class="step-label">CBAM rate</div>
+        <div class="step-value">€95/t (2026)<br>€125/t (2030)</div>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-step">
+        <div class="step-num">04</div>
+        <div class="step-label">Exposure model</div>
+        <div class="step-value">Python<br>(CC-authored)</div>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-step">
+        <div class="step-num">05</div>
+        <div class="step-label">Initiative rank</div>
+        <div class="step-value">NPV &amp; payback<br>per option</div>
+      </div>
+    </div>
+    <div class="pipeline-output">
+      <div class="pipeline-output-item">
+        <div class="pipeline-output-label">Exposure · 2026</div>
+        <div class="pipeline-output-value">~$180k / yr</div>
+      </div>
+      <div class="pipeline-output-item">
+        <div class="pipeline-output-label">Exposure · 2030</div>
+        <div class="pipeline-output-value">~$235k / yr</div>
+      </div>
+      <div class="pipeline-output-item">
+        <div class="pipeline-output-label">Top initiative</div>
+        <div class="pipeline-output-value">Heat electrification</div>
+      </div>
+    </div>
+    <div class="slide-footer">Same pipeline. Different portcos. Different numbers. Different initiatives.</div>
+  </div>
+
+  <!-- SLIDE 11: The Materiality Matrix -->
+  <div class="slide">
+    <div class="slide-title">The Materiality Matrix</div>
+    <div class="slide-subtitle">Output, not input</div>
+    <div class="matrix-wrap">
+      <div class="matrix">
+        <div class="matrix-axis-y">
+          <div class="matrix-axis-y-label">$ Impact →</div>
+        </div>
+        <div class="matrix-grid">
+          <div class="matrix-cell">
+            <div class="matrix-cell-action">Hedge / Insure</div>
+            <div class="matrix-cell-desc">Low probability, high consequence. Transfer the risk — insurance, hedges, contractual protection.</div>
+          </div>
+          <div class="matrix-cell priority">
+            <div class="matrix-cell-action">Mitigate Now</div>
+            <div class="matrix-cell-desc">High probability, high consequence. Capex. Initiatives. Where the roadmap goes.</div>
+          </div>
+          <div class="matrix-cell">
+            <div class="matrix-cell-action">Deprioritize</div>
+            <div class="matrix-cell-desc">Low probability, low consequence. Note it, move on. Revisit annually.</div>
+          </div>
+          <div class="matrix-cell">
+            <div class="matrix-cell-action">Accept &amp; Monitor</div>
+            <div class="matrix-cell-desc">High probability, low consequence. Watch the trend, but don't spend capital on it yet.</div>
+          </div>
+        </div>
+        <div class="matrix-axis-x">
+          <div class="matrix-axis-x-label">Probability →</div>
+        </div>
+      </div>
+      <div class="matrix-note">
+        <h4>What this is</h4>
+        <p>Every ESG issue for a portco — transition risk, physical risk, water, labor, governance — plotted on the same grid.</p>
+        <p>The upper-right is where your time goes. Everything else can wait, or belongs in a different bucket entirely.</p>
+        <p style="color:var(--color-teal-bright); font-weight:500;">The matrix is an output of the model, not an input to it. CC places the points.</p>
+      </div>
+    </div>
+    <div class="slide-footer">Where you spend time is the upper-right. Everything else is a footnote.</div>
+  </div>
+
+  <!-- SLIDE 12: Initiatives as Investment Cases -->
+  <div class="slide">
+    <div class="slide-title">Every Initiative Is an Investment Case</div>
+    <div class="slide-subtitle">Same language Sarah uses for capex</div>
+    <div style="margin-top:1.2em;">
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-title">Process heat electrification</div>
+          <div class="case-portco">Sterling Precision</div>
+        </div>
+        <div class="case-metrics">
+          <div>
+            <div class="case-metric-label">Capex</div>
+            <div class="case-metric-value neutral">$1.2M</div>
+          </div>
+          <div>
+            <div class="case-metric-label">Payback</div>
+            <div class="case-metric-value">4.2 yr</div>
+          </div>
+          <div>
+            <div class="case-metric-label">Risk avoided</div>
+            <div class="case-metric-value">$75k / yr</div>
+          </div>
+          <div>
+            <div class="case-metric-label">Effort</div>
+            <div class="case-metric-value neutral">Medium</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-title">Drip irrigation retrofit</div>
+          <div class="case-portco">Harvest Ridge Foods</div>
+        </div>
+        <div class="case-metrics">
+          <div>
+            <div class="case-metric-label">Capex</div>
+            <div class="case-metric-value neutral">$340k</div>
+          </div>
+          <div>
+            <div class="case-metric-label">Payback</div>
+            <div class="case-metric-value">2.8 yr</div>
+          </div>
+          <div>
+            <div class="case-metric-label">Risk avoided</div>
+            <div class="case-metric-value">$95k / yr</div>
+          </div>
+          <div>
+            <div class="case-metric-label">Effort</div>
+            <div class="case-metric-value neutral">Low</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-title">Data center cold-aisle retrofit</div>
+          <div class="case-portco">Trident IT Solutions</div>
+        </div>
+        <div class="case-metrics">
+          <div>
+            <div class="case-metric-label">Capex</div>
+            <div class="case-metric-value neutral">$180k</div>
+          </div>
+          <div>
+            <div class="case-metric-label">Payback</div>
+            <div class="case-metric-value">2.3 yr</div>
+          </div>
+          <div>
+            <div class="case-metric-label">Risk avoided</div>
+            <div class="case-metric-value">$62k / yr</div>
+          </div>
+          <div>
+            <div class="case-metric-label">Effort</div>
+            <div class="case-metric-value neutral">Low</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">Capex. Payback. Risk avoided. Effort. That's the whole vocabulary.</div>
+  </div>
+
+  <!-- SLIDE 13: Portfolio Rollup -->
+  <div class="slide">
+    <div class="slide-title">What Sarah Sees</div>
+    <div class="slide-subtitle">One page. Ranked by dollars. This is the deliverable.</div>
+    <table class="rollup-table">
+      <thead>
+        <tr>
+          <th>Portco</th>
+          <th>Top material issue</th>
+          <th style="text-align:right;">$ Exposure / yr</th>
+          <th>Top initiative</th>
+          <th style="text-align:right;">Payback</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="portco-name">Sterling Precision</td>
+          <td>CBAM transition risk</td>
+          <td class="dollar-value" style="text-align:right;">$180k</td>
+          <td>Process heat electrification</td>
+          <td class="payback-value" style="text-align:right;">4.2 yr</td>
+        </tr>
+        <tr>
+          <td class="portco-name">Harvest Ridge Foods</td>
+          <td>Water stress <em style="color:var(--color-text-tertiary);">(simulated)</em></td>
+          <td class="dollar-value" style="text-align:right;">$95k</td>
+          <td>Drip irrigation retrofit</td>
+          <td class="payback-value" style="text-align:right;">2.8 yr</td>
+        </tr>
+        <tr>
+          <td class="portco-name">Keystone Behavioral Health</td>
+          <td>Insurance premium trajectory</td>
+          <td class="dollar-value" style="text-align:right;">$68k</td>
+          <td>Flood mitigation capex</td>
+          <td class="payback-value" style="text-align:right;">3.5 yr</td>
+        </tr>
+        <tr>
+          <td class="portco-name">Trident IT Solutions</td>
+          <td>Data center cooling cost</td>
+          <td class="dollar-value" style="text-align:right;">$62k</td>
+          <td>Cold-aisle retrofit</td>
+          <td class="payback-value" style="text-align:right;">2.3 yr</td>
+        </tr>
+        <tr>
+          <td class="portco-name">Patriot Staffing</td>
+          <td>Commute cost &amp; Scope 3</td>
+          <td class="dollar-value" style="text-align:right;">$42k</td>
+          <td>EV fleet pilot</td>
+          <td class="payback-value" style="text-align:right;">5.1 yr</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="slide-footer">Everything upstream — the matrices, the models, the data — supports this view.</div>
+  </div>
+
+  <!-- SLIDE 14: Deliverables -->
+  <div class="slide">
+    <div class="slide-title">What You'll Build</div>
+    <div class="slide-subtitle">Five deliverables. One model.</div>
+    <ol class="numbered-list">
+      <li>
+        <div class="num-badge">1</div>
+        <div class="num-content">
+          <div class="num-title">Connect the datasets</div>
+          <div class="num-desc">Cross-reference carbon (Week 3) with Supabase financials for every portco. One script, one query layer. No manual joins, no spreadsheet middleware.</div>
+        </div>
+      </li>
+      <li>
+        <div class="num-badge">2</div>
+        <div class="num-content">
+          <div class="num-title">Build the financial exposure model</div>
+          <div class="num-desc">For each portco, translate material ESG risks into $/yr exposure. Python, HTML output. At least one worked pipeline end to end (Sterling, Harvest Ridge, or your choice).</div>
+        </div>
+      </li>
+      <li>
+        <div class="num-badge">3</div>
+        <div class="num-content">
+          <div class="num-title">Extend the data where it matters</div>
+          <div class="num-desc">Pick at least one portco where biodiversity or water meaningfully extends the picture. Prompt CC to generate baseline data. Iterate. Document the assumptions.</div>
+        </div>
+      </li>
+      <li>
+        <div class="num-badge">4</div>
+        <div class="num-content">
+          <div class="num-title">Produce the materiality matrix</div>
+          <div class="num-desc">Per portco or portfolio-level. Probability × $ impact. Upper-right quadrant explained in plain language. Generated by the model, not hand-placed.</div>
+        </div>
+      </li>
+      <li>
+        <div class="num-badge">5</div>
+        <div class="num-content">
+          <div class="num-title">Rank the initiatives</div>
+          <div class="num-desc">Top 3 per portco by ROI, payback, and risk avoided. Roll up to a one-page portfolio view Sarah could bring to the Q2 operating review.</div>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <!-- SLIDE 15: Closing -->
+  <div class="slide">
+    <div class="slide-accent-bar"></div>
+    <div class="closing-title">$ Impact First. Everything Else Follows.</div>
+    <div class="closing-tagline">
+      <span class="muted">The framework debate is over.</span><br>
+      <span class="teal bold">By Friday, you have a model that ranks by dollars.</span>
+    </div>
+    <div class="closing-cta">Connect. Model. Rank. Let Claude Code do the math. You bring the judgment.</div>
+    <div class="logo-center">
+      <svg class="wordmark-svg" viewBox="0 0 1068 177" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kith Climate">
+<path d="M21.6364 110.736L21.5455 94.1454H23.9091L51.7273 64.5999H68L36.2727 98.2363H34.1364L21.6364 110.736ZM9.13636 134.418V41.3272H22.7273V134.418H9.13636ZM53.2273 134.418L28.2273 101.236L37.5909 91.7363L69.9091 134.418H53.2273ZM77.8264 134.418V64.5999H91.4173V134.418H77.8264ZM84.69 53.8272C82.3264 53.8272 80.2961 53.0393 78.5991 51.4635C76.9324 49.8575 76.0991 47.9484 76.0991 45.7363C76.0991 43.4938 76.9324 41.5848 78.5991 40.009C80.2961 38.4029 82.3264 37.5999 84.69 37.5999C87.0536 37.5999 89.0688 38.4029 90.7355 40.009C92.4324 41.5848 93.2809 43.4938 93.2809 45.7363C93.2809 47.9484 92.4324 49.8575 90.7355 51.4635C89.0688 53.0393 87.0536 53.8272 84.69 53.8272ZM139.732 64.5999V75.509H101.596V64.5999H139.732ZM111.823 47.8726H125.414V113.918C125.414 116.554 125.808 118.539 126.596 119.873C127.384 121.176 128.399 122.07 129.641 122.554C130.914 123.009 132.293 123.236 133.778 123.236C134.869 123.236 135.823 123.161 136.641 123.009C137.46 122.857 138.096 122.736 138.55 122.645L141.005 133.873C140.217 134.176 139.096 134.479 137.641 134.782C136.187 135.115 134.369 135.297 132.187 135.327C128.611 135.388 125.278 134.751 122.187 133.418C119.096 132.085 116.596 130.024 114.687 127.236C112.778 124.448 111.823 120.948 111.823 116.736V47.8726ZM167.297 92.9635V134.418H153.706V41.3272H167.115V75.9635H167.979C169.615 72.206 172.115 69.2211 175.479 67.009C178.843 64.7969 183.237 63.6908 188.661 63.6908C193.449 63.6908 197.631 64.6757 201.206 66.6454C204.812 68.6151 207.6 71.5545 209.57 75.4635C211.57 79.3423 212.57 84.1908 212.57 90.009V134.418H198.979V91.6454C198.979 86.5241 197.661 82.5545 195.025 79.7363C192.388 76.8878 188.722 75.4635 184.025 75.4635C180.812 75.4635 177.934 76.1454 175.388 77.509C172.873 78.8726 170.888 80.8726 169.434 83.509C168.009 86.1151 167.297 89.2666 167.297 92.9635Z" fill="#E8E6E3"/>
+<path d="M382.954 135.873C376.712 135.873 371.273 134.312 366.636 131.191C362.03 128.07 358.454 123.797 355.909 118.373C353.364 112.948 352.091 106.767 352.091 99.8272C352.091 92.8272 353.379 86.5999 355.954 81.1454C358.561 75.6908 362.167 71.4181 366.773 68.3272C371.379 65.206 376.727 63.6454 382.818 63.6454C387.485 63.6454 391.712 64.5545 395.5 66.3726C399.288 68.1605 402.409 70.6908 404.864 73.9635C407.348 77.206 408.909 80.9938 409.545 85.3272H401.364C400.515 81.3878 398.47 78.0242 395.227 75.2363C392.015 72.4181 387.924 71.009 382.954 71.009C378.5 71.009 374.561 72.2211 371.136 74.6454C367.712 77.0393 365.03 80.3878 363.091 84.6908C361.182 88.9635 360.227 93.9181 360.227 99.5545C360.227 105.221 361.167 110.236 363.045 114.6C364.924 118.933 367.561 122.327 370.954 124.782C374.379 127.236 378.379 128.464 382.954 128.464C386.045 128.464 388.864 127.888 391.409 126.736C393.985 125.554 396.136 123.888 397.864 121.736C399.621 119.585 400.803 117.024 401.409 114.054H409.591C408.985 118.267 407.485 122.024 405.091 125.327C402.727 128.6 399.651 131.176 395.864 133.054C392.106 134.933 387.803 135.873 382.954 135.873ZM437.583 41.3272V134.418H429.492V41.3272H437.583ZM461.643 134.418V64.5999H469.779V134.418H461.643ZM465.779 52.5999C464.112 52.5999 462.688 52.0393 461.506 50.9181C460.324 49.7666 459.734 48.3878 459.734 46.7817C459.734 45.1757 460.324 43.812 461.506 42.6908C462.688 41.5393 464.112 40.9635 465.779 40.9635C467.446 40.9635 468.87 41.5393 470.052 42.6908C471.234 43.812 471.824 45.1757 471.824 46.7817C471.824 48.3878 471.234 49.7666 470.052 50.9181C468.87 52.0393 467.446 52.5999 465.779 52.5999ZM493.737 134.418V64.5999H501.6V75.3272H502.328C503.722 71.7211 506.04 68.8878 509.282 66.8272C512.555 64.7363 516.479 63.6908 521.055 63.6908C525.873 63.6908 529.828 64.8272 532.919 67.0999C536.04 69.3423 538.373 72.4332 539.919 76.3726H540.509C542.085 72.4938 544.646 69.4181 548.191 67.1454C551.767 64.8423 556.1 63.6908 561.191 63.6908C567.676 63.6908 572.797 65.7363 576.555 69.8272C580.313 73.8878 582.191 79.8272 582.191 87.6454V134.418H574.1V87.6454C574.1 82.1302 572.691 77.9938 569.873 75.2363C567.055 72.4787 563.343 71.0999 558.737 71.0999C553.403 71.0999 549.297 72.7363 546.419 76.009C543.54 79.2817 542.1 83.4332 542.1 88.4635V134.418H533.828V86.9181C533.828 82.1908 532.509 78.3726 529.873 75.4635C527.237 72.5545 523.525 71.0999 518.737 71.0999C515.525 71.0999 512.631 71.8878 510.055 73.4635C507.509 75.0393 505.494 77.2363 504.009 80.0545C502.555 82.8423 501.828 86.0545 501.828 89.6908V134.418H493.737ZM625.672 136.009C621.46 136.009 617.611 135.191 614.126 133.554C610.641 131.888 607.869 129.494 605.808 126.373C603.748 123.221 602.717 119.403 602.717 114.918C602.717 111.464 603.369 108.554 604.672 106.191C605.975 103.827 607.823 101.888 610.217 100.373C612.611 98.8575 615.444 97.6605 618.717 96.7817C621.99 95.9029 625.596 95.2211 629.535 94.7363C633.444 94.2514 636.748 93.8272 639.444 93.4635C642.172 93.0999 644.248 92.5242 645.672 91.7363C647.096 90.9484 647.808 89.6757 647.808 87.9181V86.2817C647.808 81.5242 646.384 77.7817 643.535 75.0545C640.717 72.2969 636.657 70.9181 631.354 70.9181C626.323 70.9181 622.217 72.0242 619.035 74.2363C615.884 76.4484 613.672 79.0545 612.399 82.0545L604.717 79.2817C606.293 75.4635 608.475 72.4181 611.263 70.1454C614.051 67.8423 617.172 66.1908 620.626 65.1908C624.081 64.1605 627.581 63.6454 631.126 63.6454C633.793 63.6454 636.566 63.9938 639.444 64.6908C642.354 65.3878 645.051 66.5999 647.535 68.3272C650.02 70.0241 652.035 72.4029 653.581 75.4635C655.126 78.4938 655.899 82.3423 655.899 87.009V134.418H647.808V123.373H647.308C646.338 125.433 644.899 127.433 642.99 129.373C641.081 131.312 638.687 132.903 635.808 134.145C632.929 135.388 629.551 136.009 625.672 136.009ZM626.763 128.6C631.066 128.6 634.793 127.645 637.944 125.736C641.096 123.827 643.52 121.297 645.217 118.145C646.944 114.964 647.808 111.464 647.808 107.645V97.5545C647.202 98.1302 646.187 98.6454 644.763 99.0999C643.369 99.5545 641.748 99.9635 639.899 100.327C638.081 100.661 636.263 100.948 634.444 101.191C632.626 101.433 630.99 101.645 629.535 101.827C625.596 102.312 622.232 103.07 619.444 104.1C616.657 105.13 614.52 106.554 613.035 108.373C611.551 110.161 610.808 112.464 610.808 115.282C610.808 119.524 612.323 122.812 615.354 125.145C618.384 127.448 622.187 128.6 626.763 128.6ZM707.482 64.5999V71.6454H674.164V64.5999H707.482ZM684.573 47.8726H692.709V116.191C692.709 119.1 693.209 121.388 694.209 123.054C695.209 124.691 696.512 125.857 698.118 126.554C699.724 127.221 701.436 127.554 703.254 127.554C704.315 127.554 705.224 127.494 705.982 127.373C706.739 127.221 707.406 127.07 707.982 126.918L709.709 134.236C708.921 134.539 707.951 134.812 706.8 135.054C705.648 135.327 704.224 135.464 702.527 135.464C699.558 135.464 696.694 134.812 693.936 133.509C691.209 132.206 688.967 130.267 687.209 127.691C685.451 125.115 684.573 121.918 684.573 118.1V47.8726ZM755.894 135.873C749.379 135.873 743.743 134.357 738.985 131.327C734.227 128.267 730.546 124.039 727.939 118.645C725.364 113.221 724.076 106.979 724.076 99.9181C724.076 92.8878 725.364 86.6454 727.939 81.1908C730.546 75.706 734.136 71.4181 738.712 68.3272C743.318 65.206 748.636 63.6454 754.667 63.6454C758.455 63.6454 762.106 64.3423 765.621 65.7363C769.136 67.0999 772.288 69.206 775.076 72.0545C777.894 74.8726 780.121 78.4332 781.758 82.7363C783.394 87.009 784.212 92.0696 784.212 97.9181V101.918H729.667V94.7817H775.939C775.939 90.2969 775.03 86.2666 773.212 82.6908C771.424 79.0848 768.924 76.2363 765.712 74.1454C762.53 72.0545 758.849 71.009 754.667 71.009C750.243 71.009 746.349 72.1908 742.985 74.5545C739.621 76.9181 736.985 80.0393 735.076 83.9181C733.197 87.7969 732.243 92.0393 732.212 96.6454V100.918C732.212 106.464 733.167 111.312 735.076 115.464C737.015 119.585 739.758 122.782 743.303 125.054C746.849 127.327 751.046 128.464 755.894 128.464C759.197 128.464 762.091 127.948 764.576 126.918C767.091 125.888 769.197 124.509 770.894 122.782C772.621 121.024 773.924 119.1 774.803 117.009L782.485 119.509C781.424 122.448 779.682 125.161 777.258 127.645C774.864 130.13 771.864 132.13 768.258 133.645C764.682 135.13 760.561 135.873 755.894 135.873Z" fill="#E8E6E3" fill-opacity="0.4"/>
+<g filter="url(#filter0_d_6_8_w42)">
+<rect x="289.092" y="23.4181" width="9" height="130" rx="4.5" transform="rotate(8 289.092 23.4181)" fill="url(#paint0_linear_6_8_w42)" shape-rendering="crispEdges"/>
+</g>
+<defs>
+<filter id="filter0_d_6_8_w42" x="247.582" y="0" width="73.8411" height="176.824" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="12"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.356863 0 0 0 0 0.603922 0 0 0 0 0.545098 0 0 0 0.5 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_6_8"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_6_8" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear_6_8_w42" x1="293.592" y1="23.4181" x2="293.592" y2="153.418" gradientUnits="userSpaceOnUse">
+<stop stop-color="#5B9A8B" stop-opacity="0.1"/>
+<stop offset="0.25" stop-color="#5B9A8B"/>
+<stop offset="0.75" stop-color="#5B9A8B"/>
+<stop offset="1" stop-color="#5B9A8B" stop-opacity="0.1"/>
+</linearGradient>
+</defs>
+</svg>
+      <div class="closing-url">kithclimate.com</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 16: BONUS — Initiatives Consulting (teed up, not built) -->
+  <div class="slide">
+    <div class="slide-title">Bonus: Push to the Ceiling</div>
+    <div class="slide-subtitle">"Initiatives Consulting," taken as far as Claude Code will go</div>
+    <p style="font-size:clamp(14px,1.5vw,18px); color:var(--color-text-secondary); line-height:1.75; max-width:900px; margin-top:0.8em;">
+      If you finish the five deliverables and want to see what the ceiling looks like — point CC at a single portco and ask it for the full capex plan a PE sponsor would actually act on. <span class="teal bold">Not a list of ideas. A sequenced, exit-linked program.</span>
+    </p>
+    <ul style="list-style:none; padding:0; margin:1.6em 0 1.2em; display:grid; grid-template-columns:1fr 1fr; gap:0.6em 2em; font-size:clamp(13px,1.35vw,16px); color:var(--color-text-primary);">
+      <li><span class="teal">→</span> &nbsp;A catalog of initiatives, each traced to a source in the workspace</li>
+      <li><span class="teal">→</span> &nbsp;A sequenced 2026–2028 roadmap with trigger events overlaid</li>
+      <li><span class="teal">→</span> &nbsp;An EBITDA bridge + exit multiple sensitivity</li>
+      <li><span class="teal">→</span> &nbsp;A risk register with owners and mitigations</li>
+      <li><span class="teal">→</span> &nbsp;Board, LP, customer, and CIM disclosure surfaces</li>
+      <li><span class="teal">→</span> &nbsp;An IC one-pager the deal team could take in</li>
+    </ul>
+    <p style="font-size:clamp(13px,1.4vw,17px); color:var(--color-text-primary); max-width:900px; line-height:1.7;">
+      The old version: <span class="muted">$250K, 4–6 months, once.</span><br>
+      The CC version: <span class="teal bold">~$0, ~2 days, regenerated on every data update.</span>
+    </p>
+    <div class="slide-footer">Not required. Worth seeing once — it's where this whole week is pointed.</div>
+  </div>
+
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+  let current = 0;
+  const total = slides.length;
+
+  function show(idx) {
+    slides[current].classList.remove('active');
+    current = Math.max(0, Math.min(total - 1, idx));
+    slides[current].classList.add('active');
+    counter.textContent = `${current + 1} / ${total}`;
+    progress.style.width = `${((current + 1) / total) * 100}%`;
+  }
+
+  function next() { show(current + 1); }
+  function prev() { show(current - 1); }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') { e.preventDefault(); show(0); }
+    if (e.key === 'End') { e.preventDefault(); show(total - 1); }
+  });
+
+  // Click navigation: left third = back, right two-thirds = forward
+  document.addEventListener('click', (e) => {
+    if (e.clientX < window.innerWidth / 3) prev();
+    else next();
+  });
+
+  // Touch support
+  let touchStartX = 0;
+  document.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+  document.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); }
+  });
+
+  show(0);
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"bcbe19983cbb4ebdaf9d6bac83ff4c16","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,631 @@
+Week 1 Demo Session
+Friday March 20th 2026
+
+VIEW RECORDING - 87 mins (No highlights): 
+
+---
+
+0:00 - diego espinosa
+  How's Alvis doing?
+
+0:02 - parul vyas
+  He's good. He's good. He got his vaccines yesterday, so he's sleeping.
+
+0:07 - diego espinosa
+  Oh, I hate it when that happens. They're always, like, tired of stuff.
+
+0:12 - parul vyas
+  River is with friends.
+
+0:15 - diego espinosa
+  He's got a day camp every day. Yeah, he goes for, like, five hours. He's a very active dog.
+
+0:23 - parul vyas
+  Yeah, no, I think that's good.
+
+0:27 - diego espinosa
+  Hey, everyone, you're coming in once in a minute.
+
+0:31 - yvonne espinosa
+  Did you really do puppy yoga?
+
+0:35 - parul vyas
+  I did, I did.
+
+0:36 - yvonne espinosa
+  Is it a place that has little puppies that come in, or what is it?
+
+0:40 - parul vyas
+  Yeah, it's actually a place, Yvonne. I think they have it all over the U.S. They usually partner with, like, a coffee place or something, and it's on weekends.  So, and they disclose the breed, I think, every Monday.
+
+0:58 - yvonne espinosa
+  So, I did too much. Okay.
+
+1:00 - parul vyas
+  Yeah, I did two, one with golden retrievers and one with huskies.
+
+1:04 - yvonne espinosa
+  Oh, that's got to be.
+
+1:05 - parul vyas
+  It was amazing.
+
+1:06 - yvonne espinosa
+  Oh. I wanted to bring all of them home. Yeah, I bet.
+
+1:12 - Fernanda Arcos P.
+  Well, I did yoga bath with baby goats.
+
+1:16 - parul vyas
+  Oh, nice. I've heard about that as well.
+
+1:19 - Fernanda Arcos P.
+  It was interesting.
+
+1:22 - parul vyas
+  Thanks, thanks.
+
+1:26 - diego espinosa
+  Okay, we'll just get started in a minute. Ben, I'm looking for the recording button.
+
+1:30 - ben hillier (Voiz)
+  But I don't, oh, there it is. Okay. It's also okay, Diego. I have my fathom in the chat as well.
+
+1:35 - diego espinosa
+  So, got it covered. Terrific. Okay, just give it one more minute. We'll get started.
+
+1:48 - ben hillier (Voiz)
+  Diego, if you want to make me co-host as well, I can cover the waiting room once you, whilst you jump into it.
+
+1:53 - diego espinosa
+  Okay, that's good. Then I'll get started right away here. I'll make you co-host. All right. Okay. You can let people in now.  Great. Hey, everybody. Hope everyone's having a great day. Good morning and evening, depending on where you are. So I just wanted to kind of set the stage for today and the structure of this session because it's the first time we've had it as a group.  Normally, you know, we've had this philosophy. We have it internally and we've had it in our programs for quite some time that we try to run them as sprints.  So if you've ever been involved in an agile sprint, it's usually one or two weeks. You lay out what you're going to do on Monday and then Friday, everyone comes in and demos what they did.  I think it's a – and so usually it's engineering teams and devs that kind of run this way. But I've been doing it this way since I worked in technology back in kind of 2017, 2018 and actually running teams this way.  So our internal team runs this way. We have a sprint every week. We have week. Talk about what we're going to do during the week.  Friday, we demo what we did. Keeps everyone accountable and at a fast rhythm. So that's what we bring to this simulation, which is that on Monday, the charge was we received this note from a potential client.  We don't know much about them, like it's typically the case, or not maybe typically, but sometimes the case. They're interested in what we do and how we do it, and so we're going to respond with a proposal.  And so the particular twist here was that it's putting the cart before the horse, right? You haven't had six weeks to learn how Cloud Code can help you do consulting.  And so why on earth start with that? And it's interesting because I think it's a really interesting and I think underappreciated tactic to lay out what you think you're going to do ahead of doing it.  Because what that does is it kind of like frames it for you and it forces you to really So think, am I going to do this?  Or what am I going to do? Or what do I want to do? And before you start doing things, and it gets your agency involved.  So I'm a big believer that essentially, when you're learning something new, when you're agency involved, the learning can be kind of effortless.  When you don't have a stake in it, it could be a tour. So this is a basic kind of like tenet of project-based learning or training.  So that's what we're here to do today, is essentially to respond to this inquiry from this client, Potential Client at Bnorthwood Capital, and to talk about some of the things that we could be doing for them over a six-week engagement in the form of a pitch.  What that hopefully elicited for you during the week was a collaboration with CloudCode, where you said things like, I'm not totally sure what I can do for this client using CloudCode.  Help me figure this out. And, you know, this kind of collaboration would allow you to present a pitch that...  Ends up being kind of the emergent product of your thinking and their knowledge. And so that's a lot of what Cloud Code Interaction is like.  It's basically no one knows your context as well as you do, your intent, your history, your talent, your capabilities, and especially not Cloud because Cloud is, you know, a machine.  And so it's putting together its unparalleled way to discover patterns with your specific talent and knowledge and context to produce something that couldn't have been produced otherwise.  So that's essentially, you've got a first taste of that this week in terms of the pitch. So in these demo sessions, what we do is basically quickly go into demos and the first couple might, we might dwell on them because we're learning new things.  It's the first time we've seen something. And then after that, we want to get through them faster because we're basically looking for variants at that point.  Like we've seen a couple. Okay, now what's different about this one? What's different about that one? So if you volunteer to be first and we talk about yours quite a bit, it's great.  But don't worry if you're kind of the third or fourth or fifth or whatever. And we're like, okay, that's cool.  Like amazing. That was a particularly cool thing. Part of yours. It doesn't mean it was any less. It just means at that point we're trying to look for a variation, right, rather than kind of like what it looks like overall.  So I think in this group, what I want to do is see how we can manage the group together.  And then maybe in breakouts go a little bit faster because that also allows you all to get to know each other better.  And so Ben and I can break out. But let's start in a bigger group because I think there's some threads that we can start to pull on once we see.  He said that some of the demos. So who wants to go first? Who is the brave soul who wants to present?  By the way, it's not about necessarily presenting your pitch. But I think what we want to do in these demos is we do want to see them.  So see what you produced. And we want to hear from you first what you think Cloud Code Consulting is going to be like for this client.  Like what are the things that you're going to be doing for them? And like what stands out to you as a particular capability that we're going to be bringing to the table as Kid Consulting that maybe we couldn't ask regular consultants and kind of like dwell on that.  So yeah, you can take us through a few pages of the pitch and so forth. And then once you do that, those two things, then tell us a little bit about what stood out to you during the week as you were engaged in this process of collaboration with Cloud Code.  So. So. those are three things. Who would like to go first? And share screen, basically, show us what you did.
+
+8:12 - Danny Miller
+  I'm down.
+
+8:14 - diego espinosa
+  Awesome, Danny.
+
+8:15 - Danny Miller
+  I'll share screens.
+
+8:17 - diego espinosa
+  Hold on just one second. Oh, there it is. Oh, wow. Okay.
+  SCREEN SHARING: Danny started screen sharing - WATCH: https://fathom.video/calls/609133226?timestamp=514.560424
+
+8:31 - Danny Miller
+  Okay. We good?
+
+8:38 - diego espinosa
+  Yeah.
+
+8:39 - Danny Miller
+  All right. Cool. So going through this, I wanted to frame it with a positioning or context setting slide. So repeating back with the problem, what the ask was, and then also including what the proposed outcomes are.  So it's fund level. Fathom visibility, it's a zoom in on three portfolio companies and a brief look into what those are, reporting infrastructure for both quarterly and annual reporting, and meeting the objective of having a proof point about AI Native Consulting.  Fathom wanted to dive into what the fund level deliverables are, and this is a portfolio ESG gap assessment, so how does the portfolio look when evaluating it on ESG metrics, what is within that assessment, how is the quality of the data?  Fathom actually running through and seeing what that data looks like, if we can trust it, portfolio-wide emissions estimation, and I do specify that this is just scope one and two, a reason for that is because scope three takes a lot more effort to aggregate, to collect and aggregate.  That data, there's a lot more human element there. And then an ESG and Emissions Dashboard that is accessible and lives within their systems, an investor-ready ESG narrative, so like a templated reporting format or structure to build a narrative for all of their portfolio companies, and then an annual assessment that they can send out to their portfolio companies to get an update on how they're doing.  I then went into how I prioritized the portfolio companies, I ran a really cursory SASB sector materiality analysis on just looking at the sector and what's the most climate material, had some inferences on what the LP scrutiny would be based on the status of where they are, and then selected three, based on those three things, really, is which one was the most material with regards to.  DASB, which was Clearview, and then for Meridian and Keystone, wanted to zoom in on two that were at different stages within the investment cycle.  So one that was about to be at exit and one that has just started within the portfolio to equip them for those different stages as their portfolio companies are running through their investment, their life with their investment company.  DASB, a moment on how the system does compound, so on the left is all the playbook and templates that they'll be left with, and on the right are the different methodologies or frameworks they'll be able to use and build on.  DASB, realized at this point that I had promised a lot, so I wanted to say what is real, like, at the end of six weeks, what you likely will have to be able to use, and then on the right is more so like, what are we building the...  So for, that you're not necessarily going to have it at the end of six weeks, but when you take on this work, you'll be able to develop these things.  Spent a moment just talking about Claude Code and how it allows for different work where, you know, the analysis is done in weeks, but it's all about the consultant's judgment and their interpretation, how it allows for the same methodology, and how everything is kind of existing within a system, and then at the bottom is how it differentiates from traditional consulting that is just kind of like adding AI into their systems.  A slide on data requirements and how the interaction between the teams. So go through what the data needs at the fund level, at the portfolio company level, the overall timeline for data requests and trying to get it back, and then the interactions between the KIF and Northwood team.  And then I also wanted to take a slide to talk. Talk about data. So understanding that this is still nascent and consulting in this way is some may be a little cautious around it.  So I wanted to talk about the storage of data, how cloud code and like any of the data isn't being sent to cloud code to train their models, how it's existing within their commercial terms, how we would delete data within 30 days and confirm it, and how everything is confidential.  A slide for things that are on the horizon that they should be considering, like regulatory implications, how ESU reporting is converging, also go talk about scope three emissions, and the last one, TCFD and CSRD disclosures, so that kind of ties back to the infrastructure that we're creating.  So a lot of the component parts that you're building within this engagement can be packaged likely at a future date because six weeks is kind of ambitious.  To be able to report for TCFD and CSRD. A week-by-week timeline of what it will actually look like, and then a fee structure and a payment.  I'm not really sure why this was, honestly, this one was like, as I was talking about fee structure, Claude suggested the payout with check-ins, and I was like, sure, why not?  Yeah, that seems all right. So 40% at kickoff, a check-in midway through where it's another 30%, and then a final deliverable, there's another 30%, and that's it.
+
+14:40 - diego espinosa
+  Okay. All right. So what we usually do after a demo, at least the first few, is kind of first go to impressions.  So I'd like to hear from you, like, you know, what were you thinking as you saw this?
+
+14:55 - Danny Miller
+  And then we'll come back to you, Danny, in a minute, talk about some of those collaboration questions.
+
+14:59 - diego espinosa
+  Yeah. very much. much. So to get some just kind of observations, I personally love in a kind of design thinking frame to not conclude through your analytical mind, but rather think to yourself, like, what was I thinking, what do you remember thinking or feeling as you kind of like saw the presentation?  So we get that kind of like raw, unfiltered observations about the work. So who has the thought?
+
+15:23 - ashlynanderson
+  I can start it off. I really liked that you had the data gap analysis up front. I didn't have that in mind.  So it felt like it was like something to talk about at the end of the presentation. Like, here's the six week timeline, but it really depends on data.  And here's the data we would need. So there was like room to negotiate. But I think building that in up front makes a lot of sense.
+
+15:49 - diego espinosa
+  Awesome. Thank you. Other thoughts? Reactions? And you can base it, too, on your own experience. If you're into consulting or have hired consultants, what struck you?
+
+16:09 - Amber Stryker
+  I like that you had the slide on sort of data privacy, which just seems so obvious that I totally left it out and didn't even think about it.  And it was, you know, so clear and so important to, like, I think I struggled, too, with, like, how to talk about what cloud code native would be and how it's different.  And that's such an obvious question to include in a clear way.
+
+16:31 - diego espinosa
+  thought that was super clear. Awesome. Thank you, Amber. And Mariah is saying that it was interesting to choose to kind of filter companies by or prioritize companies by materiality.  That is an interesting aspect. And if you're – don't raise your hand for this part because some of you may be raising your hand to Q to a demo.  So just chime in. Feel free to chime in.
+
+16:56 - Cheryl Baldwin
+  Who else has a thought? Cheryl, I just Maybe have a couple of questions, because they appreciated seeing a different approach, and I was actually surprised how different it was from how I did it, because I was feeling like Claude was doing so much versus some of what I was involving or asking or adding.  So I'm just wondering how much customization you did. Like, for example, like there was a lot of text and boxes, you know, just like the visual was very different than what I was doing.  So I'm wondering if that was your prompting and approach. And then, yeah, maybe just start with that type of question, just to understand how it got to be so different.
+
+17:43 - diego espinosa
+  And that's a good segue into, Danny, covering some of the collaboration aspects. So maybe just talk a little bit about how it went.  So basically, was it kind of like, Claude Co. did all this in 10 minutes, and you were like, fine, off to the beach?  Yeah. Like, by the way, you know, what matters, I think, is like a great product at the end of the day.  So there's no law or rule that says we have to sit there for hours and hours and hours dealing with AI to get it right the first time.
+
+18:12 - Danny Miller
+  But I'm curious, like, what was your experience like? Yeah. Should I stop sharing my screen, too?
+
+18:17 - diego espinosa
+  Yeah.
+
+18:18 - Danny Miller
+  Okay.
+
+18:18 - diego espinosa
+  Sorry.
+
+18:19 - Danny Miller
+  Sorry for doing that to everybody. It was, it really felt, it absolutely was an iterative process. Cheryl, on, uh, on your question first, the formatting that it spit out initially, um, is, was this basically for me, uh, and I just kind of ran with it.  Uh, there were some things where I like, I didn't like the positioning of boxes, um, or I didn't, it, it, it, like, it was highlighting one box at first on each slide, which I didn't like.  So I was like, just make them all the same. Um, but the overall like style of it was its first output.  And I was like, yeah, I like this. It seems cool. Let's just run with that. As far as the content itself, the slide order, there was a lot of iteration there.  So I had it, spit it out. First, I told Claude to now be a partner at TPG Capital, which is a large private equity firm, to review it as if you were them.  What was missing? What was good? Like, I had it be a comms expert, like, someone who's good at building narratives or storytelling.  Same thing. What was good? What was bad? How should the order change? So I had to do those things.  But then I also, like, for the suggestions that came from those, I disagreed with some of those. And I was like, okay, accept these, don't accept these.  I went through, it really felt like I was working with a junior employee. But the turnaround was way faster.  So I was like, I was going slide by slide and being like, I don't like this. Why do you have this?  And then it would give me the answers and suggestions, and I would choose which ones to do or not.
+
+20:17 - diego espinosa
+  Awesome. Danny, so what struck you specifically about the level of intelligence and coming up with this stuff that it exhibited?
+
+20:27 - Danny Miller
+  I'm wondering about. It was, yeah, it is definitely impressive that it can do this. You know, did, there was, it was absolutely impressive.  I am glad I went through it, though, with the level of detail that I did, because I did find some repetition, like on the data collection slide, there was one part where it was for the portfolio company level data, it said to collect utility bills and then three down.  It was like energy usage. And I was like, what, these are, are these not basically the same thing? What's going on here?  And so there were little inconsistencies there, but like the ability to output those things from the level of prompting I thought was really good.  Something I also did that I don't remember where I saw it or read about it, I, the negative parallelism that AI writing really does, I, I, I don't really like that much.  So I, I made an MD file from, from the Wikipedia page that is signs of AI writing, I basically copied and pasted that, and I saved it as an MD file, and then told Claude to read that, I put it in my folder, and I was like, read this file, don't do any of these things.  Um, and it spit that, and so like it read everything and spit it out, uh, without, so that removed all the MDashes, that removed.  With the negative parallelism, a lot of the things that I find are kind of make it obvious, which I guess in this setting of like it's all cloud-co-native, doesn't matter if it would technically be obvious, but so, yeah.
+
+22:17 - diego espinosa
+  Awesome. Awesome. Yeah. I have to say, personally, I was a user of m-dashes, and so it's forced me to absolutely get rid of them all because people think I'm AI.  So, yeah, it's a very kind of like prevalent thing. And not this, but that, like the parallelism. Great, Danny.  Thank you so much for going first. Monserrat, you're next. You're on deck. Take us through your experience. And you can share screen.  It's a little green, should be green button. For some reason, it's not green for me today, but.
+
+22:51 - ben hillier (Voiz)
+  They've done an update. It's no longer green now. It's just, I don't know.
+
+22:55 - diego espinosa
+  It's only way we can find the share button.
+
+22:58 - Monserrat Miranda
+  It's my turn, right? Yes. Okay, perfect. Okay, let me share my screen. What is it? I should have seen this before.  Can somebody tell me?
+
+23:09 - diego espinosa
+  Where is the... It's in the middle. It says share with a little up and yeah, sorry. Okay, perfect. Used to be green.
+
+23:16 - Monserrat Miranda
+  Ah, there. Can you see it?
+  SCREEN SHARING: Monserrat started screen sharing - WATCH: https://fathom.video/calls/609133226?timestamp=1404.642052
+
+23:21 - diego espinosa
+  Not yet. There you go.
+
+23:26 - Monserrat Miranda
+  Okay, perfect. Okay, so let's go through this. Okay, so it's my first time working with AI, so please be patient with me.  Okay, so what I wanted to do for the proposal is kind of say like a storytelling, like say to Sara, we have heard your problems because you have already hired many consultants.  And I really wanted to make it a little bit technical on the deliverables. So I framework all the proposal into...  ... ... Thank Fixing the two problems that she mentioned. One, it was that she was receiving generic deliverables that were not matching with a financial value.  And the second problem that she has is that actually she doesn't have a system that stays inside her, inside ReachPoint.  Fixing second part, I prepared kind of an engagement overview in which I explained the framework that I will give to the and the different priorities.  One, at the fund level, this is something AI proposed in the beginning was like, I will propose to work on the eight different parts of the portfolio.  Fixing I was like, okay, no, let's focus more on this. So that was something that I prepared. One part is focus.  Mainly at the fund level, and the second to, I decided to chose Sterling Precision. Why? Because it would give me, let's say, in terms of technical data for the data preparation and the data audit, the more work for myself to be able to practice on AI.  But I also asked to CloudCo to give me reasons why would I choose Sterling as a consultant, and some of this was like, because Sterling can have at least regulatory deadlines, manufacturing operations, that data was needed, and even to unlock green financing, which is matching with the financial value that she wants to have.  So, there I also, again, I keep up the storytelling, what ReachPoint gets at the fund level. This is mainly on the LP.  Narrative and the ESG Heatmap. And the second, what Sterling gets, it's a list of the different deliverables, Carbon Inventory as well, I mentioned.  Compared to Danny, I decided to include Sculptree activity-based because I really would like to see what Cloud Code can do with public information.  And also, I included the MAC values, materiality assessment, and to kind of provide like a supplier engagement plan. Again, from my side, I think I was also at this point thinking, okay, this is a lot, but I'm really pushing here a lot because I would really like to see what Cloud Code can do.
+
+26:43 - diego espinosa
+  And, Monserrat, I'm going to ask you a question and interrupt here because I'm just wondering, like, when you thought that it was a lot, I'm wondering if you went ahead and, and this could apply to you, Danny, and future people, did you stop and kind of go, like,  Hey, checking in here, this is a six-week assignment, like, we're on the hook for this, can we really do this?
+
+27:07 - Monserrat Miranda
+  Exactly, yes, I've done that, and I mean, what you're seeing here, it's 11 deliverables in total, and in the beginning, it was like 28 deliverables, because my first, yeah, the first thing that I ask, it's like, to cloud code, it's put yourself as one of the best clients, I consultants with technical background, and it gave me, like, many things to provide, even energy audits, so all these things, I started to take it out, and for me, this kind of was a little bit of a balance of what I would like to do, but at the same time, I know it's challenging, because there are many things there.
+
+27:49 - diego espinosa
+  Interesting, okay, we'll revisit that question for other people as well, I'm sure.
+
+27:53 - Monserrat Miranda
+  Okay.
+
+27:53 - diego espinosa
+  Okay, Monserrat.
+
+27:54 - Monserrat Miranda
+  Um, then, I like tables, okay? So I was like, okay, give me the deliverables, so 11 deliverables in seven weeks, and I tried to put them all together.  I focus a lot on the carbon inventory, reduction roadmap, the MAC, and materiality assessment. And another thing that I also give a lot of emphasis was in the automated carbon system, because she wants to see the AI capabilities, and also myself included.  So I would like to see how we can build something with their current data systems that they have.
+
+28:40 - diego espinosa
+  I just want to note for everybody here that one of the really interesting things about using CloudCode is that no work is ever lost.  There's always adjacencies to work that you produce. So, for instance, let's say, Montserrat, that you win this engagement.
+
+28:59 - Monserrat Miranda
+  Mm-hmm.
+
+28:59 - diego espinosa
+  And then And you could basically say to CloudCode, turn that, you know that 11 deliverables in a seven-week slide?  Turn that into a work plan for me.
+
+29:08 - Monserrat Miranda
+  Exactly.
+
+29:09 - diego espinosa
+  Okay. I did it. Oh, you did it already.
+
+29:12 - Monserrat Miranda
+  Okay.
+
+29:13 - diego espinosa
+  And then you could say, you know that work plan? Turn it into, like, what should I be doing today?  What should I be doing this week? What should I be doing today? And so I refer to this as one of the most important aspects of AI, especially if you've ever been involved in implementation work.  When I was at BCG, I was there during the re-engineering wave, and we were combing through very large companies, like, every single process that they had.  And doing re-engineering of those processes and the implementation work was, I have to say, very tedious. It was, like, this process, and it goes like this, and it would be flowcharts and things like that.  And it was armies of consultants pouring through these things. And you can do that with Cloud Code today with nobody.  You can basically say, like, take every process in the firm. figure out how to redo it and give me a 300-page deck with every single process and how it should be reworked going forward.  So this is the ability to kind of scale over information and logic that is so impressive. So I just want to point that out.  Go on, Monserrat.
+
+30:17 - Monserrat Miranda
+  Okay. So another thing, again, I wanted to focus on fixing the two problems that she mentioned. And on the second slide, on this slide, actually, I wanted to show the PE outcome that we will have, how this can be translated to management.  And so I also, I'm not a person with a finance background. So technically, this was pure cloud code telling me kind of this could be the PE outcome to each one of the deliverables and the metric that we could use.  Another thing. The I wanted to make a lot of focus, it's, as I mentioned, is the automated carbon system, this I would like to also see the capability because here what I'm promising actually, it's like no new software, and we connect AI with what is already there, and this would mean ERP systems, utility portals, invoice data, technically we would be using the data that they have, and this is something that I struggle all the the time in my professional life because I do carbon accounting, and again, this is something I would like to challenge cloud code if it's possible to do, and also I kind of explained there that nothing lives with us, and technically this will be implemented, this is what you will keep after the week's number seven, and on this one, it's where I, let's say, the slide in which I work  The most because I wanted to put everything together in terms of what would be the planning and to give a lot of importance to that there needs to be a screening of data.  Just as Danny, also realized like, okay, I cannot promise that everything will be digitalized if they don't even probably have ERP systems.  I don't know. So what I wanted to say, it's like, we will map what is digital, what is manual and what's missing, but saying that this will be an AI solution.  And this is something, again, it's something that I also would like to see.
+
+32:40 - diego espinosa
+  And by the way, so the calculation assumption and data source visible at any point is a really interesting point.  And so that's something definitely would want to explore with Cloud Code on how that could happen. And there are ways to do that, by the way.  There are many, many ways to do that for Cloud Code to do that, that I'm familiar with.
+
+32:59 - Monserrat Miranda
+  But I just wanted to... Kind of flagged that as a very interesting one. So go on, Monserrat. Yeah. So for example, in week one, we will be mainly on data landscape screening, what's manual.  Again, everything we will be receiving the documentation. On week two, we will do the hard work in terms of week two and week three will be mainly the inventory part and the materiality assessment.
+
+33:22 - diego espinosa
+  And then later on, everything that can be related to the finance added value that she wants. Gotcha.
+
+33:31 - Monserrat Miranda
+  And this is kind of the last slide in which I define what we need from them. And technically, I'm telling them that we need the data owners of the company and we need access to their data systems.  And also, I'm realistic in the sense like, okay, not all companies have the level of automatization of digitalization of their system.  So. So. So the promise or the commitment is that we will adapt of whatever Sterling has today.
+
+34:07 - diego espinosa
+  Awesome.
+
+34:08 - Monserrat Miranda
+  So that's it from my site.
+
+34:11 - diego espinosa
+  Okay, great, Monserrat. So interesting that we start to see some differences. The focus on data at the end and the promise around data, really interesting.  Definitely like starting to see a spectrum here from the first two. So, Monserrat, and we didn't do this with Danny, but I'd like to do this going forward.  Just a very quick reminder of, you know, the kind of work you do, where you are. I think it's good for us to start to get to know each other as the weeks go on.  So if you could just give us a quick one.
+
+34:44 - Monserrat Miranda
+  So my name is Monserrat. I'm part of the sustainability team in AGC Glass Europe. I'm a material sustainables engineer, and my responsibility right now is the GOG emissions accounting of the company.  We cover more data. I'm 140 sites across Europe, and also I'm the scope to manager. Yes, I have, let's say, some experience on environmental assessment in different types of materials, from plastic, microplastic pollution, recycling of metals, and now glass.
+
+35:18 - diego espinosa
+  Awesome, thank you, Missouri. And Danny, if you don't mind just going back and covering that.
+
+35:22 - Danny Miller
+  Yeah, I work at the World Wildlife Fund, focusing on aquaculture, so working with fish farming, fish farmers, fish farming companies, companies that buy and sell farmed aquatic products to make sure that everything that everyone's doing is not damaging ecosystems or exploiting workers.
+
+35:46 - diego espinosa
+  Thank you, Danny. Awesome. Okay, Amber, you're next. And so now, now that we are getting into a little bit more kind of like the variants, this is what I predicted.  So let's try to go like a quicker. Amber run through, kind of keep it to like three minutes and the high points, and that way we can get through more.  And by the way, I still think we might be able to break into breakout rooms. So for those of you that aren't raising your hand yet or whatever, I'd love to have like almost complete participation.  So the breakout room sometimes enables that where we can't have it in the main room. So Amber, please go ahead.
+  SCREEN SHARING: Amber started screen sharing - WATCH: https://fathom.video/calls/609133226?timestamp=2186.090345
+
+36:24 - Amber Stryker
+  Amber everyone. I'm Amber Stryker. I lead Bespoke ESG. We're a consulting firm that serves teams of all sizes with custom support, but especially work best with small sustainability teams.  And I started Bespoke three years ago after spending 15 years on in-house teams. So that's me. I'll go through this quickly.  Everyone can see it, right? Yes. Great. It's interesting. Yeah, I think I have some similarities with Matzarat and starting with really...  So the angle here of like, how can climate intelligence and informing climate risk or climate risk inform the way private equity works?  So connecting to EBITDA, pricing it into acquisitions and exits and building a compounding edge.
+
+37:16 - diego espinosa
+  Can I just say something about, really interesting, like, I want to say, Amber, that this isn't, although Monserrat had some aspects of this, I don't think this is a small difference.  Because I think it's a really big difference. Because, you know, pricing something into acquisition next, gets to like a, starts to get to a completely different capability.  And I know, Monserrat, you alluded to it. But having it up front like this is kind of like, wow, this is, this is like a very different kind of like direction.  And I just want to ask you, Amber, did it feel like that to you? Were you like, I know how to do this?  Or like, this is not something I know how to do?
+
+37:52 - Amber Stryker
+  Or like, what, what were you thinking when you encountered that? So when I started talking with Claude about it, I think  Claude went to some of the more traditional ways of thinking about ESG consulting. And so I really tried to push it toward some things I don't, and I know a lot about ESG consulting, I do it as my career.  And so what I don't know super well is how private equity works and what their biggest goals are. So then I pushed Claude to tell me more about that and to try to use it as the expert on those things.  The challenge there when I was putting together the presentation with Claude is that sometimes I had to be like, well, what is that and how does it work?  And, you know, I think there's probably a couple of slides in here that if I was having a client meeting, I would have to really study to be like, okay, let me really draw this connection really clearly.
+
+38:42 - diego espinosa
+  Interesting. Thank you, Evan.
+
+38:44 - Amber Stryker
+  Yeah. So going into like connecting to physical risk and transition risk and what, how that impacts valuation and their assets.  I struggled some also with the... The and the, like, I was really pushing Claude, and I'm curious if other people have thoughts on this, for, like, a storytelling arc, and it would, like, tell me, oh, here's what a storytelling arc is and here's how it should look, and I'd be like, yes, do that, and it would come back with, like, still not that much storytelling.  So, if anyone has, like, thought and success on that, I'd love to hear why. But then, this slide moving more into EBITDA and how understanding and reducing energy costs will drive to higher value exits.  And I probably would switch around some of the order of this as well, but, you know, after so many iterations, I was like, we're just running with this.  This slide is about what Cloud Code Native is and how it works. I won't go deeply into it, and then starts to talk about how we are identifying risk that is sort of living behind the scenes and using it with a compounding edge to build higher value exits.  And then the test is where this is very similar to Monserrat, like we chose the same company, you know, as similarly as when I started, it had all these deliverables we should do, and I said, we can't do that in six weeks.  And so in the end of the presentation, I talk more about like what we would do with more time, but for the first six weeks, like this is like, we're calling it the test.  And it's really getting to using Sterling Precision Manufacturing as the great test case to incorporate, like capture data that already exists and incorporate it into existing touch points.  So monthly and quarterly that the company's already having so that they can understand more over time, you know, what the carbon emissions are, where reductions can happen and how that energy drives, energy reduction drives value.  This is more kind of like how it would build out and be handed off. think another similarity is like saying they own it.  And this is also not exactly how I wanted it, but these are sort of like what comes after. After we prove this pilot, have this test, well, then we deploy this system to the whole portfolio.  We look at exit readiness and really focus on how to prepare companies. Because that came up as like a priority first when I was talking with Claude.  And you can look at like we have this note here at the bottom on Meridian because it's getting ready for exit.  So why not make that the pilot? But it really wasn't the most repeatable test that could apply to like all portfolio companies.  And then this climate risk screener, which is how to understand climate risk across the portfolio, but also prepare fund two, four, and three for further acquisitions so that they're really applying climate risk to the way that they value future purchases.  And I also also struggled with. So I'm curious if other people have thoughts here. It was like, no, this is worth so much money.  And you could look at like the EBITDA. Oh, if you're gaining 1.6 million in EBITDA in one exit, then like it's worth so much.  But it's also like it's a six week engagement and you want to beat other prices of what they're paying McKenzie.  And then also you want to like kind of hook them for future work and say, wow, the value here is so high.  And there's, I feel like this type of AI consulting is so new, there's a lot of challenges on like how to price it.
+
+42:29 - diego espinosa
+  But that's where we landed. Awesome. Interesting price variation with Danny as well. I think it was Danny that had the price of $170.  So that's quite a bit different. Amber, thank you so much. And we'll go to Jessica and then maybe Temesgen and then we'll go into breakouts after that.  So Jessica, a little bit about you and then jump into a quick demo for you.
+
+42:59 - Jessica Thomas
+  Sounds great. Sounds Yeah, so I'm actually remote right now. I'm on my phone. So this is going to be a little bit more challenging.  But I'm actually speaking at a climate leadership conference in L.A. tonight or today. And normally I so I built in and grew Activision Blizzard's ESG department to world class award winning standards.  We were acquired by Microsoft and I was laser focused on the engagement and activations for Microsoft Gaming, Microsoft's Gaming for Sustainability team with a with a market of upwards of three billion dollars or sorry, three billion monthly active users.  So considerable impact there. And then ever since since the. The summer, we, I've been joining a bunch of advisory boards to kind of align this space between the intersection between AI and sustainability, but this is really my first kind of foray into using AI specifically for everything that I do, and I find it really fascinating.
+
+44:26 - diego espinosa
+  Nice, Jessica. So jump in, and we expect to see a video game version of the, of the pitch.
+
+44:31 - Jessica Thomas
+  yeah. I mean, actually, that's, that's the point. Okay. So I'm going to try and share, um, not sure how this is going to work.
+
+44:41 - diego espinosa
+  bottom center.
+
+44:42 - Jessica Thomas
+  Oh, yeah, you're on your phone, I forgot. Yeah. Share screen, but I'm just going to see myself. Let's try that.  Let's try. Can it be useful?
+
+44:56 - ben hillier (Voiz)
+  If you would like, you can send it to either Diego or...
+
+45:00 - diego espinosa
+  Myself on, on Discord, if it's a file, like, the whole file, not the URL. That's the only problem is, like, you have to copy the file and drop it in.  Let me try that and maybe start with someone else and come back. Okay, we'll come back to you, Jessica.  Temesgen, uh, tell me please if I'm pronouncing it correctly or not.
+
+45:20 - Temesgen Gebreyesus
+  Close, Temesgen.
+
+45:21 - diego espinosa
+  Temesgen, thank you.
+
+45:22 - Temesgen Gebreyesus
+  Temesgen, Um, yeah, I'm actually kind of grateful that Jessica's having a small hiccup because I wasn't sure how I was going to follow what, what she had waiting for us.
+  SCREEN SHARING: Temesgen started screen sharing - WATCH: https://fathom.video/calls/609133226?timestamp=2744.539923  Um, yeah, I'll share my screen really quickly. Oh, is it, okay, here we are. Can, uh, oh, and a quick, um, a bit about yourself.  Oh, yeah, so, uh, recent graduate from the Bren School of Environmental Science and Environmental Science and Management. Elijah Prior to that, most of my work was in environmental justice and in EJ, so local organizing, specifically in the areas of environmental health, combating like urban oil drilling and things along those lines, basically public environmental health hazards.  Elijah And yeah, so I'm new to sustainability, like as a full profession, currently an intern for LA Climate Week as a community coordinator, a community engagement coordinator, and yeah, I'm happy to be sharing this presentation, hope you get, yeah, this is what I was able to come up with.  Elijah with Northwood Capital Partners, the three companies that I chose to select and chose to focus on are Sterling Precision Manufacturing.  Patriot Staffing Solutions and Pinnacle Testing. The reason for those three are the following. with Patriot Staffing, I kind of suspected that there's a lot of ESG application from what I was able to gather and read.  And with Sterling, although it is like the biggest, most profitable company and didn't seem to have had an indication to be selling soon, I also found like providing a deliverable that will eventually come to where it does sell would be also applicable and practical.  And for Pinnacle Solutions, I kind of thought that maybe building an ESG sort of framework or an ESG sort of platform.  So from the early phase of a company would be interesting. From most of my projects that I've done that's ESG related, it was more so like integrated externally.  And that's kind of like the sense that I've kind of gathered with a lot of the ESG sort of research that I've done in graduate school.  So yeah, so it kind of strikes me as like my first sort of opportunity to implement ESG strategy from the beginning of a company, which is, again, would be new for me.  So what Rich Point receives at the fund? So yeah, portfolio, the deliverables would be a portfolio ESG gap analysis, portfolio ESG dashboard, Rich Point ESG playbook, and LP reportive narrative.  I, if I'm going to be like completely transparent, like while I was working with cloud code, I kind of got a general sense of like, okay, like these are deliverables that I could bring or I could like sort of implement to the three companies.  However, I kind of wanted to, it to be like more specific and more like clear. So for Patriot staffing, it'll be a scope one and two emission baseline workforce ESG audit and like a dashboard as well that like kind of measures the cost of benefit analysis of like the ESG practice with Sterling Precision as well.  as well as well well. testing. Similar to Patriot Staffing, I kind of wanted to have, again, like an ESG, I guess like an ESG sort of compass or like an ESG sort of framework that the company could use going forward.  And what rich point, yeah, so again, like kind of having like the same framework that they could practice and utilize going forward into the future.  What we would need for our deliverables would be a lot of data. I wasn't fully sure how much each sort of separate deliverables would require a, its own like sort of separate data or how much.  would be available. And for Sterling specifically, it being an industrial sort of company, I figured like facility manufacturing, basically the LCA like impact analysis, like I found that that would be probably a big sort of opportunity there.  Yeah, how to ccmodel.r cloud code model works in practice. again, like this would be after, towards the end of our program.  It would be our, I'm sorry, I've kind of, I'm having a hard time putting these together. All right. How to do  That's a more of a hard time kind of putting my mind around this.
+
+52:07 - diego espinosa
+  Yeah, but I think, so, oh, and this is interesting, too. So I want to point out, basically, thank you for going.
+
+52:20 - Temesgen Gebreyesus
+  No worries.
+
+52:21 - diego espinosa
+  I think that this is really important, right? Because we see some different kind of attacks here, like, instance, Temesgen mentioned.  If somebody is unmuted, please mute.
+
+52:35 - Temesgen Gebreyesus
+  Oh, sorry.
+
+52:37 - diego espinosa
+  Thanks. So there's, this is something that I really encourage people to think about. And, you know, I mentioned last week that it's really good that we have, like, a mix of people here and some people with, like, you know, a lot of experience over decades, some people with less.  And I think it's really important for all of us to understand. And that, in your case, Temesgen, where you don't have direct, you're in a grad program, not yet direct experience with corporate sustainability, it's really important for everyone to be able to see, like, okay, someone without as much experience was able to produce something that was really high quality, in my opinion.  And so, like, what does that mean? How does that impact how a team works? Right? How does that impact what less senior people do and more senior people do on a team is something that I instantly start thinking about.  So, Temesgen, I wanted to come back to you and ask you, like, as someone who hasn't had a lot of direct experience, but you're in a grad program, like, how did you feel about that?  Like, oh, you're producing this. But was it like, okay, this is cool, like, I can do this? Or was it more like, wow, I'm kind of reaching here?
+
+53:56 - Temesgen Gebreyesus
+  And it's okay to say that, you know, if you were. Thanks, Very felt very encouraged, and I also felt very, I don't want to say conflicted, but more so, like, it was, like, a new frontier for me.  I felt like I was punching well above my weight class in a sense of, like, the output I knew was, like, yeah, this is, like, for me, again, like, I've had just only a few research projects that were basically graduate-level courses where we do, like, our external, you know, academic research on ESG, on LCA projects.  So, in academia, it's entirely hypothetical, practically speaking. Oh, is my signal or is my Wi-Fi?
+
+54:48 - diego espinosa
+  you're fine.
+
+54:49 - Temesgen Gebreyesus
+  Okay. So, it kind of felt like putting the stuff that I practice in academia and in school to practice.  Bye. And seeing it in real time, but it also was like very new for me because I didn't see it to like that degree.  Like I'm sure someone who has worked in ESG or who've done ESG consulting for a few years, like the degree is something that they're probably a lot more used to.  for me, it's like, I guess this is just another like a level that I'm kind of adjusting to.
+
+55:30 - diego espinosa
+  Yeah. So, so one implication is people are going to get like very fast experience early in their career, being able to do things very, very quickly.  And, and so again, you know, I don't know the full implications of all of this stuff, but I think it's, it is, it is significant.  So thank you again, Temesgen. So what I want to do now, because I do want you all to kind of get to know each other as well, is break out into some small breakout rooms for about 10 minutes.  And have you, um, talk about your, uh, uh, uh, if you've already presented, it's okay. You can just basically like talk about some dimension that we haven't spoken about yet, but otherwise you get a chance to share what you've done.  So let me do that. And so these are going to be small breakout rooms. If you haven't done for any reason the work for the week, it's okay in this breakout room, take advantage of the situation and be like the questioner, know, kind of like the critical analyst that is asking questions and saying like, what was this like and what was that like?  And that way everybody can, you know, get a lot out of it. So we're going to go into three to four participants per room and the team will be jumping around basically while you are talking to each other.  So when we do breakout rooms, the purpose is not so much for me to guide it or Ben or Yvonne or anyone else on the team, but for you all to talk directly to each other.  And again, it's a great way to kind of get to know each other. So let me create the rooms and I'm going to set it for  I'm going to set it for 10 minutes, and so talk amongst yourselves. This is it. Opportunity. There you go.
+
+57:52 - Chelsey Evans
+  We're both muted.
+
+57:54 - yvonne espinosa
+  We're in there, so maybe we'll, oh, here we go.
+
+57:58 - Chelsey Evans
+  Good.
+
+57:59 - yvonne espinosa
+  Yeah. Nice to meet you, Chelsea.
+
+58:01 - Chelsey Evans
+  Where are you? Hi. Good to meet you as well. I am in Seattle. I work for Expedia Group doing climate and sustainability.
+
+58:07 - yvonne espinosa
+  Okay. Nice, nice, nice, nice.
+
+58:09 - Chelsey Evans
+  How about you?
+
+58:09 - yvonne espinosa
+  I'm in Mexico City. So I'm the co-founder for Voice Academy. So, you know, KIF, climate now.
+
+58:17 - Chelsey Evans
+  So I always get that mixed up.
+
+58:19 - yvonne espinosa
+  But yeah, so I've been working with Claude Code and really doing a lot of things. I hope you guys are liking it.  I'd love to hear. Where are you from, Jordan? Where are you?
+
+58:31 - Jordan Hart-White
+  Hi, guys. I think I got thrown in at the last second. I am in Durham, North Carolina. So I heard Seattle, but I missed where the other person was from.
+
+58:41 - yvonne espinosa
+  Mexico City.
+
+58:42 - Jordan Hart-White
+  Oh, Mexico City. That's quite a ways away.
+
+58:48 - yvonne espinosa
+  Yeah. And what company are you with?
+
+58:51 - Jordan Hart-White
+  I'm with Cisco.
+
+58:53 - yvonne espinosa
+  Okay.
+
+58:54 - Jordan Hart-White
+  The tech company, not the food one.
+
+58:56 - yvonne espinosa
+  Yeah, yeah, yeah. And what are you doing with that?
+
+59:00 - Jordan Hart-White
+  I am an energy and sustainability manager on our real estate team. So I do building efficiency upgrades, and then I'm running our kind of AI program, which is very, very departmental focused.  working on like tools and efficiency within each kind of work stream that the different teams work on.
+
+59:17 - yvonne espinosa
+  Great, great.
+
+59:18 - Jordan Hart-White
+  So love to see what you guys have built and if you want to share it and if you want to go through.
+
+59:27 - Chelsey Evans
+  I would definitely invite Jordan to share if you have something I have only today. So we have some access to cloud at work, but not the desktop app.  So it's been like a process of figuring out what I can do on my work computer, which is what I intended to do, versus having to actually do my personal laptop, which is what I set up this morning.  So a little mind.
+
+59:45 - yvonne espinosa
+  Awesome, no worries.
+
+59:46 - Jordan Hart-White
+  No, that was me yesterday. Yeah, I was at work travel and didn't have the personal laptop. So I did everything yesterday and was super overwhelmed and stressed and did not edit nearly as much as everyone else did.
+
+59:58 - yvonne espinosa
+  that's okay.
+
+59:59 - Jordan Hart-White
+  Don't worry, you know. This is an iterative process.
+
+1:00:02 - yvonne espinosa
+  We kind of throw everybody in. We want you to just kind of, what happens is the project-based learning is like you're the first week, two weeks, I would say you're a little uncomfortable.  And then all of a sudden you're going to be like sailing, you know? So that's Diego's style. Hopefully everybody's okay with it, but you really learn a ton because of that, you know?
+
+1:00:24 - Jordan Hart-White
+  So yeah, we're figuring, we're figuring it out. I struggled with just getting everything set up. I think on my work computer, a lot more things are set up and I don't use my personal that often.  And so, I don't know, it was just upgrading everything and getting everything set up. But with that in mind, I'm in like a Zoom web browser.  I don't have the share option. I've been like Googling in the backend. You're supposed to have the share, but there's just participants chat and reactions.  Okay, there's a little green. It's not present on mine at all.
+
+1:00:57 - Chelsey Evans
+  How funny.
+
+1:00:58 - Jordan Hart-White
+  And everything on the internet. The web says I should be able to share. So I'm confused why I cannot.  I will, for next week for sure, have figured out the browser.
+
+1:01:07 - yvonne espinosa
+  Okay.
+
+1:01:07 - Jordan Hart-White
+  Not the browser, the app version. But can talk to, I guess, if it's helpful.
+
+1:01:14 - yvonne espinosa
+  Yeah.
+
+1:01:15 - Jordan Hart-White
+  The overwhelming bit in the beginning.
+
+1:01:17 - yvonne espinosa
+  Yeah.
+
+1:01:18 - Jordan Hart-White
+  But I did appreciate, and this was in like the guide, being able to go to Claude and say, Claude, I'm getting this error code, or I'm stuck here, or what am I doing wrong, right?  And it would give feedback on like, we'll try this, and if it doesn't work, you can do this. so that was helpful, as opposed to normally calling someone or sending an email.  was like there was somebody who could automatically understand what I was going through and then provide recommendations on next step.
+
+1:01:45 - Chelsey Evans
+  So I enjoyed that little bit of Claude that I used prior gave me some of that kind of feedback where it was like, oh, it's actually already been answered.  And I'm like, oh, I don't know how to read things in a terminal.
+
+1:01:55 - Jordan Hart-White
+  Like, I have no idea how use this. No, exactly. Exactly.
+
+1:01:58 - Chelsey Evans
+  No clue.
+
+1:01:58 - yvonne espinosa
+  Yeah.
+
+1:01:59 - Chelsey Evans
+  It's funny. Just type that again. like, oh, all right. Okay.
+
+1:02:02 - yvonne espinosa
+  Or I don't see that.
+
+1:02:03 - Jordan Hart-White
+  Yeah, put this here.
+
+1:02:05 - yvonne espinosa
+  Yeah, I do. See, I'm not technical, but I'm using Terminal, I'm using Cloud Code, I'm generating things, and then I'm just saying, like, or even if I want it to output to something else, if you want it to go into a document or something like that, it can do that for you.
+
+1:02:20 - Chelsey Evans
+  So that's really nice.
+
+1:02:22 - Jordan Hart-White
+  Yeah.
+
+1:02:23 - yvonne espinosa
+  Have you been using, like, the MD files and all of that? Like, did you know what that was?
+
+1:02:28 - Jordan Hart-White
+  Or? No.
+
+1:02:30 - yvonne espinosa
+  No.
+
+1:02:30 - Jordan Hart-White
+  can't at least still count. I uploaded them. I uploaded them to the folder, but then I guess just being a non-AI native person, I can't open this file, at least on, like, desktop.
+
+1:02:42 - yvonne espinosa
+  So I have, like, no idea what the brief was because it's living in this file format.
+
+1:02:46 - Jordan Hart-White
+  I don't know how to open. I guess I could have asked Cloud probably to figure it out, but my normal ways of opening something didn't work, and I was like, well, I guess the system will tell me what it says.  But I just didn't have that insight to understand.
+
+1:03:00 - yvonne espinosa
+  Yeah, and I'm in that, a lot of times in that boat, and so I'm like, I can't see it, you have to open it, or can you open it in a different browser for me, or can you do this, you know, it's just like, or, you know, if it gives me a file, like, name or something like that, like a, I'm like, I don't know where that is, you have to open it for me, type of thing, you know, or save it into something that says Yvonne, you know.
+
+1:03:28 - Jordan Hart-White
+  Yeah, it's just getting used to that new, I guess, way of working, I'm not used to working with me, I can't open or read myself.
+
+1:03:35 - yvonne espinosa
+  Yeah, yeah, yeah, yeah, A lot of trust in it. Right, you can, if you understand where it goes, but we'll get into that, like, those are just little things, you know, and even asking it, and saying, you know, like, look, I'm not used to not being able to do this, how would I do this, so that I can just, you know, easily open something and look at it.  Even, like, the PowerPoint presentation, a lot of people are like, I'm used to PowerPoint. here go. Good. What about HTML?  You know, it's just so much easier. And editing there is, like, super easy once you get a whole, you know, get, yeah, let's do it.  So did you go through the process or with the whole presentation?
+
+1:04:15 - Jordan Hart-White
+  Yeah. Yes. I got the whole presentation. Apparently, I can't share it with Zoom, but we'll figure it out. And then I've been iterating.  I've been taking copious notes and everyone's like, well, I did this and I did that. And I'm it's genius.  never occurred to me. so I'll play around with it and see if I can improve the output.
+
+1:04:34 - yvonne espinosa
+  Yeah. Yeah, yeah, yeah. And we'll be sending you the notes as well, the fathom notes and stuff like that, which is really nice.  Because that way you get all of that information. And what about you, Chelsea?
+
+1:04:47 - Chelsey Evans
+  I can't say I've done anything. I think that I joined the Discord a day or two ago. I will say I have joined cohorts before that use Discord and I don't use it for any other purpose in my life.  So it is a little challenging to have to go. go. Go to a different community space and, like, remember, okay, wait, how do I, you I need to be over here, but I also have to be, you know, as we all do on Slack or Teams or whatever, an email and things for our full job.  So I think trying to get it going, I hope now that I have at least the desktop function working on my other laptop, I'll be able to start working on it better next week.
+
+1:05:21 - yvonne espinosa
+  Yeah, and fun tip, you know, what I recommend everybody, you know, for, is like, if you can just at least go in and check, check it once a day for the cohort, because you'll see, hopefully, you know, people will start putting things in, like, even you, Jordan, you know, you can, you know, you can put your, your doc in there and say, give me feedback, or does anybody have the, and that dialogue is, is just nice to see, even if you just have to go back through it, you know, a little bit later.  Um, but it is a good way, and it's also the way that Ben and Diego communicate, so that way you don't miss anything.  Um, Um, Were you able to go to the, you probably weren't able to go to the Wednesday meetings then?
+
+1:06:06 - Chelsey Evans
+  Well, I didn't go because I was like, I know that I still haven't gotten these things set up.
+
+1:06:10 - yvonne espinosa
+  So like, what is the point?
+
+1:06:13 - Chelsey Evans
+  Also, because actually I would say like small feedback, but because the meeting, even for the kickoff got, it didn't get onto our calendars until a little late.  Like my calendar is booked. So I had to leave halfway through because I had a meeting I couldn't miss.
+
+1:06:26 - yvonne espinosa
+  And like, I've now blocked it out, of course, and can try to protect the time moving forward.
+
+1:06:31 - Chelsey Evans
+  it was like, I don't love that for a kickoff meeting. I need to drop at halfway through. And it's because like, I really need a couple like weeks of notice.  It's like a prime time for me on the West Coast, working with people on the East Coast and Europe is like, yeah, this is like.
+
+1:06:43 - yvonne espinosa
+  It is 9am.
+
+1:06:44 - Chelsey Evans
+  That's why we always did it from 9am because we were in LA and it was just like, that was the only thing that really worked for everybody, you know?
+
+1:06:53 - yvonne espinosa
+  And even India, it's not that bad, you know? Right.
+
+1:06:57 - Chelsey Evans
+  But my recommendation.
+
+1:07:00 - yvonne espinosa
+  Recommendation, just, you know, is if you can go to the Wednesdays, you're going to learn a lot.
+
+1:07:04 - Chelsey Evans
+  Okay.
+
+1:07:05 - yvonne espinosa
+  Okay. Even if you haven't done, especially if you haven't done. Okay. And that is also a great way to get Ben to, you know, give you any pointers because more than likely, like for Discord, for instance, you know, there's other people that are new to Discord that are not using it.  And so any question and every question is really helpful and welcome. So I wouldn't, don't feel, don't go not just because you haven't done it.
+
+1:07:33 - Chelsey Evans
+  That's actually. I it was a little bit of the same thing that Jordan was having, which was like, I was at work in my office and I did not have my personal laptop with me.  So literally I wasn't going to be able to access it. Like it just was going to be a total blocker.  was like, all right, let it go for the day. I know, I know. It is a little complexity of this.
+
+1:07:50 - yvonne espinosa
+  Yeah. And the people in this cohort are super interesting. That's the other thing, you know, like I think for all of you, like I'm, I'm the connector type of person.  you. So, and that's always the, the other people in the cohorts are, have really interesting backgrounds, really interesting connections, will really be helpful, I think, in the overall future.
+
+1:08:11 - Chelsey Evans
+  for sure. I know a few in the cohort.
+
+1:08:13 - Jordan Hart-White
+  Jordan, you have familiar faces in the group? I don't.
+
+1:08:16 - Chelsey Evans
+  I don't.
+
+1:08:16 - Jordan Hart-White
+  So that's great that you do.
+
+1:08:18 - yvonne espinosa
+  Yeah. Yeah. Yeah. So really nice people. And so I think you'll, you'll enjoy connecting with them as well. So, um, yeah.  Any questions for me? Will you have me on here? Will Or if you want to go back out, we can, you can go back into another one real quick if you're interested?
+
+1:08:43 - ben hillier (Voiz)
+  Excellent. Hopefully everybody had nice sessions in the breakouts. think everyone's going to be coming back over the next 30 seconds or so, and then we'll be able to spend a bit more time in the last 20 minutes talking about what we've covered, and Diego will give a little bit of a kind of rounding off of this week, as this is the onboarding week, and then we'll be talking a little bit about what we're going to be doing next week, as well as a few other community elements that I'm going to be sharing.  But Diego, I think you're back, so we're going to be handing back over to you.
+
+1:09:16 - diego espinosa
+  All right, I heard some really interesting discussions going on, and so I think in the last kind of like 19 minutes, I wanted to focus a little bit more on themes, and just see if we can draw a couple of them out, and then at the end I wanted to talk a little bit about next week.  So one theme that kind of comes out that you immediately see. is basically, okay, so cloud code is saying we can do these things and kind of laying out like pretty detailed timelines for doing them.  And so I want to ask a question like, how does it know that? How does it know? Does anyone have a sense of that?  Because like, this is important, right? This is like, if we had to zero in on one of the most important judgments that cloud code is making in this process, and several of you have alluded to it, it's the judgment that this would be possible within the time frame that is being scoped out.  So, how do you think it knows it? Yes, Niken?
+
+1:10:31 - Michaela Hepburn
+  One statement that you've made that resonates with me is the fact that cloud focuses on assessment and recognition of patterns.  So I wonder if it is evaluating data and information in the public domain and recognizing patterns associated with, you know, what deliverables have been committed or offered in similar environments.  Um, again, that's a, that's not a fully fleshed out answer, but I just get back to the, the pattern recognition and the, and the focus on those to be able to complete or approach tasks.
+
+1:11:19 - diego espinosa
+  Okay. That, that's a great start, uh, for that discussion. Uh, anyone else got a thought? Martin, you're right.
+
+1:11:25 - Martin
+  I, I think that there's not enough information for Claude to actually know if it's doable, right? It doesn't ask how many people do you have planned on working on this?  How many hours of their individual weeks do you think they'll be able to use, right? Also a lot depends.  On how quickly it gets, it takes the ridge, ridge, whatever, to get back to you with information, right? And that dialogue, right?  So I think, you know, I would imagine that the most, the limiting factor here would be, frankly, whether or not you get the information you need in a timely basis so you can do the analysis of it, because for the most part, what CLAW does, it does very quickly, right?  And especially if I can farm this out to three or four people, right? And willing to spend the time, yeah, I could do any of this.  But if I don't get the data fast enough, that's going be the limiting factor here, right? Because, I mean, the work is really fast, right?  So I suspect it's doable, but it's a matter of how much resource you want to put into it and the cadence of response from Northwood?  I forgot the name. That's bad if I'm consulting them, isn't it?
+
+1:12:28 - diego espinosa
+  Yeah. Martin, so you raised two points. One is, it may not really know what it's talking about. We need to entertain that notion.  And second of all, there are contingencies. That are Or specific to whatever situation you're in that it may not be aware of, that it may not be taking into account.  So, great. Who else has a comment on that?
+
+1:12:50 - Tim Greiner
+  Yeah, I thought one of the questions I had was what are the capabilities of the person driving Claude, what's needed to actually execute those deliverables?  And so I thought, well, I should definitely ask it. What are the dependencies? What's the expectation around the capabilities that are going to produce the whatever deliverable Claude is suggesting?
+
+1:13:12 - diego espinosa
+  Yeah, absolutely. Who's driving the car? Because it's not a self-driving car. You know, we don't do self-driving cars in Kip Climate.  Yes, Temesgen.
+
+1:13:23 - Temesgen Gebreyesus
+  Yeah, kind of to that point, I also felt like when I would receive an output, and if I didn't, if I wasn't able to fully wrap my mind around it, then ...  There was a lot of, like, sort of friction in a sense of, like, if I can't know for certain that this is correct, then how can it know if it's incorrect?  If, I'm not sure if that makes sense, but, like, that kind of was, like, the intuition that I was feeling while I was working with it, because a lot of the outputs definitely, like, looked great, and I was able to, like, get a pretty good sense and a pretty good understanding of it, but I did have that sort of suspicion.
+
+1:14:15 - diego espinosa
+  Okay, great, great comment. Yes, Ashlyn?
+
+1:14:19 - ashlynanderson
+  Yeah, in addition to the data, you know, the issues in getting data, the other thing that comes to mind, and I feel like I've experienced in my work already, is it can be so hard to get everyone kind of on the same level, working off of the same information, and when you're able to churn out so much, like, your mind might be making different leads.  But you still have to catch everyone else up to that thought process. And when everybody's doing that on their own, you also have to kind of reconcile the paths that everyone took to try to get to the same answer.
+
+1:14:54 - diego espinosa
+  Yeah, so coming up with solutions is a social endeavor. And Claude's not talking about that, least not yet. Maybe it could, right?  Like, it would be interesting to kind of figure that out. So a lot of themes arise here, and I want to kind of pick some of them out.  One of them is an idea that using, that AI is, by itself, is of very, very limited value. Now, there's people at Anthropic and Google and OpenAI who would like nothing more than AI to be a standalone solution.  And so what that implies in that it's a standalone solution is that it can do everything without humans. realist.  Yeah. I don't know. Don't love that future, but let's set that aside for a moment. Short of that, AI is always going to be a component in a system.  And you can think of it as at least a binary system. If there's not a human, it's like a tree falling in the forest.  If there's not a human there to say this is good and valuable, is it worth anything? You can think about that.  And that's something that, you know, teases out of some of the comments that have been made. At the end of the day, it is going to be another human that relates to other humans to basically decide, you know, do I want to do this?  Is it doable? Can I do it in time? Like all of these kinds of questions. So I do like this idea that basically AI by itself is a tree falling in the forest.  Only interpreted through the lens of human judgment can it derive value. And that's a very important statement to make, right?  In terms of what we're here. What do and what we're here to learn. Joseph, you have a question?
+
+1:16:45 - Joseph Anderson
+  It's just, I think, a reflection I had on what you're saying about the human value that comes into creating a solution and whether or not it produces value.  I found that was actually one of the things that I had to push Claude at a little bit, is it just, it made all these assumptions, and I had to add one or two extra slides, not manually, but prompting it like it didn't come up with them on their own.  To engage with the client rather than just giving the client a wall of solutions and text and patterns that it recognized to actually turn it around and try to understand what the client's definition of success in ESG looks like.  Like it assumed those success in ESG metrics, you know, based on being an LLM. And so I think, like what you're saying, it's that human piece needs to come in.  And once I gave it that prompt, it did a great job. I thought the slide was beautiful, but it did make assumptions about where value comes from instead of setting up the pitch deck to come to that solution together with the client.
+
+1:17:51 - diego espinosa
+  Yeah, absolutely. You can imagine a slide in the presentation, like maybe slide number six, which is like, at this point, you're probably like checkbox scared, impressed, doubtful, and allow the client to basically express themselves like, you've got to be kidding me, or wow, I can't wait to start this process, or this is scary as all.  Maybe all of the above. Maybe so like, these kinds of human reactions to the work that's being done are really, really important.  Another thread that I would tease out is that, what does cloud code know? What does it know? And I think this becomes a very, very important question, because it's basically telling you stuff, and it kind of assumes that it knows.  But does it really knows? And how does it know this? And so we teeter on the edge of like...  Not of needing to go into computer science concepts and understand how large language models work and things like that.  And we don't want to go there. Like, don't worry. But I think that it's a question that you become more and more aware of over time, where it's coming up with things and you're like, I just don't know how I could possibly know that.  And that's like a little alarm bell goes off. Like, for instance, I think it was Michaela that kicked off this discussion by saying that there are patterns and it kind of like sees all encoded patterns.  And then you're like, but really, is there stuff online about how long it takes to do climate projects and, you know, and also to do it with cloud code?  Like, there's not going to be anything online about that. Right? So how did it come up with that stuff then?  And I think this is a very, very, very important question for us. If we're going to be using Cloud Code in the future, and AI in the future, is to have a sense of it.  And so the best thing I can tell you is that it doesn't have to find the pattern as a set path that it's in its memory.  It can look at different patterns and make inferences across them. That's why it's so scary smart. It can say, like, I don't know about climate work, but I know about this kind of work.  And I don't know necessarily about cloud code. Like, it doesn't even know itself. But I do know about AI.  And so it'll be stitching these patterns together. The smarter models get, the more stitching they can do and come up with novel patterns.  And that's when we sit back and we say, it's incredibly smart. How does it know this? Right? Or it's making it up.  Okay? We have to entertain both possibilities. And be on the lookout. At the end of the day, this is why the binary, I call it the dyad.  The dyad of the human and the AI is the system. It's not the AI. The system is both of us together.  Joshua, you have a point.
+
+1:20:52 - Joshua Agarwal
+  Agarwal, Yeah, I have a couple questions. I guess the first one is on the point you just mentioned. I guess maybe the predominant thought for folks is that the quality of the data and if it's proprietary data, then that's obviously providing you Joshua your company with a competitive advantage to be able to better feed the model.  then, of course, your domain expertise to better prompt the model to provide an output that's relevant and useful and fit for purpose.  Joshua But you mentioned this idea of like, you know, even if it is, you know, data that's not publicly available, the model as they get better, they're able to stitch together and pattern recognize to a point where, you know, maybe the proprietary or unique data that you have is maybe.  Joshua as useful or it's close enough, if you're able to judge that, like, is that where you see things going and sort of this democratization of, of, of intelligence?
+
+1:21:50 - diego espinosa
+  Yeah, this is a really good question. In other words, I call it encoded local context. So there's global inference.  I know everything. And there's local context. You don't know what I know.
+
+1:22:00 - Martin
+  Joshua Okay.
+
+1:22:01 - diego espinosa
+  And then these two things are kind of like in tension between each other. And this is the, this is why it's a system.  Joshua Ph The system is always necessary because the A.I. doesn't know what you know, even though it thinks it knows everything.  Joshua And so I think as good as A.I. gets, there's always going to be room for that local context.  it just pushes it harder and harder and harder. Joshua So the smarter and smarter A.I. gets, the smarter we have to be in terms of pushing it to do what we want it to do, to what we want it to do and not what it's going to do on its own.  I know that's kind of like, it's a daunting question for us. When people say A.I. is going to make us dumber, I'm like,  How? It's going to make us smarter. Like, we've just got to up our game every single time it gets smarter and go, like, what can I push it to do?  What am I not thinking of? How can I spot things that it's doing wrong? Like, all of these are going to become, like, very, very critical.  As critical thinkers, I don't think we've ever been going to be challenged as much as we're going to be challenged by it in the future.  So I hope that's an optimistic answer to your question.
+
+1:23:07 - Joshua Agarwal
+  Well, thank you.
+
+1:23:09 - diego espinosa
+  So, awesome discussion. want to, and so you're here essentially to get an intuitive sense of these things, not to read papers on, by computer scientists on large language models.  Because at the end of the day, newsflash, they don't know. Like, here's, here's the thesis that I have. So very few people that are involved in making LLMs use them as much as other people do.  And the people that use them in a system know something that those machine learning engineers don't know. day. So what we are, what you are going to know, what we have a sense of is basically like, how smart is it?  How reliable is it? What can I push it to do? How do I push it to do these things?  These are the things that concern us. What concerns them is just like, I got to ship a model that's smarter than the last iteration.  Okay. That's why, like, I think, I think the users of, intensive users of AI have a lot to contribute to the discussion on what AI is and what it does.  And even though we're not engineers, we're not, most of us are not technical people. So I want to talk a couple minutes before we break about next week.  So we've been mentioning data this week. Data is a big deal in consulting in general, in sustainability in general, and in AI in general.  So those three things are going to come together. We built a simulated environment for, for Bnorthwood. We are going to be throwing a little bit of a curveball.  We're changing the name because there's just been a lot of confusion arising internally because we use Bnorthwood as well.  So we're going to change it. I think it's Northwood. So just a heads up on that. And Sarah will still be there.  But basically, we're going to get a data dump. You know, it's not like Sarah has enough time to go like, oh, I think you might need this, or you might need that, or you might need this other thing.  She's going to be like, okay, I'm going to give you access, sign your life away in terms of a contract and NDA and the whole thing.  But here's access to a ton of the data that I have. Make of it what you will. And that is very, very realistic.  So next week, we're going to figure out, first and foremost, how do we get CloudCode to help us understand what data is there, to potentially clean it, to figure out what's absolutely necessary to ask for more, to think about whether getting more is possible within the timeframes that we're looking at.  These are things that really do emerge, like in every consulting assignment I've ever been a part of, the first part.  It's all like data wrestling, right? And it's a very mean alligator. So we're going to see if Cloud Code can help us do that, and we're also going to see if it can have some deficiencies in doing that, that we can cure.  So Monday morning, or at some point, you're going to be getting a zip file that you're going to download, and you're going to, in that user folder.  So now instead of having just four little files in it, or five, it's going to have a ton. Of data in it.  And that's going to be our starting point for having a data discussion next week. So that deliverables next week are really going to be around, how do I understand this data?  How do I improve this data? What do I need to do? Because that sets the springboard, as it does in any one of these roles, that sets the springboard for being actually, being able to do the work following that.  So I'm really looking forward to that. I think it's going to be a really interesting exploration. It's going to be about 150, 160 files.  And so, very tough to get through all that. Like, what does this mean? And where is it? And like, blah, blah, blah.  And it's like, Sarah's like, don't bother me. Okay. So we're going to have to make sense of it on our own.  So awesome. First demo session. I really appreciate everyone sharing, bringing your work. I hope you all saw how valuable it is and that we do have a spectrum of different things that we can push AI to do.  That's part of the reason we're all here. So fantastic first demo session. Ben, please respond to Ben's community session.  And poll. think it's really important to, you know, everyone to get to know each other better. What an incredible group of people here, different sustainability perspectives.  And yeah, have a great weekend. We'll see you all on Monday. Thanks, everyone.
+
+1:27:24 - Temesgen Gebreyesus
+  Take care. Have a good one.
+
+1:27:25 - Martin
+  Thanks a lot.
+
+1:27:26 - Joseph Anderson
+  Thanks a lot, everybody.

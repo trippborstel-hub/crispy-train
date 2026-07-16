@@ -1,0 +1,102 @@
+Impromptu Zoom Meeting - April 06
+VIEW RECORDING: 
+Meeting Purpose
+
+To frame this week's open-ended project and review the core AI architecture.
+
+Key Takeaways
+
+  - New Architecture: This program uses a new "workflow-complete" architecture (Data Layer → Inference + Human Intelligence → Deliverables) that replaces siloed SaaS apps. It enables inference-driven data discovery and human-led analysis across any connected source.
+  - This Week's Challenge: The open-ended task is to translate last week's carbon inventory into financially material initiatives for client Sarah, moving beyond simple disclosure to actionable business value.
+  - Human Role: The human role is to "drive the bus" with critical thinking and empathy. This involves using AI to learn new domains (e.g., finance) and actively auditing its outputs to prevent "AI slop."
+  - Reference Files: Use reference files to encode your unique IP and differentiated thinking, creating a compounding knowledge base that improves AI performance over time.
+
+Topics
+
+The "Workflow-Complete" AI Architecture
+
+  - This program's architecture is a radical departure from traditional SaaS, which is siloed and vendor-owned.
+  - The 3-Layer Model:
+    1.  Data Layer: Your local drive, Supabase, and any connected APIs/MCPs (e.g., Outlook).
+    2.  Inference + Human Intelligence Layer: AI discovers relevant data across all sources, while the human "drives the bus" with critical thinking and direction.
+    3.  Deliverables Layer: Final, client-ready products (apps, decks) that are integrated back into the Data Layer, creating a compounding knowledge base.
+  - Why it matters: This model solves the decades-old problem of finding and connecting disparate data, especially unstructured data, using intelligence instead of rigid programming.
+
+The Human Role: Driving the Bus
+
+  - The human role is to manage the AI, not be replaced by it. This requires developing critical thinking and empathy.
+  - Example: Joseph's concern about "AI slop" in financial recommendations.
+      - Solution: Use the AI as an expert tutor. Ask it to explain its analysis, identify error sources, and suggest remedies.
+      - Outcome: This process builds human expertise, enabling effective auditing and ensuring trustworthy outputs.
+
+This Week's Challenge: Financially Material Initiatives
+
+  - The goal is to translate the carbon inventory into financially material initiatives for client Sarah, moving beyond simple disclosure.
+  - Why it matters: The current climate disclosure framework (TCFD, CSRD) is built on "single materiality" (risk to the company), but often fails to connect climate data to financial outcomes, leading to a lack of engagement.
+  - Your task:
+      - Design initiatives to address risks identified last week.
+      - Prioritize them based on financial metrics (ROI, NPV), implementation effort, and budget.
+      - Connect data sets (carbon, revenue, deal flow) to build a financial exposure model.
+      - Bonus: Ask Claude to create consulting decks for your top initiatives to see how quickly it can generate detailed implementation plans.
+
+Next Steps
+
+  - All:
+      - Design financially material initiatives for Sarah, prioritizing them with financial metrics.
+      - Create at least one reference file to encode your unique IP and workflow learnings.
+      - Bonus: Generate consulting decks for your top initiatives to explore implementation planning.
+      - Tip: Use Claude's free $20 credit by upgrading your plan in settings.
+  - Martin:
+      - Create simulated nature impact data for the food company and use it for this week's project.
+
+
+Impromptu Zoom Meeting - April 06
+VIEW RECORDING: 
+Meeting Purpose
+
+To frame this week's open-ended project and review the core AI architecture.
+
+Key Takeaways
+
+  - New Architecture: This program uses a new "workflow-complete" architecture (Data Layer → Inference + Human Intelligence → Deliverables) that replaces siloed SaaS apps. It enables inference-driven data discovery and human-led analysis across any connected source.
+  - This Week's Challenge: The open-ended task is to translate last week's carbon inventory into financially material initiatives for client Sarah, moving beyond simple disclosure to actionable business value.
+  - Human Role: The human role is to "drive the bus" with critical thinking and empathy. This involves using AI to learn new domains (e.g., finance) and actively auditing its outputs to prevent "AI slop."
+  - Reference Files: Use reference files to encode your unique IP and differentiated thinking, creating a compounding knowledge base that improves AI performance over time.
+
+Topics
+
+The "Workflow-Complete" AI Architecture
+
+  - This program's architecture is a radical departure from traditional SaaS, which is siloed and vendor-owned.
+  - The 3-Layer Model:
+    1.  Data Layer: Your local drive, Supabase, and any connected APIs/MCPs (e.g., Outlook).
+    2.  Inference + Human Intelligence Layer: AI discovers relevant data across all sources, while the human "drives the bus" with critical thinking and direction.
+    3.  Deliverables Layer: Final, client-ready products (apps, decks) that are integrated back into the Data Layer, creating a compounding knowledge base.
+  - Why it matters: This model solves the decades-old problem of finding and connecting disparate data, especially unstructured data, using intelligence instead of rigid programming.
+
+The Human Role: Driving the Bus
+
+  - The human role is to manage the AI, not be replaced by it. This requires developing critical thinking and empathy.
+  - Example: Joseph's concern about "AI slop" in financial recommendations.
+      - Solution: Use the AI as an expert tutor. Ask it to explain its analysis, identify error sources, and suggest remedies.
+      - Outcome: This process builds human expertise, enabling effective auditing and ensuring trustworthy outputs.
+
+This Week's Challenge: Financially Material Initiatives
+
+  - The goal is to translate the carbon inventory into financially material initiatives for client Sarah, moving beyond simple disclosure.
+  - Why it matters: The current climate disclosure framework (TCFD, CSRD) is built on "single materiality" (risk to the company), but often fails to connect climate data to financial outcomes, leading to a lack of engagement.
+  - Your task:
+      - Design initiatives to address risks identified last week.
+      - Prioritize them based on financial metrics (ROI, NPV), implementation effort, and budget.
+      - Connect data sets (carbon, revenue, deal flow) to build a financial exposure model.
+      - Bonus: Ask Claude to create consulting decks for your top initiatives to see how quickly it can generate detailed implementation plans.
+
+Next Steps
+
+  - All:
+      - Design financially material initiatives for Sarah, prioritizing them with financial metrics.
+      - Create at least one reference file to encode your unique IP and workflow learnings.
+      - Bonus: Generate consulting decks for your top initiatives to explore implementation planning.
+      - Tip: Use Claude's free $20 credit by upgrading your plan in settings.
+  - Martin:
+      - Create simulated nature impact data for the food company and use it for this week's project.
