@@ -51,7 +51,7 @@ Tripp, Dan Kenney, Miranda Nayyar (Kith Climate graduate).
 
 ## Open questions
 
-- Exact week-by-week arc for the 4-week pilot (which Kith weeks fuse?)
+- ~~Exact week-by-week arc for the 4-week pilot~~ → drafted, see `pilot-arc-v1.md` (awaiting Dan/Miranda review)
 - Name for the fictional sandbox client and its scenario
 - Pilot participant list and start date
 - Repo visibility (should crispy-train be private given Kith course materials are in it?)
