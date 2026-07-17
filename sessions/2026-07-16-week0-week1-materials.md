@@ -32,6 +32,17 @@ cheat sheet's Section 1 rules govern.
 - The setup guide's smoke test doubles as the Week 0 deliverable (screenshot + 3-line
   intro to the cohort channel) — establishes the demo norm before Week 1.
 
+## Addendum (same day): course hub + repo went public
+
+- Tripp made the repo **public** to get rendered-HTML URLs. Flagged implications: Kith's
+  `reference_files/` and the instructor answer key are now world-readable. Recommended
+  restructure (private instructor repo / public student site) — pending Tripp's decision.
+- Built the **course hub**: `index.html` at repo root, modeled on Kith's cohort portal
+  (dark cards per week, status chips, links to materials). If GitHub Pages is enabled
+  (Settings → Pages → main → root), the hub becomes the site front page at
+  `https://trippborstel-hub.github.io/crispy-train/`. Header buttons for Cohort Channel /
+  Office Hours are `[EY-NETWORK]` placeholders.
+
 ## Next steps
 
 - [ ] Tripp: fill `[EY-NETWORK]` placeholders (some need Risk Management input)

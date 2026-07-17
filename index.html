@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EY Climate AI Agent Pilot — Course Hub</title>
+<style>
+  :root { --yellow:#FFE600; --ink:#15151d; --card:#1e1e28; --card-edge:#2a2a36; --text:#e8e8ee; --dim:#8a8a96; --link:#c9c9d2; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif; background:var(--ink); color:var(--text); min-height:100vh; }
+  header { display:flex; align-items:center; justify-content:space-between; padding:22px 40px; border-bottom:1px solid var(--card-edge); }
+  .brand { display:flex; align-items:center; gap:16px; }
+  .brand-mark { width:44px; height:44px; background:var(--yellow); color:#15151d; font-weight:800; font-size:20px; display:flex; align-items:center; justify-content:center; border-radius:8px; }
+  .brand h1 { font-size:22px; font-weight:700; }
+  .brand p { font-size:13px; color:var(--dim); margin-top:2px; }
+  .header-actions { display:flex; gap:10px; }
+  .btn { padding:10px 18px; border-radius:8px; font-size:14px; font-weight:600; text-decoration:none; border:1px solid var(--card-edge); color:var(--link); }
+  .btn.primary { background:var(--yellow); color:#15151d; border-color:var(--yellow); }
+  .btn:hover { border-color:var(--yellow); }
+  .btn.primary:hover { filter:brightness(1.08); }
+  main { max-width:1240px; margin:0 auto; padding:36px 40px 64px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(340px, 1fr)); gap:24px; }
+  .card { background:var(--card); border:1px solid var(--card-edge); border-radius:12px; display:flex; flex-direction:column; transition:border-color .15s, transform .15s; }
+  .card:hover { border-color:#3d3d4c; transform:translateY(-2px); }
+  .card-body { padding:26px 26px 20px; flex:1; }
+  .kicker { font-size:12px; letter-spacing:2.5px; text-transform:uppercase; color:var(--dim); font-weight:700; }
+  .kicker .status { float:right; letter-spacing:.5px; font-size:11px; padding:2px 9px; border-radius:20px; }
+  .status.ready { background:#1e3325; color:#7fd99a; }
+  .status.building { background:#332e1e; color:#e0c86e; }
+  .card h2 { font-size:24px; font-weight:750; margin:12px 0 10px; }
+  .card h2 .accent { color:var(--yellow); }
+  .card-body > p { font-size:14.5px; line-height:1.55; color:#b9b9c4; }
+  .deliverable { margin-top:14px; font-size:13px; color:var(--dim); }
+  .deliverable b { color:#d6d6de; font-weight:600; }
+  .card-links { border-top:1px solid var(--card-edge); padding:14px 26px; display:flex; flex-wrap:wrap; gap:6px 22px; min-height:52px; align-items:center; }
+  .card-links a { font-size:14px; color:var(--link); text-decoration:none; display:inline-flex; align-items:center; gap:7px; }
+  .card-links a:hover { color:var(--yellow); }
+  .card-links .soon { font-size:13.5px; color:#5c5c68; display:inline-flex; gap:7px; align-items:center; }
+  .ico { opacity:.75; font-size:15px; }
+  footer { text-align:center; color:#5c5c68; font-size:12.5px; padding:0 40px 40px; line-height:1.7; }
+  footer a { color:var(--dim); }
+  @media (max-width:760px){ header{flex-direction:column; gap:14px;} main{padding:26px 18px 48px;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="brand-mark">EY</div>
+    <div>
+      <h1>Climate AI Agent Pilot — Cohort 1</h1>
+      <p>4-week agent program · Riverbend Beverage Group engagement</p>
+    </div>
+  </div>
+  <div class="header-actions">
+    <!-- [EY-NETWORK — Tripp: wire these to the real Teams channel + office-hours invite] -->
+    <a class="btn primary" href="#">Cohort Channel</a>
+    <a class="btn" href="#">Office Hours</a>
+  </div>
+</header>
+
+<main>
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-body">
+        <div class="kicker">Week 0 <span class="status ready">Ready</span></div>
+        <h2>Pre-flight</h2>
+        <p>Get Cursor installed, cloned, and verified before Week 1 — so nobody loses class time to IT problems. Read the data-handling rules: they're the whole compliance story.</p>
+        <div class="deliverable"><b>Deliverable:</b> smoke-test screenshot + 3-line intro in the cohort channel</div>
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/trippborstel-hub/crispy-train/blob/main/course-build/week0/cursor-setup-guide-v1.md"><span class="ico">📄</span>Setup Guide</a>
+        <a href="https://github.com/trippborstel-hub/crispy-train/blob/main/course-build/week0/data-handling-cheat-sheet-v1.md"><span class="ico">🔒</span>Data Handling</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <div class="kicker">Week 1 <span class="status ready">Ready</span></div>
+        <h2>Pitch <span class="accent">it</span></h2>
+        <p>Meet Riverbend Beverage Group and CFO Rosa Vantia. Learn to operate an agent, understand rules and reference files, and build your first HTML deliverable.</p>
+        <div class="deliverable"><b>Deliverable:</b> client pitch presentation (HTML) — demo next session</div>
+      </div>
+      <div class="card-links">
+        <a href="course-build/week1/kickoff-deck-v1.html"><span class="ico">🖥️</span>Kickoff Deck</a>
+        <a href="https://github.com/trippborstel-hub/crispy-train/blob/main/sandbox-client/engagement-inquiry.md"><span class="ico">✉️</span>Engagement Inquiry</a>
+        <a href="https://github.com/trippborstel-hub/crispy-train/blob/main/sandbox-client/company-profile.md"><span class="ico">🏢</span>Company Profile</a>
+        <span class="soon"><span class="ico">🎥</span>Recording — after session</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <div class="kicker">Week 2 <span class="status building">In build</span></div>
+        <h2>Ground <span class="accent">it</span></h2>
+        <p>Marcus sends the data — and it's messy, contradictory, and incomplete, like real client data always is. Direct the agent through an audit: what exists, what's trustworthy, what's broken, what's missing.</p>
+        <div class="deliverable"><b>Deliverable:</b> data audit memo + structured data ask</div>
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/trippborstel-hub/crispy-train/tree/main/sandbox-client/data"><span class="ico">🗂️</span>The Data Package</a>
+        <span class="soon"><span class="ico">📄</span>Slides &amp; brief — coming</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <div class="kicker">Week 3 <span class="status building">In build</span></div>
+        <h2>Prove <span class="accent">it</span></h2>
+        <p>From audit to meaning. The trust ladder — guessed vs. computed vs. code you own — plus an interactive emissions dashboard and the materiality one-pager, ranked in dollars.</p>
+        <div class="deliverable"><b>Deliverable:</b> carbon dashboard + materiality one-pager</div>
+      </div>
+      <div class="card-links">
+        <span class="soon"><span class="ico">📄</span>Slides &amp; brief — coming</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <div class="kicker">Week 4 <span class="status building">In build</span></div>
+        <h2>Assure <span class="accent">it</span></h2>
+        <p>The audit committee asks: "how do we know any of this is right?" Error-finding QA, provenance, traceability — and a verdict on the carbon-neutral claim. The week that makes AI output defensible.</p>
+        <div class="deliverable"><b>Deliverable:</b> assured capstone package (QA log, methodology note, trace refs)</div>
+      </div>
+      <div class="card-links">
+        <span class="soon"><span class="ico">📄</span>Slides &amp; brief — coming</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <div class="kicker">Week 5 <span class="status building">In build</span></div>
+        <h2>Demo <span class="accent">Day</span></h2>
+        <p>Five minutes each: show the capstone, tell one "it caught me by surprise" story, and name the real engagement task you'll apply this to first. Practice leadership invited.</p>
+        <div class="deliverable"><b>Deliverable:</b> the demo — and one team show-and-tell within a month</div>
+      </div>
+      <div class="card-links">
+        <span class="soon"><span class="ico">🎥</span>Details closer to the date</span>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  EY Climate AI Agent Pilot · built by Tripp, Dan Kenney &amp; Miranda Nayyar · modeled on the Kith Climate cohort<br>
+  Riverbend Beverage Group is a fictional client — all data is simulated for training.
+</footer>
+
+</body>
+</html>
