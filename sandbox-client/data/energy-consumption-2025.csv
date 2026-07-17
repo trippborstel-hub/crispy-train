@@ -1,0 +1,397 @@
+facility_id,month,energy_type,consumption,unit
+RBC-01,2025-01,Electricity,346750,kWh
+RBC-01,2025-01,Natural Gas,22075,therms
+RBC-01,2025-02,Electricity,352623,kWh
+RBC-01,2025-02,Natural Gas,21177,therms
+RBC-01,2025-03,Electricity,246800,kWh
+RBC-01,2025-03,Natural Gas,18123,therms
+RBC-01,2025-04,Electricity,395371,kWh
+RBC-01,2025-04,Natural Gas,14966,therms
+RBC-01,2025-05,Electricity,406733,kWh
+RBC-01,2025-05,Natural Gas,10309,therms
+RBC-01,2025-06,Electricity,426377,kWh
+RBC-01,2025-06,Natural Gas,7609,therms
+RBC-01,2025-07,Electricity,439146,kWh
+RBC-01,2025-07,Natural Gas,6800,therms
+RBC-01,2025-08,Electricity,412092,kWh
+RBC-01,2025-08,Natural Gas,7999,therms
+RBC-01,2025-09,Electricity,410094,kWh
+RBC-01,2025-09,Natural Gas,10372,therms
+RBC-01,2025-10,Electricity,393305,kWh
+RBC-01,2025-10,Natural Gas,14399,therms
+RBC-01,2025-10,Electricity,393305,kWh
+RBC-01,2025-10,Natural Gas,14399,therms
+RBC-01,2025-11,Electricity,381802,kWh
+RBC-01,2025-11,Natural Gas,18030,therms
+RBC-01,2025-12,Electricity,354137,kWh
+RBC-01,2025-12,Natural Gas,20806,therms
+RBC-02,2025-01,Electricity,304229,kWh
+RBC-02,2025-01,Natural Gas,17981,therms
+RBC-02,2025-02,Electricity,301138,kWh
+RBC-02,2025-02,Natural Gas,16164,therms
+RBC-02,2025-03,Electricity,308933,kWh
+RBC-02,2025-03,Natural Gas,14596,therms
+RBC-02,2025-04,Electricity,333623,kWh
+RBC-02,2025-04,Natural Gas,11364,therms
+RBC-02,2025-05,Electricity,371274,kWh
+RBC-02,2025-05,Natural Gas,7955,therms
+RBC-02,2025-06,Electricity,357657,kWh
+RBC-02,2025-06,Natural Gas,5716,therms
+RBC-02,2025-07,Electricity,368712,kWh
+RBC-02,2025-07,Natural Gas,4907,therms
+RBC-02,2025-08,Electricity,383371,kWh
+RBC-02,2025-08,Natural Gas,5950,therms
+RBC-02,2025-09,Electricity,375895,kWh
+RBC-02,2025-09,Natural Gas,8097,therms
+RBC-02,2025-10,Electricity,357690,kWh
+RBC-02,2025-10,Natural Gas,10825,therms
+RBC-02,2025-11,Electricity,332935,kWh
+RBC-02,2025-11,Natural Gas,14615,therms
+RBC-02,2025-12,Electricity,304158,kWh
+RBC-02,2025-12,Natural Gas,16552,therms
+RBC-03,2025-01,Electricity,201608,kWh
+RBC-03,2025-01,Natural Gas,14803,therms
+RBC-03,2025-02,Electricity,218487,kWh
+RBC-03,2025-02,Natural Gas,14981,therms
+RBC-03,2025-03,Electricity,214007,kWh
+RBC-03,2025-03,Natural Gas,11876,therms
+RBC-03,2025-04,Electricity,242170,kWh
+RBC-03,2025-04,Natural Gas,10201,therms
+RBC-03,2025-05,Electricity,240804,kWh
+RBC-03,2025-05,Natural Gas,6935,therms
+RBC-03,2025-06,Electricity,270171,kWh
+RBC-03,2025-06,Natural Gas,4854,therms
+RBC-03,2025-07,Electricity,263460,kWh
+RBC-03,2025-07,Natural Gas,4605,therms
+RBC-03,2025-08,Electricity,260731,kWh
+RBC-03,2025-08,Natural Gas,5033,therms
+RBC-03,2025-09,Electricity,258030,kWh
+RBC-03,2025-09,Natural Gas,7102,therms
+RBC-03,2025-10,Electricity,236753,kWh
+RBC-03,2025-10,Natural Gas,9862,therms
+RBC-03,2025-11,Electricity,214915,kWh
+RBC-03,2025-11,Natural Gas,11907,therms
+RBC-03,2025-12,Electricity,202135,kWh
+RBC-03,2025-12,Natural Gas,14467,therms
+RBC-04,2025-01,Electricity,178170,kWh
+RBC-04,2025-01,Natural Gas,13894,therms
+RBC-04,2025-02,Electricity,177125,kWh
+RBC-04,2025-02,Natural Gas,13463,therms
+RBC-04,2025-06,Electricity,219789,kWh
+RBC-04,2025-06,Natural Gas,4881,therms
+RBC-04,2025-07,Electricity,231106,kWh
+RBC-04,2025-07,Natural Gas,4158,therms
+RBC-04,2025-08,Electricity,219940,kWh
+RBC-04,2025-08,Natural Gas,4632,therms
+RBC-04,2025-09,Electricity,211045,kWh
+RBC-04,2025-09,Natural Gas,6832,therms
+RBC-04,2025-10,Electricity,216550,kWh
+RBC-04,2025-10,Natural Gas,9111,therms
+RBC-04,2025-11,Electricity,194465,kWh
+RBC-04,2025-11,Natural Gas,11718,therms
+RBC-04,2025-12,Electricity,178039,kWh
+RBC-04,2025-12,Natural Gas,13029,therms
+RBC-05,2025-01,Electricity,167569,kWh
+RBC-05,2025-01,Natural Gas,12406,therms
+RBC-05,2025-02,Electricity,178732,kWh
+RBC-05,2025-02,Natural Gas,10583,therms
+RBC-05,2025-03,Electricity,176677,kWh
+RBC-05,2025-03,Natural Gas,9241,therms
+RBC-05,2025-04,Electricity,200543,kWh
+RBC-05,2025-04,Natural Gas,7847,therms
+RBC-05,2025-05,Electricity,197008,kWh
+RBC-05,2025-05,Natural Gas,5738,therms
+RBC-05,2025-06,Electricity,220723,kWh
+RBC-05,2025-06,Natural Gas,4054,therms
+RBC-05,2025-07,Electricity,204690,kWh
+RBC-05,2025-07,Natural Gas,3529,therms
+RBC-05,2025-08,Electricity,211956,kWh
+RBC-05,2025-08,Natural Gas,3796,therms
+RBC-05,2025-09,Electricity,202385,kWh
+RBC-05,2025-09,Natural Gas,5523,therms
+RBC-05,2025-10,Electricity,192348,kWh
+RBC-05,2025-10,Natural Gas,7840,therms
+RBC-05,2025-11,Electricity,171320,kWh
+RBC-05,2025-11,Natural Gas,9398,therms
+RBC-05,2025-12,Electricity,171224,kWh
+RBC-05,2025-12,Natural Gas,11001,therms
+RBC-06,2025-01,Electricity,103227,kWh
+RBC-06,2025-01,Natural Gas,7692,therms
+RBC-06,2025-02,Electricity,107199,kWh
+RBC-06,2025-02,Natural Gas,8104,therms
+RBC-06,2025-03,Electricity,114184,kWh
+RBC-06,2025-03,Natural Gas,6882,therms
+RBC-06,2025-04,Electricity,118467,kWh
+RBC-06,2025-04,Natural Gas,5415,therms
+RBC-06,2025-05,Electricity,127316,kWh
+RBC-06,2025-05,Natural Gas,3715,therms
+RBC-06,2025-06,Electricity,132267,kWh
+RBC-06,2025-06,Natural Gas,2649,therms
+RBC-06,2025-07,Electricity,136801,kWh
+RBC-06,2025-07,Natural Gas,2442,therms
+RBC-06,2025-08,Electricity,131956,kWh
+RBC-06,2025-08,Natural Gas,2739,therms
+RPS-01,2025-01,Electricity,370782,kWh
+RPS-01,2025-01,Natural Gas,114042,therms
+RPS-01,2025-02,Electricity,362485,kWh
+RPS-01,2025-02,Natural Gas,115904,therms
+RPS-01,2025-03,Electricity,407314,kWh
+RPS-01,2025-03,Natural Gas,105232,therms
+RPS-01,2025-04,Electricity,424413,kWh
+RPS-01,2025-04,Natural Gas,108131,therms
+RPS-01,2025-05,Electricity,454071,kWh
+RPS-01,2025-05,Natural Gas,99451,therms
+RPS-01,2025-06,Electricity,435759,kWh
+RPS-01,2025-06,Natural Gas,100162,therms
+RPS-01,2025-07,Electricity,4741390,kWh
+RPS-01,2025-07,Natural Gas,96562,therms
+RPS-01,2025-08,Electricity,442373,kWh
+RPS-01,2025-08,Natural Gas,94968,therms
+RPS-01,2025-09,Electricity,425152,kWh
+RPS-01,2025-09,Natural Gas,97915,therms
+RPS-01,2025-10,Electricity,407928,kWh
+RPS-01,2025-10,Natural Gas,98060,therms
+RPS-01,2025-11,Electricity,374228,kWh
+RPS-01,2025-11,Natural Gas,105301,therms
+RPS-01,2025-12,Electricity,357311,kWh
+RPS-01,2025-12,Natural Gas,117627,therms
+RPS-02,2025-01,Electricity,459077,kWh
+RPS-02,2025-01,Natural Gas,9156,therms
+RPS-02,2025-02,Electricity,473987,kWh
+RPS-02,2025-02,Natural Gas,9419,therms
+RPS-02,2025-03,Electricity,496066,kWh
+RPS-02,2025-03,Natural Gas,7672,therms
+RPS-02,2025-04,Electricity,548261,kWh
+RPS-02,2025-04,Natural Gas,6415,therms
+RPS-02,2025-05,Electricity,582772,kWh
+RPS-02,2025-05,Natural Gas,4462,therms
+RPS-02,2025-06,Electricity,594310,kWh
+RPS-02,2025-06,Natural Gas,3045,therms
+RPS-02,2025-07,Electricity,583805,kWh
+RPS-02,2025-07,Natural Gas,2884,therms
+RPS-02,2025-08,Electricity,557186,kWh
+RPS-02,2025-08,Natural Gas,3293,therms
+RPS-02,2025-09,Electricity,545442,kWh
+RPS-02,2025-09,Natural Gas,4673,therms
+RPS-02,2025-10,Electricity,538440,kWh
+RPS-02,2025-10,Natural Gas,6452,therms
+RPS-02,2025-11,Electricity,479461,kWh
+RPS-02,2025-11,Natural Gas,7359,therms
+RPS-02,2025-12,Electricity,480505,kWh
+RPS-02,2025-12,Natural Gas,8650,therms
+RPS-03,2025-01,Electricity,167908,kWh
+RPS-03,2025-01,Natural Gas,32755,therms
+RPS-03,2025-02,Electricity,158845,kWh
+RPS-03,2025-02,Natural Gas,30827,therms
+RPS-03,2025-03,Electricity,172361,kWh
+RPS-03,2025-03,Natural Gas,28690,therms
+RPS-03,2025-04,Electricity,188361,kWh
+RPS-03,2025-04,Natural Gas,21369,therms
+RPS-03,2025-05,Electricity,196514,kWh
+RPS-03,2025-05,Natural Gas,16433,therms
+RPS-03,2025-06,Electricity,208877,kWh
+RPS-03,2025-06,Natural Gas,11730,therms
+RPS-03,2025-07,Electricity,209674,kWh
+RPS-03,2025-07,Natural Gas,9879,therms
+RPS-03,2025-08,Electricity,199574,kWh
+RPS-03,2025-08,Natural Gas,10909,therms
+RPS-03,2025-09,Electricity,184568,kWh
+RPS-03,2025-09,Natural Gas,14994,therms
+RPS-03,2025-10,Electricity,187019,kWh
+RPS-03,2025-10,Natural Gas,22218,therms
+RPS-03,2025-11,Electricity,171092,kWh
+RPS-03,2025-11,Natural Gas,28602,therms
+RPS-03,2025-12,Electricity,159304,kWh
+RPS-03,2025-12,Natural Gas,30585,therms
+RPS-04,2025-01,Electricity,321145,kWh
+RPS-04,2025-01,Natural Gas,3403,therms
+RPS-04,2025-02,Electricity,311744,kWh
+RPS-04,2025-02,Natural Gas,3272,therms
+RPS-04,2025-03,Electricity,328083,kWh
+RPS-04,2025-03,Natural Gas,2528,therms
+RPS-04,2025-04,Electricity,349455,kWh
+RPS-04,2025-04,Natural Gas,2118,therms
+RPS-04,2025-05,Electricity,358875,kWh
+RPS-04,2025-05,Natural Gas,1597,therms
+RPS-04,2025-06,Electricity,389226,kWh
+RPS-04,2025-06,Natural Gas,1103,therms
+RPS-04,2025-07,Electricity,375251,kWh
+RPS-04,2025-07,Natural Gas,907,therms
+RPS-04,2025-08,Electricity,403049,kWh
+RPS-04,2025-08,Natural Gas,1156,therms
+RPS-04,2025-09,Electricity,366433,kWh
+RPS-04,2025-09,Natural Gas,1454,therms
+RPS-04,2025-10,Electricity,349222,kWh
+RPS-04,2025-10,Natural Gas,2071,therms
+RPS-04,2025-11,Electricity,344109,kWh
+RPS-04,2025-11,Natural Gas,2639,therms
+RPS-04,2025-12,Electricity,306354,kWh
+RPS-04,2025-12,Natural Gas,3276,therms
+CDL-01,2025-01,Electricity,126140,kWh
+CDL-01,2025-01,Natural Gas,3754,therms
+CDL-01,2025-02,Electricity,133225,kWh
+CDL-01,2025-02,Natural Gas,3567,therms
+CDL-01,2025-03,Electricity,149250,kWh
+CDL-01,2025-03,Natural Gas,3035,therms
+CDL-01,2025-04,Electricity,173421,kWh
+CDL-01,2025-04,Natural Gas,2333,therms
+CDL-01,2025-05,Electricity,189638,kWh
+CDL-01,2025-05,Natural Gas,1678,therms
+CDL-01,2025-06,Electricity,206695,kWh
+CDL-01,2025-06,Natural Gas,1218,therms
+CDL-01,2025-07,Electricity,201690,kWh
+CDL-01,2025-07,Natural Gas,1050,therms
+CDL-01,2025-08,Electricity,190967,kWh
+CDL-01,2025-08,Natural Gas,1186,therms
+CDL-01,2025-09,Electricity,179201,kWh
+CDL-01,2025-09,Natural Gas,1669,therms
+CDL-01,2025-10,Electricity,162869,kWh
+CDL-01,2025-10,Natural Gas,2260,therms
+CDL-01,2025-11,Electricity,156299,kWh
+CDL-01,2025-11,Natural Gas,3029,therms
+CDL-01,2025-12,Electricity,136662,kWh
+CDL-01,2025-12,Natural Gas,3451,therms
+CDL-02,2025-01,Electricity,129309,kWh
+CDL-02,2025-01,Natural Gas,2775,therms
+CDL-02,2025-02,Electricity,134817,kWh
+CDL-02,2025-02,Natural Gas,2651,therms
+CDL-02,2025-03,Electricity,151860,kWh
+CDL-02,2025-03,Natural Gas,2308,therms
+CDL-02,2025-04,Electricity,175301,kWh
+CDL-02,2025-04,Natural Gas,1838,therms
+CDL-02,2025-05,Electricity,187499,kWh
+CDL-02,2025-05,Natural Gas,1347,therms
+CDL-02,2025-06,Electricity,214113,kWh
+CDL-02,2025-06,Natural Gas,1001,therms
+CDL-02,2025-07,Electricity,207337,kWh
+CDL-02,2025-07,Natural Gas,808,therms
+CDL-02,2025-08,Electricity,210533,kWh
+CDL-02,2025-08,Natural Gas,981,therms
+CDL-02,2025-09,Electricity,199871,kWh
+CDL-02,2025-09,Natural Gas,1307,therms
+CDL-02,2025-10,Electricity,175766,kWh
+CDL-02,2025-10,Natural Gas,1792,therms
+CDL-02,2025-11,Electricity,152500,kWh
+CDL-02,2025-11,Natural Gas,2336,therms
+CDL-02,2025-12,Electricity,141236,kWh
+CDL-02,2025-12,Natural Gas,2866,therms
+CDL-03,2025-01,Electricity,128922,kWh
+CDL-03,2025-01,Natural Gas,3277,therms
+CDL-03,2025-02,Electricity,124267,kWh
+CDL-03,2025-02,Natural Gas,3316,therms
+CDL-03,2025-03,Electricity,147089,kWh
+CDL-03,2025-03,Natural Gas,2926,therms
+CDL-03,2025-04,Electricity,152515,kWh
+CDL-03,2025-04,Natural Gas,2080,therms
+CDL-03,2025-05,Electricity,180454,kWh
+CDL-03,2025-05,Natural Gas,1677,therms
+CDL-03,2025-06,Electricity,187203,kWh
+CDL-03,2025-06,Natural Gas,1102,therms
+CDL-03,2025-07,Electricity,192252,kWh
+CDL-03,2025-07,Natural Gas,1012,therms
+CDL-03,2025-08,Electricity,188639,kWh
+CDL-03,2025-08,Natural Gas,1138,therms
+CDL-03,2025-09,Electricity,170611,kWh
+CDL-03,2025-09,Natural Gas,1586,therms
+CDL-03,2025-10,Electricity,160110,kWh
+CDL-03,2025-10,Natural Gas,2114,therms
+CDL-03,2025-11,Electricity,139940,kWh
+CDL-03,2025-11,Natural Gas,2745,therms
+CDL-03,2025-12,Electricity,135106,kWh
+CDL-03,2025-12,Natural Gas,3193,therms
+CDL-04,2025-01,Electricity,109852,kWh
+CDL-04,2025-01,Natural Gas,5569,therms
+CDL-04,2025-02,Electricity,119815,kWh
+CDL-04,2025-02,Natural Gas,5533,therms
+CDL-04,2025-03,Electricity,130046,kWh
+CDL-04,2025-03,Natural Gas,4946,therms
+CDL-04,2025-04,Electricity,147002,kWh
+CDL-04,2025-04,Natural Gas,3869,therms
+CDL-04,2025-05,Electricity,163180,kWh
+CDL-04,2025-05,Natural Gas,2626,therms
+CDL-04,2025-06,Electricity,168305,kWh
+CDL-04,2025-06,Natural Gas,1926,therms
+CDL-04,2025-07,Electricity,170912,kWh
+CDL-04,2025-07,Natural Gas,1760,therms
+CDL-04,2025-08,Electricity,174873,kWh
+CDL-04,2025-08,Natural Gas,1888,therms
+CDL-04,2025-09,Electricity,165879,kWh
+CDL-04,2025-09,Natural Gas,2676,therms
+CDL-04,2025-10,Electricity,147972,kWh
+CDL-04,2025-10,Natural Gas,3677,therms
+CDL-04,2025-11,Electricity,122407,kWh
+CDL-04,2025-11,Natural Gas,4681,therms
+CDL-04,2025-12,Electricity,118814,kWh
+CDL-04,2025-12,Natural Gas,5578,therms
+CDL-05,2025-01,Electricity,210887,kWh
+CDL-05,2025-01,Natural Gas,1321,therms
+CDL-05,2025-02,Electricity,212070,kWh
+CDL-05,2025-02,Natural Gas,1350,therms
+CDL-05,2025-03,Electricity,227339,kWh
+CDL-05,2025-03,Natural Gas,1180,therms
+CDL-05,2025-04,Electricity,249619,kWh
+CDL-05,2025-04,Natural Gas,874,therms
+CDL-05,2025-05,Electricity,286720,kWh
+CDL-05,2025-05,Natural Gas,667,therms
+CDL-05,2025-06,Electricity,310754,kWh
+CDL-05,2025-06,Natural Gas,495,therms
+CDL-05,2025-07,Electricity,313722,kWh
+CDL-05,2025-07,Natural Gas,381,therms
+CDL-05,2025-08,Electricity,313276,kWh
+CDL-05,2025-08,Natural Gas,466,therms
+CDL-05,2025-09,Electricity,295651,kWh
+CDL-05,2025-09,Natural Gas,635,therms
+CDL-05,2025-10,Electricity,250040,kWh
+CDL-05,2025-10,Natural Gas,950,therms
+CDL-05,2025-11,Electricity,222426,kWh
+CDL-05,2025-11,Natural Gas,1109,therms
+CDL-05,2025-12,Electricity,212916,kWh
+CDL-05,2025-12,Natural Gas,1294,therms
+COR-01,2025-01,Electricity,34868,kWh
+COR-01,2025-01,Natural Gas,2484,therms
+COR-01,2025-02,Electricity,34975,kWh
+COR-01,2025-02,Natural Gas,2379,therms
+COR-01,2025-03,Electricity,37299,kWh
+COR-01,2025-03,Natural Gas,1982,therms
+COR-01,2025-04,Electricity,37443,kWh
+COR-01,2025-04,Natural Gas,1628,therms
+COR-01,2025-05,Electricity,39248,kWh
+COR-01,2025-05,Natural Gas,1215,therms
+COR-01,2025-06,Electricity,43918,kWh
+COR-01,2025-06,Natural Gas,881,therms
+COR-01,2025-07,Electricity,43350,kWh
+COR-01,2025-07,Natural Gas,696,therms
+COR-01,2025-08,Electricity,41559,kWh
+COR-01,2025-08,Natural Gas,859,therms
+COR-01,2025-09,Electricity,42108,kWh
+COR-01,2025-09,Natural Gas,1092,therms
+COR-01,2025-10,Electricity,38094,kWh
+COR-01,2025-10,Natural Gas,1580,therms
+COR-01,2025-11,Electricity,36258,kWh
+COR-01,2025-11,Natural Gas,2040,therms
+COR-01,2025-12,Electricity,34014,kWh
+COR-01,2025-12,Natural Gas,2413,therms
+COR-02,2025-01,Electricity,18626,kWh
+COR-02,2025-01,Natural Gas,667,therms
+COR-02,2025-02,Electricity,20508,kWh
+COR-02,2025-02,Natural Gas,605,therms
+COR-02,2025-03,Electricity,21692,kWh
+COR-02,2025-03,Natural Gas,554,therms
+COR-02,2025-04,Electricity,22937,kWh
+COR-02,2025-04,Natural Gas,425,therms
+COR-02,2025-05,Electricity,23758,kWh
+COR-02,2025-05,Natural Gas,311,therms
+COR-02,2025-06,Electricity,24451,kWh
+COR-02,2025-06,Natural Gas,219,therms
+COR-02,2025-07,Electricity,23507,kWh
+COR-02,2025-07,Natural Gas,189,therms
+COR-02,2025-08,Electricity,24769,kWh
+COR-02,2025-08,Natural Gas,227,therms
+COR-02,2025-09,Electricity,23882,kWh
+COR-02,2025-09,Natural Gas,291,therms
+COR-02,2025-10,Electricity,21582,kWh
+COR-02,2025-10,Natural Gas,416,therms
+COR-02,2025-11,Electricity,20520,kWh
+COR-02,2025-11,Natural Gas,554,therms
+COR-02,2025-12,Electricity,20215,kWh
+COR-02,2025-12,Natural Gas,634,therms

@@ -1,6 +1,6 @@
-# Sandbox Client Design (v1) — "Alderwood Group"
+# Sandbox Client Design (v1) — "Riverbend Beverage Group"
 
-_Drafted 2026-07-16 · Status: concept for Tripp/Dan/Miranda sign-off before data generation_
+_Drafted 2026-07-16 · Renamed from "Alderwood Group" same day per Tripp · Status: approved by Tripp; data generation underway_
 
 ## Design intent — why not a Northwood clone
 
@@ -17,34 +17,37 @@ multi-entity comparability, a named skeptical client contact, messy multi-format
 
 ## The client
 
-**Alderwood Group** — privately held family business with a minority PE stake, HQ Portland,
-OR. ~$1.1B revenue, ~4,800 employees, ~40 sites. Four divisions:
+**Riverbend Beverage Group** — privately held family business with a minority PE stake,
+HQ Portland, OR. ~$1.1B revenue, ~4,800 employees, ~22 sites. Four divisions:
 
 | Division | What it does | Sites | Character (data story) |
 |---|---|---|---|
-| Alderwood Foods | Frozen & packaged foods manufacturing | 6 plants | Biggest energy user; decent metered data |
-| Cascade Beverage Co. | Bottling & canning | 3 plants | Acquired 2024 — data in different formats, gaps |
-| Pacific Crate & Packaging | Corrugated + molded fiber packaging | 4 plants | One coal-adjacent outlier plant; old meters |
-| Alderline Logistics | Cold-chain fleet + distribution | 5 DCs + fleet | Fuel data lives in a fleet system export; refrigerants nobody tracks |
+| Riverbend Bottling Co. (RBC) | Core carbonated soft drinks & sparkling water | 5 plants | Biggest energy user; decent metered data |
+| Headwater Brands (HWB) | Craft & functional beverages — acquired 2024 | 3 plants | Acquisition — data in different formats, unit chaos, gaps |
+| Riverbend Packaging Solutions (RPS) | Glass, can sheet, PET preforms, corrugate | 4 plants | Glass plant is energy-intense; aging meters; one data-entry outlier |
+| Coldstream Distribution & Logistics (CDL) | Cold-chain fleet + distribution centers | 5 DCs + fleet | Fuel data lives in a fleet-system export; refrigerants nobody tracks |
 
-Plus HQ, a small R&D site, and leased sales offices (the "do leased sites count?" teachable).
+Plus HQ, an R&D lab, and three leased sales offices (the "do leased sites count?" teachable).
 
-**Why food & beverage + packaging + logistics:** richest possible climate story for a
-climate practice — big Scope 1 (process heat, fleet, refrigerants), classic Scope 2,
-enormous and material Scope 3 (agricultural ingredients — typically 80%+ of a food
-company's footprint), genuine physical risk (drought/water stress on ingredient supply,
-flood exposure at DCs), and natural extensions (water, packaging circularity, biodiversity)
-for stretch work. And everyone understands what the company does — zero sector onboarding.
+**Why a beverage company:** the richest climate story for a climate practice, and tighter
+than a diversified foods group — big Scope 1 (process heat, glass furnaces, fleet,
+refrigeration), classic Scope 2, enormous and material Scope 3 (sugar, malt, fruit
+concentrate, aluminum, glass — agriculture and packaging typically dwarf Scope 1+2 for a
+beverage company), genuine physical risk (**water stress is existential for a bottler**;
+flood exposure at DCs), and natural extensions (water stewardship, packaging circularity,
+DRS regulation) for stretch work. And everyone understands what the company does — zero
+sector onboarding.
 
 ## The trigger events (what makes the engagement urgent — and financial)
 
-1. **California SB 253** — Alderwood's revenue puts it in scope; first mandatory GHG
-   disclosure with assurance requirements on the horizon.
+1. **California SB 253** — Riverbend's revenue puts it in scope; first mandatory GHG
+   disclosure with assurance requirements on the horizon (Sacramento plant, Fresno plant,
+   Sacramento DC = doing business in California).
 2. **Their largest customer** (a national grocery chain, ~30% of revenue) now requires
    supplier emissions data via CDP, with Scope 3 expectations — revenue at risk.
 3. **A sustainability-linked loan** refinanced in 2025 with a rate step-up if they miss
    reporting covenants — direct dollars.
-4. **The greenwashing landmine:** Alderwood's 2024 marketing materials claim "carbon
+4. **The greenwashing landmine:** Riverbend's 2024 marketing materials claim "carbon
    neutral by 2030." The audit committee has realized nobody can substantiate it. Legal
    is nervous. This is the Week 4 assurance hook — and a very EY reason to be hired.
 
@@ -62,7 +65,7 @@ Every one of these converts climate work into money, which is what powers Week 3
 
 ## The engagement (maps 1:1 to the course arc)
 
-Alderwood issues an RFP-style inquiry: *"Get us disclosure-ready."*
+Riverbend issues an RFP-style inquiry: *"Get us disclosure-ready."*
 Week 1: pitch the engagement → Week 2: audit the data they send → Week 3: build the
 inventory, dashboard, and materiality view → Week 4: make it assurance-ready and confront
 the carbon-neutral claim with evidence.
@@ -73,36 +76,36 @@ All fictional, generated by us, modest volume (~10 files, a few hundred rows tot
 enough to be real, small enough to debug). Each flaw is **seeded deliberately and logged
 in an instructor answer key** so demos and grading are consistent.
 
-Files:
+Files (in `sandbox-client/`):
 1. `engagement-inquiry.md` — the Week 1 input (RFP letter from Rosa/Marcus)
-2. `company-profile.md` + `facility-master-list.csv` — org structure, sites
-3. `energy-consumption-2025.csv` — facility-level electricity + natural gas (~150 rows)
-4. `cascade-beverage-energy-2025.xlsx` — the acquired division's data, different format/units
-5. `fleet-fuel-export-2025.csv` — Alderline fleet system dump (cryptic column names)
-6. `site-questionnaires/` — 4 completed questionnaires from site managers (free text)
-7. `supplier-spend-top50.csv` — for Scope 3 flags
-8. `revenue-headcount-by-division.csv` — intensity denominators
-9. `utility-bills/` — 3 sample bills (PDF or image) for the provenance/traceability lesson
-10. `alderwood-2024-sustainability-highlights.md` — the marketing one-pager with the
+2. `company-profile.md` + `data/facility-master-list.csv` — org structure, sites
+3. `data/energy-consumption-2025.csv` — facility-level electricity + natural gas
+4. `data/headwater-brands-energy-2025.xlsx` — the acquired division's data, different format/units
+5. `data/fleet-fuel-export-2025.csv` — Coldstream fleet-system dump (cryptic column names)
+6. `data/site-questionnaires/` — 4 completed questionnaires from site managers (free text)
+7. `data/supplier-spend-top50.csv` — for Scope 3 flags
+8. `data/revenue-headcount-by-division.csv` — intensity denominators
+9. `data/utility-bills/` — 3 sample bills (HTML, styled as scans) for the provenance lesson
+10. `riverbend-2024-sustainability-highlights.md` — the marketing one-pager with the
     unsupportable carbon-neutral claim (Week 4 fodder)
 
-Seeded flaws (draft catalog — final version lives in the instructor key):
+Seeded flaws (authoritative catalog with exact locations lives in the instructor key):
 
 | # | Flaw | Where | Teaches (week) |
 |---|---|---|---|
-| 1 | kWh vs MWh mixed within one column | Cascade xlsx | Unit vigilance (W2) |
-| 2 | Two facilities in energy CSV missing from master list (and one vice versa) | CSVs | Cross-file reconciliation (W2) |
+| 1 | MWh values in a column labeled kWh (one site only) | Headwater xlsx | Unit vigilance (W2) |
+| 2 | Facility in energy CSV missing from master list, and vice versa | CSVs | Cross-file reconciliation (W2) |
 | 3 | Duplicate rows from a re-submitted month | energy CSV | Dedup before totals (W2) |
-| 4 | Missing months (Mar–May) for one plant | energy CSV | Gaps ≠ zero; estimation + tagging (W2/W3) |
-| 5 | Site questionnaire contradicts CSV (manager says "all-electric," CSV shows gas) | questionnaire | Trust hierarchy of sources (W2) |
-| 6 | Outlier: one packaging plant 8× the intensity of its peers (data-entry error: extra zero) | energy CSV | Outlier interrogation (W2/W3) |
-| 7 | Refrigerant use exists physically (cold chain!) but appears in no file | everywhere | Absence-of-data as a finding (W2/W3) |
-| 8 | Fleet export in liters; everything else gallons; one column mislabeled | fleet CSV | Unit conversion in code, not by eye (W3) |
-| 9 | A utility bill total that doesn't match the CSV row for that facility/month | bills vs CSV | Provenance & source-binding (W4) |
-| 10 | Leased sales offices ambiguity — in master list, no energy data | master list | Organizational boundary judgment (W3) |
-| 11 | "Carbon neutral by 2030" claim with zero basis; cites retired offsets | highlights doc | Claims vs evidence; greenwashing (W4) |
-| 12 | Supplier spend file has one supplier duplicated under two names | supplier CSV | Entity resolution (W2, stretch) |
-| 13 | Revenue file uses fiscal year; energy data calendar year | revenue CSV | Denominator alignment (W3) |
+| 4 | Missing months for one plant | energy CSV | Gaps ≠ zero; estimation + tagging (W2/W3) |
+| 5 | Questionnaire contradicts CSV ("all-electric site" that reports gas) | questionnaire | Trust hierarchy of sources (W2) |
+| 6 | One month with an extra digit → visible outlier | energy CSV | Outlier interrogation (W2/W3) |
+| 7 | Refrigerants absent from every file despite a cold-chain division | everywhere | Absence-of-data as a finding (W2/W3) |
+| 8 | Fleet export column labeled gallons actually contains liters | fleet CSV | Unit conversion in code, not by eye (W3) |
+| 9 | Utility bill total ≠ CSV row for same facility/month | bills vs CSV | Provenance & source-binding (W4) |
+| 10 | Leased sales offices in master list with no energy data | master list | Organizational boundary judgment (W3) |
+| 11 | "Carbon neutral by 2030" claim citing retired offsets | highlights doc | Claims vs evidence; greenwashing (W4) |
+| 12 | Same supplier duplicated under two names | supplier CSV | Entity resolution (W2, stretch) |
+| 13 | Revenue file on fiscal year; energy data on calendar year | revenue CSV | Denominator alignment (W3) |
 
 Design rule: **every flaw is discoverable by directing an agent well, and every flaw maps
 to a named lesson.** No gotchas that require insider knowledge.
@@ -125,19 +128,15 @@ Supabase environment stays theirs; we never depend on it.
 
 ## Naming note
 
-"Alderwood Group" is invented; a disclaimer goes in the company profile ("fictional
-company; any resemblance coincidental"). Alternative concepts considered, if the team
-prefers a different shape:
-- **B: Industrial manufacturer** (CBAM/export angle, closer to Kith's Sterling story) —
-  strong transition-risk math, weaker Scope 3 story.
-- **C: Real-estate/REIT portfolio** (building energy, retrofits, SB 253 + local laws) —
-  great retrofit-NPV week, but narrower.
-- **D: Keep a PE-fund frame** like Northwood — rejected: wrong shape for EY's client base
-  and too close to Kith's IP.
+"Riverbend Beverage Group" is invented; a disclaimer goes in the company profile
+("fictional company; any resemblance coincidental"). Concept approved by Tripp 2026-07-16
+(originally drafted as "Alderwood Group"; renamed to be more beverage-forward).
+Alternative shapes considered and passed on: industrial manufacturer (CBAM angle),
+real-estate portfolio (retrofit angle), PE-fund frame (too close to Kith's IP).
 
 ## Open for team review
 
-- [ ] Green-light Alderwood concept (or pick B/C) — then data generation begins
-- [ ] Sanity-check flaw catalog difficulty against pilot audience
-- [ ] Confirm files-only (no Supabase) for pilot
-- [ ] Character names / company name veto window
+- [x] Concept green-light — Tripp, 2026-07-16
+- [ ] Dan/Miranda: sanity-check flaw catalog difficulty against pilot audience
+- [x] Files-only (no Supabase) for pilot
+- [ ] Character names / company name veto window (Dan/Miranda)

@@ -1,0 +1,24 @@
+facility_id,facility_name,division,city,state,ownership,floor_area_sqft,status
+RBC-01,Portland Bottling Plant,Riverbend Bottling Co.,Portland,OR,Owned,412000,Operating
+RBC-02,Sacramento Bottling Plant,Riverbend Bottling Co.,Sacramento,CA,Owned,355000,Operating
+RBC-03,Boise Bottling Plant,Riverbend Bottling Co.,Boise,ID,Owned,248000,Operating
+RBC-04,Spokane Canning Plant,Riverbend Bottling Co.,Spokane,WA,Owned,221000,Operating
+RBC-05,Reno Bottling Plant,Riverbend Bottling Co.,Reno,NV,Owned,198000,Operating
+HWB-01,Bend Brewery & Bottling,Headwater Brands,Bend,OR,Owned,132000,Operating
+HWB-02,Fort Collins Plant,Headwater Brands,Fort Collins,CO,Owned,118000,Operating
+HWB-03,Salt Lake City Plant,Headwater Brands,Salt Lake City,UT,Owned,104000,Operating
+RPS-01,Tacoma Glass Plant,Riverbend Packaging Solutions,Tacoma,WA,Owned,389000,Operating
+RPS-02,Fresno Can Sheet Plant,Riverbend Packaging Solutions,Fresno,CA,Owned,301000,Operating
+RPS-03,Salem Corrugated Plant,Riverbend Packaging Solutions,Salem,OR,Owned,264000,Operating
+RPS-04,Vancouver PET Preform Plant,Riverbend Packaging Solutions,Vancouver,WA,Owned,176000,Operating
+RPS-05,Boise Can Sheet Plant,Riverbend Packaging Solutions,Boise,ID,Owned,155000,Operating
+CDL-01,Portland Distribution Center,Coldstream Distribution & Logistics,Portland,OR,Owned,285000,Operating
+CDL-02,Sacramento Distribution Center,Coldstream Distribution & Logistics,Sacramento,CA,Owned,240000,Operating
+CDL-03,Seattle Distribution Center,Coldstream Distribution & Logistics,Seattle,WA,Owned,262000,Operating
+CDL-04,Denver Distribution Center,Coldstream Distribution & Logistics,Denver,CO,Owned,214000,Operating
+CDL-05,Phoenix Distribution Center,Coldstream Distribution & Logistics,Phoenix,AZ,Owned,231000,Operating
+COR-01,Corporate Headquarters,Corporate,Portland,OR,Owned,88000,Operating
+COR-02,R&D and Pilot Lab,Corporate,Hillsboro,OR,Owned,31000,Operating
+COR-03,Chicago Sales Office,Corporate,Chicago,IL,Leased,9500,Operating
+COR-04,Dallas Sales Office,Corporate,Dallas,TX,Leased,7200,Operating
+COR-05,Atlanta Sales Office,Corporate,Atlanta,GA,Leased,6800,Operating
