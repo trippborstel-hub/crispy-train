@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 1 Kickoff — EY Climate AI Agent Pilot</title>
+<style>
+  :root { --yellow:#FFE600; --ink:#1a1a24; --paper:#f5f5f0; --dim:#8a8a96; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif; background:var(--ink); color:var(--paper); overflow:hidden; }
+  .slide { display:none; width:100vw; height:100vh; padding:7vh 9vw; flex-direction:column; justify-content:center; }
+  .slide.active { display:flex; }
+  .kicker { color:var(--yellow); font-size:14px; letter-spacing:3px; text-transform:uppercase; font-weight:700; margin-bottom:22px; }
+  h1 { font-size:56px; line-height:1.08; font-weight:800; max-width:22ch; }
+  h2 { font-size:40px; line-height:1.12; font-weight:800; margin-bottom:28px; max-width:26ch; }
+  .lead { font-size:22px; line-height:1.5; color:#c9c9d2; max-width:60ch; margin-top:18px; }
+  .accent { color:var(--yellow); }
+  .grid { display:grid; gap:18px; margin-top:30px; }
+  .grid.c2 { grid-template-columns:1fr 1fr; }
+  .grid.c3 { grid-template-columns:1fr 1fr 1fr; }
+  .card { background:#24242f; border-top:3px solid var(--yellow); padding:20px 22px; border-radius:0 0 8px 8px; }
+  .card h3 { font-size:17px; margin-bottom:8px; color:var(--yellow); }
+  .card p { font-size:15px; line-height:1.5; color:#c9c9d2; }
+  .big { font-size:30px; font-weight:800; }
+  table { border-collapse:collapse; margin-top:26px; width:100%; font-size:16px; }
+  th { text-align:left; color:var(--yellow); font-size:13px; letter-spacing:1px; text-transform:uppercase; padding:0 18px 10px 0; border-bottom:1px solid #3a3a48; }
+  td { padding:11px 18px 11px 0; border-bottom:1px solid #2c2c38; color:#d6d6de; }
+  .quote { border-left:4px solid var(--yellow); padding:8px 0 8px 26px; font-size:28px; line-height:1.4; font-style:italic; max-width:56ch; margin-top:10px; }
+  .quote-attr { margin-top:18px; color:var(--dim); font-size:16px; font-style:normal; }
+  .counter { position:fixed; bottom:24px; right:32px; color:var(--dim); font-size:13px; letter-spacing:1px; }
+  .navhint { position:fixed; bottom:24px; left:32px; color:var(--dim); font-size:13px; }
+  ul.list { margin-top:24px; }
+  ul.list li { font-size:19px; line-height:1.5; margin-bottom:14px; list-style:none; padding-left:28px; position:relative; color:#d6d6de; }
+  ul.list li::before { content:"—"; color:var(--yellow); position:absolute; left:0; }
+  .split { display:grid; grid-template-columns:1fr 1fr; gap:44px; margin-top:26px; }
+  .split h3 { font-size:15px; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; }
+  .have h3 { color:var(--yellow); }
+  .havenot h3 { color:#ff7a6e; }
+  .split li { font-size:17px; line-height:1.5; margin-bottom:10px; list-style:none; color:#c9c9d2; }
+  .footer-num { position:fixed; top:26px; right:32px; font-size:60px; font-weight:800; color:#2c2c38; }
+</style>
+</head>
+<body>
+
+<section class="slide active">
+  <div class="kicker">EY Climate · AI Agent Pilot · Week 1</div>
+  <h1>Welcome to the engagement.</h1>
+  <p class="lead">Your first client. Your first assignment. Four weeks, four deliverables,
+  one rule: <span class="accent">everything you ship, a client could receive.</span></p>
+</section>
+
+<section class="slide"><div class="footer-num">01</div>
+  <div class="kicker">The Program</div>
+  <h2>Why you're in this room</h2>
+  <p class="lead">Our practice has 250 smart, ambitious people, the tools (Cursor, the
+  LLM suite, EY GitHub) — and until now, no training. You are the pilot cohort. What you
+  prove here becomes how the practice works.</p>
+  <div class="grid c3">
+    <div class="card"><h3>Instructors</h3><p>Tripp · Dan Kenney · Miranda Nayyar. Each anchors a pod of 4–5 — your first line for unblocking.</p></div>
+    <div class="card"><h3>The cadence</h3><p>Tuesday live session (75 min) · Thursday optional office hours (30 min) · demos open every session.</p></div>
+    <div class="card"><h3>The commitment</h3><p>≤4 hrs/week. Every assignment has a minimum bar (~1 hr) and a full build. Ship the minimum, stay in the game.</p></div>
+  </div>
+</section>
+
+<section class="slide"><div class="footer-num">02</div>
+  <div class="kicker">Your Client</div>
+  <h2>Riverbend Beverage Group</h2>
+  <p class="lead">Family-held beverage group, Portland OR. Founded 1958. Minority PE stake since 2022.</p>
+  <div class="grid c3">
+    <div class="card"><h3>$1.1B</h3><p>Revenue, FY2025</p></div>
+    <div class="card"><h3>4,800</h3><p>Employees</p></div>
+    <div class="card"><h3>22 sites</h3><p>Bottling, brewing, glass, cans, PET, cold-chain DCs, fleet of ~240</p></div>
+  </div>
+  <p class="lead" style="margin-top:26px;">Carbonated soft drinks and sparkling water, an acquired craft-brands
+  portfolio, vertically integrated packaging, and their own refrigerated distribution network.</p>
+</section>
+
+<section class="slide"><div class="footer-num">03</div>
+  <div class="kicker">The Contact</div>
+  <h2>Rosa Vantia, CFO</h2>
+  <div class="grid c2">
+    <div class="card"><h3>Who she is</h3><p>Third-generation family. Owns the lender relationship and the audit
+    committee. Famous internally for asking <i>"what does that cost us?"</i> in every meeting.</p></div>
+    <div class="card"><h3>Your ally</h3><p>Marcus Oyelaran, Director of Sustainability — hired 8 months ago,
+    the company's first. Capable, under-resourced, and the one sending you the files.</p></div>
+  </div>
+  <p class="lead" style="margin-top:26px;">Rosa speaks money, not sustainability. Every deliverable is judged
+  by one test: <span class="accent">would Rosa forward it to her board?</span></p>
+</section>
+
+<section class="slide"><div class="footer-num">04</div>
+  <div class="kicker">The Ask</div>
+  <h2>Four things landed on Rosa's desk</h2>
+  <ul class="list">
+    <li><b>California SB 253</b> — in scope; counsel says treat the deadline as fixed.</li>
+    <li><b>Summit &amp; Vale Markets</b> (30% of revenue) now requires supplier emissions data via CDP — including value-chain expectations.</li>
+    <li><b>A sustainability-linked loan</b> with a margin step-up if reporting covenants are missed.</li>
+    <li><b>"Carbon neutral by 2030"</b> — a 2024 marketing claim the audit committee just asked her to substantiate. Her words: <i>"the honest answer today is: nothing I would sign."</i></li>
+  </ul>
+</section>
+
+<section class="slide"><div class="footer-num">05</div>
+  <div class="kicker">The Warning</div>
+  <div class="quote">"If your deliverable reads like it could have been written for any
+  company, I will notice, and it will be our last engagement. Riverbend runs on specifics."
+  <div class="quote-attr">— Rosa Vantia, engagement inquiry</div></div>
+  <p class="lead" style="margin-top:34px;">She has bought sustainability work before. Generic is the failure
+  mode — for her consultants, and for AI output. <span class="accent">Specifics are the whole game.</span></p>
+</section>
+
+<section class="slide"><div class="footer-num">06</div>
+  <div class="kicker">The Company</div>
+  <h2>Four divisions, four data stories</h2>
+  <table>
+    <tr><th>Division</th><th>What it does</th><th>What you'll find</th></tr>
+    <tr><td><b>Riverbend Bottling Co.</b></td><td>5 bottling &amp; canning plants</td><td>The legacy core; decent metered data</td></tr>
+    <tr><td><b>Headwater Brands</b></td><td>Craft &amp; functional — acquired 2024</td><td>Un-integrated systems; their finance team sends spreadsheets</td></tr>
+    <tr><td><b>Riverbend Packaging</b></td><td>Glass, can sheet, PET, corrugate</td><td>A glass furnace that dwarfs everything; aging meters</td></tr>
+    <tr><td><b>Coldstream Distribution</b></td><td>5 refrigerated DCs + fleet</td><td>Fuel in a fleet-system export; refrigerants nobody tracks</td></tr>
+  </table>
+</section>
+
+<section class="slide"><div class="footer-num">07</div>
+  <div class="kicker">Your Assignment</div>
+  <h2>Build the <span class="accent">proposal</span></h2>
+  <p class="lead">Rosa asked for a short pitch. That's your job this week:</p>
+  <ul class="list">
+    <li><b>Proposed deliverables</b> — what will you produce in four weeks, in what order?</li>
+    <li><b>Benefits and outcomes</b> — connected to her four problems, in her language: dollars, deadlines, covenants.</li>
+    <li><b>Data requirements</b> — what do you need from Marcus and the sites? Be specific.</li>
+    <li><b>How an AI-native team works</b> — speed, method, and why she should trust output built this way.</li>
+  </ul>
+</section>
+
+<section class="slide"><div class="footer-num">08</div>
+  <div class="kicker">How to Work</div>
+  <h2>You have an agent. Use it.</h2>
+  <div class="split">
+    <div class="have"><h3>What you have</h3>
+      <li>Cursor in Agent mode</li>
+      <li>The engagement inquiry &amp; company profile</li>
+      <li>Marcus's data package (arriving Week 2)</li>
+      <li>Your climate domain expertise</li>
+      <li>Setup guide + data-handling cheat sheet</li>
+    </div>
+    <div class="havenot"><h3>What you don't have</h3>
+      <li>A template for the proposal</li>
+      <li>A list of "correct" deliverables</li>
+      <li>Someone telling you what to pitch</li>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:30px;">Figure it out with the agent. <span class="accent">That's the point.</span></p>
+</section>
+
+<section class="slide"><div class="footer-num">09</div>
+  <div class="kicker">Deliverable</div>
+  <h2>Due next Tuesday: the pitch</h2>
+  <div class="grid c3">
+    <div class="card"><h3>Format</h3><p>HTML presentation, built with your agent. Presentation-ready. Length is your call.</p></div>
+    <div class="card"><h3>Audience</h3><p>Rosa Vantia. Detail-oriented. Speaks P&amp;L, not scopes. Wants specifics, not promises.</p></div>
+    <div class="card"><h3>Demo</h3><p>5 minutes at the top of next session. Peers give feedback. Best pitches get discussed.</p></div>
+  </div>
+  <p class="lead" style="margin-top:26px;"><b>Minimum bar:</b> a 5-slide pitch covering the four asks.
+  <b>Full build:</b> custom scoping, division prioritization, a distinctive angle Rosa hasn't thought of.</p>
+</section>
+
+<section class="slide"><div class="footer-num">10</div>
+  <div class="kicker">One More Thing</div>
+  <h1>Whatever you propose this week is what you'll <span class="accent">execute</span> for the next three.</h1>
+  <p class="lead" style="margin-top:30px;">Choose wisely. Go pitch.</p>
+</section>
+
+<div class="counter"><span id="cur">1</span> / <span id="tot"></span></div>
+<div class="navhint">← → or click to navigate</div>
+
+<script>
+  const slides=[...document.querySelectorAll('.slide')];let i=0;
+  document.getElementById('tot').textContent=slides.length;
+  function show(n){slides[i].classList.remove('active');i=(n+slides.length)%slides.length;
+    slides[i].classList.add('active');document.getElementById('cur').textContent=i+1;}
+  addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')show(i+1);if(e.key==='ArrowLeft')show(i-1);});
+  addEventListener('click',e=>{show(e.clientX>innerWidth/3?i+1:i-1);});
+</script>
+</body>
+</html>
